@@ -1,7 +1,5 @@
 ---
 date: 2016-01-06
-description: Dual screen setups are great for work but you can't always have two of
-  the same size/model side by side.
 slug: going-4k
 tags:
 - Hardware
@@ -12,7 +10,7 @@ title: Going 4K with the Philips BDM4065UC
 # Going 4K with the Philips BDM4065UC
 
 Dual screen setups are great for work but you can't always have two of the same size/model side by side. In my previous setup I had my laptop display as the primary and a secondary smaller screen. This being sub-optimal I figured it might be a good time to ask for a new display at [work](http://www.itq.nl). New screens are nice, but what to ask for? Research time!
-
+<!-- more -->
 I looked at a bunch of 1440p displays but with 4k becoming a more viable solution I started researching really big screens. During my search I came across this [post](http://weblog.west-wind.com/posts/2015/Nov/23/Going-Big-40-Glorious-inches-of-4k-with-the-Philips-BDM4065UC) by Rick Strahl and his 4k Philips display. I had seen this display in my search and it certainly looked good on paper but having someone actually use it for development purposes gave me a really good insight. I was sold. 4K should be the way to go.
 
 After some discussion on the pro's and con's of a huge 40" display it was decided. Reviews said it was good and I found someone that had relevant experience with the display! The display of choice: Philips BDM4065UC.

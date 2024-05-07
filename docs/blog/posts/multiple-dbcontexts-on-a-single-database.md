@@ -1,6 +1,5 @@
 ---
 date: 2016-03-02
-description: Here is a small problem I ran into while working on my current project.
 slug: multiple-dbcontexts-on-a-single-database
 tags:
 - C#
@@ -12,7 +11,7 @@ title: Multiple DbContext's with migrations on a single database
 # Multiple DbContext's with migrations on a single database
 
 Here is a small problem I ran into while working on my current project. This project already has an Entity Framework [`DbContext`](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=vs.113).aspx) class with entities and a database. I'm adding a new feature but want to keep the changes as isolated as possible. So I wanted to create a second `DbContext` that handles the entities specific to my new feature.
-
+<!-- more -->
 Adding the context to the codebase is no hassle, just create the new class and derive it from `DbContext`. The problem is in the [migrations](https://msdn.microsoft.com/en-us/data/jj591621.aspx). Entity Framework has a system that can track changes to the model and apply those changes to the actual database. To keep track of these changes, Entity Framework uses a table called `__MigrationHistory` where it stores all kinds of metadata about the model that it can compare to when you make changes to your entities in code.
 
 ![__MigrationHistory table](multiple-dbcontexts-on-a-single-database/dbo_MigHist.png)

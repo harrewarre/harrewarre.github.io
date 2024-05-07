@@ -1,6 +1,5 @@
 ---
 date: 2022-10-18
-description: Improve your development process by breaking down work into smaller pieces.
 slug: start-with-small-stories
 tags:
 - agility
@@ -12,7 +11,7 @@ title: It all starts with smaller stories
 # It all starts with smaller stories 
 
 I think most developers have experienced a taks sitting in progress for days or even weeks (or... months!) on end. This long running work eventually gets merged and released but it turns out it's the wrong thing and a large part needs rework. 
-
+<!-- more -->
 The solution to this struggle is two-fold. The first half is getting invested in your customers. Talk to them, establish a good relation with the people that actually use the product you are building. Find out what they really need. This practice is known as User Centered Design and while I find it very interesting, it's not the topic of this post. We're looking at the other half, breaking down work into smaller pieces and the result of doing so. 
 
 ## Smaller pieces of work 

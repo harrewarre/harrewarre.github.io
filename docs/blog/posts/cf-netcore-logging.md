@@ -1,6 +1,5 @@
 ---
 date: 2019-01-10
-description: Using ILogger to write logs on Cloud Foundry
 slug: cf-netcore-logging
 tags:
 - cloud foundry
@@ -13,7 +12,7 @@ title: ASP.NET Core logging on Cloud Foundry
 # ASP.NET Core logging on Cloud Foundry
 
 All apps I've ever worked on have some sort of logging going on for various reasons, mostly to keep track of whats going on or debugging, but it's all the same. Logs are needed to see what your code is up to.
-
+<!-- more -->
 Cloud Foundry [is very explicit](https://docs.cloudfoundry.org/devguide/deploy-apps/streaming-logs.html#writing) about *how* an app should write its logs. As you can see in the documentation, apps must write to `stdout` or `stderr`.
 
 For C# that means we can use the static methods on the `Console` to write our logs. Couldn't be easier. But... now our code is littered with these `Console.Write...` lines all over the place!

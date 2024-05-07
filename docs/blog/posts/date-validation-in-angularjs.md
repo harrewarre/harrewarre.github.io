@@ -1,7 +1,5 @@
 ---
 date: 2016-10-27
-description: Another angular post! This time we take a look at how to create a directive
-  that ensures the user enters a valid date (and/or time).
 slug: date-validation-in-angularjs
 tags:
 - Javascript
@@ -12,7 +10,7 @@ title: Date validation in AngularJS
 # Date validation in AngularJS
 
 Another angular post! This time we take a look at how to create a directive that ensures the user enters a valid date (and/or time).
-
+<!-- more -->
 Let's start with some boilerplate stuff first. I'm going to assume that you have something working Angular already, we will only cover the date validation directive in this post.
 Here is some HTML.
 

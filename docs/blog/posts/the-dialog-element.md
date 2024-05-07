@@ -1,7 +1,5 @@
 ---
 date: 2016-07-06
-description: I was grinding my teeth on a z-index problem today. I found out about
-  the dialog element and all was saved.
 slug: the-dialog-element
 tags:
 - Javascript
@@ -13,7 +11,7 @@ title: The dialog element
 # The dialog element
 
 I was grinding my teeth on a z-index problem today. I needed to cover the entire webpage to show something was happening and nothing else was to interrupt. Some elements (for whatever reasons) were poking through the overlay and nothing seemed to fix my problem with the plain old `position: fixed` element I was using to cover the page.
-
+<!-- more -->
 So after getting fed up with looking for possible fixes I spent a bit of time looking for alternatives and came across the `<dialog>` element.
 
 First things first, the `<dialog>` element isn't all that well supported. At the time or writing, [support looks like this](http://caniuse.com/#search=dialog).

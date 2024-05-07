@@ -1,7 +1,5 @@
 ---
 date: 2018-03-31
-description: Enable multiple listeners on a Service Fabric service and seperate the
-  entrypoint of the service from the actual implementation.
 slug: sf-multiple-listeners
 tags:
 - Azure
@@ -14,7 +12,7 @@ title: Multiple listeners for your Service Fabric service
 # Multiple listeners for your Service Fabric service
 
 Service Fabric is a great piece of technology on the Azure platform and I've been using it quite a lot in recent projects. It takes away a lot of the setup and orchestration when dealing with microservices.
-
+<!-- more -->
 There comes a point where services need to talk to each other and this is easily achieved using the Remoting bits you can get from NuGet. The general way of doing this is creating an `Interfaces` project next to the service that
 contains the service interface and classes used in transport. The interface is implemented on the service entrypoint and a listener is exposed to the Fabric runtime so that it can communicate with the rest of the platform. We're
 going to take it one step further and put the service implementations in their own class instead of on the service entrypoint (keeps things nice and clean) and also enable dependency injection from that point forward.

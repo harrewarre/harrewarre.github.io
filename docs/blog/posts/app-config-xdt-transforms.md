@@ -1,6 +1,5 @@
 ---
 date: 2015-11-13
-description: Here is a little hack you can do to enable transformations in App.config.
 slug: app-config-xdt-transforms
 tags:
 - C#
@@ -11,7 +10,7 @@ title: App.config xdt transforms
 # App.config XDT transforms
 
 Here is a little hack you can do to enable transformations in `app.config` like you can in your `web.config`.
-
+<!-- more -->
 A quick intro to transformations, they can make your life a bit easier by storing different configs in different files that, depending on your build configuration, end up in the actual config file. Here is a simple example.
 
 This is the original `web.config` file:

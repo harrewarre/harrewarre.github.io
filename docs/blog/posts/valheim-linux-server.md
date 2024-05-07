@@ -1,6 +1,5 @@
 ---
 date: 2021-09-12
-description: A step-by-step guide to setting up a Valheim server on Linux.
 slug: valheim-linux-server
 tags:
 - Gaming
@@ -12,7 +11,7 @@ title: Valheim server on Linux
 # Valheim server on Linux
 
 Here is a step-by-step guide for setting up a [Valheim](https://store.steampowered.com/app/892970/Valheim/) server on Linux. Having done it twice now I thought it would be a good idea to capture this somewhere so that next time I don't have to look any of this up again.
-
+<!-- more -->
 The only assumptions being made here is that your server is running Ubuntu of some semi-recent version and a basic understanding of Linux.
 
 ## SteamCMD

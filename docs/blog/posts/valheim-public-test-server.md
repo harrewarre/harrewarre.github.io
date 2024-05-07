@@ -1,6 +1,5 @@
 ---
 date: 2022-11-23
-description: How to update your Valheim server on Linux to the public-test branch.
 slug: valheim-public-test-server
 tags:
 - Valheim
@@ -18,7 +17,7 @@ The testing appears to be done and is now part of the regular version of the gam
 ---
 
 Here's a cool update for [your Valheim linux server](valheim-linux-server.md) if you're up from some beta testing.
-
+<!-- more -->
 The Valheim devs announced the Mistlands update and we can all get in on the action early through a beta branch on Steam (and GamePass). You can find out more about the update [here](https://valheim.com/news/mistlands-public-test/) and there's a nice trailer [here](https://youtu.be/cZOuBjvETR8).
 
 To update your game to the `public-test` version you have to opt into the beta version by going to the game's properties in Steam, selecting Betas and then entering `yesimadebackups` to unlock the public-test version. Once you've unlocked it you can update to this beta version of the game.

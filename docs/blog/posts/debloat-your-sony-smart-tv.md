@@ -1,7 +1,5 @@
 ---
 date: 2018-09-26
-description: A quick little tip to get rid of some garbage on the start screen of
-  your TV.
 slug: debloat-your-sony-smart-tv
 tags:
 - sony smart tv
@@ -11,7 +9,7 @@ title: Debloat your Sony smart TV
 # Debloat your Sony smart TV
 
 Here's a little tweak for your Sony smart TV that runs Android.
-
+<!-- more -->
 The start screen for these TV's (at least mine did) has a section that shows you recommended apps. Having things recommended for me by some """algorithm""" has become
 somewhat of an annoyance and the stuff it was showing me wasn't really helpful. Not terrible mind you, but I never clicked on a single one of them.
 

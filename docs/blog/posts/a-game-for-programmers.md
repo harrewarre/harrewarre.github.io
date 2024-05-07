@@ -1,8 +1,5 @@
 ---
 date: 2017-02-08
-description: I play video games every now and then and I've recently discovered a
-  game (that was in my Steam library for quite some time already) that gives me the
-  same sensation as when I'm programming.
 slug: a-game-for-programmers
 tags:
 - Gaming
@@ -12,7 +9,7 @@ title: A game for programmers
 # A game for programmers
 
 I play video games occasionally, and I've recently discovered a game (that was in my Steam library for quite some time already) that gives me the same sensation as when I'm programming.
-
+<!-- more -->
 The game I'm talking about is [Factorio](http://store.steampowered.com/app/427520/).
 
 The goal of the game is simple, build a factory that produces all the required parts necessary to launch a rocket that carries a satellite into space. Building the factory is what made me fall in love with this game.

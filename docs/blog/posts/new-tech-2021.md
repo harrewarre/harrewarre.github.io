@@ -1,6 +1,5 @@
 ---
 date: 2021-01-19
-description: New PC hardware.
 slug: new-tech-2021
 tags:
 - Hardware
@@ -10,7 +9,7 @@ title: It's new tech!
 # It's new tech!
 
 I finally came up on the best excuse to upgrade my computer. My very generous employer, [ITQ](https://www.itq.eu), gave us the opportunity to upgrade our home office and that brought me the base for a new system.
-
+<!-- more -->
 The specs I finally settled on are built around PCI Gen 4 (future proof a bit 😀) support which comes down to the following list of parts:
 
 - Asus TUF Gaming X570-Plus

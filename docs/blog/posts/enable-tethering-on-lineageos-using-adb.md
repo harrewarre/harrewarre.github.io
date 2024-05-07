@@ -1,7 +1,5 @@
 ---
 date: 2017-05-01
-description: A little hack to enable tethering on your Android device when it's blocked
-  by your operator.
 slug: enable-tethering-on-lineageos-using-adb
 tags:
 - Android
@@ -13,7 +11,7 @@ title: Enable tethering on LineageOS using ADB
 #### Update
 
 After updating to a newer version, I couldn't get the below steps to work any more. Here is some extra stuff to get it to work again. It comes down to `build.prop` not accepting the changes you make because it's being loaded as read-only. Remounting the filesystem as read-write and then pushing the updated file will do the trick.
-
+<!-- more -->
 Run the following through ADB **with root enabled** (flash the SuperSU zip found on the lineage OS website and enable root in the developer settings).
 
 	// Get the required root access.

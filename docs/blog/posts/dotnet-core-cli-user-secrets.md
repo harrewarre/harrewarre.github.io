@@ -1,7 +1,5 @@
 ---
 date: 2017-04-20
-description: User secrets are what you use for settings in a dotnet core app that
-  you don't want leaking into your repos.
 slug: dotnet-core-cli-user-secrets
 tags:
 - Dotnet Core
@@ -11,7 +9,7 @@ title: Dotnet Core CLI user secrets
 # Dotnet core user secrets
 
 User secrets are what you use for settings in a .NET Core app that you don't want committed to your public repos (think API keys, passwords, anything sensitive). You map out your actual settings and they override them with the values from the secrets, which are stored outside of the tracked source folder.
-
+<!-- more -->
 On windows the user secrets folder is located here: `%APPDATA%\microsoft\UserSecrets`. Let's have a look at how use them with the new tooling for .NET Core that came out recently.
 
 Create a little test project to play around, I've used a webapi project for these examples. Create the project in a folder of your choosing with the `dotnet new webapi` command.

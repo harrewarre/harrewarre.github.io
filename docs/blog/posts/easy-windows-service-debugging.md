@@ -1,6 +1,5 @@
 ---
 date: 2015-04-26
-description: Long running processes in a web applicatoin running on IIS is a bad idea.
 slug: easy-windows-service-debugging
 tags:
 - C#
@@ -13,7 +12,7 @@ title: Easy Windows Service debugging
 
 Long running processes in a web applicatoin running on IIS is a bad idea. The reason for that is that IIS might unload the AppPool that is running your process due to inactivity. Inactivity? Yep, if IIS does not recieve a requests for a while, it will shut the site down to conserve system resources. (This is all configurable ofcourse, but I've
 seen it happen)
-
+<!-- more -->
 To allow for long running stuff, a Windows Service might be a right fit. Here is what the default startup code for a Windows service looks like:
 
     static class Program

@@ -1,7 +1,5 @@
 ---
 date: 2015-04-26
-description: I had a brainwave and dove into codepen for a little bit to doodle around
-  and when I emerged I had this simple little loading indicator.
 slug: the-simplest-loading-indicator
 tags:
 - CSS
@@ -12,7 +10,7 @@ title: The simplest loading indicator
 # The simplest loading indicator
 
 I had a brainwave and dove into codepen for a little bit to doodle around and when I emerged I had this simple little loading indicator. Very simple in terms of markup and CSS (LESS in this case).
-
+<!-- more -->
 Have a look see :-)
 
 <p data-height="268" data-theme-id="14183" data-slug-hash="VYogvX" data-default-tab="result" data-user="Harrewarre" class='codepen'>See the Pen <a href='http://codepen.io/Harrewarre/pen/VYogvX/'>Loading indicator</a> by Sander Harrewijnen (<a href='http://codepen.io/Harrewarre'>@Harrewarre</a>) on <a href='http://codepen.io'>CodePen</a>.</p>

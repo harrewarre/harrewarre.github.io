@@ -1,6 +1,5 @@
 ---
 date: 2019-07-19
-description: A quick guide on how to transfer comic books to your Amazon Kindle.
 slug: comics-on-kindle
 tags:
 - comics
@@ -10,8 +9,8 @@ title: Read comics on your Kindle e-reader
 ---
 # Read comics on your Kindle e-reader
 
-Vacation is coming and I was looking at stuff to put on my Kindle e-reader. Found some books to read and then 
-I came across comic books on Amazon. Nothing sparked my interest right away but it did remind me of some old comics I read a looooong time ago (of which I still have the actual paper versions!). 
+Vacation is coming and I was looking at stuff to put on my Kindle e-reader. Found some books to read and then I came across comic books on Amazon. Nothing sparked my interest right away but it did remind me of some old comics I read a looooong time ago (of which I still have the actual paper versions!).
+<!-- more -->
 The specific comics are about Storm, a dude's adventure after falling into Jupiters great red spot and accidentally traveling through time in the process.
 
 Sadly Amazon didn't give me anything but hardcovers but I managed to get my hands on some digital versions after some thorough google-fu.

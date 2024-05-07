@@ -1,6 +1,5 @@
 ---
 date: 2023-07-29
-description: Some good games to play on your phone
 slug: mobile-phone-games
 tags:
 - gaming
@@ -10,7 +9,7 @@ title: Gaming on your phone
 # Mobile gaming
 
 Time for something else for a change. Games! Summer vacation is here and you're going to be away from your computer for a while. You still want to play some games, but you don't want to lug around your laptop.
-
+<!-- more -->
 Mobile phone gaming is kind of a trash fire with a few gems hidden here and there. To make your life a bit easier, here are my favorites to get you started.
 
 Not all free, but definitely worth the price if you want to play some games on your phone that aren't ad infested garbage.

@@ -1,6 +1,5 @@
 ---
 date: 2015-05-06
-description: A quick look at a different approach to data access code in C#.
 slug: fluent-data-access
 tags:
 - C#
@@ -16,7 +15,7 @@ Developer 1 creates a piece of UI and adds a method to load data into said UI. T
 Here comes Developer 2 and he also creates a piece of UI that displays user info. Developer 2 however, needs to display more than just the user info, he also needs the requests made by the user. And then GetUserInfoWithRequests(…) is created next to the already existing GetUserInfo method.
 
 Developer 3 wants to display some user info as well, but not just the info by itself, and also without the requests but WITH the users team information. Can you guess what happens? … Right. GetUserInfoWithTeamMembers(…) is added to our list.
-
+<!-- more -->
 So we now have three methods that do something similar, but not quite the same:
 
     GetUserInfo(…)

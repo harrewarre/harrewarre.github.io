@@ -1,6 +1,5 @@
 ---
 date: 2017-07-20
-description: A complete refresh of the blog!
 slug: a-fresh-start
 tags:
 - Blog
@@ -9,7 +8,7 @@ title: A fresh start
 # A fresh start
 
 You are looking at the new and improved blogging experience I made for myself.
-
+<!-- more -->
 My old blog was running on Ghost and was a bit fed up with keeping it all working and up to date so I exported the posts and images and start working on something new.
 
 I had only one objective. Make it as simple as possible to create new content while also be able to easily maintain the blog itself. After some deep thought I ended up at ASP.NET Razor Webpages, it's like MVC but without the M and the C. The code is a renderer for MarkDown, nothing more, nothing less.

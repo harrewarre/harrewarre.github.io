@@ -1,7 +1,5 @@
 ---
 date: 2016-01-14
-description: Here is another loading indicator for when your webpage is busy waiting
-  for a server request to come back with an answer.
 slug: another-simple-loading-indicator
 tags:
 - HTML
@@ -11,7 +9,7 @@ title: Another simple loading indicator
 # Another simple loading indicator
 
 Here is another loading indicator for when your webpage is busy waiting for a server request to come back with an answer. It's a bar at the very top of the page this time.
-
+<!-- more -->
 Let's look at a demo before we dive in:
 
 <p data-height="268" data-theme-id="14183" data-slug-hash="vLJVbo" data-default-tab="result" data-user="Harrewarre" class='codepen'>See the Pen <a href='http://codepen.io/Harrewarre/pen/vLJVbo/'>Another simple loading indicator</a> by Sander Harrewijnen (<a href='http://codepen.io/Harrewarre'>@Harrewarre</a>) on <a href='http://codepen.io'>CodePen</a>.</p>

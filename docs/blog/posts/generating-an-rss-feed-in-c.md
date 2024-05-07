@@ -1,6 +1,5 @@
 ---
 date: 2015-04-26
-description: A hobby project of mine needed to generate an RSS feed.
 slug: generating-an-rss-feed-in-c
 tags:
 - C#
@@ -13,7 +12,7 @@ title: Generating an RSS feed in C#
 # Generating an RSS feed in C#
 
 A hobby project of mine needed to generate an RSS feed. I was already doing this by just generating and XML file in the webroot and linking to that on the frontpage. But during this coding session, where all the data is pulled straight from the markdown files I wanted to create a controller action to do the generating for me.
-
+<!-- more -->
 First things first, there is an assembly available out of the box in the .NET Framework. All you need is to make reference to **System.ServiceModel.Syndication** and you are ready to start writing code. The classes we are using are
 
 - SyndicationItem

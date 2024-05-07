@@ -1,7 +1,5 @@
 ---
 date: 2023-08-06
-description: Display HVC (my local waste management company) trash pickup dates in
-  Home Assistant
 slug: home-assistant-hvc-pickup-dates
 tags:
 - Home Assistant
@@ -11,7 +9,7 @@ title: HVC Trash pickup dates in Home Assistant
 # HVC Trash pickup dates in Home Assistant
 
 Maybe something you can use, maybe not, but if you are in an intersection of people who use Home Assistant and live in the Netherlands and in a region where HVC operates, this might be useful.
-
+<!-- more -->
 The integrations below will let you display a day counter until the next trash pickup takes place. This sensor data can also be used in other automations such as notifications or reminders.
 
 The payload we want to load into Home Assistant looks like this:

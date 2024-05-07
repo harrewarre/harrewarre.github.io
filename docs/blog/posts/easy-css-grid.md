@@ -1,6 +1,5 @@
 ---
 date: 2018-05-11
-description: A barebones grid in just a few lines of CSS.
 slug: easy-css-grid
 tags:
 - css
@@ -11,7 +10,7 @@ title: Easy CSS grid
 # Easy CSS grid
 
 I've been working with a lot of forms lately and it required some kind of grid system to make it all lay out nicely. I've always been a bit hesitant to immediatly pull in another dependency and decided I was going to solve this one myself. How hard could it be?
-
+<!-- more -->
 By using the CSS flex layout, I ended up with just the right amount of flexibility and extensibility while keeping things very small code wise. Let's have a look!
 
 Every line on the form is treated as a row in the grid, easy. These rows are divided up into columns, which can have variable widths and have to be elastic.

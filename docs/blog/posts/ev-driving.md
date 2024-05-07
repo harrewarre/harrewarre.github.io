@@ -1,6 +1,5 @@
 ---
 date: 2024-01-20
-description: Some tips that make long trips in an EV a little bit easier.
 slug: ev-driving
 tags:
 - ev
@@ -11,7 +10,7 @@ title: EV Driving
 # EV Driving
 
 Having done a long drive into France not that long ago using an EV (a 2020 Polestar 2), I encountered some stuff that I thought was worth writing down.
-
+<!-- more -->
 ## Charging
 
 Let's get some of the obvious stuff out of the way first. Yes, doing long trips in an EV requires a little bit of upfront planning so you wont run out of spark along the way. 

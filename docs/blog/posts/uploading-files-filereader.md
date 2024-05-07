@@ -1,6 +1,5 @@
 ---
 date: 2017-07-31
-description: Upload (smallish) images (with preview) with some Javascript and HTML
 slug: uploading-files-filereader
 tags:
 - HTML
@@ -12,7 +11,7 @@ title: Uploading files - a simple approach
 
 Here's a nice way of getting images to your server using a little bit of Javascript and HTML. We'll be using the `FileReader` API that comes with 
 Javascript and is supported in [all](http://caniuse.com/#search=filereader) major browsers.
-
+<!-- more -->
 For this example we'll need some HTML from which we can select files and show a preview:
 
     <div>

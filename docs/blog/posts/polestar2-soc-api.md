@@ -1,6 +1,5 @@
 ---
 date: 2023-10-16
-description: How to read the battery state of a Polestar 2 using the Tibber API
 slug: polestar2-soc-api
 tags:
 - polestar 2
@@ -18,7 +17,7 @@ It appears that Polestar is working on a proper API and folks have been figuring
 ---
 
 Polestar (the car manufaturer) offers an app to control (a very limited) set of features of their cars remoteley (locks, and climate) and can display the state of the battery in % remaining. It's nice to have but the app isn't all that great and sometimes takes very long to show up-to-date information.
-
+<!-- more -->
 Tibber (the electricity provider) recently started offering an integration on their platform that can read the battery state of the Polestar 2. Very handy of course, this particular app can show me state of charge and also how much electricity my car has used in the this month.
 
 While Polestar does not offer any public API that I know of, Tibber does! Two of them actually. One is for their back-end and the other for their app. Both are well documented and easy to use with the help of GraphQL.

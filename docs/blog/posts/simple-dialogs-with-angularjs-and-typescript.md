@@ -1,7 +1,5 @@
 ---
 date: 2016-09-15
-description: While working an Angular (1) web app I ran into the age old problem of
-  showing the user notifications when certain conditions are met.
 slug: simple-dialogs-with-angularjs-and-typescript
 tags:
 - Javascript
@@ -14,7 +12,7 @@ title: Simple dialogs with AngularJS and TypeScript
 # Simple dialogs with AngularJS and TypeScript
 
 While working an Angular (1) web app I ran into the age old problem of showing the user notifications when certain conditions are met. Show them a little pop-up, in simple terms.
-
+<!-- more -->
 So what does it take to show a popup? We know the [`dialog` element exists](http://harrewijnen.net/the-dialog-element/) but cannot be used in this case due to browser requirements. The easiest way I could think of is adding a `fixed` positioned `div` the the user on top of all other content. Add some CSS in there to make it look nice and we have dialogs.
 
 There are a number of ways this can be achieved in Angular and for my case I chose a `service`. So what does this service look like? Please note that we are using TypeScript, which is like javascript, but not actual javascript. It makes javascript better.

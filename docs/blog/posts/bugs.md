@@ -1,6 +1,5 @@
 ---
 date: 2015-05-12
-description: When you work on software, you will at some point encounter bugs.
 slug: bugs
 tags:
 - Bugs
@@ -9,7 +8,7 @@ title: The bug report
 # The bug report
 
 When you work on software, you will at some point encounter bugs. You think everything is peachy and you covered all the bases. Here comes this one user that finds a way to break your stuff.
-
+<!-- more -->
 So a user found a bug. He/she (hopefully) reports the bug and you can fix the problem. While this is true most of the time, the sad reality is that most bug reports I encounter look something like this:
 
 > When the admin is also a manager, nothing will happen when I click on the Save button.

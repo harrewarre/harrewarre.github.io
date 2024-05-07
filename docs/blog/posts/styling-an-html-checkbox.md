@@ -1,8 +1,5 @@
 ---
 date: 2016-04-27
-description: My current project involves an interface that is 100% touch driven (no
-  keyboard and mouse) and I was asked to turn a regular old checkbox into a toggle
-  switch.
 slug: styling-an-html-checkbox
 tags:
 - HTML
@@ -13,7 +10,7 @@ title: Creating a toggle switch with HTML and CSS
 # Creating a toggle switch with HTML and CSS
 
 My current project involves an interface that is 100% touch driven (no keyboard and mouse) and I was asked to turn a regular old checkbox into a toggle switch.
-
+<!-- more -->
 Initially I assumed it would be very easy but as with many things browser related, it was not. Let's take a look at some of the things browsers do to checkboxes using this quick example:
 
 	<html>

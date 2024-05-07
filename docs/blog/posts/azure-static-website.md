@@ -1,6 +1,5 @@
 ---
 date: 2019-01-03
-description: How to set up hosting for your static website on Azure Storage
 slug: azure-static-website
 tags:
 - azure
@@ -11,7 +10,7 @@ title: Setting up an Azure Storage static website
 # Setting up an Azure Storage static website
 
 Not very long ago, Microsoft made the [static website feature generally available](https://azure.microsoft.com/en-us/blog/static-websites-on-azure-storage-now-generally-available/) on the Azure platform. What this means is that you can now publicly host content with Azure (blob) storage.
-
+<!-- more -->
 So in a few easy steps you can create a host for your angular/react/vue/(insert-client-side-web-thing-here)/static app. The [docs](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-static-website-host) are great but we'll have a look at what's what.
 
 Please remember that there is no server-side processing for this hosting option! If you want to do server-side stuff, use an App Service instead.

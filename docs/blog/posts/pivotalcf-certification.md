@@ -1,6 +1,5 @@
 ---
 date: 2018-06-28
-description: Another exam done, I am now a Pivotal certified CF developer!
 slug: pivotalcf-certification
 tags:
 - Pivotal
@@ -12,7 +11,7 @@ title: Pivotal Cloud Foundry Certified Developer
 # Pivotal Cloud Foundry Certified Developer
 
 With all the knowledge built up for my [CFCD](cfcd-certification.md) exam I did earlier I took another Cloud Foundry exam. The Pivotal flavor this time.
-
+<!-- more -->
 Not as involved as the other Cloud Foundry exam I did but still a wide variety of questions. I'm not sure if I screwed up all the Metrics questions, or that there was only 1 that I got incorrect.
 
 ![Exam results](pivotalcf-certification/pivotalcfresult.png)

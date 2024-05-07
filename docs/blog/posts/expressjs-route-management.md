@@ -1,6 +1,5 @@
 ---
 date: 2016-06-03
-description: Setting up a webserver with Node and Express.
 slug: expressjs-route-management
 tags:
 - Javascript
@@ -11,7 +10,9 @@ title: Express route management
 ---
 # Express route management
 
-Setting up a webserver with Node and [Express](http://expressjs.com/) is easy very easy, take this small example:
+Setting up a webserver with Node and [Express](http://expressjs.com/) is easy very easy.
+<!-- more -->
+Here is a small example:
 
 	var express = require("express");
 	var app = express();

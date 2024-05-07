@@ -1,7 +1,5 @@
 ---
 date: 2015-05-19
-description: End-users interact with your applications via the user interface (UI
-  for short). Here are some simple things to spice it up.
 slug: css-transitions-basics
 tags:
 - CSS
@@ -12,7 +10,7 @@ title: CSS Transitions basics
 # CSS Transitions basics
 
 End-users interact with your applications via the user interface (UI for short). If everything was designed with the user in mind, the UI will make things very easy for the user. Everything is nice and organized and easy to navigate. Actions are communicated to the user in a friendly way and the user is happy.
-
+<!-- more -->
 The sad thing is, state changes in the UI tend to be very abrupt and cold. Instant flashes, so fast the user might not even notice if it is something small. So what can we do about this? CSS supports something called transitions. Transitions allow us to specify what happens what state changes on an element. For example, a button going from normal, to being hovered on by the user, rows in a grid that the user can select or a signal telling the user something happened.
 
 So we know CSS can so these things but as always, [better safe than sorry](http://caniuse.com/#search=transitions). Those old browsers are still out there. Lucky for us, transitions degrade very nice since there is no change to the styles that were already used. We're only adding some sugar on top. Lets look at some examples.

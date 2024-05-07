@@ -1,7 +1,5 @@
 ---
 date: 2015-04-26
-description: Let's take a look at how to replace the workings of one function with
-  that of another.
 slug: overwriting-a-function-in-javascript
 tags:
 - Javascript
@@ -9,6 +7,9 @@ tags:
 title: Overwriting a function in Javascript
 ---
 # Overwriting a function in Javascript
+
+A quick little post about overwriting a function in Javascript.
+<!-- more -->
 
 Take the following piece of code:
 

@@ -1,7 +1,5 @@
 ---
 date: 2015-11-04
-description: On the 2nd and 3rd November in 2015, the Cloud Foundry Foundation was
-  in Berlin. I attended and here are my thoughts.
 slug: cloudfoundry-summit-2015-berlin
 tags:
 - Cloud Foundry
@@ -12,7 +10,7 @@ title: Cloud Foundry Summit 2015 Berlin
 # Cloud Foundry Summit 2015 Berlin
 
 On the 2nd and 3rd November in 2015, the [Cloud Foundry Foundation](https://www.cloudfoundry.org/foundation/) held the [Cloud Foundry](https://www.cloudfoundry.org/) Summit in Berlin. The focus of this conference is on Cloud Foundry itself and the community around it.
-
+<!-- more -->
 [ITQ](http://itq.nl/) (my employer) is focussing on [Cloud Native apps](http://itq.nl/expertise/cloud-native-apps/) and let a small group including myself attend the conference. After a canceled flight due to fog and a 650km roadtrip with my co-workers [Ronald](https://twitter.com/rwwilden) and [Ruurd](https://twitter.com/ruurdkeizer) we arrived at the hotel at 2am in morning just in time for the first workshop.
 
 In a nutshell, Cloud Foundry is a (full open source!) platform-as-a-service that enables companies to rapidly evolve their software through simple and fast deployments that take minutes instead of days. This approach does come with some catches, monolithic applications (ie: the really big enterprisey apps) are not well suited for this platform, instead, software systems should be written as a group of stateless [12-factor](http://12factor.net/) [micro-services](http://martinfowler.com/articles/microservices.html) (Cloud Native apps) that work together to form the system.

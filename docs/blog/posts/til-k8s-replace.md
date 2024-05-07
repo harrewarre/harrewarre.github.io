@@ -1,7 +1,5 @@
 ---
 date: 2022-11-21
-description: Want to quickly edit something running on kubernetes? Here's a nice (bit
-  reckless) way to do so.
 slug: til-k8s-replace
 tags:
 - today-i-learned
@@ -12,7 +10,7 @@ title: Today I learned - kubectl replace
 # Today I learned - kubectl replace
 
 Here's one for your toolbox, but use with care. Say you have an app running on kubernetes in a pod and you spot something you want to change. This is one way to get it done.
-
+<!-- more -->
 For the example, I spun up an nginx server called `webapp`.
 
 The command to edit a resource running on kubernetes is `kubectl edit <thing> <name>`. So here goes:

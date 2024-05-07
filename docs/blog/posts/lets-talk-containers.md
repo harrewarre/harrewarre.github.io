@@ -1,6 +1,5 @@
 ---
 date: 2019-03-05
-description: Platforms, apps, containers, functions, what?!
 slug: lets-talk-containers
 tags:
 - containers
@@ -13,7 +12,7 @@ title: Let's talk containers
 # Let's talk containers
 
 A recent talk by one of my buddies at ITQ sparked something and I thought I'd share that with you. It's about containers and where they sit in a software developer point of view.
-
+<!-- more -->
 ## The platform stack
 The thing that caused the spark was this image:
 

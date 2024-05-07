@@ -1,6 +1,5 @@
 ---
 date: 2020-04-27
-description: Spent a few hours with (again) with Pico-8 and Lua to dabble about.
 slug: fun-with-pico-8
 tags:
 - Pico-8
@@ -9,7 +8,9 @@ title: Some fun with Pico-8
 ---
 # Some fun with Pico-8
 
-I had a some tine left in the day (who doesn't, with all the quarantine and all...) so why not spend that time programming. A long while back I picked up the [Pico-8](https://www.lexaloffle.com/pico-8.php) 
+I had a some tine left in the day (who doesn't, with all the quarantine and all...) so why not spend that time programming.
+<!-- more -->
+A long while back I picked up the [Pico-8](https://www.lexaloffle.com/pico-8.php) 
 fantasy console. A tiny game engine, IDE and sprite editor all rolled into one. You write your stuff in Lua and are encouraged to keep things simple due to its (artifical) 
 limitations.
 

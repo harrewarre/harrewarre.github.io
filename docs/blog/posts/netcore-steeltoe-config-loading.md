@@ -1,6 +1,5 @@
 ---
 date: 2019-01-11
-description: A look at loading configuration using SteelToe and making it injectable
 slug: netcore-steeltoe-config-loading
 tags:
 - cloud foundry
@@ -13,7 +12,7 @@ title: Cloud Foundry configuration with SteelToe
 # Reading Cloud Foundry app configuration using SteelToe in ASP.NET Core
 
 I've been playing around with the [SteelToe](https://steeltoe.io/) framework for .net apps on Cloud Foundry a bit and it's been nice overall (I'll probably write a few more posts about it at some point 😊). While playing around with it the configuration part of it I wasn't really liking the way settings can be read from the main configuration.
-
+<!-- more -->
 Let's start with a really short primer on how the configuration system works. Cloud Foundry apps can be bound to services, doing so adds a reference to the bound service in the environment variables of the app that was bound. You can take a look at what is provided to an applications environment by running
 
     cf env <app-name>

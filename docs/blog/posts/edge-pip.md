@@ -1,6 +1,5 @@
 ---
 date: 2021-02-19
-description: A bookmarklet that pops out video players in Microsoft Edge.
 slug: edge-pip
 tags:
 - Microsoft Edge
@@ -16,7 +15,7 @@ title: Microsoft Edge Picture-in-Picture
 ---
 
 Here's a quick little helper to pop out videoplayers in Microsoft Edge.
-
+<!-- more -->
 ## requestPictureInPicture
 
 Edge (like Chrome these days) supports [picture in picture mode](https://caniuse.com/?search=requestPictureInPicture) for videos but it's not always apparent how to actually pop out a videoplayer. Here's a quick one-liner that you can try in the browser console:

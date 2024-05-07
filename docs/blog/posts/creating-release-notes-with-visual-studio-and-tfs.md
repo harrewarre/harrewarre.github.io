@@ -1,7 +1,5 @@
 ---
 date: 2015-05-21
-description: For that one time you need release notes but forgot to track what was
-  changed.
 slug: creating-release-notes-with-visual-studio-and-tfs
 tags:
 - TFS
@@ -11,7 +9,7 @@ title: Creating release notes with Visual Studio and TFS
 # Creating releasenotes with Visual Studio and TFS
 
 Here is a scenario for you. You've been slaving away at the next big release of your product, fixing reported bugs, adding features and cleaning up code. Lot's of changes all over your code. Then comes that moment that you want to ship all that delicious code to your customers.
-
+<!-- more -->
 You prep a release build, zip it up and are pretty much done. Except for the release notes... What changed since the previous release?
 
 Before you can start gathering your changes, I hope you tracked everything somewhere, preferably digitally and searchable. If not, then all you have is your check-ins, which is at least something. No check-in history either? Well then you are out of luck (and you need to upgrade your development process!)

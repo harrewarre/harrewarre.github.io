@@ -1,7 +1,5 @@
 ---
 date: 2015-04-26
-description: My go-to container for IoC at the moment is SimpleInjector because you
-  know, simple.
 slug: signalr-dependency-injection
 tags:
 - C#
@@ -13,7 +11,7 @@ title: SignalR dependency injection
 # SignalR dependency injection
 
 My go-to container for IoC at the moment is [SimpleInjector][1] because you know.. it's simple. I've used it in a couple of projects and used in a hobby project recently again.
-
+<!-- more -->
 This hobby project uses [SignalR][2] for real-time communication between browser and server and after setting that up I wanted to inject dependencies in to the SignalR hubs. It is pretty easy but there was a minor catch. Let's look at some code.
 
 The first thing that is required is a dependency resolver that works with SignalR, lucky for us, it provides a built-in default one which we can implement:

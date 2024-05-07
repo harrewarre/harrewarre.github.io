@@ -1,6 +1,5 @@
 ---
 date: 2017-07-25
-description: One of the most helpful things I've seen in videogames in a long time.
 slug: underrated-feature-in-mario-kart-deluxe
 tags:
 - Gaming
@@ -9,9 +8,9 @@ title: An underrated feature in Mario Kart 8 Deluxe
 ---
 # An underrated feature in Mario Kart 8 Deluxe
 
+I recently became the owner of a Nintendo Switch and with it, Mario Kart 8 Deluxe.
+<!-- more -->
 ![Mario Kart 8 Deluxe](underrated-feature-in-mario-kart-deluxe/mk8-screen.jpg)
-
-I recently became the owner of a Nintendo Switch and with it, Mario Kart 8 Deluxe. 
 
 Having played a bunch of Mario kart games in the past, I knew the basic mechanics of the game such as using the items you find and drifting through turns to gain boost. It was around the fourth or so race 
 that my spidey-sense tingled enough for me to look into it. I had noticed the karts felt a little bit floaty when steering and not always do the *exact* thing I wanted them to do. 

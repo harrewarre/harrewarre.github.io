@@ -1,7 +1,5 @@
 ---
 date: 2023-01-06
-description: A quick guide to setting up FreshRSS on Microsoft Azure using Docker
-  Compose and an Azure Web App.
 slug: fresh-rss-on-azure
 tags:
 - Azure
@@ -12,7 +10,7 @@ title: Self-host FreshRSS on a Microsoft Azure Web App
 # Self-host FreshRSS on a Microsoft Azure Web App
 
 I'm getting back to the days of old with RSS and since I really don't want to depend on any third party service the only way forward is self hosting.
-
+<!-- more -->
 After some searching around for some options I ended up with [FreshRSS](https://www.freshrss.org/).
 
 For the self-hosting part, I went with Microsoft Azure because I still get credits for it so it's basically free. The Azure App Service is a good fit, it supports code, docker image and docker compose deployements.

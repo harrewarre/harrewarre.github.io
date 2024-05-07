@@ -1,7 +1,5 @@
 ---
 date: 2015-06-22
-description: If you've ever used something like LESS or SASS you know what a variable
-  is in CSS.
 slug: currentcolor-in-css
 tags:
 - CSS
@@ -11,7 +9,7 @@ title: CurrentColor in CSS
 # Currentcolor in CSS
 
 If you've ever used something like LESS or SASS you know what a variable is in CSS. There is also a working draft for native [CSS variables](http://www.w3.org/TR/css-variables-1/) but there is something in CSS right now that resembles some variable behavior. Not an actual variable, but interesting nonetheless.
-
+<!-- more -->
 Meet [currentColor](http://www.w3.org/wiki/CSS3/Color/currentColor). Like the description says on the w3 wiki, its value is whatever the `color` is set to. So how does that work? Lets look at some examples.
 
 <p data-height="268" data-theme-id="14183" data-slug-hash="gpXOMm" data-default-tab="result" data-user="Harrewarre" class='codepen'>See the Pen <a href='http://codepen.io/Harrewarre/pen/gpXOMm/'>currentColor samples</a> by Sander Harrewijnen (<a href='http://codepen.io/Harrewarre'>@Harrewarre</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
