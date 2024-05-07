@@ -1,0 +1,45 @@
+site_name: harre.dev
+site_url: https://harre.dev
+
+repo_name: "harrewarre/harre-dev"
+repo_url: "https://github.com/harrewarre/harre-dev"
+
+copyright: Copyright &copy; harre.dev
+
+theme:
+  name: material
+  features:
+    - navigation.indexes
+    - navigation.instant
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+  icon:
+    logo: material/code-block-tags
+
+plugins:
+  - blog:
+      blog_toc: false
+      post_url_format: "{slug}"
+      post_date_format: "yyyy-MM-dd"
+      archive: true
+      archive_name: Archive
+      archive_date_format: yyyy
+  - search
+  - social
+  - tags:
+      tags_file: "blog/tags.md"
+
+nav:
+  - Home: "index.md"
+  - Articles:
+    - "blog/index.md"
+    - "blog/tags.md"
+  - About: "about.md"
+    
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/mastodon
+      link: https://hachyderm.io/@harre
+
