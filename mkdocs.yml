@@ -1,5 +1,6 @@
 site_name: harre.dev
 site_url: https://harre.dev
+site_description: harre.dev - A collection of thoughts and ideas
 
 repo_name: "harrewarre/harre-dev"
 repo_url: "https://github.com/harrewarre/harrewarre.github.io"
@@ -8,6 +9,11 @@ copyright: Copyright &copy; harre.dev
 
 theme:
   name: material
+  favicon: "assets/favicon.ico"
+  palette:
+    scheme: slate
+    primary: black
+    accent: yellow
   features:
     - navigation.indexes
     - navigation.instant
@@ -26,16 +32,20 @@ plugins:
       archive_name: Archive
       archive_date_format: yyyy
       post_excerpt: required
+  - rss:
+      match_path: blog/posts/.*
+      date_from_meta:
+        as_creation: date
+      categories:
+        - tags
   - search
   - social
-  - tags:
-      tags_file: "blog/tags.md"
+  - tags
 
 nav:
   - Home: "index.md"
-  - Articles:
+  - Blog:
     - "blog/index.md"
-    - "blog/tags.md"
   - About: "about.md"
     
 extra:
@@ -43,4 +53,5 @@ extra:
   social:
     - icon: fontawesome/brands/mastodon
       link: https://hachyderm.io/@harre
-
+    - icon: fontawesome/solid/rss
+      link: feed_rss_created.xml

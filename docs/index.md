@@ -4,6 +4,6 @@ hide:
 ---
 # Welcome to `harre.dev`
 
-A collection of snippets and other developer related content.
+A collection of thoughts, guides, and other things I find interesting.
 
-Think of this as a cookbook, but for developers.
+Mostly developer related but definitely also some personal stuff.
