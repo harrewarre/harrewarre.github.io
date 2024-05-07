@@ -16,7 +16,7 @@ On windows the user secrets folder is located here: `%APPDATA%\microsoft\UserSec
 
 Create a little test project to play around, I've used a webapi project for these examples. Create the project in a folder of your choosing with the `dotnet new webapi` command.
 
-![Project setup](/content/dotnet-core-cli-user-secrets/setup.png)
+![Project setup](dotnet-core-cli-user-secrets/setup.png)
 
 Restore the packages (`dotnet restore`) and open the project (`code .` I'm using Visual Studio Code).
 
@@ -30,11 +30,11 @@ To enable the use of secrets in the configuration system add the following packa
 
 	<PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="1.1.1" />
 
-![csproj change](/content/dotnet-core-cli-user-secrets/code-1.png)
+![csproj change](dotnet-core-cli-user-secrets/code-1.png)
 
 Save the `.csproj` file and restore the packages. You need to run the `restore` command before you can start using the `user-secret` command! Otherwise the additional tooling isn't available to the `dotnet` command. To make sure we have it all set up, run the `dotnet user-secrets -h` to what it offers.
 
-![user-secrets-h](/content/dotnet-core-cli-user-secrets/user-secrets-h.png)
+![user-secrets-h](dotnet-core-cli-user-secrets/user-secrets-h.png)
 
 We need one last component before we can start adding settings and secrets to our project. We need to give the project a unique id that identifies the user secrets file that belongs to this project. Go back to the `.csproj` file and add the following code to it:
 
@@ -45,7 +45,7 @@ We need one last component before we can start adding settings and secrets to ou
 
 You can choose any name you want but remember that it serves as an identifier for the project!
 
-![propgroup](/content/dotnet-core-cli-user-secrets/propgroup.png)
+![propgroup](dotnet-core-cli-user-secrets/propgroup.png)
 
 Let's add a setting to the `appsettings.json` file and create a secret override for it using the `user-secrets` tooling.
 
@@ -65,7 +65,7 @@ I chose an extra group `Settings` with a setting called `SomeApiKey` with the va
 
 If we go and look in the secrets folder (`%APPDATA%\microsoft\UserSecrets\`) we will find a folder with our key as its name containing a `secrets.json` file.
 
-![secrets.json](/content/dotnet-core-cli-user-secrets/json.png)
+![secrets.json](dotnet-core-cli-user-secrets/json.png)
 
 ## Using the user secrets in a project
 
@@ -135,13 +135,13 @@ Because we have a class (`Settings`) for our settings that is available in the s
 
 Run the project and point your browser to `http://localhost:<port>/api/Config` (the port can vary, look at the console output to see which one it chose). If all the stuff we did so far is set up right you should get the following response from the api:
 
-![Response](/content/dotnet-core-cli-user-secrets/response.png)
+![Response](dotnet-core-cli-user-secrets/response.png)
 
 It gives us the value from `secrets.json` we configured earlier! Even though our `appSettings.json` file says that the value should be `abcdef`. You can now safely commit a dummy setting to your repo in the appSettings and keep the real value locally on your development system.
 
 One last test to make sure we can still get the actual value from `appSettings.json`. Remove the secret from our secrets file by running the following command: `dotnet user-secrets remove Settings:SomeApiKey`. Run the project again and call the `Config` endpoint.
 
-![Response 2](/content/dotnet-core-cli-user-secrets/response2.png)
+![Response 2](dotnet-core-cli-user-secrets/response2.png)
 
 Knowing all this, you can now start using user secrets on a per-project basis and prevent leaking those keys, passwords and other sensitive things in a commit to your (possibly) public repo. We even covered a good part of the configuration system to boot. Just keep in mind that this system is only intended for the development cycle and nothing beyond that. Use environment variables where possible on the hosting environment, that way, you have no settings to struggle with and you can set empty values in the appSettings file.
 

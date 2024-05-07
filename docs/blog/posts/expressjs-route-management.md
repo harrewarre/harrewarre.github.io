@@ -24,7 +24,7 @@ Setting up a webserver with Node and [Express](http://expressjs.com/) is easy ve
 
 Running this and navigating to `http://localhost:3000` will give you the following result:
 
-![Hello world](/content/expressjs-route-management/hw.png)
+![Hello world](expressjs-route-management/hw.png)
 
 If you only have a few of those endpoints (`app.get` etc.) things will be fine living in the same `index.js` file. But what if this starts growing? You add more and more endpoints to your `index.js` and before you know it you have a 1500 line Javascript mess. Here is a good way of tackling that problem before it rears its head.
 
@@ -32,7 +32,7 @@ Express exposes a Router that you use to register... routes :-). This router can
 
 We'll be creating a simple web API that will greet you. Here is my file structure.
 
-![Filestructure](/content/expressjs-route-management/fs.png)
+![Filestructure](expressjs-route-management/fs.png)
 
 Let's start with the basics, we need code that will format the greeting text, this lives in the `back-end\queries\hello.js` file.
 
@@ -82,9 +82,9 @@ We create an express app and create the `/api` route on it which we set to the r
 
 Run the app from the command line using `node ./source` and browse to `http://localhost:3000/api/greet` and `http://localhost:3000/api/greet/world`.
 
-![Hello!](/content/expressjs-route-management/fs-1.png)
+![Hello!](expressjs-route-management/fs-1.png)
 
-![Hello world!](/content/expressjs-route-management/fs-2.png)
+![Hello world!](expressjs-route-management/fs-2.png)
 
 So why go through all this trouble? Adding a route is now trivial and it will not polute any existing files if you don't want it to. You can extend from any level by added new routes to the routers thate live at any level.
 
@@ -106,7 +106,7 @@ Next, open the `index.js` file in the `api` folder and add the following line be
 
 Run the app again and browse to `http://localhost:3000/api/leave`.
 
-![Bye](/content/expressjs-route-management/fs-3.png)
+![Bye](expressjs-route-management/fs-3.png)
 
 You can extend this as deep as you want on as many files and folders as you like. Routes are very portable now as all it takes is hooking them up to another router. Added new routes is a breeze as you saw above.
 

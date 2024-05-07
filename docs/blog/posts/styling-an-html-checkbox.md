@@ -36,13 +36,13 @@ Initially I assumed it would be very easy but as with many things browser relate
 	</body>
 	</html>
 
-![Browsers pls](/content/styling-an-html-checkbox/browsers.PNG)
+![Browsers pls](styling-an-html-checkbox/browsers.PNG)
 
 Sooooo, not a whole lot it seems... The text input will do as we ask but the checkbox only listens to the new width and height.
 
 So a little more HTML is needed. We need a toggle switch such as this but a checkbox by itself (and `:before` and `:after` styling) won't cut it.
 
-![Toggle](/content/styling-an-html-checkbox/prettycheckbox.PNG)
+![Toggle](styling-an-html-checkbox/prettycheckbox.PNG)
 
 What do we need to get that result? The actual checkbox needs to stay, because we need it to save the state of its fancy counterpart. To keep the ability to (un)check the box we need a label. Labels can be styled any way we want and they can be hooked up to form controls with the `for` attribute. The last part is a wrapper in the form of a `div` to keep everything together.
 
@@ -87,7 +87,7 @@ The next step is turning the `label` into the toggle switch that will show the s
 
 Because we made the wrapper div positioned relative, we can use absolute positioning inside it to precisely set the position of the label. If you look at the browser and refresh with the newly created styles and markup, it should look like this:
 
-![New checkbox](/content/styling-an-html-checkbox/newcheckbox.PNG)
+![New checkbox](styling-an-html-checkbox/newcheckbox.PNG)
 
 Looking like a toggle switch already, except that it doesn't work yet. Technically it does work, but the state is not yet reflected in the state of the toggle switch. Let's fix that. Being able to react to the checkbox state requires a selector called `:checked` which lets you style elements that are in the `checked` state. In our case our unchecked state is the default state but if you need it you can combine `:checked` with the `:not` selector to find elements that are in an unchecked state. More info and compatibility stuff can be found [here](http://caniuse.com/#search=%3Achecked).
 
@@ -101,7 +101,7 @@ This is where we use the direct sibling selector `+` (if you have more elements 
 
 Now we can change the style of label based on whether the invisible checkbox is checked or not. In our case, we move it over to the left to show the changed state of the checkbox. Refresh your browser and click the `label` that we positioned to the right of the wrapper `div`.
 
-![Toggled](/content/styling-an-html-checkbox/toggled.PNG)
+![Toggled](styling-an-html-checkbox/toggled.PNG)
 
 Here is a demo showing the end-result.
 

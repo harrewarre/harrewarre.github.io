@@ -28,7 +28,7 @@ A while back I tried the successor to Cyanomod, LineageOS on my OnePlus2 to see 
 
 My long commute on Mondays by train lets me get some work done but to be able to access everything I need to be online. Mobile hotspot solves this problem easily and it's what I use when on the train. When I got on the train this morning I found that tethering wasn't available on the ROM I was using!
 
-![No tether](/content/enable-tethering-on-lineageos-using-adb/Screenshot_20170501-070948.png)
+![No tether](enable-tethering-on-lineageos-using-adb/Screenshot_20170501-070948.png)
 
 This was no good if I were to get anything done.
 
@@ -55,6 +55,6 @@ Reboot back to the main operating system.
 
 Lo and behold! It works again :-)
 
-![Yes tether](/content/enable-tethering-on-lineageos-using-adb/Screenshot_20170501-080155.png)
+![Yes tether](enable-tethering-on-lineageos-using-adb/Screenshot_20170501-080155.png)
 
 Just a few easy steps and we are back online.

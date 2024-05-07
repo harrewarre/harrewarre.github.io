@@ -23,7 +23,7 @@ Not really having a particular plan or goal, I ended up with a little robed char
         height: 70vh;
     }
 </style>
-<iframe id="walkman" src="/content/fun-with-pico-8/walkman/walkman.html"></iframe>
+<iframe id="walkman" src="fun-with-pico-8/walkman/walkman.html"></iframe>
 <p></p>
 <p>
 The """game""" uses the built-in tile map and continually checks the edges of the character for overlaps with tiles that cannot be walked on.

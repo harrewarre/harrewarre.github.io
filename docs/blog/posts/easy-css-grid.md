@@ -42,7 +42,7 @@ It's the same as setting `flex: 1 1 0;` which sets the grow and shrink factors t
 
 So at this point we have the most basic setup we can get, we can create rows and slice them up into evenly spaced columns.
 
-![Simple columns](/content/easy-css-grid/simple-columns.png)
+![Simple columns](easy-css-grid/simple-columns.png)
 
 This gets us quite a long way already, but I also need columns that are constrained in some way. For this example, I'll add columns that always take 1/4th of the available space.
 
@@ -55,11 +55,11 @@ Time for a little bit of an explanation. Instead of just `flex: 1;` we are now s
 
 With this column definition we can create columns that are still flexible but never grow beyond a certain size.
 
-![Fixed width columns](/content/easy-css-grid/fixed-width-columns.png)
+![Fixed width columns](easy-css-grid/fixed-width-columns.png)
 
 With this example in hand, we can now create all sorts of layouts any way we like.
 
-![Mixing it up](/content/easy-css-grid/mixed-columns.png)
+![Mixing it up](easy-css-grid/mixed-columns.png)
 
 Creating new sizes is very easy, just add more rules for any size you want.
 

@@ -19,11 +19,11 @@ After some discussion on the pro's and con's of a huge 40" display it was decide
 
 So here we are:
 
-![Videowall on my desk](/content/going-4k/desk.jpg)
+![Videowall on my desk](going-4k/desk.jpg)
 
 **It is massive!** My expectations we're set on a big screen but it is almost comically big. To give you a hint of the size, the laptop on the pic above is a 15.6" Dell XPS.
 
-![Mind was blown](/content/going-4k/mind-blown-2.gif)
+![Mind was blown](going-4k/mind-blown-2.gif)
 
 The Nvidia GT640M in my laptop has no trouble driving this many pixels and there is not much going on in terms of fan noise. There was some worry about the compatibility with my laptop. Driving 4k at 60Hz requires Displayport 1.2 but mine support that so it all worked out fine in the end. 
 
@@ -35,7 +35,7 @@ Essentially I'm running 4 regular HD displays at once now which gives me a crazy
 
 Here is an example of an opened project with room to spare:
 
-![Devtools](/content/going-4k/Untitled.png)
+![Devtools](going-4k/Untitled.png)
 
 It certainly takes some getting used to but I really like the setup of just one very big screen. To take full advantage of 4K you can't really go any lower than 40". A smaller physical size would make displaying content at its native resolution without scaling up way to small to read comfortably. Scaling things up to make it readable sacrifices space to increase size which is fine if you want that but I set out to get the most space without scaling.
 
@@ -63,11 +63,11 @@ After some discussion on the pro's and con's of a huge 40" display it was decide
 
 So here we are:
 
-![Videowall on my desk](/content/going-4k/desk.jpg)
+![Videowall on my desk](going-4k/desk.jpg)
 
 **It is massive!** My expectations we're set on a big screen but it is almost comically big. To give you a hint of the size, the laptop on the pic above is a 15.6" Dell XPS.
 
-![Mind was blown](/content/going-4k/mind-blown-2.gif)
+![Mind was blown](going-4k/mind-blown-2.gif)
 
 The Nvidia GT640M in my laptop has no trouble driving this many pixels and there is not much going on in terms of fan noise. There was some worry about the compatibility with my laptop. Driving 4k at 60Hz requires Displayport 1.2 but mine support that so it all worked out fine in the end. 
 
@@ -79,7 +79,7 @@ Essentially I'm running 4 regular HD displays at once now which gives me a crazy
 
 Here is an example of an opened project with room to spare:
 
-![Devtools](/content/going-4k/Untitled.png)
+![Devtools](going-4k/Untitled.png)
 
 It certainly takes some getting used to but I really like the setup of just one very big screen. To take full advantage of 4K you can't really go any lower than 40". A smaller physical size would make displaying content at its native resolution without scaling up way to small to read comfortably. Scaling things up to make it readable sacrifices space to increase size which is fine if you want that but I set out to get the most space without scaling.
 

@@ -19,7 +19,7 @@ So what are we working with? The code is Javascript running on Node, RabbitMQ fo
 ## Installing RabbitMQ
 If you don't have one yet, installing a RabbitMQ service is the first step. There should be one in the CF marketplace (if not, use the [Ops manager to install it first on your platform first](http://docs.pivotal.io/rabbitmq-cf/index.html)).
 
-![CF Marketplace](/content/rabbitmq-with-nodejs-on-cloud-foundry/cf-market.png)
+![CF Marketplace](rabbitmq-with-nodejs-on-cloud-foundry/cf-market.png)
 
 or use the command `cf create-service p-rabbitmq standard <your rabbitmq servicename>` to install it from the CLI.
 
@@ -66,7 +66,7 @@ Before we can push the app and start sending messages, we need to tell the app w
 
 Because the app and service are bound together, Cloud Foundry will add extra environment variables to the app in which it can find the thing we are looking for: the RabbitMQ URL. The variable itself is called `VCAP_SERVICES` and you can find it's contents in the CLI using the command `cf env <app-name>` or the web interface by opening the app and selecting the environment variables tab.
 
-![Environment variables](/content/rabbitmq-with-nodejs-on-cloud-foundry/env-var.png)
+![Environment variables](rabbitmq-with-nodejs-on-cloud-foundry/env-var.png)
 
 So with the knowledge that the URL is hidden somewhere in the `VCAP_SERVICES` variable, we can start digging it out. Here is a handy Node module that does the heavy lifting.
 

@@ -25,6 +25,7 @@ plugins:
       archive: true
       archive_name: Archive
       archive_date_format: yyyy
+      post_excerpt: required
   - search
   - social
   - tags:

@@ -51,7 +51,7 @@ These transforms work for any ASP.NET web application by default. No changes nee
 
 If you create a new console app, you will get an `App.config` by default. When you add another config file, it will be created as `App1.config` and will not be linked to the existing config that is already in the project. Lets fix that first. Rename the `App1.config` file to `App.Release.config`.
 
-![Configs!](/content/app-config-xdt-transforms/web-1.png)
+![Configs!](app-config-xdt-transforms/web-1.png)
 
 Here is the first hacky part. Unload the project and edit the `csproj` file manually. Look for an `ItemGroup` that looks like this:
 
@@ -71,7 +71,7 @@ And change it to this:
 
 Save and close the file and reload the project. It should now look like this:
 
-![New Config](/content/app-config-xdt-transforms/web1.png)
+![New Config](app-config-xdt-transforms/web1.png)
 
 It now looks like its `web.config` sibling, but we're not quite there yet. We still need to enable transforms. Unload the project again and edit the `csproj` file.
 
@@ -116,8 +116,8 @@ Here is what I'm running in the console app: (Don't forget the reference to `Sys
 	}
 
 Running in the `Debug` configuration produces this output:
-![Debug](/content/app-config-xdt-transforms/debug.png)
+![Debug](app-config-xdt-transforms/debug.png)
 And `Release` produces this:
-![Release](/content/app-config-xdt-transforms/release.png)
+![Release](app-config-xdt-transforms/release.png)
 
 And with that, we have transforming `App.config` files! Take care when automating your builds, but otherwise, you are good to go!

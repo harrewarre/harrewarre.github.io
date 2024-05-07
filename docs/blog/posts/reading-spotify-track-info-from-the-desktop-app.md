@@ -33,7 +33,7 @@ So the current track is hidden somewhere, let's find out where it is.
 
 As you can see, the track title is in the window name of a Spotify process:
 
-![Spotify track info in the process](/content/reading-spotify-track-info-from-the-desktop-app/demo1.PNG)
+![Spotify track info in the process](reading-spotify-track-info-from-the-desktop-app/demo1.PNG)
 
 While a bit limited (no track times or anything) it's at least something to work with. Older versions of Spotify showed the title as well until it got removed at some point but it has returned once again. Now that we know where it is we need to make it usable somehow.
 
@@ -101,10 +101,10 @@ We create a new timer that is set to raise an event every 1000 milliseconds (or 
 
 Finally we start the timer and leave the console open by waiting for the enter key using the `Console.ReadLine` method. Here is what you might see if you run the code, start Spotify and let it play a track:
 
-![Result](/content/reading-spotify-track-info-from-the-desktop-app/demo2.PNG)
+![Result](reading-spotify-track-info-from-the-desktop-app/demo2.PNG)
 
 This code lets you access the current track title and do whatever you want with it. Write it to a file, post it to some server somewhere or, like I do, display it on the front of your PC:
 
-![LCD](/content/reading-spotify-track-info-from-the-desktop-app/WP_20151019_22_48_06_Pro.jpg) <sub>*Sorry about the blurry pic, the LCD's refresh rate and odd viewing angles makes it hard to capture*</sub>
+![LCD](reading-spotify-track-info-from-the-desktop-app/WP_20151019_22_48_06_Pro.jpg) <sub>*Sorry about the blurry pic, the LCD's refresh rate and odd viewing angles makes it hard to capture*</sub>
 
 Have fun!

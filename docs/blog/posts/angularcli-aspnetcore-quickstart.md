@@ -199,7 +199,7 @@ When it's up and running, open a second command prompt and run the following to 
 
 This will launch a second webserver hosting the angular app with hot reloading enabled, our proxy configuration will make sure that any request to URLs starting with `/api` will be forwarded to our web API. If you've done all of the above and browse to the angular app URL (http://localhost:4200 for me), you should be seeing this page:
 
-![Angular app](/content/angularcli-aspnetcore-quickstart/angular-serve.png)
+![Angular app](angularcli-aspnetcore-quickstart/angular-serve.png)
 
 It's a lot to take in all at once, but this is a once-per-project setup. You'll get all the nice reloading features while still being able to debug the "real" API when working on the client-side app. Bonus points if you also enable watching on the web API project and you'll get hot reloading on both ends.
 
