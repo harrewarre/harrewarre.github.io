@@ -1,13 +1,12 @@
 ---
 date: 2022-09-01
+description: I was invited to record a podcast about developer experience (in Dutch).
 slug: capicast-podcast-devex
-summary: I was invited to record a podcast about developer experience (in Dutch).
 tags:
 - Developer Experience
 - Podcast
 title: My first podcast appearance
 ---
-
 # My first podcast appearance (in Dutch)
 
 On the 9th of August 2022 [Robert Kloosterhuis](https://twitter.com/thefluffysysop) and myself recorded a podcast episode with the nice folks at [CodeCapi](https://codecapi.nl). They invited us over to talk about developer experience. A pretty broad topic and we covered a lot of stuff in the recording.

@@ -1,14 +1,13 @@
 ---
 date: 2018-05-11
+description: A barebones grid in just a few lines of CSS.
 slug: easy-css-grid
-summary: A barebones grid in just a few lines of CSS.
 tags:
 - css
 - flex
 - itq
 title: Easy CSS grid
 ---
-
 # Easy CSS grid
 
 I've been working with a lot of forms lately and it required some kind of grid system to make it all lay out nicely. I've always been a bit hesitant to immediatly pull in another dependency and decided I was going to solve this one myself. How hard could it be?

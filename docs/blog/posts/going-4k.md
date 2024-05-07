@@ -1,15 +1,14 @@
 ---
 date: 2016-01-06
+description: Dual screen setups are great for work but you can't always have two of
+  the same size/model side by side.
 slug: going-4k
-summary: Dual screen setups are great for work but you can't always have two of the
-  same size/model side by side.
 tags:
 - Hardware
 - Display
 - itq
 title: Going 4K with the Philips BDM4065UC
 ---
-
 # Going 4K with the Philips BDM4065UC
 
 Dual screen setups are great for work but you can't always have two of the same size/model side by side. In my previous setup I had my laptop display as the primary and a secondary smaller screen. This being sub-optimal I figured it might be a good time to ask for a new display at [work](http://www.itq.nl). New screens are nice, but what to ask for? Research time!

@@ -1,13 +1,12 @@
 ---
 date: 2021-02-19
+description: A bookmarklet that pops out video players in Microsoft Edge.
 slug: edge-pip
-summary: A bookmarklet that pops out video players in Microsoft Edge.
 tags:
 - Microsoft Edge
 - Javascript
 title: Microsoft Edge Picture-in-Picture
 ---
-
 # Microsoft Edge Picture-in-Picture
 
 ---

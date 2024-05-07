@@ -1,13 +1,12 @@
 ---
 date: 2021-01-19
+description: New PC hardware.
 slug: new-tech-2021
-summary: New PC hardware.
 tags:
 - Hardware
 - PC Building
 title: It's new tech!
 ---
-
 # It's new tech!
 
 I finally came up on the best excuse to upgrade my computer. My very generous employer, [ITQ](https://www.itq.eu), gave us the opportunity to upgrade our home office and that brought me the base for a new system.

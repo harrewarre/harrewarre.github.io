@@ -1,12 +1,11 @@
 ---
 date: 2015-05-12
+description: When you work on software, you will at some point encounter bugs.
 slug: bugs
-summary: When you work on software, you will at some point encounter bugs.
 tags:
 - Bugs
 title: The bug report
 ---
-
 # The bug report
 
 When you work on software, you will at some point encounter bugs. You think everything is peachy and you covered all the bases. Here comes this one user that finds a way to break your stuff.

@@ -1,15 +1,14 @@
 ---
 date: 2015-04-26
-slug: the-simplest-loading-indicator
-summary: I had a brainwave and dove into codepen for a little bit to doodle around
+description: I had a brainwave and dove into codepen for a little bit to doodle around
   and when I emerged I had this simple little loading indicator.
+slug: the-simplest-loading-indicator
 tags:
 - CSS
 - HTML
 - itq
 title: The simplest loading indicator
 ---
-
 # The simplest loading indicator
 
 I had a brainwave and dove into codepen for a little bit to doodle around and when I emerged I had this simple little loading indicator. Very simple in terms of markup and CSS (LESS in this case).

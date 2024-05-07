@@ -1,15 +1,14 @@
 ---
 date: 2015-11-04
+description: On the 2nd and 3rd November in 2015, the Cloud Foundry Foundation was
+  in Berlin. I attended and here are my thoughts.
 slug: cloudfoundry-summit-2015-berlin
-summary: On the 2nd and 3rd November in 2015, the Cloud Foundry Foundation was in
-  Berlin. I attended and here are my thoughts.
 tags:
 - Cloud Foundry
 - Conventions
 - itq
 title: Cloud Foundry Summit 2015 Berlin
 ---
-
 # Cloud Foundry Summit 2015 Berlin
 
 On the 2nd and 3rd November in 2015, the [Cloud Foundry Foundation](https://www.cloudfoundry.org/foundation/) held the [Cloud Foundry](https://www.cloudfoundry.org/) Summit in Berlin. The focus of this conference is on Cloud Foundry itself and the community around it.

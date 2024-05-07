@@ -1,14 +1,13 @@
 ---
 date: 2018-09-26
+description: A quick little tip to get rid of some garbage on the start screen of
+  your TV.
 slug: debloat-your-sony-smart-tv
-summary: A quick little tip to get rid of some garbage on the start screen of your
-  TV.
 tags:
 - sony smart tv
 - android
 title: Debloat your Sony smart TV
 ---
-
 # Debloat your Sony smart TV
 
 Here's a little tweak for your Sony smart TV that runs Android.

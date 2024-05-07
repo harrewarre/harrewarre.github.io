@@ -1,7 +1,7 @@
 ---
 date: 2018-01-02
+description: A get-up-and-go with the Angular CLI and dotnet core.
 slug: angularcli-aspnetcore-quickstart
-summary: A get-up-and-go with the Angular CLI and dotnet core.
 tags:
 - Angular
 - Angular CLI
@@ -10,7 +10,6 @@ tags:
 - itq
 title: Angular (5) and aspnet core (2) quickstart
 ---
-
 # Angular and ASP.net Core quickstart
 
 Here is a get-up-and-go style post to get going with the angular CLI and aspnet core. Before we begin, there is a template you can use to set (most, if not more) of this up, but it's good to know what is going on behind the curtains.

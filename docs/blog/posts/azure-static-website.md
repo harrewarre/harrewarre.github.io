@@ -1,14 +1,13 @@
 ---
 date: 2019-01-03
+description: How to set up hosting for your static website on Azure Storage
 slug: azure-static-website
-summary: How to set up hosting for your static website on Azure Storage
 tags:
 - azure
 - static website
 - itq
 title: Setting up an Azure Storage static website
 ---
-
 # Setting up an Azure Storage static website
 
 Not very long ago, Microsoft made the [static website feature generally available](https://azure.microsoft.com/en-us/blog/static-websites-on-azure-storage-now-generally-available/) on the Azure platform. What this means is that you can now publicly host content with Azure (blob) storage.

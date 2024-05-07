@@ -1,16 +1,15 @@
 ---
 date: 2015-07-07
-slug: basic-string-templating-in-c
-summary: Every solution I've worked on required some form of communication via e-mail
-  or other form of text to the outside world, reporting, notifications or something
+description: Every solution I've worked on required some form of communication via
+  e-mail or other form of text to the outside world, reporting, notifications or something
   else.
+slug: basic-string-templating-in-c
 tags:
 - C#
 - String templating
 - itq
 title: Basic string templating in C#
 ---
-
 # Basic string templating in C#
 
 Every solution I've worked on required some form of communication via e-mail or other form of text to the outside world, reporting, notifications or something else. There are a bunch of libraries out there that can make your life easy if you need complex templates. But this is not about complex, this is supporting the basics without including all sorts of unnecessary stuff.

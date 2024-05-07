@@ -1,14 +1,13 @@
 ---
 date: 2016-01-14
+description: Here is another loading indicator for when your webpage is busy waiting
+  for a server request to come back with an answer.
 slug: another-simple-loading-indicator
-summary: Here is another loading indicator for when your webpage is busy waiting for
-  a server request to come back with an answer.
 tags:
 - HTML
 - CSS
 title: Another simple loading indicator
 ---
-
 # Another simple loading indicator
 
 Here is another loading indicator for when your webpage is busy waiting for a server request to come back with an answer. It's a bar at the very top of the page this time.

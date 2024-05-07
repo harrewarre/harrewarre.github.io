@@ -1,7 +1,7 @@
 ---
 date: 2018-04-09
+description: Took the exam and now I'm Cloud Foundry certified!
 slug: cfcd-certification
-summary: Took the exam and now I'm Cloud Foundry certified!
 tags:
 - Cloud Foundry
 - certification
@@ -9,7 +9,6 @@ tags:
 - itq
 title: Cloud Foundry Certified Developer
 ---
-
 # Cloud Foundry Certified Developer
 
 Hey look :-)

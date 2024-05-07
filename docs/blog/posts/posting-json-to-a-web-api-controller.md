@@ -1,7 +1,7 @@
 ---
 date: 2016-01-12
+description: So you want to post some JSON to an ASP. Here's a quick primer.
 slug: posting-json-to-a-web-api-controller
-summary: So you want to post some JSON to an ASP. Here's a quick primer.
 tags:
 - Javascript
 - jQuery
@@ -9,7 +9,6 @@ tags:
 - ASP.NET
 title: POST-ing JSON to an ASP.NET Web API controller
 ---
-
 # POST-ing JSON to an ASP.NET Web API controller
 
 So you want to post some JSON to an ASP.NET Web API controller? I bet you've written this more than you wanted to:

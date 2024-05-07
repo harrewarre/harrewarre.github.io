@@ -1,14 +1,13 @@
 ---
 date: 2020-10-29
+description: Global pandemic, work-from-home and washing your hands 80 times a day.
 slug: the-quarantine-of-2020
-summary: Global pandemic, work-from-home and washing your hands 80 times a day.
 tags:
 - quarantine
 - wfh
 - life stuff
 title: The great quarantine of 2020
 ---
-
 # The great quarantine of 2020
 
 We're almost at the end of 2020 and we're not really quarantining anymore but kinda still are.

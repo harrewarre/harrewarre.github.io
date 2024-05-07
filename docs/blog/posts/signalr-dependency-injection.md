@@ -1,8 +1,8 @@
 ---
 date: 2015-04-26
+description: My go-to container for IoC at the moment is SimpleInjector because you
+  know, simple.
 slug: signalr-dependency-injection
-summary: My go-to container for IoC at the moment is SimpleInjector because you know,
-  simple.
 tags:
 - C#
 - Dependency injection
@@ -10,7 +10,6 @@ tags:
 - itq
 title: SignalR dependency injection
 ---
-
 # SignalR dependency injection
 
 My go-to container for IoC at the moment is [SimpleInjector][1] because you know.. it's simple. I've used it in a couple of projects and used in a hobby project recently again.

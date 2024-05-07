@@ -1,15 +1,14 @@
 ---
 date: 2017-02-08
+description: I play video games every now and then and I've recently discovered a
+  game (that was in my Steam library for quite some time already) that gives me the
+  same sensation as when I'm programming.
 slug: a-game-for-programmers
-summary: I play video games every now and then and I've recently discovered a game
-  (that was in my Steam library for quite some time already) that gives me the same
-  sensation as when I'm programming.
 tags:
 - Gaming
 - Factorio
 title: A game for programmers
 ---
-
 # A game for programmers
 
 I play video games occasionally, and I've recently discovered a game (that was in my Steam library for quite some time already) that gives me the same sensation as when I'm programming.

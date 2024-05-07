@@ -1,14 +1,13 @@
 ---
 date: 2016-03-30
+description: A look at deploying a dotnet core app on Cloud Foundry.
 slug: my-first-asp-net-core-app-on-cloud-foundry
-summary: A look at deploying a dotnet core app on Cloud Foundry.
 tags:
 - Dotnet core
 - Cloud Foundry
 - itq
 title: My first ASP.NET Core app on Cloud Foundry
 ---
-
 # My first ASP.NET Core app on Cloud Foundry
 
 Today I tried to deploy a .NET Core web app to a Pivotal Cloud Foundry platform that my [ITQ](http://www.itq.nl) buddy [Ruurd](http://www.ruurdkeizer.com) set up for us to tinker with. The app itself is a very basic ASP.NET MVC app built with the new ASP.NET Core framework to make it cross-platform. It being cross platform makes it very easy to deploy on something like Cloud Foundry since there is no dependency on Windows or the full .NET Framework anymore.

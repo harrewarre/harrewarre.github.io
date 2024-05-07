@@ -1,13 +1,12 @@
 ---
 date: 2017-04-09
+description: Up and running with the new dotnet core tools.
 slug: dotnet-core-tooling-quickstart
-summary: Up and running with the new dotnet core tools.
 tags:
 - Dotnet Core
 - itq
 title: Dotnet Core tooling quickstart
 ---
-
 # Dotnet core tooling quickstart
 
 With the .NET Core tools finally showing signs of stabilizing in version 1.0.1 we can have a little look at how you can get started with a new project using just the tools.

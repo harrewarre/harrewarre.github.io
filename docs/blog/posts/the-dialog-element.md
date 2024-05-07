@@ -1,8 +1,8 @@
 ---
 date: 2016-07-06
+description: I was grinding my teeth on a z-index problem today. I found out about
+  the dialog element and all was saved.
 slug: the-dialog-element
-summary: I was grinding my teeth on a z-index problem today. I found out about the
-  dialog element and all was saved.
 tags:
 - Javascript
 - HTML
@@ -10,7 +10,6 @@ tags:
 - itq
 title: The dialog element
 ---
-
 # The dialog element
 
 I was grinding my teeth on a z-index problem today. I needed to cover the entire webpage to show something was happening and nothing else was to interrupt. Some elements (for whatever reasons) were poking through the overlay and nothing seemed to fix my problem with the plain old `position: fixed` element I was using to cover the page.

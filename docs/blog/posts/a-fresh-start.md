@@ -1,12 +1,11 @@
 ---
 date: 2017-07-20
+description: A complete refresh of the blog!
 slug: a-fresh-start
-summary: A complete refresh of the blog!
 tags:
 - Blog
 title: A fresh start
 ---
-
 # A fresh start
 
 You are looking at the new and improved blogging experience I made for myself.

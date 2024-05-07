@@ -1,14 +1,13 @@
 ---
 date: 2015-06-22
-slug: currentcolor-in-css
-summary: If you've ever used something like LESS or SASS you know what a variable
+description: If you've ever used something like LESS or SASS you know what a variable
   is in CSS.
+slug: currentcolor-in-css
 tags:
 - CSS
 - itq
 title: CurrentColor in CSS
 ---
-
 # Currentcolor in CSS
 
 If you've ever used something like LESS or SASS you know what a variable is in CSS. There is also a working draft for native [CSS variables](http://www.w3.org/TR/css-variables-1/) but there is something in CSS right now that resembles some variable behavior. Not an actual variable, but interesting nonetheless.

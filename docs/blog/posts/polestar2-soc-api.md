@@ -1,7 +1,7 @@
 ---
 date: 2023-10-16
+description: How to read the battery state of a Polestar 2 using the Tibber API
 slug: polestar2-soc-api
-summary: How to read the battery state of a Polestar 2 using the Tibber API
 tags:
 - polestar 2
 - api
@@ -9,7 +9,6 @@ tags:
 - soc
 title: Polestar 2 battery state API
 ---
-
 # Polestar 2 battery state API
 
 **Update in 2024**:

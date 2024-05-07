@@ -1,15 +1,15 @@
 ---
 date: 2016-04-27
+description: My current project involves an interface that is 100% touch driven (no
+  keyboard and mouse) and I was asked to turn a regular old checkbox into a toggle
+  switch.
 slug: styling-an-html-checkbox
-summary: My current project involves an interface that is 100% touch driven (no keyboard
-  and mouse) and I was asked to turn a regular old checkbox into a toggle switch.
 tags:
 - HTML
 - CSS
 - itq
 title: Creating a toggle switch with HTML and CSS
 ---
-
 # Creating a toggle switch with HTML and CSS
 
 My current project involves an interface that is 100% touch driven (no keyboard and mouse) and I was asked to turn a regular old checkbox into a toggle switch.

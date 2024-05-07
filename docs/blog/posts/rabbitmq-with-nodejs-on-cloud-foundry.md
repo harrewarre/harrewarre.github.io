@@ -1,8 +1,8 @@
 ---
 date: 2016-05-27
+description: I've been having some more fun with Cloud Foundry deploying Node apps
+  and wanted the apps to communicate in a more disconnected way.
 slug: rabbitmq-with-nodejs-on-cloud-foundry
-summary: I've been having some more fun with Cloud Foundry deploying Node apps and
-  wanted the apps to communicate in a more disconnected way.
 tags:
 - Javascript
 - Cloud Foundry
@@ -10,7 +10,6 @@ tags:
 - itq
 title: RabbitMQ with NodeJS on Cloud Foundry
 ---
-
 # RabbitMQ with NodeJS on Cloud Foundry
 
 I've been having some more fun with Cloud Foundry deploying Node apps and wanted the apps to communicate in a more disconnected way. A messaging system is a good fit for such a requirement and lucky for me, (Pivotal) Cloud Foundry has RabbitMQ-as-a-Service for me to use.

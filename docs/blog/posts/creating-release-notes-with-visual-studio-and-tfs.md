@@ -1,13 +1,13 @@
 ---
 date: 2015-05-21
+description: For that one time you need release notes but forgot to track what was
+  changed.
 slug: creating-release-notes-with-visual-studio-and-tfs
-summary: For that one time you need release notes but forgot to track what was changed.
 tags:
 - TFS
 - Release notes
 title: Creating release notes with Visual Studio and TFS
 ---
-
 # Creating releasenotes with Visual Studio and TFS
 
 Here is a scenario for you. You've been slaving away at the next big release of your product, fixing reported bugs, adding features and cleaning up code. Lot's of changes all over your code. Then comes that moment that you want to ship all that delicious code to your customers.

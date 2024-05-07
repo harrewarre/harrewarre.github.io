@@ -1,13 +1,12 @@
 ---
 date: 2015-05-06
+description: A quick look at a different approach to data access code in C#.
 slug: fluent-data-access
-summary: A quick look at a different approach to data access code in C#.
 tags:
 - C#
 - Data access
 title: Fluent data access
 ---
-
 # Fluent data access
 
 Working in a team of developers, the following might happen:

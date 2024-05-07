@@ -1,7 +1,7 @@
 ---
 date: 2018-06-28
+description: Another exam done, I am now a Pivotal certified CF developer!
 slug: pivotalcf-certification
-summary: Another exam done, I am now a Pivotal certified CF developer!
 tags:
 - Pivotal
 - Cloud Foundry
@@ -9,7 +9,6 @@ tags:
 - itq
 title: Pivotal Cloud Foundry Certified Developer
 ---
-
 # Pivotal Cloud Foundry Certified Developer
 
 With all the knowledge built up for my [CFCD](/blog/cfcd-certification) exam I did earlier I took another Cloud Foundry exam. The Pivotal flavor this time.

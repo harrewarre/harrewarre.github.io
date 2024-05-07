@@ -1,7 +1,7 @@
 ---
 date: 2015-04-26
+description: A hobby project of mine needed to generate an RSS feed.
 slug: generating-an-rss-feed-in-c
-summary: A hobby project of mine needed to generate an RSS feed.
 tags:
 - C#
 - RSS
@@ -10,7 +10,6 @@ tags:
 - itq
 title: Generating an RSS feed in C#
 ---
-
 # Generating an RSS feed in C#
 
 A hobby project of mine needed to generate an RSS feed. I was already doing this by just generating and XML file in the webroot and linking to that on the frontpage. But during this coding session, where all the data is pulled straight from the markdown files I wanted to create a controller action to do the generating for me.

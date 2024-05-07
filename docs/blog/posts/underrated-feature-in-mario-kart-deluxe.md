@@ -1,13 +1,12 @@
 ---
 date: 2017-07-25
+description: One of the most helpful things I've seen in videogames in a long time.
 slug: underrated-feature-in-mario-kart-deluxe
-summary: One of the most helpful things I've seen in videogames in a long time.
 tags:
 - Gaming
 - Nintendo
 title: An underrated feature in Mario Kart 8 Deluxe
 ---
-
 # An underrated feature in Mario Kart 8 Deluxe
 
 ![Mario Kart 8 Deluxe](/content/underrated-feature-in-mario-kart-deluxe/mk8-screen.jpg)

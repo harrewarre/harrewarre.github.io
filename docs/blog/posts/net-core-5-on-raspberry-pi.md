@@ -1,14 +1,13 @@
 ---
 date: 2021-01-10
+description: A quickstart on how to run and use dotnet core 5 on a Raspberry Pi
 slug: net-core-5-on-raspberry-pi
-summary: A quickstart on how to run and use dotnet core 5 on a Raspberry Pi
 tags:
 - dotnet core
 - raspberry
 - linux
 title: Dotnet core 5 on a raspberry pi
 ---
-
 # dotnet core 5 on a raspberry pi
 
 Here's a quick get-up-and-go style post on how to get dotnet core 5 usable on a Raspberry Pi (a R-Pi 3 Model B in my case).

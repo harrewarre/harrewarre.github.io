@@ -1,14 +1,13 @@
 ---
 date: 2015-11-13
+description: Here is a little hack you can do to enable transformations in App.config.
 slug: app-config-xdt-transforms
-summary: Here is a little hack you can do to enable transformations in App.config.
 tags:
 - C#
 - Configuration transforms
 - itq
 title: App.config xdt transforms
 ---
-
 # App.config XDT transforms
 
 Here is a little hack you can do to enable transformations in `app.config` like you can in your `web.config`.

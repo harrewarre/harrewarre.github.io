@@ -1,13 +1,12 @@
 ---
 date: 2015-09-23
+description: After saving up money for a while I bought myself a new desktop PC.
 slug: the-new-rig
-summary: After saving up money for a while I bought myself a new desktop PC.
 tags:
 - Hardware
 - PC
 title: The new rig
 ---
-
 # The new rig
 
 After saving up money for a while I bought myself a new desktop PC. Its main purpose would be gaming and some development stuff but since gaming has a big influence on the parts, I rolled with that. Here is the part list I ended up ordering.

@@ -1,13 +1,12 @@
 ---
-"slug": "paved-load-templates"
-"title": "Paved road - Templates"
-"summary": "Reduce waste and improve developer experience with application templates."
-"tags":
-  - "devops"
-  - "developer experience"
-"date": 2022-07-29
+date: 2022-07-29
+description: Reduce waste and improve developer experience with application templates.
+slug: paved-load-templates
+tags:
+- devops
+- developer experience
+title: Paved road - Templates
 ---
-
 # Paved road - Application Templates
 
 In my previous post about paving the road to production there were some ideas around offering deployment pipelines as a service in your organization. In this post, we're going to take it up a level and have a look what we can do to remove even more friction, specifically when creating a new app from scratch. 

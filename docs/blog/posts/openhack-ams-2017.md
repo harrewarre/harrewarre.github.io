@@ -1,7 +1,7 @@
 ---
 date: 2017-10-14
+description: Lift-and-shift, Azure Servic Fabric, Minecraft
 slug: openhack-ams-2017
-summary: Lift-and-shift, Azure Servic Fabric, Minecraft
 tags:
 - Azure
 - Service Fabric
@@ -9,7 +9,6 @@ tags:
 - itq
 title: Openhack Amsterdam 2017
 ---
-
 # Openhack Amsterdam 2017
 
 ![Openhack](/content/openhack-ams-2017/openhack-banner.jpeg)

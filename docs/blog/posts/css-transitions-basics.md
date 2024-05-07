@@ -1,15 +1,14 @@
 ---
 date: 2015-05-19
+description: End-users interact with your applications via the user interface (UI
+  for short). Here are some simple things to spice it up.
 slug: css-transitions-basics
-summary: End-users interact with your applications via the user interface (UI for
-  short). Here are some simple things to spice it up.
 tags:
 - CSS
 - Transitions
 - itq
 title: CSS Transitions basics
 ---
-
 # CSS Transitions basics
 
 End-users interact with your applications via the user interface (UI for short). If everything was designed with the user in mind, the UI will make things very easy for the user. Everything is nice and organized and easy to navigate. Actions are communicated to the user in a friendly way and the user is happy.

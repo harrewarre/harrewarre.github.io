@@ -1,7 +1,7 @@
 ---
 date: 2016-03-02
+description: Here is a small problem I ran into while working on my current project.
 slug: multiple-dbcontexts-on-a-single-database
-summary: Here is a small problem I ran into while working on my current project.
 tags:
 - C#
 - Entity Framework
@@ -9,7 +9,6 @@ tags:
 - itq
 title: Multiple DbContext's with migrations on a single database
 ---
-
 # Multiple DbContext's with migrations on a single database
 
 Here is a small problem I ran into while working on my current project. This project already has an Entity Framework [`DbContext`](https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=vs.113).aspx) class with entities and a database. I'm adding a new feature but want to keep the changes as isolated as possible. So I wanted to create a second `DbContext` that handles the entities specific to my new feature.

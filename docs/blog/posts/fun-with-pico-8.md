@@ -1,13 +1,12 @@
 ---
 date: 2020-04-27
+description: Spent a few hours with (again) with Pico-8 and Lua to dabble about.
 slug: fun-with-pico-8
-summary: Spent a few hours with (again) with Pico-8 and Lua to dabble about.
 tags:
 - Pico-8
 - Lua
 title: Some fun with Pico-8
 ---
-
 # Some fun with Pico-8
 
 I had a some tine left in the day (who doesn't, with all the quarantine and all...) so why not spend that time programming. A long while back I picked up the [Pico-8](https://www.lexaloffle.com/pico-8.php) 

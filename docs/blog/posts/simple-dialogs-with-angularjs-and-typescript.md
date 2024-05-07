@@ -1,8 +1,8 @@
 ---
 date: 2016-09-15
+description: While working an Angular (1) web app I ran into the age old problem of
+  showing the user notifications when certain conditions are met.
 slug: simple-dialogs-with-angularjs-and-typescript
-summary: While working an Angular (1) web app I ran into the age old problem of showing
-  the user notifications when certain conditions are met.
 tags:
 - Javascript
 - Angular
@@ -11,7 +11,6 @@ tags:
 - itq
 title: Simple dialogs with AngularJS and TypeScript
 ---
-
 # Simple dialogs with AngularJS and TypeScript
 
 While working an Angular (1) web app I ran into the age old problem of showing the user notifications when certain conditions are met. Show them a little pop-up, in simple terms.

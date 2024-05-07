@@ -1,14 +1,13 @@
 ---
 date: 2019-07-19
+description: A quick guide on how to transfer comic books to your Amazon Kindle.
 slug: comics-on-kindle
-summary: A quick guide on how to transfer comic books to your Amazon Kindle.
 tags:
 - comics
 - kindle
 - e-reader
 title: Read comics on your Kindle e-reader
 ---
-
 # Read comics on your Kindle e-reader
 
 Vacation is coming and I was looking at stuff to put on my Kindle e-reader. Found some books to read and then 

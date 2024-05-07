@@ -1,7 +1,7 @@
 ---
 date: 2019-01-10
+description: Using ILogger to write logs on Cloud Foundry
 slug: cf-netcore-logging
-summary: Using ILogger to write logs on Cloud Foundry
 tags:
 - cloud foundry
 - asp.net core
@@ -10,7 +10,6 @@ tags:
 - itq
 title: ASP.NET Core logging on Cloud Foundry
 ---
-
 # ASP.NET Core logging on Cloud Foundry
 
 All apps I've ever worked on have some sort of logging going on for various reasons, mostly to keep track of whats going on or debugging, but it's all the same. Logs are needed to see what your code is up to.

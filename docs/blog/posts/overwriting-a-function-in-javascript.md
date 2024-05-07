@@ -1,14 +1,13 @@
 ---
 date: 2015-04-26
+description: Let's take a look at how to replace the workings of one function with
+  that of another.
 slug: overwriting-a-function-in-javascript
-summary: Let's take a look at how to replace the workings of one function with that
-  of another.
 tags:
 - Javascript
 - itq
 title: Overwriting a function in Javascript
 ---
-
 # Overwriting a function in Javascript
 
 Take the following piece of code:

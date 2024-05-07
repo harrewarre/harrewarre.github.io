@@ -1,13 +1,12 @@
 ---
 date: 2018-12-23
+description: A year gone by, so what's going on.
 slug: twenty-eighteen
-summary: A year gone by, so what's going on.
 tags:
 - recap
 - '2018'
 title: '2018'
 ---
-
 # 2018
 
 The year is almost over and I thought I'd write a little recap of this past year.

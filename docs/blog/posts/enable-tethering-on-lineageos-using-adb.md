@@ -1,14 +1,13 @@
 ---
 date: 2017-05-01
-slug: enable-tethering-on-lineageos-using-adb
-summary: A little hack to enable tethering on your Android device when it's blocked
+description: A little hack to enable tethering on your Android device when it's blocked
   by your operator.
+slug: enable-tethering-on-lineageos-using-adb
 tags:
 - Android
 - LineageOS
 title: Enable tethering on LineageOS using ADB
 ---
-
 # Enable tethering on LineageOS using ADB
 
 #### Update

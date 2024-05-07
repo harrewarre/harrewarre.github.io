@@ -1,16 +1,14 @@
 ---
-"title": "It all starts with smaller stories"
-"slug": "start-with-small-stories"
-"summary": "Improve your development process by breaking down work into smaller pieces."
-"tags": [
-    "agility",
-    "developer experience",
-    "devex",
-    "developer practices"
-]
-"date": 2022-10-18
+date: 2022-10-18
+description: Improve your development process by breaking down work into smaller pieces.
+slug: start-with-small-stories
+tags:
+- agility
+- developer experience
+- devex
+- developer practices
+title: It all starts with smaller stories
 ---
-
 # It all starts with smaller stories 
 
 I think most developers have experienced a taks sitting in progress for days or even weeks (or... months!) on end. This long running work eventually gets merged and released but it turns out it's the wrong thing and a large part needs rework. 

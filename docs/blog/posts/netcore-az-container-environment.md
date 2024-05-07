@@ -1,8 +1,8 @@
 ---
 date: 2019-05-04
+description: A little gotcha when using a .net core app in a container on Azure that
+  needs environment variables.
 slug: netcore-az-container-environment
-summary: A little gotcha when using a .net core app in a container on Azure that needs
-  environment variables.
 tags:
 - docker
 - containers
@@ -11,7 +11,6 @@ tags:
 - itq
 title: Environment variables in an Azure Web App for Containers
 ---
-
 # Environment variables in an Azure Web App for Containers
 
 Here's a little gotcha I ran into. A .net core app I wrote needs to run inside a container and the target was a Web App for Containers on the Azure platform. No big deal so far.

@@ -1,14 +1,13 @@
 ---
 date: 2015-10-09
-slug: reading-spotify-track-info-from-the-desktop-app
-summary: Spotify recently updated the desktop app again and it is once again possible
+description: Spotify recently updated the desktop app again and it is once again possible
   to read current track info directly from it.
+slug: reading-spotify-track-info-from-the-desktop-app
 tags:
 - C#
 - Spotify
 title: Read Spotify track info using C#
 ---
-
 # Read Spotify track info using C#
 
 Spotify recently updated the desktop app again and it is once again possible to read current track info directly from it. Here is how you to read it using a little C# code.

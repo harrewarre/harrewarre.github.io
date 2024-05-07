@@ -1,8 +1,8 @@
 ---
 date: 2015-04-26
-slug: inversion-of-control-dive
-summary: Alright, lets dive straight into the deep end and take a look at Inversion
+description: Alright, lets dive straight into the deep end and take a look at Inversion
   of Control.
+slug: inversion-of-control-dive
 tags:
 - C#
 - IoC
@@ -10,7 +10,6 @@ tags:
 - itq
 title: Getting started with Inversion of Control
 ---
-
 # Getting started with Inversion of Control
 
 Alright, lets dive straight into the deep end! ... ok, but not drown in the process of doing so. One step at a time. Lets's start with an example.

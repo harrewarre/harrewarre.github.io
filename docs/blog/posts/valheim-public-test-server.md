@@ -1,7 +1,7 @@
 ---
 date: 2022-11-23
+description: How to update your Valheim server on Linux to the public-test branch.
 slug: valheim-public-test-server
-summary: How to update your Valheim server on Linux to the public-test branch.
 tags:
 - Valheim
 - Gaming
@@ -9,7 +9,6 @@ tags:
 - Linux
 title: Valheim public-test server
 ---
-
 # Valheim public-test server
 
 **UPDATE**

@@ -1,7 +1,7 @@
 ---
 date: 2019-01-11
+description: A look at loading configuration using SteelToe and making it injectable
 slug: netcore-steeltoe-config-loading
-summary: A look at loading configuration using SteelToe and making it injectable
 tags:
 - cloud foundry
 - steeltoe
@@ -10,7 +10,6 @@ tags:
 - itq
 title: Cloud Foundry configuration with SteelToe
 ---
-
 # Reading Cloud Foundry app configuration using SteelToe in ASP.NET Core
 
 I've been playing around with the [SteelToe](https://steeltoe.io/) framework for .net apps on Cloud Foundry a bit and it's been nice overall (I'll probably write a few more posts about it at some point 😊). While playing around with it the configuration part of it I wasn't really liking the way settings can be read from the main configuration.

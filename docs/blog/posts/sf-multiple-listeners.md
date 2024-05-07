@@ -1,8 +1,8 @@
 ---
 date: 2018-03-31
+description: Enable multiple listeners on a Service Fabric service and seperate the
+  entrypoint of the service from the actual implementation.
 slug: sf-multiple-listeners
-summary: Enable multiple listeners on a Service Fabric service and seperate the entrypoint
-  of the service from the actual implementation.
 tags:
 - Azure
 - Service Fabric
@@ -11,7 +11,6 @@ tags:
 - itq
 title: Multiple listeners for your Service Fabric service
 ---
-
 # Multiple listeners for your Service Fabric service
 
 Service Fabric is a great piece of technology on the Azure platform and I've been using it quite a lot in recent projects. It takes away a lot of the setup and orchestration when dealing with microservices.

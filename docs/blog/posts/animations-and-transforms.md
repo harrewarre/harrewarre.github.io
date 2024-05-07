@@ -1,14 +1,13 @@
 ---
 date: 2015-12-01
+description: Animations and transforms using CSS and HTML.
 slug: animations-and-transforms
-summary: Animations and transforms using CSS and HTML.
 tags:
 - CSS
 - HTML
 - itq
 title: Animations and transforms
 ---
-
 # Animations and transforms
 
 Every employee at [ITQ](http://www.itq.nl) has their own little mini-me in the form of a little character based on your appearance. Here is mine:
