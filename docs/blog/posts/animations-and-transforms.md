@@ -11,7 +11,7 @@ title: Animations and transforms
 
 Every employee at [ITQ](http://www.itq.nl) has their own little mini-me in the form of a little character based on your appearance. Here is mine:
 <!-- more -->
-![MiniMe](animations-and-transforms/minime-front.png)
+![MiniMe](assets/animations-and-transforms/minime-front.png)
 
 So I have this image sitting in a folder on my Ondrive for whenever I might need it. Queue a boring evening with not much else to do, I figured, lets animate some life into the little guy using CSS. Here is the result.
 

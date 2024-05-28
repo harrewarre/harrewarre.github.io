@@ -135,7 +135,7 @@ Notice the `position: fixed;` to lock it into place and ignore any scrolling tha
 
 Using the styles above should give you something like this:
 
-![Dialog](simple-dialogs-with-angularjs-and-typescript/dialog.png)
+![Dialog](assets/simple-dialogs-with-angularjs-and-typescript/dialog.png)
 
 Actually using the `dialogService` requires that you inject it into other Angular modules (a controller in this case) like this:
 

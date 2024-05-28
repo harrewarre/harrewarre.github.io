@@ -27,7 +27,7 @@ I picked the i5 over the i7 because I really have no use for all those Hyper thr
 
 The mainboard had to be a socket 1151 due to the Skylake CPU. I chose the H170 board because of its M.2 SATA Express capability. That bit is important because it allows me to install the SM951 SSD, holy crap is that thing fast!
 
-![Samsung SM951](the-new-rig/download.jpg)
+![Samsung SM951](assets/the-new-rig/download.jpg)
 
 The SM951 is a solid state drive, but instead of using regular SATA, it runs directly on PCI Express (3.0 4x). That gives it super low latency and very high throughput. An in-depth review can be found [here at Tom's Hardware](http://www.tomshardware.com/reviews/samsung-sm951-m.2-pcie-ssd,4045.html). You could argue the necessity of a disk that fast in a gaming rig, but my games load SUPER fast now!
 

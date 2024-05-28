@@ -16,7 +16,7 @@ A recent talk by one of my buddies at ITQ sparked something and I thought I'd sh
 ## The platform stack
 The thing that caused the spark was this image:
 
-![The platform stack](lets-talk-containers/stack.jpg)
+![The platform stack](assets/lets-talk-containers/stack.jpg)
 
 Here we have a rough outline of the platform abstractions we currently see in the wild. Let's start at the bottom.
 
@@ -40,7 +40,7 @@ If we look at the stack again, we can make some very clear distinctions. Bare me
 
 Containers sit in a weird place... There's still some infrastructure left, but they're also portable like apps. Containers don't provide any health checks or log aggregation by themselves, but they can be scaled (given the right kind of app running in them!).
 
-![Top two layers](lets-talk-containers/toptwolayers.jpg)
+![Top two layers](assets/lets-talk-containers/toptwolayers.jpg)
 
 The top two layers are where I want to be (from a developers point of view), all that other stuff is just extra bagage.
 

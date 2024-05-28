@@ -23,7 +23,7 @@ As a software developer I found that most of the talks we're a bit more on the O
 
 One thing stood out above the rest to my developer brain. Continuous [integration](https://en.wikipedia.org/wiki/Continuous_integration)/[delivery](https://en.wikipedia.org/wiki/Continuous_delivery). Automating your tests/deployments is a very good thing to have, but Cloud Foundry will let you really take it to the next level. As mentioned above, the platform and software methodology will let you deploy *REALLY* fast en *VERY* often, so often in fact, that could deploy straight into production if you wanted to. This is made possible because of speed and ease of deploying new things, but also because the platform can do all this without downtime! Something turned out not so great? No problem, just deploy a new fixed version of the misbehaving app and you're good to go again.
 
-![Cloud Foundry](cloudfoundry-summit-2015-berlin/cf.png)
+![Cloud Foundry](assets/cloudfoundry-summit-2015-berlin/cf.png)
 
 I think Cloud Foundry is a very cool product that can have a very positive effect on how a company develops and delivers their software and services. On the flip side there is a very big hurdle, companies that are building monoliths right now might not be so eager to abandon their current strategy and switch to micro-services and Cloud Foundry. The reason for this is that it is not just a technical change. Cloud Foundry has impact on a broader scale. Changing the way teams are set up and work together, getting rid of waterfall (or even worse, waterscrumfall) and becoming truly agile. That can seem daunting and would take quite some convincing to make an entire company switch.
 

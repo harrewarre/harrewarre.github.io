@@ -24,11 +24,11 @@ Nearing 30 hours played... not a single rocket was launched. I'm forever optimiz
 
 The thing with all these resources on conveyor belts is that the more stuff you move around, the more complex the network of belts becomes and when things go overboard, you end up with **spaghetti** just like when you write sloppy unplanned bundles of code! This creates all sorts of openings for improvement and optimization. Scaling things up is possible with faster assemblers and belts, but scaling out can become a problem when more stuff is needed further down the production line.
 
-![Spaghetti](a-game-for-programmers/factory4.jpg)
+![Spaghetti](assets/a-game-for-programmers/factory4.jpg)
 
 Later stages of the game bring you robots for transport and construction relieve the spaghetti problem a bit but you still have keep planning all the way through. With some proper structure the game will let you build the most elaborate factories with ridiculous outputs.
 
-![Newbase](a-game-for-programmers/factory5.png)
+![Newbase](assets/a-game-for-programmers/factory5.png)
 
 My 5th attempt some kind of order during early stages of production.
 

@@ -16,7 +16,7 @@ So after getting fed up with looking for possible fixes I spent a bit of time lo
 
 First things first, the `<dialog>` element isn't all that well supported. At the time or writing, [support looks like this](http://caniuse.com/#search=dialog).
 
-![Sad dialog is sad](the-dialog-element/dialoguse.PNG)
+![Sad dialog is sad](assets/the-dialog-element/dialoguse.PNG)
 
 Chrome and Opera have support for it, the rest is out... Sad times. **BUT!** I am very lucky, I only need to support a few versions of [Chromium](http://www.chromium.org/) (what Chrome is based on) running in kiosk mode and I *can* use the `<dialog>` element.
 

@@ -14,7 +14,7 @@ Here is a small problem I ran into while working on my current project. This pro
 <!-- more -->
 Adding the context to the codebase is no hassle, just create the new class and derive it from `DbContext`. The problem is in the [migrations](https://msdn.microsoft.com/en-us/data/jj591621.aspx). Entity Framework has a system that can track changes to the model and apply those changes to the actual database. To keep track of these changes, Entity Framework uses a table called `__MigrationHistory` where it stores all kinds of metadata about the model that it can compare to when you make changes to your entities in code.
 
-![__MigrationHistory table](multiple-dbcontexts-on-a-single-database/dbo_MigHist.png)
+![__MigrationHistory table](assets/multiple-dbcontexts-on-a-single-database/dbo_MigHist.png)
 
 If a second `DbContext` is added, and I enable migrations on it, it will create a second `__MigrationHistory` table. That's not going to work because that table already exists and contains migration data from the **other**  `DbContext`!
 

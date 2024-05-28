@@ -17,7 +17,7 @@ The app also needs a few settings for it to do its work. We provide these via en
 
 But why?? The [spec](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.2#hierarchical-configuration-data) is pretty clear on how to write the keys for the settings in such a way that .net understands them.
 
-![Settings](netcore-az-container-environment/settings.png)
+![Settings](assets/netcore-az-container-environment/settings.png)
 
 So the secret sauce to this problem is replacing `:` in the settings for your app with `__` (that's 2 underscores). I managed to get to this by messing around (there were some other settings with just 1 `_` as well ...) and I wasn't able to find an official source for this.
 

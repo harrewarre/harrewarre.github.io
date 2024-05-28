@@ -18,7 +18,7 @@ So you did track every change properly? Good, lets get that list compiled (This 
 
 At the time of writing it is the 21st of May, 2015. Lets say we released a month ago (30 days, to make this an easy example). Go to the Work Items section of the Team Explorer in Visual Studio and create a new query. In my example I query for Tasks, Bugs, and Features. To get only the items that we changed after the previous release, we set the Change Date to **@Today - 30**, this will give us all bugs, tasks, and features that were changed after we last released a new version our software.
 
-![The TFS Work Item query](creating-release-notes-with-visual-studio-and-tfs/query.png)
+![The TFS Work Item query](assets/creating-release-notes-with-visual-studio-and-tfs/query.png)
 
 You can of course create any query that matches your preference for this, but I found this way working very nicely. You can export the list to Excel and clean it up a bit before sticking it in a PDF and bundling it with your software.
 

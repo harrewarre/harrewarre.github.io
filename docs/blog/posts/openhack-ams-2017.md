@@ -12,7 +12,7 @@ title: Openhack Amsterdam 2017
 
 So this hackathon/training thing popped up on my twitter feed a week before it actually started.
 <!-- more -->
-![Openhack](openhack-ams-2017/openhack-banner.jpeg)
+![Openhack](assets/openhack-ams-2017/openhack-banner.jpeg)
 It caught my attention because it mentioned Azure Service Fabric as one of the tech stacks (the other being Kubernetes)
 that would be the focus of the event. The event is Openhack that took place in Amsterdam from 9 to 11 october 2017.
 

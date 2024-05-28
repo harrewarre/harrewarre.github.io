@@ -26,17 +26,17 @@ Run this in a page where a video element is present and it will unlock the actua
 
 Before
 
-![Before running the code](edge-pip/edge-video.png)
+![Before running the code](assets/edge-pip/edge-video.png)
 
 After
 
-![Before running the code](edge-pip/edge-pip.png)
+![Before running the code](assets/edge-pip/edge-pip.png)
 
 ## Automate that
 
 Because I want this to easy-access and don't want to type this into the console every time, we can create a bookmarklet that will do this for us. Here's how you do it:
 
-![Create favorite](edge-pip/favorite.png)
+![Create favorite](assets/edge-pip/favorite.png)
 
 1. Create a new bookmark (from any page, we'll replace the url later)
 2. Edit the bookmark and give it a nice title

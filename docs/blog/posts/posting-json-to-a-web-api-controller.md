@@ -77,6 +77,6 @@ In all `.ts` files where you want to use your new `$.postJson(...)` function.
 
 Because we extended the existing jQuery definition, everything still works as expected and your new function is now strong-typed as well and opens the door for more advanced `postJson` functions if you want.
 
-![postJson function](posting-json-to-a-web-api-controller/postJson.png)
+![postJson function](assets/posting-json-to-a-web-api-controller/postJson.png)
 
 So in the end we turned a common copy-paste piece of code into a nice helper method that we can maintain in one single place with all the benefits of TypeScripts strong typing.

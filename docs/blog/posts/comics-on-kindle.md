@@ -25,7 +25,7 @@ This will take a little bit of time, depending on the size of the archives that 
 
 Once you have the Kindle prefered format, grab trusty old [Calibre](https://calibre-ebook.com/) and use it to send the e-books to your device!
 
-![Storm on Kindle](comics-on-kindle/kindle-comic.jpg)
+![Storm on Kindle](assets/comics-on-kindle/kindle-comic.jpg)
 
 It took a little bit of google-fu but the result is pretty good. The screen of the Kindle Paperwhite I have is a bit on the small side for what I'm trying to read,
 but zooming and panning work very well. 
