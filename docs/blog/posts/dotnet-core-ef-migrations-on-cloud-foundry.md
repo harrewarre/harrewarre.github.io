@@ -65,7 +65,7 @@ To get the migrations rolling we still use `dotnet ef` tooling locally.
 dotnet ef migrations add MyMigration
 ```
 
-With migrations enabled, which work fine locally using the `dotnet ef` tools, I found that this setup doesn't really work using the `dotnet_core_buildpack on Cloud Foundry. After some searching and several attempts of using `dotnet ef` during the buildpack phase I gave up and went the custom route.
+With migrations enabled, which work fine locally using the `dotnet ef` tools, I found that this setup doesn't really work using the `dotnet_core_buildpack` on Cloud Foundry. After some searching and several attempts of using `dotnet ef` during the buildpack phases I gave up and went the custom route.
 
 The code (that lives in `Program.cs`) below will take the startup code down a different branch when the `--migrate` argument is passed to the application. Because all the services and configuration are registered we can request our factory from the initialized service collection and grab an instance of our `DbContext` instance. Using this context we can apply all pending migrations using the `context.Database.Migrate()` method.
 
