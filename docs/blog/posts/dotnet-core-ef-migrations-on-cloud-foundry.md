@@ -13,8 +13,7 @@ Run database migrations on Cloud Foundry using a task to ensure that migrations 
 <!-- more -->
 
 Instead of depending on dotnet tooling (`dotnet-ef`), leverage the built-in migration capability of the DataContext. Interrupt the startup procedure when a special argument is passed in, instead of starting the web application, run the migrations and then exit.
-
-Have a DbContext:
+So here we go, to start we need a DbContext:
 ```c#
 using Microsoft.EntityFrameworkCore;  
   
@@ -56,8 +55,7 @@ public class MyDbContextFactory(IConfiguration configuration) : IMyDbContextFact
     }}
 ```
 
-Enable migrations, this will work locally, but I had no clue on how to get this working through the Cloud Foundry buildpack, which inspired this post.
-
+Service registration that gives us access to the factory:
 ```c#
 builder.Services.AddSingleton<IMyDbContextFactory, MyDbContextFactory>();
 ```
@@ -66,6 +64,8 @@ To get the migrations rolling we still use `dotnet ef` tooling locally.
 ```bash
 dotnet ef migrations add MyMigration
 ```
+
+With migrations enabled, which work fine locally using the `dotnet ef` tools, I found that this setup doesn't really work using the `dotnet_core_buildpack on Cloud Foundry. After some searching and several attempts of using `dotnet ef` during the buildpack phase I gave up and went the custom route.
 
 The code (that lives in `Program.cs`) below will take the startup code down a different branch when the `--migrate` argument is passed to the application. Because all the services and configuration are registered we can request our factory from the initialized service collection and grab an instance of our `DbContext` instance. Using this context we can apply all pending migrations using the `context.Database.Migrate()` method.
 
