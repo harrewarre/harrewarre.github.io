@@ -22,7 +22,7 @@ namespace MyApp.Secondary;
   
 public class MyDbContext : DbContext  
 {  
-    public MyDbContext(DbContextOptions<PolicyServerDbContext> options)  
+    public MyDbContext(DbContextOptions<MyDbContext> options)  
         : base(options)  
     { }
     
@@ -47,7 +47,7 @@ public class MyDbContextFactory(IConfiguration configuration) : IMyDbContextFact
     {
 	    var services = new VcapServices(configuration);  
         var connectionString = services.GetPostGresConnectionString("my-database-service");  
-        var optionsBuilder = new DbContextOptionsBuilder<PolicyServerDbContext>();  
+        var optionsBuilder = new DbContextOptionsBuilder<MyDbContext>();  
         optionsBuilder            
 	        .UseNpgsql(connectionString)  
             .UseSnakeCaseNamingConvention();  
