@@ -23,6 +23,7 @@ theme:
     - content.code.copy
   icon:
     logo: material/code-block-tags
+  custom_dir: overrides
 
 plugins:
   - blog:
@@ -65,3 +66,5 @@ extra:
       link: https://hachyderm.io/@harre
     - icon: fontawesome/solid/rss
       link: feed_rss_created.xml
+  analytics:
+    provider: custom
