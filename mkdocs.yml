@@ -2,8 +2,8 @@ site_name: harre.dev
 site_url: https://harre.dev
 site_description: harre.dev - A collection of thoughts and ideas
 
-repo_name: "harrewarre/harre-dev"
-repo_url: "https://github.com/harrewarre/harrewarre.github.io"
+#repo_name: "harrewarre/harre-dev"
+#repo_url: "https://github.com/harrewarre/harrewarre.github.io"
 
 copyright: Copyright &copy; harre.dev
 
@@ -12,7 +12,7 @@ theme:
   favicon: "assets/favicon.ico"
   palette:
     scheme: slate
-    primary: black
+    primary: blue grey
     accent: yellow
   features:
     - navigation.indexes
@@ -64,6 +64,8 @@ extra:
   social:
     - icon: fontawesome/brands/mastodon
       link: https://hachyderm.io/@harre
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/sharrewijnen/
     - icon: fontawesome/solid/rss
       link: feed_rss_created.xml
   analytics:

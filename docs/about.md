@@ -22,7 +22,7 @@ About me!
 
 ## Sander Harrewijnen
 
-Hey, I'm a full-time software developer interested in a wide variety of technological topics with a special place for better software practices.
+Hey, I'm a full-time software developer interested in a wide variety of technological topics with a special place for better software practices. I work at ITQ and my role can best be described as Developer Advocate towards developer communities at our customers.
 
 ![A picture of me giving a talk](assets/images/itme.png)
 

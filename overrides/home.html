@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block styles %}
+{{ super() }}
+<style>
+    .custom-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .itme {
+        display: inline-block;
+        border-radius: 50%;
+        height: 250px;
+        width: 250px;
+    }
+    
+    .centered-text {
+        text-align: center;
+        font-size: 22px;
+    }
+    
+    .link-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+    }
+    
+    .big-link {
+        border: 1px solid #909090;
+        font-size: 22px;
+        padding: 5px 10px;
+        border-radius: 5px;
+        margin: 5px 15px;
+        text-align: center;
+        min-width: 90px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="custom-container">
+    <h1>harre.dev</h1>
+    <img class="itme" src="assets/head.png" alt="It me!">
+    <p class="centered-text">A collection of thoughts, guides, some do-it-yourself stuff around cloud native stuff and programming and other things I find interesting.<br>Mostly developer related but definitely also some personal stuff.</p>
+    <p class="centered-text">Jump straight into the content or read a little bit more about me.</p>
+    <div class="link-row">
+        <a class="big-link" href="/blog/">Blog</a> <a class="big-link" href="/about/">About</a>
+    </div>
+</div>
+{% endblock %}
