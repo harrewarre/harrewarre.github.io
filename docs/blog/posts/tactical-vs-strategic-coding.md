@@ -6,6 +6,8 @@ tags:
 - practices
 - devrel
 title: Tactical versus strategic coding
+categories: 
+- code-compass
 ---
 # Tactical versus strategic coding
 

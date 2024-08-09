@@ -5,6 +5,8 @@ tags:
 - devops
 - developer experience
 title: Paved road - Deployments
+categories:
+  - code-compass
 ---
 # Paved road - Deployments
 

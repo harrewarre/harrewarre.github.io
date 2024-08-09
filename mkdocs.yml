@@ -22,7 +22,7 @@ theme:
     - navigation.expand
     - content.code.copy
   icon:
-    logo: material/code-block-tags
+    logo: fontawesome/regular/compass
   custom_dir: overrides
 
 plugins:
@@ -34,6 +34,7 @@ plugins:
       archive_name: Archive
       archive_date_format: yyyy
       post_excerpt: required
+      categories_url_format: "category/{slug}"
   - rss:
       match_path: blog/posts/.*
       date_from_meta:
@@ -49,6 +50,7 @@ nav:
   - Blog:
     - "blog/index.md"
   - About: "about.md"
+  - Code Compass: "code-compass.md"
 
 markdown_extensions:
   - pymdownx.highlight:

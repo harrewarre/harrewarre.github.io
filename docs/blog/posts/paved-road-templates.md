@@ -5,6 +5,8 @@ tags:
 - devops
 - developer experience
 title: Paved road - Templates
+categories:
+  - code-compass
 ---
 # Paved road - Application Templates
 
