@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Recap on harre.dev</title>
-    <link>http://localhost:1313/tags/recap/</link>
+    <link>https://harre.dev/tags/recap/</link>
     <description>Recent content in Recap on harre.dev</description>
     <generator>Hugo</generator>
     <language>en-us</language>
@@ -10,12 +10,12 @@
     <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
     <lastBuildDate>Sun, 23 Dec 2018 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/recap/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://harre.dev/tags/recap/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>2018</title>
-      <link>http://localhost:1313/blog/twenty-eighteen/</link>
+      <link>https://harre.dev/blog/twenty-eighteen/</link>
       <pubDate>Sun, 23 Dec 2018 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
-      <guid>http://localhost:1313/blog/twenty-eighteen/</guid>
+      <guid>https://harre.dev/blog/twenty-eighteen/</guid>
       <description>&lt;p&gt;The year is almost over and I thought I&amp;rsquo;d write a little recap of this past year.&lt;/p&gt;&#xA;&lt;h2 id=&#34;work-stuff&#34;&gt;Work stuff&lt;/h2&gt;&#xA;&lt;p&gt;The project that I&amp;rsquo;ve been part of for well over 2 years has ended, one of those happy-and-sad moments. It was great fun building something&#xA;that was facing the public internet for all to use. With great purpose as well, this project was the Dutch Foreign Affairs information service.&#xA;Built and brought to production both v1 and v2 in those 2 years. Feels good man. The new year will bring a new project, but what it will be, I don&amp;rsquo;t know yet.&lt;/p&gt;</description>
     </item>
   </channel>

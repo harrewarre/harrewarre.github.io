@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Gaming on harre.dev</title>
-    <link>http://localhost:1313/tags/gaming/</link>
+    <link>https://harre.dev/tags/gaming/</link>
     <description>Recent content in Gaming on harre.dev</description>
     <generator>Hugo</generator>
     <language>en-us</language>
@@ -10,40 +10,40 @@
     <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
     <lastBuildDate>Sat, 29 Jul 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/gaming/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://harre.dev/tags/gaming/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Gaming on your phone</title>
-      <link>http://localhost:1313/blog/mobile-phone-games/</link>
+      <link>https://harre.dev/blog/mobile-phone-games/</link>
       <pubDate>Sat, 29 Jul 2023 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
-      <guid>http://localhost:1313/blog/mobile-phone-games/</guid>
+      <guid>https://harre.dev/blog/mobile-phone-games/</guid>
       <description>&lt;p&gt;Time for something else for a change. Games! Summer vacation is here and you&amp;rsquo;re going to be away from your computer for a while. You still want to play some games, but you don&amp;rsquo;t want to lug around your laptop.&lt;/p&gt;&#xA;&lt;p&gt;Mobile phone gaming is kind of a trash fire with a few gems hidden here and there. To make your life a bit easier, here are my favorites to get you started.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Valheim public-test server</title>
-      <link>http://localhost:1313/blog/valheim-public-test-server/</link>
+      <link>https://harre.dev/blog/valheim-public-test-server/</link>
       <pubDate>Wed, 23 Nov 2022 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
-      <guid>http://localhost:1313/blog/valheim-public-test-server/</guid>
+      <guid>https://harre.dev/blog/valheim-public-test-server/</guid>
       <description>&lt;p&gt;&lt;strong&gt;UPDATE&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;The testing appears to be done and is now part of the regular version of the game. This is still a handy guide for any future betas though.&lt;/p&gt;&#xA;&lt;p&gt;Here&amp;rsquo;s a cool update for &lt;a href=&#34;valheim-linux-server.md&#34;&gt;your Valheim linux server&lt;/a&gt; if you&amp;rsquo;re up from some beta testing.&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;The Valheim devs announced the Mistlands update and we can all get in on the action early through a beta branch on Steam (and GamePass). You can find out more about the update &lt;a href=&#34;https://valheim.com/news/mistlands-public-test/&#34;&gt;here&lt;/a&gt; and there&amp;rsquo;s a nice trailer &lt;a href=&#34;https://youtu.be/cZOuBjvETR8&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Valheim server on Linux</title>
-      <link>http://localhost:1313/blog/valheim-linux-server/</link>
+      <link>https://harre.dev/blog/valheim-linux-server/</link>
       <pubDate>Sun, 12 Sep 2021 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
-      <guid>http://localhost:1313/blog/valheim-linux-server/</guid>
+      <guid>https://harre.dev/blog/valheim-linux-server/</guid>
       <description>&lt;p&gt;Here is a step-by-step guide for setting up a &lt;a href=&#34;https://store.steampowered.com/app/892970/Valheim/&#34;&gt;Valheim&lt;/a&gt; server on Linux. Having done it twice now I thought it would be a good idea to capture this somewhere so that next time I don&amp;rsquo;t have to look any of this up again.&lt;/p&gt;&#xA;&lt;p&gt;The only assumptions being made here is that your server is running Ubuntu of some semi-recent version and a basic understanding of Linux.&lt;/p&gt;&#xA;&lt;h2 id=&#34;steamcmd&#34;&gt;SteamCMD&lt;/h2&gt;&#xA;&lt;p&gt;The &lt;a href=&#34;https://developer.valvesoftware.com/wiki/SteamCMD&#34;&gt;SteamCMD&lt;/a&gt; utility from Valve will help us install the gamefiles on the server.&#xA;Follow the instructions on the &lt;a href=&#34;https://developer.valvesoftware.com/wiki/SteamCMD#Linux.2FmacOS&#34;&gt;wiki&lt;/a&gt; to get it up and running.&lt;/p&gt;</description>
     </item>
     <item>
       <title>An underrated feature in Mario Kart 8 Deluxe</title>
-      <link>http://localhost:1313/blog/underrated-feature-in-mario-kart-deluxe/</link>
+      <link>https://harre.dev/blog/underrated-feature-in-mario-kart-deluxe/</link>
       <pubDate>Tue, 25 Jul 2017 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
-      <guid>http://localhost:1313/blog/underrated-feature-in-mario-kart-deluxe/</guid>
+      <guid>https://harre.dev/blog/underrated-feature-in-mario-kart-deluxe/</guid>
       <description>&lt;h1 id=&#34;an-underrated-feature-in-mario-kart-8-deluxe&#34;&gt;An underrated feature in Mario Kart 8 Deluxe&lt;/h1&gt;&#xA;&lt;p&gt;I recently became the owner of a Nintendo Switch and with it, Mario Kart 8 Deluxe.&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;&lt;img src=&#34;mk8-screen.jpg&#34; alt=&#34;Mario Kart 8 Deluxe&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Having played a bunch of Mario kart games in the past, I knew the basic mechanics of the game such as using the items you find and drifting through turns to gain boost. It was around the fourth or so race&#xA;that my spidey-sense tingled enough for me to look into it. I had noticed the karts felt a little bit floaty when steering and not always do the &lt;em&gt;exact&lt;/em&gt; thing I wanted them to do.&lt;/p&gt;</description>
     </item>
     <item>
       <title>A game for programmers</title>
-      <link>http://localhost:1313/blog/a-game-for-programmers/</link>
+      <link>https://harre.dev/blog/a-game-for-programmers/</link>
       <pubDate>Wed, 08 Feb 2017 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
-      <guid>http://localhost:1313/blog/a-game-for-programmers/</guid>
+      <guid>https://harre.dev/blog/a-game-for-programmers/</guid>
       <description>&lt;p&gt;I play video games occasionally, and I&amp;rsquo;ve recently discovered a game (that was in my Steam library for quite some time already) that gives me the same sensation as when I&amp;rsquo;m programming.&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;The game I&amp;rsquo;m talking about is &lt;a href=&#34;http://store.steampowered.com/app/427520/&#34;&gt;Factorio&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;The goal of the game is simple, build a factory that produces all the required parts necessary to launch a rocket that carries a satellite into space. Building the factory is what made me fall in love with this game.&lt;/p&gt;</description>
     </item>
   </channel>

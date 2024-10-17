@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>RSS on harre.dev</title>
-    <link>http://localhost:1313/tags/rss/</link>
+    <link>https://harre.dev/tags/rss/</link>
     <description>Recent content in RSS on harre.dev</description>
     <generator>Hugo</generator>
     <language>en-us</language>
@@ -10,12 +10,12 @@
     <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
     <lastBuildDate>Sun, 26 Apr 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/rss/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://harre.dev/tags/rss/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Generating an RSS feed in C#</title>
-      <link>http://localhost:1313/blog/generating-an-rss-feed-in-c/</link>
+      <link>https://harre.dev/blog/generating-an-rss-feed-in-c/</link>
       <pubDate>Sun, 26 Apr 2015 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
-      <guid>http://localhost:1313/blog/generating-an-rss-feed-in-c/</guid>
+      <guid>https://harre.dev/blog/generating-an-rss-feed-in-c/</guid>
       <description>&lt;p&gt;A hobby project of mine needed to generate an RSS feed. I was already doing this by just generating and XML file in the webroot and linking to that on the frontpage. But during this coding session, where all the data is pulled straight from the markdown files I wanted to create a controller action to do the generating for me.&lt;/p&gt;&#xA;&lt;p&gt;First things first, there is an assembly available out of the box in the .NET Framework. All you need is to make reference to &lt;strong&gt;System.ServiceModel.Syndication&lt;/strong&gt; and you are ready to start writing code. The classes we are using are&lt;/p&gt;</description>
     </item>
   </channel>

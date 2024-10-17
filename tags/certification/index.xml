@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Certification on harre.dev</title>
-    <link>http://localhost:1313/tags/certification/</link>
+    <link>https://harre.dev/tags/certification/</link>
     <description>Recent content in Certification on harre.dev</description>
     <generator>Hugo</generator>
     <language>en-us</language>
@@ -10,19 +10,19 @@
     <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
     <lastBuildDate>Thu, 28 Jun 2018 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/certification/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://harre.dev/tags/certification/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Pivotal Cloud Foundry Certified Developer</title>
-      <link>http://localhost:1313/blog/pivotalcf-certification/</link>
+      <link>https://harre.dev/blog/pivotalcf-certification/</link>
       <pubDate>Thu, 28 Jun 2018 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
-      <guid>http://localhost:1313/blog/pivotalcf-certification/</guid>
+      <guid>https://harre.dev/blog/pivotalcf-certification/</guid>
       <description>&lt;p&gt;With all the knowledge built up for my &lt;a href=&#34;cfcd-certification.md&#34;&gt;CFCD&lt;/a&gt; exam I did earlier I took another Cloud Foundry exam. The Pivotal flavor this time.&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;Not as involved as the other Cloud Foundry exam I did but still a wide variety of questions. I&amp;rsquo;m not sure if I screwed up all the Metrics questions, or that there was only 1 that I got incorrect.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;pivotalcfresult.png&#34; alt=&#34;Exam results&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Still really happy with the result.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Cloud Foundry Certified Developer</title>
-      <link>http://localhost:1313/blog/cfcd-certification/</link>
+      <link>https://harre.dev/blog/cfcd-certification/</link>
       <pubDate>Mon, 09 Apr 2018 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
-      <guid>http://localhost:1313/blog/cfcd-certification/</guid>
+      <guid>https://harre.dev/blog/cfcd-certification/</guid>
       <description>&lt;p&gt;Hey look, I got certified in something :-)&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;cert.png&#34; alt=&#34;CFCD Certificate&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;After a good few nights of self-paced training and practice over at &lt;a href=&#34;https://run.pivotal.io&#34;&gt;Pivotal&lt;/a&gt; I felt confident enough and took the CFCD exam. As you can see&#xA;above, I passed!&lt;/p&gt;</description>
     </item>
   </channel>

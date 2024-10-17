@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Spotify on harre.dev</title>
-    <link>http://localhost:1313/tags/spotify/</link>
+    <link>https://harre.dev/tags/spotify/</link>
     <description>Recent content in Spotify on harre.dev</description>
     <generator>Hugo</generator>
     <language>en-us</language>
@@ -10,12 +10,12 @@
     <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
     <lastBuildDate>Fri, 09 Oct 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/spotify/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://harre.dev/tags/spotify/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Read Spotify track info using C#</title>
-      <link>http://localhost:1313/blog/reading-spotify-track-info-from-the-desktop-app/</link>
+      <link>https://harre.dev/blog/reading-spotify-track-info-from-the-desktop-app/</link>
       <pubDate>Fri, 09 Oct 2015 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
-      <guid>http://localhost:1313/blog/reading-spotify-track-info-from-the-desktop-app/</guid>
+      <guid>https://harre.dev/blog/reading-spotify-track-info-from-the-desktop-app/</guid>
       <description>&lt;p&gt;Spotify recently updated the desktop app again and it is once again possible to read current track info directly from it. Here is how you to read it using a little C# code.&lt;/p&gt;&#xA;&lt;p&gt;A tiny little disclaimer, Spotify can break this code by updating their desktop app. It&amp;rsquo;ll work now, but if they remove the track info from the title again, things won&amp;rsquo;t work anymore.&lt;/p&gt;&#xA;&lt;p&gt;So the current track is hidden somewhere, let&amp;rsquo;s find out where it is.&lt;/p&gt;</description>
     </item>
   </channel>

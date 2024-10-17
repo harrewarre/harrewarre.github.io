@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Node on harre.dev</title>
-    <link>http://localhost:1313/tags/node/</link>
+    <link>https://harre.dev/tags/node/</link>
     <description>Recent content in Node on harre.dev</description>
     <generator>Hugo</generator>
     <language>en-us</language>
@@ -10,12 +10,12 @@
     <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
     <lastBuildDate>Fri, 03 Jun 2016 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/node/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://harre.dev/tags/node/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Express route management</title>
-      <link>http://localhost:1313/blog/expressjs-route-management/</link>
+      <link>https://harre.dev/blog/expressjs-route-management/</link>
       <pubDate>Fri, 03 Jun 2016 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
-      <guid>http://localhost:1313/blog/expressjs-route-management/</guid>
+      <guid>https://harre.dev/blog/expressjs-route-management/</guid>
       <description>&lt;p&gt;Setting up a webserver with Node and &lt;a href=&#34;http://expressjs.com/&#34;&gt;Express&lt;/a&gt; is easy very easy.&lt;/p&gt;&#xA;&lt;p&gt;Here is a small example:&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;var express = require(&amp;quot;express&amp;quot;);&#xA;var app = express();&#xA;&#xA;app.get(&amp;quot;/&amp;quot;, function (request, response) {&#xA;&#x9;response.send(&amp;quot;Hello world!&amp;quot;);&#xA;});&#xA;&#xA;app.listen(3000);&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;Running this and navigating to &lt;code&gt;http://localhost:3000&lt;/code&gt; will give you the following result:&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;hw.png&#34; alt=&#34;Hello world&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;If you only have a few of those endpoints (&lt;code&gt;app.get&lt;/code&gt; etc.) things will be fine living in the same &lt;code&gt;index.js&lt;/code&gt; file. But what if this starts growing? You add more and more endpoints to your &lt;code&gt;index.js&lt;/code&gt; and before you know it you have a 1500 line Javascript mess. Here is a good way of tackling that problem before it rears its head.&lt;/p&gt;</description>
     </item>
   </channel>

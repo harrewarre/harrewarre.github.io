@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dependency Injection on harre.dev</title>
-    <link>http://localhost:1313/tags/dependency-injection/</link>
+    <link>https://harre.dev/tags/dependency-injection/</link>
     <description>Recent content in Dependency Injection on harre.dev</description>
     <generator>Hugo</generator>
     <language>en-us</language>
@@ -10,19 +10,19 @@
     <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
     <lastBuildDate>Sun, 26 Apr 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/dependency-injection/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://harre.dev/tags/dependency-injection/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Getting started with Inversion of Control</title>
-      <link>http://localhost:1313/blog/inversion-of-control-dive/</link>
+      <link>https://harre.dev/blog/inversion-of-control-dive/</link>
       <pubDate>Sun, 26 Apr 2015 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
-      <guid>http://localhost:1313/blog/inversion-of-control-dive/</guid>
+      <guid>https://harre.dev/blog/inversion-of-control-dive/</guid>
       <description>&lt;p&gt;Alright, lets dive straight into the deep end! &amp;hellip; ok, but not drown in the process of doing so. One step at a time. Lets&amp;rsquo;s start with an example.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-technical-side&#34;&gt;The technical side&lt;/h2&gt;&#xA;&lt;p&gt;Here is some code:&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;public class Foo&#xA;{&#xA;    private readonly Bar bar;&#xA;&#xA;    public Foo()&#xA;    {&#xA;        this.bar = new Bar();&#xA;    }&#xA;}&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;To create an instance of Foo we write&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;Foo theFoo = new Foo();&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;In this example we have two classes, Foo and Bar. Foo makes use of a Bar to do some work. When a Foo instance is created the creator of the Foo instance has no control over what kind of Bar the Foo instance is going to use. They are stuck together. This code is completely valid but what if we want to let the creator of Foo &lt;strong&gt;control&lt;/strong&gt; the kind of Bar that is used? We have to invert control! Here is the same code with it&amp;rsquo;s control flow inverted:&lt;/p&gt;</description>
     </item>
     <item>
       <title>SignalR dependency injection</title>
-      <link>http://localhost:1313/blog/signalr-dependency-injection/</link>
+      <link>https://harre.dev/blog/signalr-dependency-injection/</link>
       <pubDate>Sun, 26 Apr 2015 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
-      <guid>http://localhost:1313/blog/signalr-dependency-injection/</guid>
+      <guid>https://harre.dev/blog/signalr-dependency-injection/</guid>
       <description>&lt;p&gt;My go-to container for IoC at the moment is &lt;a href=&#34;https://simpleinjector.codeplex.com/&#34;&gt;SimpleInjector&lt;/a&gt; because you know.. it&amp;rsquo;s simple. I&amp;rsquo;ve used it in a couple of projects and used in a hobby project recently again.&lt;/p&gt;&#xA;&lt;p&gt;This hobby project uses &lt;a href=&#34;http://www.asp.net/signalr&#34;&gt;SignalR&lt;/a&gt; for real-time communication between browser and server and after setting that up I wanted to inject dependencies in to the SignalR hubs. It is pretty easy but there was a minor catch. Let&amp;rsquo;s look at some code.&lt;/p&gt;</description>
     </item>
   </channel>

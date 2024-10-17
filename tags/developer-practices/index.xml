@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Developer Practices on harre.dev</title>
-    <link>http://localhost:1313/tags/developer-practices/</link>
+    <link>https://harre.dev/tags/developer-practices/</link>
     <description>Recent content in Developer Practices on harre.dev</description>
     <generator>Hugo</generator>
     <language>en-us</language>
@@ -10,12 +10,12 @@
     <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
     <lastBuildDate>Tue, 18 Oct 2022 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/developer-practices/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://harre.dev/tags/developer-practices/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>It all starts with smaller stories</title>
-      <link>http://localhost:1313/blog/start-with-small-stories/</link>
+      <link>https://harre.dev/blog/start-with-small-stories/</link>
       <pubDate>Tue, 18 Oct 2022 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
-      <guid>http://localhost:1313/blog/start-with-small-stories/</guid>
+      <guid>https://harre.dev/blog/start-with-small-stories/</guid>
       <description>&lt;p&gt;I think most developers have experienced a taks sitting in progress for days or even weeks (or&amp;hellip; months!) on end. This long running work eventually gets merged and released but it turns out it&amp;rsquo;s the wrong thing and a large part needs rework.&lt;/p&gt;&#xA;&lt;p&gt;The solution to this struggle is two-fold. The first half is getting invested in your customers. Talk to them, establish a good relation with the people that actually use the product you are building. Find out what they really need. This practice is known as User Centered Design and while I find it very interesting, it&amp;rsquo;s not the topic of this post. We&amp;rsquo;re looking at the other half, breaking down work into smaller pieces and the result of doing so.&lt;/p&gt;</description>
     </item>
   </channel>

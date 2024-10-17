@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Containers on harre.dev</title>
-    <link>http://localhost:1313/tags/containers/</link>
+    <link>https://harre.dev/tags/containers/</link>
     <description>Recent content in Containers on harre.dev</description>
     <generator>Hugo</generator>
     <language>en-us</language>
@@ -10,19 +10,19 @@
     <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
     <lastBuildDate>Sat, 04 May 2019 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/containers/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://harre.dev/tags/containers/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Environment variables in an Azure Web App for Containers</title>
-      <link>http://localhost:1313/blog/netcore-az-container-environment/</link>
+      <link>https://harre.dev/blog/netcore-az-container-environment/</link>
       <pubDate>Sat, 04 May 2019 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
-      <guid>http://localhost:1313/blog/netcore-az-container-environment/</guid>
+      <guid>https://harre.dev/blog/netcore-az-container-environment/</guid>
       <description>&lt;p&gt;Here&amp;rsquo;s a little gotcha I ran into. A .net core app I wrote needs to run inside a container and the target was a Web App for Containers on the Azure platform. No big deal so far.&lt;/p&gt;&#xA;&lt;p&gt;The app also needs a few settings for it to do its work. We provide these via environment variables for maximum flexibility. After setting up some CI/CD stuff and deploying the app it wouldn&amp;rsquo;t start because it wasn&amp;rsquo;t loading the settings.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Let&#39;s talk containers</title>
-      <link>http://localhost:1313/blog/lets-talk-containers/</link>
+      <link>https://harre.dev/blog/lets-talk-containers/</link>
       <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
-      <guid>http://localhost:1313/blog/lets-talk-containers/</guid>
+      <guid>https://harre.dev/blog/lets-talk-containers/</guid>
       <description>&lt;p&gt;A recent talk by one of my buddies at ITQ sparked something and I thought I&amp;rsquo;d share that with you. It&amp;rsquo;s about containers and where they sit in a software developer point of view.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-platform-stack&#34;&gt;The platform stack&lt;/h2&gt;&#xA;&lt;p&gt;The thing that caused the spark was this image:&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;stack.jpg&#34; alt=&#34;The platform stack&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Here we have a rough outline of the platform abstractions we currently see in the wild. Let&amp;rsquo;s start at the bottom.&lt;/p&gt;</description>
     </item>
   </channel>

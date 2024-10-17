@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Agility on harre.dev</title>
-    <link>http://localhost:1313/tags/agility/</link>
+    <link>https://harre.dev/tags/agility/</link>
     <description>Recent content in Agility on harre.dev</description>
     <generator>Hugo</generator>
     <language>en-us</language>
@@ -10,19 +10,19 @@
     <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
     <lastBuildDate>Wed, 02 Oct 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/agility/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://harre.dev/tags/agility/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Are you failing enough?</title>
-      <link>http://localhost:1313/blog/are-you-failing-enough/</link>
+      <link>https://harre.dev/blog/are-you-failing-enough/</link>
       <pubDate>Wed, 02 Oct 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
-      <guid>http://localhost:1313/blog/are-you-failing-enough/</guid>
+      <guid>https://harre.dev/blog/are-you-failing-enough/</guid>
       <description>&lt;p&gt;The process of creating software, compared to other manufacturing processes, is a little bit special. One unique property of a software product is that it can be changed easily and (relatively) cheaply.&lt;/p&gt;&#xA;&lt;p&gt;Over in the physical world, changing a product is not so easy. Supply chains, inventory, machinery, whole factories, who knows what&amp;rsquo;s involved that is either difficult to change quickly and/or prohibitively expensive to change.&lt;/p&gt;&#xA;&lt;p&gt;So what about this failing more often? Well if you have the ability to quickly change your software product, you can also run A LOT of experiments!&lt;/p&gt;</description>
     </item>
     <item>
       <title>It all starts with smaller stories</title>
-      <link>http://localhost:1313/blog/start-with-small-stories/</link>
+      <link>https://harre.dev/blog/start-with-small-stories/</link>
       <pubDate>Tue, 18 Oct 2022 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
-      <guid>http://localhost:1313/blog/start-with-small-stories/</guid>
+      <guid>https://harre.dev/blog/start-with-small-stories/</guid>
       <description>&lt;p&gt;I think most developers have experienced a taks sitting in progress for days or even weeks (or&amp;hellip; months!) on end. This long running work eventually gets merged and released but it turns out it&amp;rsquo;s the wrong thing and a large part needs rework.&lt;/p&gt;&#xA;&lt;p&gt;The solution to this struggle is two-fold. The first half is getting invested in your customers. Talk to them, establish a good relation with the people that actually use the product you are building. Find out what they really need. This practice is known as User Centered Design and while I find it very interesting, it&amp;rsquo;s not the topic of this post. We&amp;rsquo;re looking at the other half, breaking down work into smaller pieces and the result of doing so.&lt;/p&gt;</description>
     </item>
   </channel>

@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pivotal on harre.dev</title>
-    <link>http://localhost:1313/tags/pivotal/</link>
+    <link>https://harre.dev/tags/pivotal/</link>
     <description>Recent content in Pivotal on harre.dev</description>
     <generator>Hugo</generator>
     <language>en-us</language>
@@ -10,19 +10,19 @@
     <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
     <lastBuildDate>Sat, 12 Oct 2019 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/pivotal/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://harre.dev/tags/pivotal/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SpringOne Platform 2019</title>
-      <link>http://localhost:1313/blog/sp1p-2019/</link>
+      <link>https://harre.dev/blog/sp1p-2019/</link>
       <pubDate>Sat, 12 Oct 2019 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
-      <guid>http://localhost:1313/blog/sp1p-2019/</guid>
+      <guid>https://harre.dev/blog/sp1p-2019/</guid>
       <description>&lt;p&gt;Pivotal organized another SpringOne conference this year, and the ITQ Cloud Native team hopped across the large pond into the Texes heat to attend.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;sp1p.jpg&#34; alt=&#34;SpringOne Platform by Pivotal&#34;&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;spring-for-the-net-dev&#34;&gt;Spring for the .net dev&lt;/h2&gt;&#xA;&lt;p&gt;While Spring is a Java thing, SteelToe is there for us .net folks. It&amp;rsquo;s getting a big shot of TLC with a new website and new and improved docs!&#xA;Creating microservices using .net got a bit easier than it already was with some new stuff such as actuators and service connectors.&#xA;Go have a look at the &lt;a href=&#34;https://www.steeltoe.io&#34;&gt;SteelToe website&lt;/a&gt; for all the ins and outs. (also, &lt;a href=&#34;https://start.steeltoe.io&#34;&gt;this&lt;/a&gt; exists to quickly start a new service)&lt;/p&gt;</description>
     </item>
     <item>
       <title>Pivotal Cloud Foundry Certified Developer</title>
-      <link>http://localhost:1313/blog/pivotalcf-certification/</link>
+      <link>https://harre.dev/blog/pivotalcf-certification/</link>
       <pubDate>Thu, 28 Jun 2018 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
-      <guid>http://localhost:1313/blog/pivotalcf-certification/</guid>
+      <guid>https://harre.dev/blog/pivotalcf-certification/</guid>
       <description>&lt;p&gt;With all the knowledge built up for my &lt;a href=&#34;cfcd-certification.md&#34;&gt;CFCD&lt;/a&gt; exam I did earlier I took another Cloud Foundry exam. The Pivotal flavor this time.&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;Not as involved as the other Cloud Foundry exam I did but still a wide variety of questions. I&amp;rsquo;m not sure if I screwed up all the Metrics questions, or that there was only 1 that I got incorrect.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;pivotalcfresult.png&#34; alt=&#34;Exam results&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Still really happy with the result.&lt;/p&gt;</description>
     </item>
   </channel>

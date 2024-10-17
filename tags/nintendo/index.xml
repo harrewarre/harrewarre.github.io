@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Nintendo on harre.dev</title>
-    <link>http://localhost:1313/tags/nintendo/</link>
+    <link>https://harre.dev/tags/nintendo/</link>
     <description>Recent content in Nintendo on harre.dev</description>
     <generator>Hugo</generator>
     <language>en-us</language>
@@ -10,12 +10,12 @@
     <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
     <lastBuildDate>Tue, 25 Jul 2017 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/nintendo/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://harre.dev/tags/nintendo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>An underrated feature in Mario Kart 8 Deluxe</title>
-      <link>http://localhost:1313/blog/underrated-feature-in-mario-kart-deluxe/</link>
+      <link>https://harre.dev/blog/underrated-feature-in-mario-kart-deluxe/</link>
       <pubDate>Tue, 25 Jul 2017 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
-      <guid>http://localhost:1313/blog/underrated-feature-in-mario-kart-deluxe/</guid>
+      <guid>https://harre.dev/blog/underrated-feature-in-mario-kart-deluxe/</guid>
       <description>&lt;h1 id=&#34;an-underrated-feature-in-mario-kart-8-deluxe&#34;&gt;An underrated feature in Mario Kart 8 Deluxe&lt;/h1&gt;&#xA;&lt;p&gt;I recently became the owner of a Nintendo Switch and with it, Mario Kart 8 Deluxe.&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;&lt;img src=&#34;mk8-screen.jpg&#34; alt=&#34;Mario Kart 8 Deluxe&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Having played a bunch of Mario kart games in the past, I knew the basic mechanics of the game such as using the items you find and drifting through turns to gain boost. It was around the fourth or so race&#xA;that my spidey-sense tingled enough for me to look into it. I had noticed the karts felt a little bit floaty when steering and not always do the &lt;em&gt;exact&lt;/em&gt; thing I wanted them to do.&lt;/p&gt;</description>
     </item>
   </channel>

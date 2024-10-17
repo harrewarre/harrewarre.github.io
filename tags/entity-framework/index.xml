@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Entity Framework on harre.dev</title>
-    <link>http://localhost:1313/tags/entity-framework/</link>
+    <link>https://harre.dev/tags/entity-framework/</link>
     <description>Recent content in Entity Framework on harre.dev</description>
     <generator>Hugo</generator>
     <language>en-us</language>
@@ -10,19 +10,19 @@
     <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
     <lastBuildDate>Mon, 10 Jun 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/entity-framework/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://harre.dev/tags/entity-framework/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Dotnet Core Entity Framework Migrations on Cloud Foundry</title>
-      <link>http://localhost:1313/blog/dotnet-ef-migrations-on-cloud-foundry/</link>
+      <link>https://harre.dev/blog/dotnet-ef-migrations-on-cloud-foundry/</link>
       <pubDate>Mon, 10 Jun 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
-      <guid>http://localhost:1313/blog/dotnet-ef-migrations-on-cloud-foundry/</guid>
+      <guid>https://harre.dev/blog/dotnet-ef-migrations-on-cloud-foundry/</guid>
       <description>&lt;p&gt;Run database migrations on Cloud Foundry using a task to ensure that migrations are only done once on deployment (and not during app start up!) for dotnet core applications. This post assumes you are deploying built applications and not raw source code.&lt;/p&gt;&#xA;&lt;p&gt;Instead of depending on dotnet tooling (&lt;code&gt;dotnet-ef&lt;/code&gt;), leverage the built-in migration capability of the DataContext. Interrupt the startup procedure when a special argument is passed in, instead of starting the web application, run the migrations and then exit.&#xA;So here we go, to start we need a DbContext:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Multiple DbContext&#39;s with migrations on a single database</title>
-      <link>http://localhost:1313/blog/multiple-dbcontexts-on-a-single-database/</link>
+      <link>https://harre.dev/blog/multiple-dbcontexts-on-a-single-database/</link>
       <pubDate>Wed, 02 Mar 2016 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
-      <guid>http://localhost:1313/blog/multiple-dbcontexts-on-a-single-database/</guid>
+      <guid>https://harre.dev/blog/multiple-dbcontexts-on-a-single-database/</guid>
       <description>&lt;p&gt;Here is a small problem I ran into while working on my current project. This project already has an Entity Framework &lt;a href=&#34;https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=vs.113).aspx&#34;&gt;&lt;code&gt;DbContext&lt;/code&gt;&lt;/a&gt; class with entities and a database. I&amp;rsquo;m adding a new feature but want to keep the changes as isolated as possible. So I wanted to create a second &lt;code&gt;DbContext&lt;/code&gt; that handles the entities specific to my new feature.&lt;/p&gt;&#xA;&lt;p&gt;Adding the context to the codebase is no hassle, just create the new class and derive it from &lt;code&gt;DbContext&lt;/code&gt;. The problem is in the &lt;a href=&#34;https://msdn.microsoft.com/en-us/data/jj591621.aspx&#34;&gt;migrations&lt;/a&gt;. Entity Framework has a system that can track changes to the model and apply those changes to the actual database. To keep track of these changes, Entity Framework uses a table called &lt;code&gt;__MigrationHistory&lt;/code&gt; where it stores all kinds of metadata about the model that it can compare to when you make changes to your entities in code.&lt;/p&gt;</description>
     </item>
   </channel>

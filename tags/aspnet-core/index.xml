@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Aspnet Core on harre.dev</title>
-    <link>http://localhost:1313/tags/aspnet-core/</link>
+    <link>https://harre.dev/tags/aspnet-core/</link>
     <description>Recent content in Aspnet Core on harre.dev</description>
     <generator>Hugo</generator>
     <language>en-us</language>
@@ -10,19 +10,19 @@
     <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
     <lastBuildDate>Fri, 11 Jan 2019 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/aspnet-core/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://harre.dev/tags/aspnet-core/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cloud Foundry configuration with SteelToe</title>
-      <link>http://localhost:1313/blog/netcore-steeltoe-config-loading/</link>
+      <link>https://harre.dev/blog/netcore-steeltoe-config-loading/</link>
       <pubDate>Fri, 11 Jan 2019 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
-      <guid>http://localhost:1313/blog/netcore-steeltoe-config-loading/</guid>
+      <guid>https://harre.dev/blog/netcore-steeltoe-config-loading/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve been playing around with the &lt;a href=&#34;https://steeltoe.io/&#34;&gt;SteelToe&lt;/a&gt; framework for .net apps on Cloud Foundry a bit and it&amp;rsquo;s been nice overall (I&amp;rsquo;ll probably write a few more posts about it at some point 😊). While playing around with it the configuration part of it I wasn&amp;rsquo;t really liking the way settings can be read from the main configuration.&lt;/p&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s start with a really short primer on how the configuration system works. Cloud Foundry apps can be bound to services, doing so adds a reference to the bound service in the environment variables of the app that was bound. You can take a look at what is provided to an applications environment by running&lt;/p&gt;</description>
     </item>
     <item>
       <title>Angular (5) and aspnet core (2) quickstart</title>
-      <link>http://localhost:1313/blog/angularcli-aspnetcore-quickstart/</link>
+      <link>https://harre.dev/blog/angularcli-aspnetcore-quickstart/</link>
       <pubDate>Tue, 02 Jan 2018 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
-      <guid>http://localhost:1313/blog/angularcli-aspnetcore-quickstart/</guid>
+      <guid>https://harre.dev/blog/angularcli-aspnetcore-quickstart/</guid>
       <description>&lt;p&gt;Here is a get-up-and-go style post to get going with the angular CLI and aspnet core. Before we begin, there is a template you can use to set (most, if not more) of this up, but it&amp;rsquo;s good to know what is going on behind the curtains.&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;h2 id=&#34;first-things-first&#34;&gt;First things first.&lt;/h2&gt;&#xA;&lt;p&gt;You need some tools installed to get the base project set up.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.microsoft.com/net/learn/get-started&#34;&gt;dotnet core SDK&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://nodejs.org/en/&#34;&gt;Node&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://cli.angular.io/&#34;&gt;angular-cli&lt;/a&gt; which we&amp;rsquo;ll install using NPM.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Open a command prompt and run the following command:&lt;/p&gt;</description>
     </item>
   </channel>

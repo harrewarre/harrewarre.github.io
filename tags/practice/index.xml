@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Practice on harre.dev</title>
-    <link>http://localhost:1313/tags/practice/</link>
+    <link>https://harre.dev/tags/practice/</link>
     <description>Recent content in Practice on harre.dev</description>
     <generator>Hugo</generator>
     <language>en-us</language>
@@ -10,19 +10,19 @@
     <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
     <lastBuildDate>Wed, 02 Oct 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/practice/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://harre.dev/tags/practice/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Are you failing enough?</title>
-      <link>http://localhost:1313/blog/are-you-failing-enough/</link>
+      <link>https://harre.dev/blog/are-you-failing-enough/</link>
       <pubDate>Wed, 02 Oct 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
-      <guid>http://localhost:1313/blog/are-you-failing-enough/</guid>
+      <guid>https://harre.dev/blog/are-you-failing-enough/</guid>
       <description>&lt;p&gt;The process of creating software, compared to other manufacturing processes, is a little bit special. One unique property of a software product is that it can be changed easily and (relatively) cheaply.&lt;/p&gt;&#xA;&lt;p&gt;Over in the physical world, changing a product is not so easy. Supply chains, inventory, machinery, whole factories, who knows what&amp;rsquo;s involved that is either difficult to change quickly and/or prohibitively expensive to change.&lt;/p&gt;&#xA;&lt;p&gt;So what about this failing more often? Well if you have the ability to quickly change your software product, you can also run A LOT of experiments!&lt;/p&gt;</description>
     </item>
     <item>
       <title>Your organization could use a cookbook</title>
-      <link>http://localhost:1313/blog/your-org-could-use-a-cookbook/</link>
+      <link>https://harre.dev/blog/your-org-could-use-a-cookbook/</link>
       <pubDate>Thu, 29 Aug 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
-      <guid>http://localhost:1313/blog/your-org-could-use-a-cookbook/</guid>
+      <guid>https://harre.dev/blog/your-org-could-use-a-cookbook/</guid>
       <description>&lt;p&gt;That is&amp;hellip; if you don&amp;rsquo;t have one yet of course.&lt;/p&gt;&#xA;&lt;p&gt;A self-service effort is not complete without proper documentation. You could store that inside the repository with the code that makes up the service, but that could make it harder to find. And what if you have a bunch of services that all have their own docs? It&amp;rsquo;ll be completely scattered. To make knowledge easily find-able, and even searchable, a central knowledge base is the solution. In other words&amp;hellip; a cookbook!&lt;/p&gt;</description>
     </item>
   </channel>

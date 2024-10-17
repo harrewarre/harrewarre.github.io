@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Microsoft on harre.dev</title>
-    <link>http://localhost:1313/tags/microsoft/</link>
+    <link>https://harre.dev/tags/microsoft/</link>
     <description>Recent content in Microsoft on harre.dev</description>
     <generator>Hugo</generator>
     <language>en-us</language>
@@ -10,12 +10,12 @@
     <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
     <lastBuildDate>Sat, 14 Oct 2017 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/microsoft/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://harre.dev/tags/microsoft/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Openhack Amsterdam 2017</title>
-      <link>http://localhost:1313/blog/openhack-ams-2017/</link>
+      <link>https://harre.dev/blog/openhack-ams-2017/</link>
       <pubDate>Sat, 14 Oct 2017 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
-      <guid>http://localhost:1313/blog/openhack-ams-2017/</guid>
+      <guid>https://harre.dev/blog/openhack-ams-2017/</guid>
       <description>&lt;p&gt;So this hackathon/training thing popped up on my twitter feed a week before it actually started.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;openhack-banner.jpeg&#34; alt=&#34;Openhack&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;It caught my attention because it mentioned Azure Service Fabric as one of the tech stacks (the other being Kubernetes)&#xA;that would be the focus of the event. The event is Openhack that took place in Amsterdam from 9 to 11 october 2017.&lt;/p&gt;&#xA;&lt;p&gt;So Azure Service Fabric caught my attention because it&amp;rsquo;s a big part of the job I&amp;rsquo;m currently working on. We run a bunch&#xA;of services and actors with great satisfaction, but there&amp;rsquo;s always more to know and learn.&lt;/p&gt;</description>
     </item>
   </channel>
