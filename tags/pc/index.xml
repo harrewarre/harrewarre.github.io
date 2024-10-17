@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PC on harre.dev</title>
+    <link>http://localhost:1313/tags/pc/</link>
+    <description>Recent content in PC on harre.dev</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
+    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
+    <copyright>© harre.dev</copyright>
+    <lastBuildDate>Wed, 23 Sep 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/pc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The new rig</title>
+      <link>http://localhost:1313/blog/the-new-rig/</link>
+      <pubDate>Wed, 23 Sep 2015 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/the-new-rig/</guid>
+      <description>&lt;p&gt;After saving up money for a while I bought myself a new desktop PC. Its main purpose would be gaming and some development stuff but since gaming has a big influence on the parts, I rolled with that. Here is the part list I ended up ordering.&lt;/p&gt;&#xA;&lt;h2 id=&#34;specs&#34;&gt;Specs!&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Intel Core i5-6600.&lt;/li&gt;&#xA;&lt;li&gt;Asus H170 Pro Gaming.&lt;/li&gt;&#xA;&lt;li&gt;256GB Samsung SM951.&lt;/li&gt;&#xA;&lt;li&gt;2x 8GB Kingston Hyper-X 2133MHz DDR4&lt;/li&gt;&#xA;&lt;li&gt;MSI R9 390 8GB.&lt;/li&gt;&#xA;&lt;li&gt;Seasonic G-Series 650 Watt.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;I re-used my (very) old case, a Cooler Master Centurion to hold all my parts.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

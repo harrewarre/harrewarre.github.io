@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>C# on harre.dev</title>
+    <link>http://localhost:1313/tags/c%23/</link>
+    <description>Recent content in C# on harre.dev</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
+    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
+    <copyright>© harre.dev</copyright>
+    <lastBuildDate>Sat, 31 Mar 2018 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/c%23/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Multiple listeners for your Service Fabric service</title>
+      <link>http://localhost:1313/blog/sf-multiple-listeners/</link>
+      <pubDate>Sat, 31 Mar 2018 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/sf-multiple-listeners/</guid>
+      <description>&lt;p&gt;Service Fabric is a great piece of technology on the Azure platform and I&amp;rsquo;ve been using it quite a lot in recent projects. It takes away a lot of the setup and orchestration when dealing with microservices.&lt;/p&gt;&#xA;&lt;p&gt;There comes a point where services need to talk to each other and this is easily achieved using the Remoting bits you can get from NuGet. The general way of doing this is creating an &lt;code&gt;Interfaces&lt;/code&gt; project next to the service that&#xA;contains the service interface and classes used in transport. The interface is implemented on the service entrypoint and a listener is exposed to the Fabric runtime so that it can communicate with the rest of the platform. We&amp;rsquo;re&#xA;going to take it one step further and put the service implementations in their own class instead of on the service entrypoint (keeps things nice and clean) and also enable dependency injection from that point forward.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Multiple DbContext&#39;s with migrations on a single database</title>
+      <link>http://localhost:1313/blog/multiple-dbcontexts-on-a-single-database/</link>
+      <pubDate>Wed, 02 Mar 2016 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/multiple-dbcontexts-on-a-single-database/</guid>
+      <description>&lt;p&gt;Here is a small problem I ran into while working on my current project. This project already has an Entity Framework &lt;a href=&#34;https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=vs.113).aspx&#34;&gt;&lt;code&gt;DbContext&lt;/code&gt;&lt;/a&gt; class with entities and a database. I&amp;rsquo;m adding a new feature but want to keep the changes as isolated as possible. So I wanted to create a second &lt;code&gt;DbContext&lt;/code&gt; that handles the entities specific to my new feature.&lt;/p&gt;&#xA;&lt;p&gt;Adding the context to the codebase is no hassle, just create the new class and derive it from &lt;code&gt;DbContext&lt;/code&gt;. The problem is in the &lt;a href=&#34;https://msdn.microsoft.com/en-us/data/jj591621.aspx&#34;&gt;migrations&lt;/a&gt;. Entity Framework has a system that can track changes to the model and apply those changes to the actual database. To keep track of these changes, Entity Framework uses a table called &lt;code&gt;__MigrationHistory&lt;/code&gt; where it stores all kinds of metadata about the model that it can compare to when you make changes to your entities in code.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>POST-ing JSON to an ASP.NET Web API controller</title>
+      <link>http://localhost:1313/blog/posting-json-to-a-web-api-controller/</link>
+      <pubDate>Tue, 12 Jan 2016 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/posting-json-to-a-web-api-controller/</guid>
+      <description>&lt;p&gt;So you want to post some JSON to an ASP.NET Web API controller?&lt;/p&gt;&#xA;&lt;p&gt;I bet you&amp;rsquo;ve written this more than you wanted to:&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;$.ajax({&#xA;&#x9;type: &amp;quot;POST&amp;quot;,&#xA;&#x9;url: url,&#xA;&#x9;data: JSON.stringify(data),&#xA;&#x9;dataType: &amp;quot;json&amp;quot;,&#xA;&#x9;contentType: &amp;quot;application/json; charset=utf-8&amp;quot;&#xA;});&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;I hate that work-around where you specify all sorts of stuff that you don&amp;rsquo;t really want to specify (like &lt;code&gt;dataType&lt;/code&gt;, &lt;code&gt;contentType&lt;/code&gt;, etc&amp;hellip;). This is all required because the friendlier &lt;code&gt;$.post(...)&lt;/code&gt; will send your data in a Form encoded way.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>App.config xdt transforms</title>
+      <link>http://localhost:1313/blog/app-config-xdt-transforms/</link>
+      <pubDate>Fri, 13 Nov 2015 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/app-config-xdt-transforms/</guid>
+      <description>&lt;p&gt;Here is a little hack you can do to enable transformations in &lt;code&gt;app.config&lt;/code&gt; like you can in your &lt;code&gt;web.config&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;A quick intro to transformations, they can make your life a bit easier by storing different configs in different files that, depending on your build configuration, end up in the actual config file. Here is a simple example.&lt;/p&gt;&#xA;&lt;p&gt;This is the original &lt;code&gt;web.config&lt;/code&gt; file:&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot; ?&amp;gt;&#xA;&amp;lt;configuration&amp;gt;&#xA;  &amp;lt;appSettings&amp;gt;&#xA;&#x9;&amp;lt;add key=&amp;quot;SomeSetting&amp;quot; value=&amp;quot;true&amp;quot; /&amp;gt;&#xA;&#x9;&amp;lt;add key=&amp;quot;Title&amp;quot; value=&amp;quot;Debug&amp;quot; /&amp;gt;&#xA;  &amp;lt;/appSettings&amp;gt;&#xA;&amp;lt;/configuration&amp;gt;&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;And there is also a &lt;code&gt;web.Release.config&lt;/code&gt;, that looks like this:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Read Spotify track info using C#</title>
+      <link>http://localhost:1313/blog/reading-spotify-track-info-from-the-desktop-app/</link>
+      <pubDate>Fri, 09 Oct 2015 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/reading-spotify-track-info-from-the-desktop-app/</guid>
+      <description>&lt;p&gt;Spotify recently updated the desktop app again and it is once again possible to read current track info directly from it. Here is how you to read it using a little C# code.&lt;/p&gt;&#xA;&lt;p&gt;A tiny little disclaimer, Spotify can break this code by updating their desktop app. It&amp;rsquo;ll work now, but if they remove the track info from the title again, things won&amp;rsquo;t work anymore.&lt;/p&gt;&#xA;&lt;p&gt;So the current track is hidden somewhere, let&amp;rsquo;s find out where it is.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Basic string templating in C#</title>
+      <link>http://localhost:1313/blog/basic-string-templating-in-c/</link>
+      <pubDate>Tue, 07 Jul 2015 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/basic-string-templating-in-c/</guid>
+      <description>&lt;p&gt;Every solution I&amp;rsquo;ve worked on required some form of communication via e-mail or other form of text to the outside world, reporting, notifications or something else. There are a bunch of libraries out there that can make your life easy if you need complex templates. But this is not about complex, this is supporting the basics without including all sorts of unnecessary stuff.&lt;/p&gt;&#xA;&lt;p&gt;What do we need to make this happen? The first thing is a template. A template is nothing more than a piece of plain text (or HTML if you want) in which we want to replace parts to create a complete message. Lets use something very simple, a single line, one tag.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Fluent data access</title>
+      <link>http://localhost:1313/blog/fluent-data-access/</link>
+      <pubDate>Wed, 06 May 2015 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/fluent-data-access/</guid>
+      <description>&lt;p&gt;Working in a team of developers, the following might happen:&lt;/p&gt;&#xA;&lt;p&gt;Developer 1 creates a piece of UI and adds a method to load data into said UI. The method he creates is called GetUserInfo(…)&lt;/p&gt;&#xA;&lt;p&gt;Here comes Developer 2 and he also creates a piece of UI that displays user info. Developer 2 however, needs to display more than just the user info, he also needs the requests made by the user. And then GetUserInfoWithRequests(…) is created next to the already existing GetUserInfo method.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Easy Windows Service debugging</title>
+      <link>http://localhost:1313/blog/easy-windows-service-debugging/</link>
+      <pubDate>Sun, 26 Apr 2015 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/easy-windows-service-debugging/</guid>
+      <description>&lt;p&gt;Long-running processes in a web application running on IIS is a bad idea. The reason for that is that IIS might unload the AppPool that is running your process due to inactivity. Inactivity? Yep, if IIS does not recieve a requests for a while, it will shut the site down to conserve system resources. (This is all configurable ofcourse, but I&amp;rsquo;ve&#xA;seen it happen)&lt;/p&gt;&#xA;&lt;p&gt;To allow for long-running stuff, a Windows Service might be a right fit. Here is what the default startup code for a Windows service looks like:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Generating an RSS feed in C#</title>
+      <link>http://localhost:1313/blog/generating-an-rss-feed-in-c/</link>
+      <pubDate>Sun, 26 Apr 2015 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/generating-an-rss-feed-in-c/</guid>
+      <description>&lt;p&gt;A hobby project of mine needed to generate an RSS feed. I was already doing this by just generating and XML file in the webroot and linking to that on the frontpage. But during this coding session, where all the data is pulled straight from the markdown files I wanted to create a controller action to do the generating for me.&lt;/p&gt;&#xA;&lt;p&gt;First things first, there is an assembly available out of the box in the .NET Framework. All you need is to make reference to &lt;strong&gt;System.ServiceModel.Syndication&lt;/strong&gt; and you are ready to start writing code. The classes we are using are&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Getting started with Inversion of Control</title>
+      <link>http://localhost:1313/blog/inversion-of-control-dive/</link>
+      <pubDate>Sun, 26 Apr 2015 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/inversion-of-control-dive/</guid>
+      <description>&lt;p&gt;Alright, lets dive straight into the deep end! &amp;hellip; ok, but not drown in the process of doing so. One step at a time. Lets&amp;rsquo;s start with an example.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-technical-side&#34;&gt;The technical side&lt;/h2&gt;&#xA;&lt;p&gt;Here is some code:&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;public class Foo&#xA;{&#xA;    private readonly Bar bar;&#xA;&#xA;    public Foo()&#xA;    {&#xA;        this.bar = new Bar();&#xA;    }&#xA;}&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;To create an instance of Foo we write&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;Foo theFoo = new Foo();&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;In this example we have two classes, Foo and Bar. Foo makes use of a Bar to do some work. When a Foo instance is created the creator of the Foo instance has no control over what kind of Bar the Foo instance is going to use. They are stuck together. This code is completely valid but what if we want to let the creator of Foo &lt;strong&gt;control&lt;/strong&gt; the kind of Bar that is used? We have to invert control! Here is the same code with it&amp;rsquo;s control flow inverted:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

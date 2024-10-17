@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Windows Service on harre.dev</title>
+    <link>http://localhost:1313/tags/windows-service/</link>
+    <description>Recent content in Windows Service on harre.dev</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
+    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
+    <copyright>© harre.dev</copyright>
+    <lastBuildDate>Sun, 26 Apr 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/windows-service/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Easy Windows Service debugging</title>
+      <link>http://localhost:1313/blog/easy-windows-service-debugging/</link>
+      <pubDate>Sun, 26 Apr 2015 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/easy-windows-service-debugging/</guid>
+      <description>&lt;p&gt;Long-running processes in a web application running on IIS is a bad idea. The reason for that is that IIS might unload the AppPool that is running your process due to inactivity. Inactivity? Yep, if IIS does not recieve a requests for a while, it will shut the site down to conserve system resources. (This is all configurable ofcourse, but I&amp;rsquo;ve&#xA;seen it happen)&lt;/p&gt;&#xA;&lt;p&gt;To allow for long-running stuff, a Windows Service might be a right fit. Here is what the default startup code for a Windows service looks like:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

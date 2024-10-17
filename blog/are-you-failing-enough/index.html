@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="shortcut icon" href="/favicon.png" type="image/png">
+<title>Are you failing enough? | harre.dev</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+
+
+
+</head>
+<body>
+<div class="site">
+    <header>
+        <div class="site-title">
+    <img src="/og-img.png" alt="H is for Harre.">
+    <h1>harre.dev</h1>
+</div>
+<nav>
+    <a href="/">home</a>
+    <a href="/blog">blog</a>
+    <a href="/about">about</a>
+    <a href="/blog/index.xml">rss</a>
+</nav>
+
+
+    </header>
+    <main>
+        
+  
+  
+  <small class="blog-meta">
+    <time datetime="2024-10-02T00:00:00&#43;00:00">October 2, 2024</time>
+    
+  <div>
+    Tags:
+        <a href="/tags/cloudnative/">Cloudnative</a>
+        <a href="/tags/practice/">Practice</a>
+        <a href="/tags/experimentation/">Experimentation</a>
+        <a href="/tags/agility/">Agility</a>
+  </div>
+
+  </small>
+  <h1>Are you failing enough?</h1>
+  <p>The process of creating software, compared to other manufacturing processes, is a little bit special. One unique property of a software product is that it can be changed easily and (relatively) cheaply.</p>
+<p>Over in the physical world, changing a product is not so easy. Supply chains, inventory, machinery, whole factories, who knows what&rsquo;s involved that is either difficult to change quickly and/or prohibitively expensive to change.</p>
+<p>So what about this failing more often? Well if you have the ability to quickly change your software product, you can also run A LOT of experiments!</p>
+<p>The ability to change whenever you want though, that&rsquo;s something that needs to created and maintained. Running an experiment without some safety nets is quite the risk if you can&rsquo;t undo the changes quickly. The best results from your experiments will come from real world use-cases with real users in the production environment. It goes without saying that accidentally messing up a live system that is used actively is something we all want to avoid.</p>
+<h2 id="the-10-minute-build-but-preferably-faster">The 10-minute build (but preferably faster)</h2>
+<p>I guess we can call this step one. Automate your entire build and deploy process and make it <strong>fast</strong>, like really fast. If you deploy something broken, you can quickly pave over it with a new version if you have to. So this will give you some agility. That thing you changed and deployed not really working out? Undo it (or fix it) and re-deploy.</p>
+<p>The 10-minute mark has another advantage. If you can build fast enough (or fail really quickly), you can avoid context switching. If building and deploying takes long, you (or your team members) might want to pick up some other task while the build is running (switching contexts to this new task!). Build broken? Here comes that context switch <strong>again</strong> to get back to what you had built before that other task was picked up. Switching between tasks is very costly and getting back into the groove can take at least 15 minutes.</p>
+<p>In short, <a href="https://en.wikipedia.org/wiki/Human_multitasking">context switching</a> is pretty wasteful. Complete a task before picking up something else. Fast builds greatly help staying focused on the task at hand.</p>
+<h2 id="testing">Testing</h2>
+<p>You are testing your code automatically in that pipeline right? Get that test coverage up and ensure that when you introduce changes, you&rsquo;re not accidentally breaking something somewhere in your app.</p>
+<p>Speed also applies to your test suite. Make it fast! Lots and lots of small unit tests that run in seconds complemented by some end-to-end tests but keep it fast. Especially while writing code, if you have to wait for those unit tests to complete, something needs improving.</p>
+<p>Something broken? We want to know ASAP. Preferably before we commit anything, break the build and hold up someone else that also wants to deploy stuff.</p>
+<h2 id="start-failing">Start failing!</h2>
+<p>Now that you have indicators for the condition of your product (using tests) and the speed to quickly deploy changes without breakage (&ldquo;Go fast and break stuff&rdquo; is terrible advice anyway&hellip;), you are able to change your product at any time, safely and consistently.</p>
+<p>Try out some of the more &ldquo;out there&rdquo; ideas that you&rsquo;ve collected from users or within the team. Break them down into small little experiments and test them out in the real world.</p>
+<p>Don&rsquo;t want to burden your whole user base with new stuff all the time? There&rsquo;s A/B testing. Or even better, introduce a Beta program in your application that users can opt in to. Users that do will be able to see and use whatever you can cook up! Hide all the experimental stuff behind that Beta flag and let the curious crowd give you early feedback.</p>
+<p>Things not working out? Instead of calling it a failure, call it a job well done, you&rsquo;ve learned something new about how your application was used and the desires of your users.</p>
+<p>And best of all, you can roll back whatever you&rsquo;ve attempted and all is well again. Just keep an eye on those users. If you move things around all the time they&rsquo;re going to get fed up and either leave if they can, or complain endlessly about it.</p>
+<p>Software architecture also plays a part in this whole story, if you&rsquo;ve somehow ended up with a <a href="https://en.wikipedia.org/wiki/Anti-pattern#Software_engineering_anti-patterns">big ball of mud</a>, you might want to look into refactoring with the aid of some test-driven-development to create something more adaptable.</p>
+<p>To conclude all this, a software product, given the right conditions, lets you experiment to your hearts content. Start putting that ability to good use by releasing small changes more often and faster. If you happen to stray away from your users needs and desires, you can always go back.</p>
+
+
+    </main>
+    <footer>
+        <small>
+    <span>🌱 content written by an actual human.</span>
+    <span>©️ copyright 2015-2024 harre.dev</span>
+</small>
+<a href="/blog/index.xml">
+    📡 rss
+</a>
+
+    </footer>
+</div>
+</body>
+</html>

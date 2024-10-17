@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="shortcut icon" href="/favicon.png" type="image/png">
+<title>C# | harre.dev</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+
+
+
+</head>
+<body>
+<div class="site">
+    <header>
+        <div class="site-title">
+    <img src="/og-img.png" alt="H is for Harre.">
+    <h1>harre.dev</h1>
+</div>
+<nav>
+    <a href="/">home</a>
+    <a href="/blog">blog</a>
+    <a href="/about">about</a>
+    <a href="/blog/index.xml">rss</a>
+</nav>
+
+
+    </header>
+    <main>
+        
+<h1>C#</h1>
+
+
+<h2><a href="/blog/sf-multiple-listeners/">Multiple listeners for your Service Fabric service</a></h2>
+<p>Service Fabric is a great piece of technology on the Azure platform and I&rsquo;ve been using it quite a lot in recent projects. It takes away a lot of the setup and orchestration when dealing with microservices.</p>
+<p>There comes a point where services need to talk to each other and this is easily achieved using the Remoting bits you can get from NuGet. The general way of doing this is creating an <code>Interfaces</code> project next to the service that
+contains the service interface and classes used in transport. The interface is implemented on the service entrypoint and a listener is exposed to the Fabric runtime so that it can communicate with the rest of the platform. We&rsquo;re
+going to take it one step further and put the service implementations in their own class instead of on the service entrypoint (keeps things nice and clean) and also enable dependency injection from that point forward.</p>
+
+<h2><a href="/blog/multiple-dbcontexts-on-a-single-database/">Multiple DbContext&#39;s with migrations on a single database</a></h2>
+<p>Here is a small problem I ran into while working on my current project. This project already has an Entity Framework <a href="https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=vs.113).aspx"><code>DbContext</code></a> class with entities and a database. I&rsquo;m adding a new feature but want to keep the changes as isolated as possible. So I wanted to create a second <code>DbContext</code> that handles the entities specific to my new feature.</p>
+<p>Adding the context to the codebase is no hassle, just create the new class and derive it from <code>DbContext</code>. The problem is in the <a href="https://msdn.microsoft.com/en-us/data/jj591621.aspx">migrations</a>. Entity Framework has a system that can track changes to the model and apply those changes to the actual database. To keep track of these changes, Entity Framework uses a table called <code>__MigrationHistory</code> where it stores all kinds of metadata about the model that it can compare to when you make changes to your entities in code.</p>
+
+<h2><a href="/blog/posting-json-to-a-web-api-controller/">POST-ing JSON to an ASP.NET Web API controller</a></h2>
+<p>So you want to post some JSON to an ASP.NET Web API controller?</p>
+<p>I bet you&rsquo;ve written this more than you wanted to:</p>
+<pre><code>$.ajax({
+	type: &quot;POST&quot;,
+	url: url,
+	data: JSON.stringify(data),
+	dataType: &quot;json&quot;,
+	contentType: &quot;application/json; charset=utf-8&quot;
+});
+</code></pre>
+<p>I hate that work-around where you specify all sorts of stuff that you don&rsquo;t really want to specify (like <code>dataType</code>, <code>contentType</code>, etc&hellip;). This is all required because the friendlier <code>$.post(...)</code> will send your data in a Form encoded way.</p>
+
+<h2><a href="/blog/app-config-xdt-transforms/">App.config xdt transforms</a></h2>
+<p>Here is a little hack you can do to enable transformations in <code>app.config</code> like you can in your <code>web.config</code>.</p>
+<!-- raw HTML omitted -->
+<p>A quick intro to transformations, they can make your life a bit easier by storing different configs in different files that, depending on your build configuration, end up in the actual config file. Here is a simple example.</p>
+<p>This is the original <code>web.config</code> file:</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+&lt;configuration&gt;
+  &lt;appSettings&gt;
+	&lt;add key=&quot;SomeSetting&quot; value=&quot;true&quot; /&gt;
+	&lt;add key=&quot;Title&quot; value=&quot;Debug&quot; /&gt;
+  &lt;/appSettings&gt;
+&lt;/configuration&gt;
+</code></pre>
+<p>And there is also a <code>web.Release.config</code>, that looks like this:</p>
+
+<h2><a href="/blog/reading-spotify-track-info-from-the-desktop-app/">Read Spotify track info using C#</a></h2>
+<p>Spotify recently updated the desktop app again and it is once again possible to read current track info directly from it. Here is how you to read it using a little C# code.</p>
+<p>A tiny little disclaimer, Spotify can break this code by updating their desktop app. It&rsquo;ll work now, but if they remove the track info from the title again, things won&rsquo;t work anymore.</p>
+<p>So the current track is hidden somewhere, let&rsquo;s find out where it is.</p>
+
+<h2><a href="/blog/basic-string-templating-in-c/">Basic string templating in C#</a></h2>
+<p>Every solution I&rsquo;ve worked on required some form of communication via e-mail or other form of text to the outside world, reporting, notifications or something else. There are a bunch of libraries out there that can make your life easy if you need complex templates. But this is not about complex, this is supporting the basics without including all sorts of unnecessary stuff.</p>
+<p>What do we need to make this happen? The first thing is a template. A template is nothing more than a piece of plain text (or HTML if you want) in which we want to replace parts to create a complete message. Lets use something very simple, a single line, one tag.</p>
+
+<h2><a href="/blog/fluent-data-access/">Fluent data access</a></h2>
+<p>Working in a team of developers, the following might happen:</p>
+<p>Developer 1 creates a piece of UI and adds a method to load data into said UI. The method he creates is called GetUserInfo(…)</p>
+<p>Here comes Developer 2 and he also creates a piece of UI that displays user info. Developer 2 however, needs to display more than just the user info, he also needs the requests made by the user. And then GetUserInfoWithRequests(…) is created next to the already existing GetUserInfo method.</p>
+
+<h2><a href="/blog/easy-windows-service-debugging/">Easy Windows Service debugging</a></h2>
+<p>Long-running processes in a web application running on IIS is a bad idea. The reason for that is that IIS might unload the AppPool that is running your process due to inactivity. Inactivity? Yep, if IIS does not recieve a requests for a while, it will shut the site down to conserve system resources. (This is all configurable ofcourse, but I&rsquo;ve
+seen it happen)</p>
+<p>To allow for long-running stuff, a Windows Service might be a right fit. Here is what the default startup code for a Windows service looks like:</p>
+
+<h2><a href="/blog/generating-an-rss-feed-in-c/">Generating an RSS feed in C#</a></h2>
+<p>A hobby project of mine needed to generate an RSS feed. I was already doing this by just generating and XML file in the webroot and linking to that on the frontpage. But during this coding session, where all the data is pulled straight from the markdown files I wanted to create a controller action to do the generating for me.</p>
+<p>First things first, there is an assembly available out of the box in the .NET Framework. All you need is to make reference to <strong>System.ServiceModel.Syndication</strong> and you are ready to start writing code. The classes we are using are</p>
+
+<h2><a href="/blog/inversion-of-control-dive/">Getting started with Inversion of Control</a></h2>
+<p>Alright, lets dive straight into the deep end! &hellip; ok, but not drown in the process of doing so. One step at a time. Lets&rsquo;s start with an example.</p>
+<h2 id="the-technical-side">The technical side</h2>
+<p>Here is some code:</p>
+<pre><code>public class Foo
+{
+    private readonly Bar bar;
+
+    public Foo()
+    {
+        this.bar = new Bar();
+    }
+}
+</code></pre>
+<p>To create an instance of Foo we write</p>
+<pre><code>Foo theFoo = new Foo();
+</code></pre>
+<p>In this example we have two classes, Foo and Bar. Foo makes use of a Bar to do some work. When a Foo instance is created the creator of the Foo instance has no control over what kind of Bar the Foo instance is going to use. They are stuck together. This code is completely valid but what if we want to let the creator of Foo <strong>control</strong> the kind of Bar that is used? We have to invert control! Here is the same code with it&rsquo;s control flow inverted:</p>
+
+<h2><a href="/blog/signalr-dependency-injection/">SignalR dependency injection</a></h2>
+<p>My go-to container for IoC at the moment is <a href="https://simpleinjector.codeplex.com/">SimpleInjector</a> because you know.. it&rsquo;s simple. I&rsquo;ve used it in a couple of projects and used in a hobby project recently again.</p>
+<p>This hobby project uses <a href="http://www.asp.net/signalr">SignalR</a> for real-time communication between browser and server and after setting that up I wanted to inject dependencies in to the SignalR hubs. It is pretty easy but there was a minor catch. Let&rsquo;s look at some code.</p>
+
+
+    </main>
+    <footer>
+        <small>
+    <span>🌱 content written by an actual human.</span>
+    <span>©️ copyright 2015-2024 harre.dev</span>
+</small>
+<a href="/blog/index.xml">
+    📡 rss
+</a>
+
+    </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="shortcut icon" href="/favicon.png" type="image/png">
+<title>Cloud Foundry configuration with SteelToe | harre.dev</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+
+
+
+</head>
+<body>
+<div class="site">
+    <header>
+        <div class="site-title">
+    <img src="/og-img.png" alt="H is for Harre.">
+    <h1>harre.dev</h1>
+</div>
+<nav>
+    <a href="/">home</a>
+    <a href="/blog">blog</a>
+    <a href="/about">about</a>
+    <a href="/blog/index.xml">rss</a>
+</nav>
+
+
+    </header>
+    <main>
+        
+  
+  
+  <small class="blog-meta">
+    <time datetime="2019-01-11T00:00:00&#43;00:00">January 11, 2019</time>
+    
+  <div>
+    Tags:
+        <a href="/tags/cloud-foundry/">Cloud Foundry</a>
+        <a href="/tags/steeltoe/">Steeltoe</a>
+        <a href="/tags/aspnet-core/">Aspnet Core</a>
+        <a href="/tags/dotnetcore/">Dotnetcore</a>
+        <a href="/tags/itq/">Itq</a>
+  </div>
+
+  </small>
+  <h1>Cloud Foundry configuration with SteelToe</h1>
+  <p>I&rsquo;ve been playing around with the <a href="https://steeltoe.io/">SteelToe</a> framework for .net apps on Cloud Foundry a bit and it&rsquo;s been nice overall (I&rsquo;ll probably write a few more posts about it at some point 😊). While playing around with it the configuration part of it I wasn&rsquo;t really liking the way settings can be read from the main configuration.</p>
+<p>Let&rsquo;s start with a really short primer on how the configuration system works. Cloud Foundry apps can be bound to services, doing so adds a reference to the bound service in the environment variables of the app that was bound. You can take a look at what is provided to an applications environment by running</p>
+<pre><code>cf env &lt;app-name&gt;
+</code></pre>
+<p>For this example we&rsquo;re interested in the <code>VCAP_SERVICES</code> section, because it contains a user provided service that I bound to this app:</p>
+<pre><code>{
+    &quot;VCAP_SERVICES&quot;: {
+        &quot;user-provided&quot;: [
+            {
+                &quot;binding_name&quot;: null,
+                &quot;credentials&quot;: {
+                    &quot;connectionString&quot;: &quot;&lt;...&gt;&quot;
+                },
+                &quot;instance_name&quot;: &quot;content-storage&quot;,
+                &quot;label&quot;: &quot;user-provided&quot;,
+                &quot;name&quot;: &quot;content-storage&quot;,
+                &quot;syslog_drain_url&quot;: &quot;&quot;,
+                &quot;tags&quot;: [],
+                &quot;volume_mounts&quot;: []
+            }
+        ]
+    }
+}
+</code></pre>
+<p>SteelToe has some extension methods than can help you load these into dictionaries to be used in your code. To load these settings, you need to do two things (this is for .NET Core 2.2). The first thing is add the Cloud Foundry configuration provider:</p>
+<pre><code>WebHost.CreateDefaultBuilder(args)
+    .ConfigureAppConfiguration((hostingContext, config) =&gt; {
+        ...
+        config.AddCloudFoundry();
+        ...
+    })
+    .UseStartup&lt;Startup&gt;();
+</code></pre>
+<p>The next step is to let SteelToe add the settings to the service collection (in <code>Startup.cs</code>) as instances of <code>IOption&lt;T&gt;</code>.</p>
+<pre><code>public void ConfigureServices(IServiceCollection services)
+{
+    ...
+    services.ConfigureCloudFoundryOptions(Configuration);
+    ...
+}
+</code></pre>
+<p>It will add two instances that contain different things:</p>
+<pre><code>IOptions&lt;CloudFoundryApplicationOptions&gt;
+IOptions&lt;CloudFoundryServicesOptions&gt;
+</code></pre>
+<p>Because we&rsquo;re dealing with a service, we need <code>IOptions&lt;CloudFoundryServicesOptions&gt;</code>.</p>
+<p>When you inject the <code>IOptions&lt;CloudFoundryServicesOptions&gt;</code> you can dig around in the dictionaries it provides to get the settings you want, but that doesn&rsquo;t look very nice:</p>
+<pre><code>_connectionString = serviceConfig.Value.Services[&quot;user-provided&quot;].First(s =&gt; s.Name == &quot;content-storage&quot;).Credentials[&quot;connectionString&quot;].Value;
+</code></pre>
+<p>I would rather inject a simpler object containing only the connectionstring, so here&rsquo;s a way to do this in the <code>ConfigureServices(...)</code> method in <code>Startup.cs</code>:</p>
+<p><!-- raw HTML omitted -->A little side note: There is some discussion around the usefulnes of injecting <code>IOptions&lt;T&gt;</code> instead of just plain objects containing the properties. For this example I&rsquo;m adding more <code>IOptions&lt;T&gt;</code> to the service collection you can easily adjust this to add POCOs instead of <code>IOptions&lt;T&gt;</code>.<!-- raw HTML omitted --></p>
+<p>Add the following to the <code>ConfigureServices(...)</code> method in <code>Startup.cs</code>.</p>
+<pre><code>services.AddSingleton(provider =&gt;
+{
+    var cloudServiceConfig = Configuration.GetSection(&quot;vcap&quot;).Get&lt;CloudFoundryServicesOptions&gt;();
+    var storageConnectionString = cloudServiceConfig.Services[&quot;user-provided&quot;].First(s =&gt; s.Name == &quot;content-storage&quot;).Credentials[&quot;connectionString&quot;].Value;
+
+    var storageConfig = new StorageConfig();
+    storageConfig.ConnectionString = storageConnectionString;
+
+    return Options.Create(storageConfig);
+});
+</code></pre>
+<p>So what is happening here? Let&rsquo;s walk through it.</p>
+<p>First, we read back the configuration that was just added:</p>
+<pre><code>var cloudServiceConfig = Configuration.GetSection(&quot;vcap&quot;).Get&lt;CloudFoundryServicesOptions&gt;();
+</code></pre>
+<p><code>vcap</code> is the name of the root property in the environment JSON that holds all the configuration.</p>
+<p>Then we fish out our connectionstring:</p>
+<pre><code>var storageConnectionString = cloudServiceConfig.Services[&quot;user-provided&quot;].First(s =&gt; s.Name == &quot;content-storage&quot;).Credentials[&quot;connectionString&quot;].Value;
+</code></pre>
+<p>And finally we create our object that hold the connectionstring and turn it into an instance of <code>Options&lt;T&gt;</code>:</p>
+<pre><code>var storageConfig = new StorageConfig();
+storageConfig.ConnectionString = storageConnectionString;
+
+return Options.Create(storageConfig);
+</code></pre>
+<p>The returned instance is added as a singleton to the service collection. Now you can inject the storage configuration on its own instead of the entire CF service configuration and you can replace this:</p>
+<pre><code>public StorageService(IOptions&lt;CloudFoundryServicesOptions&gt; serviceConfig)
+{   
+    _connectionString = serviceConfig.Value.Services[&quot;user-provided&quot;].First(s =&gt; s.Name == &quot;content-storage&quot;).Credentials[&quot;connectionString&quot;].Value;
+    ...
+}
+</code></pre>
+<p>With this:</p>
+<pre><code>public StorageService(IOptions&lt;StorageConfig&gt; storageConfig)
+{   
+    _connectionString = storageConfig.Value.ConnectionString;
+    ...
+}
+</code></pre>
+<p>Now all the digging through dictionaries can stay in the <code>ConfigureServices(...)</code> method and we can use simple objects to read the configuration! Much nicer 👌</p>
+
+
+    </main>
+    <footer>
+        <small>
+    <span>🌱 content written by an actual human.</span>
+    <span>©️ copyright 2015-2024 harre.dev</span>
+</small>
+<a href="/blog/index.xml">
+    📡 rss
+</a>
+
+    </footer>
+</div>
+</body>
+</html>

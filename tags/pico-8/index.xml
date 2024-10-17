@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pico-8 on harre.dev</title>
+    <link>http://localhost:1313/tags/pico-8/</link>
+    <description>Recent content in Pico-8 on harre.dev</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
+    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
+    <copyright>© harre.dev</copyright>
+    <lastBuildDate>Mon, 27 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/pico-8/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Some fun with Pico-8</title>
+      <link>http://localhost:1313/blog/fun-with-pico-8/</link>
+      <pubDate>Mon, 27 Apr 2020 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/fun-with-pico-8/</guid>
+      <description>&lt;p&gt;I had a some tine left in the day (who doesn&amp;rsquo;t, with all the quarantine and all&amp;hellip;) so why not spend that time programming.&lt;/p&gt;&#xA;&lt;p&gt;A long while back I picked up the &lt;a href=&#34;https://www.lexaloffle.com/pico-8.php&#34;&gt;Pico-8&lt;/a&gt;&#xA;fantasy console. A tiny game engine, IDE and sprite editor all rolled into one. You write your stuff in Lua and are encouraged to keep things simple due to its (artifical)&#xA;limitations.&lt;/p&gt;&#xA;&lt;p&gt;Not really having a particular plan or goal, I ended up with a little robed character that can walk around on the screen.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Transitions on harre.dev</title>
+    <link>http://localhost:1313/tags/transitions/</link>
+    <description>Recent content in Transitions on harre.dev</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
+    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
+    <copyright>© harre.dev</copyright>
+    <lastBuildDate>Tue, 19 May 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/transitions/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CSS Transitions basics</title>
+      <link>http://localhost:1313/blog/css-transitions-basics/</link>
+      <pubDate>Tue, 19 May 2015 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/css-transitions-basics/</guid>
+      <description>&lt;p&gt;End-users interact with your applications via the user interface (UI for short). If everything was designed with the user in mind, the UI will make things very easy for the user. Everything is nice and organized and easy to navigate. Actions are communicated to the user in a friendly way and the user is happy.&lt;/p&gt;&#xA;&lt;p&gt;The sad thing is, state changes in the UI tend to be very abrupt and cold. Instant flashes, so fast the user might not even notice if it is something small. So what can we do about this? CSS supports something called transitions. Transitions allow us to specify what happens what state changes on an element. For example, a button going from normal, to being hovered on by the user, rows in a grid that the user can select or a signal telling the user something happened.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

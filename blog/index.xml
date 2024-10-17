@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogs on harre.dev</title>
+    <link>http://localhost:1313/blog/</link>
+    <description>Recent content in Blogs on harre.dev</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
+    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
+    <copyright>© harre.dev</copyright>
+    <lastBuildDate>Mon, 14 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fairphone 5 app switcher fix</title>
+      <link>http://localhost:1313/blog/fairphone-5-app-switcher-fix/</link>
+      <pubDate>Mon, 14 Oct 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/fairphone-5-app-switcher-fix/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;tl;dr:&lt;/strong&gt; Turn of Desktop mode in Settings -&amp;gt; Display -&amp;gt; Desktop mode&lt;/p&gt;&#xA;&lt;p&gt;Putting this here in case the forum gets cleaned or closes or who knows what.&#xA;Quick one here for you Fairphone 5 users.&lt;/p&gt;&#xA;&lt;p&gt;A while ago I wrote about my experience with the Fairphone 5 and that it was &amp;ldquo;Meh&amp;rdquo; at best due to some pretty annoying software issues.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://localhost:1313/blog/six-months-with-the-fairphone&#34;&gt;Here is a link to that previous post.&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Updates did not fix the issue since then, but an &lt;a href=&#34;https://forum.fairphone.com/t/latest-update-broke-multitasking-pane/105558/56&#34;&gt;observant user on the Fairphone forum&lt;/a&gt; noticed when his phone started acting up.&#xA;It has something to do with the &amp;ldquo;Desktop mode&amp;rdquo; that can be enabled via Settings -&amp;gt; Display -&amp;gt; Desktop mode.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Are you failing enough?</title>
+      <link>http://localhost:1313/blog/are-you-failing-enough/</link>
+      <pubDate>Wed, 02 Oct 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/are-you-failing-enough/</guid>
+      <description>&lt;p&gt;The process of creating software, compared to other manufacturing processes, is a little bit special. One unique property of a software product is that it can be changed easily and (relatively) cheaply.&lt;/p&gt;&#xA;&lt;p&gt;Over in the physical world, changing a product is not so easy. Supply chains, inventory, machinery, whole factories, who knows what&amp;rsquo;s involved that is either difficult to change quickly and/or prohibitively expensive to change.&lt;/p&gt;&#xA;&lt;p&gt;So what about this failing more often? Well if you have the ability to quickly change your software product, you can also run A LOT of experiments!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>You build it, you run it... but what exactly?</title>
+      <link>http://localhost:1313/blog/you-build-it-you-run-it/</link>
+      <pubDate>Fri, 13 Sep 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/you-build-it-you-run-it/</guid>
+      <description>&lt;p&gt;&amp;ldquo;You build it, you run it&amp;rdquo;, easy to say, but, depending on your developer experience and platform capability&amp;hellip; not at all easy.&#xA;What am I expected to &amp;ldquo;build&amp;rdquo; and what should I &amp;ldquo;run&amp;rdquo;? Let&amp;rsquo;s take a look.&lt;/p&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s start with this overview that I show teams I engage with during their onboarding and where their responsibilities begin and what not to worry about (but can still affect them of course).&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Your organization could use a cookbook</title>
+      <link>http://localhost:1313/blog/your-org-could-use-a-cookbook/</link>
+      <pubDate>Thu, 29 Aug 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/your-org-could-use-a-cookbook/</guid>
+      <description>&lt;p&gt;That is&amp;hellip; if you don&amp;rsquo;t have one yet of course.&lt;/p&gt;&#xA;&lt;p&gt;A self-service effort is not complete without proper documentation. You could store that inside the repository with the code that makes up the service, but that could make it harder to find. And what if you have a bunch of services that all have their own docs? It&amp;rsquo;ll be completely scattered. To make knowledge easily find-able, and even searchable, a central knowledge base is the solution. In other words&amp;hellip; a cookbook!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Testing Python code that runs during import</title>
+      <link>http://localhost:1313/blog/python-testing-import-time-code/</link>
+      <pubDate>Mon, 19 Aug 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/python-testing-import-time-code/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve been pretty comfortable with Python after making the switch from dotnet core to Python for a new client.&lt;/p&gt;&#xA;&lt;p&gt;During this time I&amp;rsquo;ve gotten to know the way around the ecosystem and Python-isms, but sometimes I run into something that makes me go &amp;ldquo;huh? oh&amp;hellip;&amp;rdquo;.&#xA;This post describes one such moment.&lt;/p&gt;&#xA;&lt;h2 id=&#34;modules&#34;&gt;Modules&lt;/h2&gt;&#xA;&lt;p&gt;So in Python modules can use each others functionality by importing them into one another using the &lt;code&gt;import&lt;/code&gt; keyword and referencing the module you want to use e.g:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Web.config domain rewriting</title>
+      <link>http://localhost:1313/blog/web-config-domain-redirect/</link>
+      <pubDate>Fri, 09 Aug 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/web-config-domain-redirect/</guid>
+      <description>&lt;p&gt;Here&amp;rsquo;s a quick and easy domain rewriting solution running on an Azure App service.&lt;/p&gt;&#xA;&lt;p&gt;Some assumptions before you can start though:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;The app service must be configured with the custom domain you want to redirect from.&lt;/li&gt;&#xA;&lt;li&gt;The app service is running on the Windows stack (you can configure this during App Service setup).&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;To make things even easier, you can set this whole thing up from inside the Azure portal using the Advanced Tools option which opens the Kudu interface for the web server.&#xA;In the Kudu interface click on Debug Console -&amp;gt; CMD. Next, browse to the &lt;code&gt;wwwroot&lt;/code&gt; directory at &lt;code&gt;site/wwwroot&lt;/code&gt;. From there you can create new files.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Tactical versus strategic coding</title>
+      <link>http://localhost:1313/blog/tactical-vs-strategic-coding/</link>
+      <pubDate>Tue, 06 Aug 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/tactical-vs-strategic-coding/</guid>
+      <description>&lt;p&gt;Vacation time for me generally means reading time and for this occasion I brought &amp;ldquo;A philosophy of software design&amp;rdquo; by John Ousterhout with me.&#xA;So over the course of a few warm summer evenings I read my way through it and here are some thoughts and an interesting thing I picked up.&lt;/p&gt;&#xA;&lt;p&gt;Many things that the book covered were more or less in the tool belt, a refresher is always nice and I agree with most of the things the book describes.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Dotnet Core Entity Framework Migrations on Cloud Foundry</title>
+      <link>http://localhost:1313/blog/dotnet-ef-migrations-on-cloud-foundry/</link>
+      <pubDate>Mon, 10 Jun 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/dotnet-ef-migrations-on-cloud-foundry/</guid>
+      <description>&lt;p&gt;Run database migrations on Cloud Foundry using a task to ensure that migrations are only done once on deployment (and not during app start up!) for dotnet core applications. This post assumes you are deploying built applications and not raw source code.&lt;/p&gt;&#xA;&lt;p&gt;Instead of depending on dotnet tooling (&lt;code&gt;dotnet-ef&lt;/code&gt;), leverage the built-in migration capability of the DataContext. Interrupt the startup procedure when a special argument is passed in, instead of starting the web application, run the migrations and then exit.&#xA;So here we go, to start we need a DbContext:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>6 Months with the Fairphone 5</title>
+      <link>http://localhost:1313/blog/six-months-with-the-fairphone/</link>
+      <pubDate>Tue, 28 May 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/six-months-with-the-fairphone/</guid>
+      <description>&lt;p&gt;Somewhere in December of 2023 I got my Fairphone 5 delivered. I was using an iPhone 12 mini at the time that was suffering from a pretty degraded battery and was in need of something else. That iPhone was my first one and also my last, the lack of customization on iOS was also getting a bit of an annoyance so the choice for Android was not a difficult one.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>EV Driving</title>
+      <link>http://localhost:1313/blog/ev-driving/</link>
+      <pubDate>Sat, 20 Jan 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/ev-driving/</guid>
+      <description>&lt;p&gt;Having done a long drive into France not that long ago using an EV (a 2020 Polestar 2), I encountered some stuff that I thought was worth writing down.&lt;/p&gt;&#xA;&lt;h2 id=&#34;charging&#34;&gt;Charging&lt;/h2&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s get some of the obvious stuff out of the way first. Yes, doing long trips in an EV requires a little bit of upfront planning so you wont run out of spark along the way.&#xA;EVs also don&amp;rsquo;t have the same range as a petrol or diesel car, so you&amp;rsquo;ll need to stop more often.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

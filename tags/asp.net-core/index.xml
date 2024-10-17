@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Asp.net Core on harre.dev</title>
+    <link>http://localhost:1313/tags/asp.net-core/</link>
+    <description>Recent content in Asp.net Core on harre.dev</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
+    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
+    <copyright>© harre.dev</copyright>
+    <lastBuildDate>Thu, 10 Jan 2019 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/asp.net-core/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ASP.NET Core logging on Cloud Foundry</title>
+      <link>http://localhost:1313/blog/cf-netcore-logging/</link>
+      <pubDate>Thu, 10 Jan 2019 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/cf-netcore-logging/</guid>
+      <description>&lt;p&gt;All apps I&amp;rsquo;ve ever worked on have some sort of logging going on for various reasons, mostly to keep track of whats going on or debugging, but it&amp;rsquo;s all the same. Logs are needed to see what your code is up to.&lt;/p&gt;&#xA;&lt;p&gt;Cloud Foundry &lt;a href=&#34;https://docs.cloudfoundry.org/devguide/deploy-apps/streaming-logs.html#writing&#34;&gt;is very explicit&lt;/a&gt; about &lt;em&gt;how&lt;/em&gt; an app should write its logs. As you can see in the documentation, apps must write to &lt;code&gt;stdout&lt;/code&gt; or &lt;code&gt;stderr&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;For C# that means we can use the static methods on the &lt;code&gt;Console&lt;/code&gt; to write our logs. Couldn&amp;rsquo;t be easier. But&amp;hellip; now our code is littered with these &lt;code&gt;Console.Write...&lt;/code&gt; lines all over the place!&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

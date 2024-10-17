@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="shortcut icon" href="/favicon.png" type="image/png">
+<title>Creating release notes with Visual Studio and TFS | harre.dev</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+
+
+
+</head>
+<body>
+<div class="site">
+    <header>
+        <div class="site-title">
+    <img src="/og-img.png" alt="H is for Harre.">
+    <h1>harre.dev</h1>
+</div>
+<nav>
+    <a href="/">home</a>
+    <a href="/blog">blog</a>
+    <a href="/about">about</a>
+    <a href="/blog/index.xml">rss</a>
+</nav>
+
+
+    </header>
+    <main>
+        
+  
+  
+  <small class="blog-meta">
+    <time datetime="2015-05-21T00:00:00&#43;00:00">May 21, 2015</time>
+    
+  <div>
+    Tags:
+        <a href="/tags/tfs/">TFS</a>
+        <a href="/tags/release-notes/">Release Notes</a>
+  </div>
+
+  </small>
+  <h1>Creating release notes with Visual Studio and TFS</h1>
+  <p>Here is a scenario for you. You&rsquo;ve been slaving away at the next big release of your product, fixing reported bugs, adding features and cleaning up code. Lot&rsquo;s of changes all over your code. Then comes that moment that you want to ship all that delicious code to your customers.</p>
+<p>You prep a release build, zip it up and are pretty much done. Except for the release notes&hellip; What changed since the previous release?</p>
+<p>Before you can start gathering your changes, I hope you tracked everything somewhere, preferably digitally and searchable. If not, then all you have is your check-ins, which is at least something. No check-in history either? Well then you are out of luck (and you need to upgrade your development process!)</p>
+<p>So you did track every change properly? Good, lets get that list compiled (This example uses Team Foundation Server and Visual Studio 2013, but I assume other setups will have similar functionality). All you need is the date on which you released the previous version of your software.</p>
+<p>At the time of writing it is the 21st of May, 2015. Lets say we released a month ago (30 days, to make this an easy example). Go to the Work Items section of the Team Explorer in Visual Studio and create a new query. In my example I query for Tasks, Bugs, and Features. To get only the items that we changed after the previous release, we set the Change Date to <strong>@Today - 30</strong>, this will give us all bugs, tasks, and features that were changed after we last released a new version our software.</p>
+<p><img src="query.png" alt="The TFS Work Item query"></p>
+<p>You can of course create any query that matches your preference for this, but I found this way working very nicely. You can export the list to Excel and clean it up a bit before sticking it in a PDF and bundling it with your software.</p>
+<p>Now that you have your release notes, hurry up and ship it! ;-)</p>
+
+
+    </main>
+    <footer>
+        <small>
+    <span>🌱 content written by an actual human.</span>
+    <span>©️ copyright 2015-2024 harre.dev</span>
+</small>
+<a href="/blog/index.xml">
+    📡 rss
+</a>
+
+    </footer>
+</div>
+</body>
+</html>

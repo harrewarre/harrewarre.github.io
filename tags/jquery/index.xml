@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JQuery on harre.dev</title>
+    <link>http://localhost:1313/tags/jquery/</link>
+    <description>Recent content in JQuery on harre.dev</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
+    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
+    <copyright>© harre.dev</copyright>
+    <lastBuildDate>Tue, 12 Jan 2016 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/jquery/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>POST-ing JSON to an ASP.NET Web API controller</title>
+      <link>http://localhost:1313/blog/posting-json-to-a-web-api-controller/</link>
+      <pubDate>Tue, 12 Jan 2016 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/posting-json-to-a-web-api-controller/</guid>
+      <description>&lt;p&gt;So you want to post some JSON to an ASP.NET Web API controller?&lt;/p&gt;&#xA;&lt;p&gt;I bet you&amp;rsquo;ve written this more than you wanted to:&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;$.ajax({&#xA;&#x9;type: &amp;quot;POST&amp;quot;,&#xA;&#x9;url: url,&#xA;&#x9;data: JSON.stringify(data),&#xA;&#x9;dataType: &amp;quot;json&amp;quot;,&#xA;&#x9;contentType: &amp;quot;application/json; charset=utf-8&amp;quot;&#xA;});&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;I hate that work-around where you specify all sorts of stuff that you don&amp;rsquo;t really want to specify (like &lt;code&gt;dataType&lt;/code&gt;, &lt;code&gt;contentType&lt;/code&gt;, etc&amp;hellip;). This is all required because the friendlier &lt;code&gt;$.post(...)&lt;/code&gt; will send your data in a Form encoded way.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

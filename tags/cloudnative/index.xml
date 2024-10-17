@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cloudnative on harre.dev</title>
+    <link>http://localhost:1313/tags/cloudnative/</link>
+    <description>Recent content in Cloudnative on harre.dev</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
+    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
+    <copyright>© harre.dev</copyright>
+    <lastBuildDate>Wed, 02 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/cloudnative/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Are you failing enough?</title>
+      <link>http://localhost:1313/blog/are-you-failing-enough/</link>
+      <pubDate>Wed, 02 Oct 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/are-you-failing-enough/</guid>
+      <description>&lt;p&gt;The process of creating software, compared to other manufacturing processes, is a little bit special. One unique property of a software product is that it can be changed easily and (relatively) cheaply.&lt;/p&gt;&#xA;&lt;p&gt;Over in the physical world, changing a product is not so easy. Supply chains, inventory, machinery, whole factories, who knows what&amp;rsquo;s involved that is either difficult to change quickly and/or prohibitively expensive to change.&lt;/p&gt;&#xA;&lt;p&gt;So what about this failing more often? Well if you have the ability to quickly change your software product, you can also run A LOT of experiments!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>You build it, you run it... but what exactly?</title>
+      <link>http://localhost:1313/blog/you-build-it-you-run-it/</link>
+      <pubDate>Fri, 13 Sep 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/you-build-it-you-run-it/</guid>
+      <description>&lt;p&gt;&amp;ldquo;You build it, you run it&amp;rdquo;, easy to say, but, depending on your developer experience and platform capability&amp;hellip; not at all easy.&#xA;What am I expected to &amp;ldquo;build&amp;rdquo; and what should I &amp;ldquo;run&amp;rdquo;? Let&amp;rsquo;s take a look.&lt;/p&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s start with this overview that I show teams I engage with during their onboarding and where their responsibilities begin and what not to worry about (but can still affect them of course).&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Your organization could use a cookbook</title>
+      <link>http://localhost:1313/blog/your-org-could-use-a-cookbook/</link>
+      <pubDate>Thu, 29 Aug 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/your-org-could-use-a-cookbook/</guid>
+      <description>&lt;p&gt;That is&amp;hellip; if you don&amp;rsquo;t have one yet of course.&lt;/p&gt;&#xA;&lt;p&gt;A self-service effort is not complete without proper documentation. You could store that inside the repository with the code that makes up the service, but that could make it harder to find. And what if you have a bunch of services that all have their own docs? It&amp;rsquo;ll be completely scattered. To make knowledge easily find-able, and even searchable, a central knowledge base is the solution. In other words&amp;hellip; a cookbook!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Tactical versus strategic coding</title>
+      <link>http://localhost:1313/blog/tactical-vs-strategic-coding/</link>
+      <pubDate>Tue, 06 Aug 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/tactical-vs-strategic-coding/</guid>
+      <description>&lt;p&gt;Vacation time for me generally means reading time and for this occasion I brought &amp;ldquo;A philosophy of software design&amp;rdquo; by John Ousterhout with me.&#xA;So over the course of a few warm summer evenings I read my way through it and here are some thoughts and an interesting thing I picked up.&lt;/p&gt;&#xA;&lt;p&gt;Many things that the book covered were more or less in the tool belt, a refresher is always nice and I agree with most of the things the book describes.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Paved road - Templates</title>
+      <link>http://localhost:1313/blog/paved-load-templates/</link>
+      <pubDate>Fri, 29 Jul 2022 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/paved-load-templates/</guid>
+      <description>&lt;p&gt;In my previous post about paving the road to production there were some ideas around offering deployment pipelines as a service in your organization. In this post, we&amp;rsquo;re going to take it up a level and have a look what we can do to remove even more friction, specifically when creating a new app from scratch.&lt;/p&gt;&#xA;&lt;p&gt;The process of creating a new app generally looks something like this:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Pick runtime and language&lt;/li&gt;&#xA;&lt;li&gt;Pick any suitable frameworks&lt;/li&gt;&#xA;&lt;li&gt;Add any additional dependencies for stuff like databases, single sign on, logging, etc.&lt;/li&gt;&#xA;&lt;li&gt;Integrate all the above&lt;/li&gt;&#xA;&lt;li&gt;Make sure it all works locally&lt;/li&gt;&#xA;&lt;li&gt;Set up configs for various environments&lt;/li&gt;&#xA;&lt;li&gt;Set up a pipeline&lt;/li&gt;&#xA;&lt;li&gt;Deploy to dev/test or other environment to get pipeline working&lt;/li&gt;&#xA;&lt;li&gt;Create value for your users ✨&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Before you go ahead and start building something generic that you can quickly duplicate for new apps, you should think about what you are willing to support and what level of customization is going to make the most sense.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Paved road - Deployments</title>
+      <link>http://localhost:1313/blog/paved-load-deployment/</link>
+      <pubDate>Mon, 18 Jul 2022 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/paved-load-deployment/</guid>
+      <description>&lt;p&gt;Speeding up developer teams by eliminating waste and busywork can come in many forms. A huge step comes through automation, deployment specifically. Getting your app to production in an automated manner through some sort of pipeline is a huge timesaver.&lt;/p&gt;&#xA;&lt;p&gt;Given this automation, you can take it one step further by moving the creation and management of those pipelines one step up and offer ready made pipelines that teams can take from the digital shelf. These pipelines can be managed by the internal developer community or maybe a supporting team that already enables teams in other ways.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

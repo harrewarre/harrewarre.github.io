@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LineageOS on harre.dev</title>
+    <link>http://localhost:1313/tags/lineageos/</link>
+    <description>Recent content in LineageOS on harre.dev</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
+    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
+    <copyright>© harre.dev</copyright>
+    <lastBuildDate>Mon, 01 May 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/lineageos/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Enable tethering on LineageOS using ADB</title>
+      <link>http://localhost:1313/blog/enable-tethering-on-lineageos-using-adb/</link>
+      <pubDate>Mon, 01 May 2017 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/enable-tethering-on-lineageos-using-adb/</guid>
+      <description>&lt;h4 id=&#34;update&#34;&gt;Update&lt;/h4&gt;&#xA;&lt;p&gt;After updating to a newer version, I couldn&amp;rsquo;t get the below steps to work any more. Here is some extra stuff to get it to work again. It comes down to &lt;code&gt;build.prop&lt;/code&gt; not accepting the changes you make because it&amp;rsquo;s being loaded as read-only. Remounting the filesystem as read-write and then pushing the updated file will do the trick.&lt;/p&gt;&#xA;&lt;p&gt;Run the following through ADB &lt;strong&gt;with root enabled&lt;/strong&gt; (flash the SuperSU zip found on the lineage OS website and enable root in the developer settings).&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

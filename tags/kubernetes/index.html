@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="shortcut icon" href="/favicon.png" type="image/png">
+<title>Kubernetes | harre.dev</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+
+
+
+</head>
+<body>
+<div class="site">
+    <header>
+        <div class="site-title">
+    <img src="/og-img.png" alt="H is for Harre.">
+    <h1>harre.dev</h1>
+</div>
+<nav>
+    <a href="/">home</a>
+    <a href="/blog">blog</a>
+    <a href="/about">about</a>
+    <a href="/blog/index.xml">rss</a>
+</nav>
+
+
+    </header>
+    <main>
+        
+<h1>Kubernetes</h1>
+
+
+<h2><a href="/blog/til-k8s-replace/">Today I learned - kubectl replace</a></h2>
+<p>Here&rsquo;s one for your toolbox, but use with care. Say you have an app running on kubernetes in a pod and you spot something you want to change. This is one way to get it done.</p>
+<p>For the example, I spun up an nginx server called <code>webapp</code>.</p>
+<p>The command to edit a resource running on kubernetes is <code>kubectl edit &lt;thing&gt; &lt;name&gt;</code>. So here goes:</p>
+<pre><code>kubectl edit pod webapp
+</code></pre>
+<p>You&rsquo;ll see a whole bunch of yaml that represents the pods definition. In what editor will depend on what you&rsquo;ve set as your default editor for any <code>kubectl</code> related business. (See: <code>KUBE_EDITOR</code> environment variable).</p>
+
+<h2><a href="/blog/lets-talk-containers/">Let&#39;s talk containers</a></h2>
+<p>A recent talk by one of my buddies at ITQ sparked something and I thought I&rsquo;d share that with you. It&rsquo;s about containers and where they sit in a software developer point of view.</p>
+<h2 id="the-platform-stack">The platform stack</h2>
+<p>The thing that caused the spark was this image:</p>
+<p><img src="stack.jpg" alt="The platform stack"></p>
+<p>Here we have a rough outline of the platform abstractions we currently see in the wild. Let&rsquo;s start at the bottom.</p>
+
+
+    </main>
+    <footer>
+        <small>
+    <span>🌱 content written by an actual human.</span>
+    <span>©️ copyright 2015-2024 harre.dev</span>
+</small>
+<a href="/blog/index.xml">
+    📡 rss
+</a>
+
+    </footer>
+</div>
+</body>
+</html>

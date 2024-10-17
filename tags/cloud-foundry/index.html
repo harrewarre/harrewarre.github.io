@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="shortcut icon" href="/favicon.png" type="image/png">
+<title>Cloud Foundry | harre.dev</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+
+
+
+</head>
+<body>
+<div class="site">
+    <header>
+        <div class="site-title">
+    <img src="/og-img.png" alt="H is for Harre.">
+    <h1>harre.dev</h1>
+</div>
+<nav>
+    <a href="/">home</a>
+    <a href="/blog">blog</a>
+    <a href="/about">about</a>
+    <a href="/blog/index.xml">rss</a>
+</nav>
+
+
+    </header>
+    <main>
+        
+<h1>Cloud Foundry</h1>
+
+
+<h2><a href="/blog/dotnet-ef-migrations-on-cloud-foundry/">Dotnet Core Entity Framework Migrations on Cloud Foundry</a></h2>
+<p>Run database migrations on Cloud Foundry using a task to ensure that migrations are only done once on deployment (and not during app start up!) for dotnet core applications. This post assumes you are deploying built applications and not raw source code.</p>
+<p>Instead of depending on dotnet tooling (<code>dotnet-ef</code>), leverage the built-in migration capability of the DataContext. Interrupt the startup procedure when a special argument is passed in, instead of starting the web application, run the migrations and then exit.
+So here we go, to start we need a DbContext:</p>
+
+<h2><a href="/blog/lets-talk-containers/">Let&#39;s talk containers</a></h2>
+<p>A recent talk by one of my buddies at ITQ sparked something and I thought I&rsquo;d share that with you. It&rsquo;s about containers and where they sit in a software developer point of view.</p>
+<h2 id="the-platform-stack">The platform stack</h2>
+<p>The thing that caused the spark was this image:</p>
+<p><img src="stack.jpg" alt="The platform stack"></p>
+<p>Here we have a rough outline of the platform abstractions we currently see in the wild. Let&rsquo;s start at the bottom.</p>
+
+<h2><a href="/blog/netcore-steeltoe-config-loading/">Cloud Foundry configuration with SteelToe</a></h2>
+<p>I&rsquo;ve been playing around with the <a href="https://steeltoe.io/">SteelToe</a> framework for .net apps on Cloud Foundry a bit and it&rsquo;s been nice overall (I&rsquo;ll probably write a few more posts about it at some point 😊). While playing around with it the configuration part of it I wasn&rsquo;t really liking the way settings can be read from the main configuration.</p>
+<p>Let&rsquo;s start with a really short primer on how the configuration system works. Cloud Foundry apps can be bound to services, doing so adds a reference to the bound service in the environment variables of the app that was bound. You can take a look at what is provided to an applications environment by running</p>
+
+<h2><a href="/blog/cf-netcore-logging/">ASP.NET Core logging on Cloud Foundry</a></h2>
+<p>All apps I&rsquo;ve ever worked on have some sort of logging going on for various reasons, mostly to keep track of whats going on or debugging, but it&rsquo;s all the same. Logs are needed to see what your code is up to.</p>
+<p>Cloud Foundry <a href="https://docs.cloudfoundry.org/devguide/deploy-apps/streaming-logs.html#writing">is very explicit</a> about <em>how</em> an app should write its logs. As you can see in the documentation, apps must write to <code>stdout</code> or <code>stderr</code>.</p>
+<p>For C# that means we can use the static methods on the <code>Console</code> to write our logs. Couldn&rsquo;t be easier. But&hellip; now our code is littered with these <code>Console.Write...</code> lines all over the place!</p>
+
+<h2><a href="/blog/pivotalcf-certification/">Pivotal Cloud Foundry Certified Developer</a></h2>
+<p>With all the knowledge built up for my <a href="cfcd-certification.md">CFCD</a> exam I did earlier I took another Cloud Foundry exam. The Pivotal flavor this time.</p>
+<!-- raw HTML omitted -->
+<p>Not as involved as the other Cloud Foundry exam I did but still a wide variety of questions. I&rsquo;m not sure if I screwed up all the Metrics questions, or that there was only 1 that I got incorrect.</p>
+<p><img src="pivotalcfresult.png" alt="Exam results"></p>
+<p>Still really happy with the result.</p>
+
+<h2><a href="/blog/cfcd-certification/">Cloud Foundry Certified Developer</a></h2>
+<p>Hey look, I got certified in something :-)</p>
+<p><img src="cert.png" alt="CFCD Certificate"></p>
+<p>After a good few nights of self-paced training and practice over at <a href="https://run.pivotal.io">Pivotal</a> I felt confident enough and took the CFCD exam. As you can see
+above, I passed!</p>
+
+<h2><a href="/blog/rabbitmq-with-nodejs-on-cloud-foundry/">RabbitMQ with NodeJS on Cloud Foundry</a></h2>
+<p>I&rsquo;ve been having some more fun with Cloud Foundry deploying Node apps and wanted the apps to communicate in a more disconnected way. A messaging system is a good fit for such a requirement and lucky for me, (Pivotal) Cloud Foundry has RabbitMQ-as-a-Service for me to use.</p>
+<p>So what are we working with? The code is Javascript running on Node, RabbitMQ for the messages and Cloud Foundry is hosting it all.</p>
+
+<h2><a href="/blog/my-first-asp-net-core-app-on-cloud-foundry/">My first ASP.NET Core app on Cloud Foundry</a></h2>
+<p>Today I tried to deploy a .NET Core web app to a Pivotal Cloud Foundry platform that my <a href="http://www.itq.nl">ITQ</a> buddy <a href="http://www.ruurdkeizer.com">Ruurd</a> set up for us to tinker with. The app itself is a very basic ASP.NET MVC app built with the new ASP.NET Core framework to make it cross-platform. It being cross platform makes it very easy to deploy on something like Cloud Foundry since there is no dependency on Windows or the full .NET Framework anymore.</p>
+
+<h2><a href="/blog/cloudfoundry-summit-2015-berlin/">Cloud Foundry Summit 2015 Berlin</a></h2>
+<p>On the 2nd and 3rd November in 2015, the <a href="https://www.cloudfoundry.org/foundation/">Cloud Foundry Foundation</a> held the <a href="https://www.cloudfoundry.org/">Cloud Foundry</a> Summit in Berlin. The focus of this conference is on Cloud Foundry itself and the community around it.</p>
+<p><a href="http://itq.nl/">ITQ</a> (my employer) is focussing on <a href="http://itq.nl/expertise/cloud-native-apps/">Cloud Native apps</a> and let a small group including myself attend the conference. After a canceled flight due to fog and a 650km roadtrip with my co-workers <a href="https://twitter.com/rwwilden">Ronald</a> and <a href="https://twitter.com/ruurdkeizer">Ruurd</a> we arrived at the hotel at 2am in morning just in time for the first workshop.</p>
+
+
+    </main>
+    <footer>
+        <small>
+    <span>🌱 content written by an actual human.</span>
+    <span>©️ copyright 2015-2024 harre.dev</span>
+</small>
+<a href="/blog/index.xml">
+    📡 rss
+</a>
+
+    </footer>
+</div>
+</body>
+</html>

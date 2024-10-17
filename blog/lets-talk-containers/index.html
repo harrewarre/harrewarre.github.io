@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="shortcut icon" href="/favicon.png" type="image/png">
+<title>Let&#39;s talk containers | harre.dev</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+
+
+
+</head>
+<body>
+<div class="site">
+    <header>
+        <div class="site-title">
+    <img src="/og-img.png" alt="H is for Harre.">
+    <h1>harre.dev</h1>
+</div>
+<nav>
+    <a href="/">home</a>
+    <a href="/blog">blog</a>
+    <a href="/about">about</a>
+    <a href="/blog/index.xml">rss</a>
+</nav>
+
+
+    </header>
+    <main>
+        
+  
+  
+  <small class="blog-meta">
+    <time datetime="2019-03-05T00:00:00&#43;00:00">March 5, 2019</time>
+    
+  <div>
+    Tags:
+        <a href="/tags/containers/">Containers</a>
+        <a href="/tags/apps/">Apps</a>
+        <a href="/tags/cloud-foundry/">Cloud Foundry</a>
+        <a href="/tags/kubernetes/">Kubernetes</a>
+        <a href="/tags/itq/">Itq</a>
+  </div>
+
+  </small>
+  <h1>Let&#39;s talk containers</h1>
+  <p>A recent talk by one of my buddies at ITQ sparked something and I thought I&rsquo;d share that with you. It&rsquo;s about containers and where they sit in a software developer point of view.</p>
+<h2 id="the-platform-stack">The platform stack</h2>
+<p>The thing that caused the spark was this image:</p>
+<p><img src="stack.jpg" alt="The platform stack"></p>
+<p>Here we have a rough outline of the platform abstractions we currently see in the wild. Let&rsquo;s start at the bottom.</p>
+<h3 id="bare-metal">Bare metal</h3>
+<p>Let&rsquo;s be quick about this one. There is still a place for running your own stuff in special circumstances, but generally speaking, these days are over. You can do anything you want at this level, but you are also responsible for everything at this level.</p>
+<h3 id="virtual-machines">Virtual machines</h3>
+<p>The answers to all the problems in the layer below it. We&rsquo;re no longer dealing with physical things and have moved everything into software. It still comes with a hefty amount of responsibilities like an operating system&hellip; still not what we really want.</p>
+<h3 id="containers">Containers</h3>
+<p>We&rsquo;ve lost a bunch of stuff on the way up and we&rsquo;re now only defining the context for our application and stack the code on top. It&rsquo;s a lot better but it still has traces of operating systems, ports and networking&hellip; We can do better.</p>
+<h3 id="apps">Apps</h3>
+<p>Ok, at this point we&rsquo;re just dealing with a runtime and code. As a developer, this makes me happy. No baggage or dependencies from lower in the stack left over and all we have is thing we care about the most.</p>
+<h3 id="functions">Functions</h3>
+<p>The runtime is gone as well! It does look good but it there&rsquo;s a good risk of overcomplicating things if we attempt to build would-be-apps using functions. There is certainly a case for this given the right requirements, but I would first look if an app would be a better fit.</p>
+<h2 id="so-what-about-the-containers">So what about the containers?</h2>
+<p>If we look at the stack again, we can make some very clear distinctions. Bare metal and VMs are infrastructure. Functions and Apps are serverless.</p>
+<p>Containers sit in a weird place&hellip; There&rsquo;s still some infrastructure left, but they&rsquo;re also portable like apps. Containers don&rsquo;t provide any health checks or log aggregation by themselves, but they can be scaled (given the right kind of app running in them!).</p>
+<p><img src="toptwolayers.jpg" alt="Top two layers"></p>
+<p>The top two layers are where I want to be (from a developers point of view), all that other stuff is just extra baggage.</p>
+<p>It runs even deeper when you start thinking about creating value. Does a container create value? It might for existing software that you want to move away from VMs. For new apps? It&rsquo;s just extra work.</p>
+<p>Which leads to questions like &ldquo;why is kubernetes so hot right now?&rdquo;. Is all that extra work worth bringing on board, just to run code? If you go up one level on the platform stack, you lose a whole lot of that complexity and still get to run code! And given the right platform (probably not a container platform! something like Cloud Foundry) you also get health checking, scaling, log aggregation, routing (dns) and more. Not saying a container platform can&rsquo;t do all those things, but someone has to set all that up.</p>
+<p>In the end it&rsquo;s mostly Ops business (from a devs perspective anyway 🙂), but the thought that containers are just extra weight keeps coming back to me. Automation can remove a lot of obstacles but I&rsquo;d rather automate the deployment of an app than a container simply because it has fewer dependencies.</p>
+<h2 id="tldr">TL;DR</h2>
+<p>It all boils down to the choice between a container platform and an application platform. I&rsquo;m pretty confident in saying that a container platform is more complicated than an application platform. There&rsquo;s more to set up and manage for the former, where the latter brings a lot of out the box with it (if we&rsquo;re comparing to Cloud Foundry at least).</p>
+<p>Unless you intend to bring all your existing software away from VMs (without changing anything), a container platform is the way to go. If you are in the business of building new software and services (or re-platforming existing stuff!), you might as well skip containers and look into a full-blown PaaS solution instead of CaaS.</p>
+<p>Do you want to ship software? or build a platform?</p>
+
+
+    </main>
+    <footer>
+        <small>
+    <span>🌱 content written by an actual human.</span>
+    <span>©️ copyright 2015-2024 harre.dev</span>
+</small>
+<a href="/blog/index.xml">
+    📡 rss
+</a>
+
+    </footer>
+</div>
+</body>
+</html>

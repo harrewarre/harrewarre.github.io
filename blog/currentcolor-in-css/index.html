@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="shortcut icon" href="/favicon.png" type="image/png">
+<title>CurrentColor in CSS | harre.dev</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+
+
+
+</head>
+<body>
+<div class="site">
+    <header>
+        <div class="site-title">
+    <img src="/og-img.png" alt="H is for Harre.">
+    <h1>harre.dev</h1>
+</div>
+<nav>
+    <a href="/">home</a>
+    <a href="/blog">blog</a>
+    <a href="/about">about</a>
+    <a href="/blog/index.xml">rss</a>
+</nav>
+
+
+    </header>
+    <main>
+        
+  
+  
+  <small class="blog-meta">
+    <time datetime="2015-06-22T00:00:00&#43;00:00">June 22, 2015</time>
+    
+  <div>
+    Tags:
+        <a href="/tags/css/">CSS</a>
+        <a href="/tags/itq/">Itq</a>
+  </div>
+
+  </small>
+  <h1>CurrentColor in CSS</h1>
+  <p>If you&rsquo;ve ever used something like LESS or SASS you know what a variable is in CSS. There is also a working draft for native <a href="http://www.w3.org/TR/css-variables-1/">CSS variables</a> but there is something in CSS right now that resembles some variable behavior. Not an actual variable, but interesting nonetheless.</p>
+<p>Meet <a href="http://www.w3.org/wiki/CSS3/Color/currentColor">currentColor</a>. Like the description says on the w3 wiki, its value is whatever the <code>color</code> is set to. So how does that work? Lets look at some examples.</p>
+<!-- raw HTML omitted -->
+<p>Sample one shows <code>currentColor</code> in its simplest form. It takes on the color Red which controls the border color.</p>
+<p>Sample two is a tiny bit more complex. Here you can see the <code>currentColor</code> cascading down (Blue in this case) which sets a blue box-shadow on the <code>inner-div</code>.</p>
+<p>Sample three is where we see that <code>currentColor</code> isn&rsquo;t a variable like the variables we know from things like Javascript or C#. We start by setting the <code>color</code> to Green and using <code>currentColor</code> to set the border color. Then we set the <code>color</code> to Yellow to change the background color. You can see it go wrong immediately, the text and border isn&rsquo;t green! This is because you can&rsquo;t re-assign <code>currentColor</code>. It can only be set once for every style and takes the value of the last time the <code>color</code> was set so in the sample it turns everything Yellow. When <code>color</code> is reset, <code>currentColor</code> is also reset as you can see, but cannot be set multiple times for the same set of styles. The inner div has black text and box-shadow because this has a different scope.</p>
+<p>So in short, kind of like a variable but not actually a variable. I don&rsquo;t see <a href="http://caniuse.com/#search=currentColor">currentColor</a> used very often in projects I get to work on, though its pretty safe to use (unless you support IE8). It can be used to save yourself some problems in dealing with consistent colors but you might be better off using <a href="http://lesscss.org/">LESS</a> or <a href="http://sass-lang.com/">SASS</a> if you want to use variables :-)</p>
+
+
+    </main>
+    <footer>
+        <small>
+    <span>🌱 content written by an actual human.</span>
+    <span>©️ copyright 2015-2024 harre.dev</span>
+</small>
+<a href="/blog/index.xml">
+    📡 rss
+</a>
+
+    </footer>
+</div>
+</body>
+</html>

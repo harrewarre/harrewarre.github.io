@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="shortcut icon" href="/favicon.png" type="image/png">
+<title>Simple dialogs with AngularJS and TypeScript | harre.dev</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+
+
+
+</head>
+<body>
+<div class="site">
+    <header>
+        <div class="site-title">
+    <img src="/og-img.png" alt="H is for Harre.">
+    <h1>harre.dev</h1>
+</div>
+<nav>
+    <a href="/">home</a>
+    <a href="/blog">blog</a>
+    <a href="/about">about</a>
+    <a href="/blog/index.xml">rss</a>
+</nav>
+
+
+    </header>
+    <main>
+        
+  
+  
+  <small class="blog-meta">
+    <time datetime="2016-09-15T00:00:00&#43;00:00">September 15, 2016</time>
+    
+  <div>
+    Tags:
+        <a href="/tags/javascript/">Javascript</a>
+        <a href="/tags/angular/">Angular</a>
+        <a href="/tags/html/">HTML</a>
+        <a href="/tags/css/">CSS</a>
+        <a href="/tags/itq/">Itq</a>
+  </div>
+
+  </small>
+  <h1>Simple dialogs with AngularJS and TypeScript</h1>
+  <p>While working an Angular (1) web app I ran into the age-old problem of showing the user notifications when certain conditions are met. Show them a little pop-up, in simple terms.</p>
+<p>So what does it take to show a popup? We know the <a href="http://harrewijnen.net/the-dialog-element/"><code>dialog</code> element exists</a> but cannot be used in this case due to browser requirements. The easiest way I could think of is adding a <code>fixed</code> positioned <code>div</code> the the user on top of all other content. Add some CSS in there to make it look nice and we have dialogs.</p>
+<p>There are a number of ways this can be achieved in Angular and for my case I chose a <code>service</code>. So what does this service look like? Please note that we are using TypeScript, which is like javascript, but not actual javascript. It makes javascript better.</p>
+<p>Let&rsquo;s start by adding a class that represents the service:</p>
+<pre><code>/// &lt;reference path=&quot;...&quot; /&gt;
+
+module DemoApp.Services {
+	export class DialogService {
+		constructor() { }
+	}
+}
+</code></pre>
+<p>Which we can register as a service in the root of our app.</p>
+<pre><code>/// &lt;reference path=&quot;...&quot; /&gt;
+
+var app = angular.module(&quot;demoApp&quot;, [&quot;&quot;]);
+&lt;snip&gt;Other stuff here&lt;/snip&gt;
+
+app.service(&quot;dialogService&quot;, DemoApp.Services.DialogService);
+</code></pre>
+<p>We add a service to our app called <code>dialogService</code> and pass its constructor function along with it. Angular now knows about our dialog service and we can inject it where ever we want.</p>
+<p>Except&hellip; Our service doesn&rsquo;t do anything yet!</p>
+<p>Let&rsquo;s add a function that creates a dialog similar to an <code>alert(...);</code>. Just some text and a button to close the dialog. Add the following function to the <code>DialogService</code> class.</p>
+<pre><code>showModalMessage = (title: string, text: string, onClose: () =&gt; void):void =&gt; { }
+</code></pre>
+<p>The dialog needs a <code>title</code>, some <code>text</code> and to let us respond to the user closing the dialog we have a callback function <code>onClose</code>. The function and callback both return <code>void</code>, they have no return values.</p>
+<p>Now for the code that creates a the elements that make up our fancy new dialog. Let&rsquo;s dive right in.</p>
+<pre><code>var body = document.body;
+
+var dialogElement = document.createElement(&quot;div&quot;);
+dialogElement.classList.add(&quot;dialog&quot;);
+
+var dialogContent = document.createElement(&quot;div&quot;);
+dialogContent.classList.add(&quot;dialog-content&quot;);
+
+var titleElement = document.createElement(&quot;h1&quot;);
+titleElement.innerHTML = title;
+dialogContent.appendChild(titleElement);
+
+var textElement = document.createElement(&quot;p&quot;);
+textElement.innerHTML = text;
+dialogContent.appendChild(textElement);
+
+var okButton = document.createElement(&quot;button&quot;);
+okButton.innerHTML = &quot;OK&quot;;
+
+var typeAttr = document.createAttribute(&quot;type&quot;);
+typeAttr.value = &quot;button&quot;;
+
+okButton.attributes.setNamedItem(typeAttr);
+
+dialogContent.appendChild(okButton);
+
+dialogElement.appendChild(dialogContent);
+
+var onOkClicked = () =&gt; {
+	okButton.removeEventListener(&quot;click&quot;, onOkClicked);
+	body.removeChild(dialogElement);
+
+	onClose();
+}
+
+okButton.addEventListener(&quot;click&quot;, onOkClicked);
+
+body.appendChild(dialogElement);
+</code></pre>
+<p>From top to bottom. We generate two <code>div</code> elements, one as a container and one for the dialog content. Add in a header with an <code>h1</code> element and a <code>p</code> for the content. Create a button that calls the callback function, cleans up the eventlistener and removes the generated elements when clicked. Finally we add the whole lot to the body element to get it rendered.</p>
+<p>To make it behave like a dialog, we also need some CSS. You can style this anyway you want but to get you started I have some ready-made LESS that you can use (or maybe not, then I&rsquo;m sorry for using LESS instead of CSS).</p>
+<pre><code>.dialog {
+	position: fixed;
+	width: 100%;
+	min-height: 200px;
+	top: 15%;
+	background-color: rgb(0, 148, 255);
+	z-index: 1;
+
+	.dialog-content {
+		position: relative;
+		max-width: 500px;
+		padding: 10px;
+		margin: 0 auto;
+		z-index: 2;
+		color: #fff;
+		text-align: center;
+
+		h1,
+		p {
+			padding: 0;
+			margin: 0 0 10px 0;
+		}
+
+		button {
+			margin-top: 20px;
+		}
+	}
+
+	&amp;:after {
+		content: &quot;&quot;;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(128, 128, 128, 0.5);
+		z-index: -1;
+	}
+}
+</code></pre>
+<p>Notice the <code>position: fixed;</code> to lock it into place and ignore any scrolling that will happen. There is no escaping this message. The other noteworthy thing is the <code>:after</code> styling. This renders a semi-transparent overlay behind the dialog we are showing to make sure the user cannot interact with anything else on the page.</p>
+<p>Using the styles above should give you something like this:</p>
+<p><img src="dialog.png" alt="Dialog"></p>
+<p>Actually using the <code>dialogService</code> requires that you inject it into other Angular modules (a controller in this case) like this:</p>
+<pre><code>module DemoApp.Controllers {
+
+	export class DemoController {
+
+		dialogService: RegistrationApp.Services.DialogService;
+
+		static $inject = [&quot;dialogService&quot;]
+		constructor(dialogService: DemoApp.Services.DialogService) {
+			this.dialogService = dialogService;
+		}
+
+		doSomeWork = () =&gt; {
+			// Important stuff happens here...
+
+			this.dialogService.showModalMessage(&quot;Test&quot;, &quot;This is a testmessage!&quot;, () =&gt; { });
+		}
+	}
+}
+</code></pre>
+<p>The callback is just an empty function in the example but you can pass in any function that doesn&rsquo;t take any arguments and returns <code>void</code>.</p>
+<p>We now have a single reusable source of dialogs that can be used anywhere in your angular app! Enjoy!</p>
+
+
+    </main>
+    <footer>
+        <small>
+    <span>🌱 content written by an actual human.</span>
+    <span>©️ copyright 2015-2024 harre.dev</span>
+</small>
+<a href="/blog/index.xml">
+    📡 rss
+</a>
+
+    </footer>
+</div>
+</body>
+</html>

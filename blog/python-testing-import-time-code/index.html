@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="shortcut icon" href="/favicon.png" type="image/png">
+<title>Testing Python code that runs during import | harre.dev</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+
+
+
+</head>
+<body>
+<div class="site">
+    <header>
+        <div class="site-title">
+    <img src="/og-img.png" alt="H is for Harre.">
+    <h1>harre.dev</h1>
+</div>
+<nav>
+    <a href="/">home</a>
+    <a href="/blog">blog</a>
+    <a href="/about">about</a>
+    <a href="/blog/index.xml">rss</a>
+</nav>
+
+
+    </header>
+    <main>
+        
+  
+  
+  <small class="blog-meta">
+    <time datetime="2024-08-19T00:00:00&#43;00:00">August 19, 2024</time>
+    
+  <div>
+    Tags:
+        <a href="/tags/python/">Python</a>
+        <a href="/tags/testing/">Testing</a>
+        <a href="/tags/tdd/">Tdd</a>
+  </div>
+
+  </small>
+  <h1>Testing Python code that runs during import</h1>
+  <p>I&rsquo;ve been pretty comfortable with Python after making the switch from dotnet core to Python for a new client.</p>
+<p>During this time I&rsquo;ve gotten to know the way around the ecosystem and Python-isms, but sometimes I run into something that makes me go &ldquo;huh? oh&hellip;&rdquo;.
+This post describes one such moment.</p>
+<h2 id="modules">Modules</h2>
+<p>So in Python modules can use each others functionality by importing them into one another using the <code>import</code> keyword and referencing the module you want to use e.g:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> os
+</span></span></code></pre></div><p>Let&rsquo;s dive in, I was setting up a <a href="https://pypi.org/project/dependency-injector/">dependency container to leverage dependency injection</a> in Python to make the composition of the final app more flexible and keep all the classes in the modules testable through inversion of control.</p>
+<p>Here&rsquo;s the container (simplified for the sake of this post):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> os
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> dependency_injector <span style="color:#f92672">import</span> containers, providers
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> dep <span style="color:#f92672">import</span> Dependency
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Container</span>(containers<span style="color:#f92672">.</span>DeclarativeContainer):
+</span></span><span style="display:flex;"><span>    config <span style="color:#f92672">=</span> providers<span style="color:#f92672">.</span>Configuration()
+</span></span><span style="display:flex;"><span>    config<span style="color:#f92672">.</span>client_id<span style="color:#f92672">.</span>from_env(<span style="color:#e6db74">&#34;CLIENT_ID&#34;</span>, required<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)  
+</span></span><span style="display:flex;"><span>    config<span style="color:#f92672">.</span>working_directory<span style="color:#f92672">.</span>from_env(<span style="color:#e6db74">&#34;WORKING_DIRECTORY&#34;</span>, default<span style="color:#f92672">=</span>os<span style="color:#f92672">.</span>getcwd())  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    some_dependency <span style="color:#f92672">=</span> providers<span style="color:#f92672">.</span>Singleton(Dependency, config<span style="color:#f92672">.</span>working_directory, config<span style="color:#f92672">.</span>tenant_id)  
+</span></span></code></pre></div><p>Instantiation of this container happens as soon as the app is started to get access to all the registered dependencies. It also holds some configuration that is read from the environment (see <a href="https://12factor.net/config">12-factor apps configuration</a>).</p>
+<p>I generally skip testing of this kind of code since it&rsquo;s all glue between the various dependencies but as I put in the <code>required=True</code> on the <code>client_id</code> I thought: I might want to capture this behavior somewhere so that I&rsquo;ll know when I mess with something the future.
+So, in come the tests, maybe not <em>test-first</em> this time, but I still wanted to put some guardrails around this type of initialization code.</p>
+<p>I wrote the tests one by one and all was fine, until I ran the tests one single session, only the first one passed! Wat?</p>
+<h2 id="the-tests">The tests</h2>
+<p>Here&rsquo;s the final result with the &ldquo;Today I Learned&rdquo; moment explained:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> os  
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> sys  
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> unittest  
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> unittest <span style="color:#f92672">import</span> mock  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ContainerTest</span>(unittest<span style="color:#f92672">.</span>TestCase):  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">setUp</span>(self):  
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># The container initialization happens at import time, so we need wipe any existing  </span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># imports for application.container. The container uses from_env during import</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># which we work around by importing the container again for each test.</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#34;application.container&#34;</span> <span style="color:#f92672">in</span> sys<span style="color:#f92672">.</span>modules:  
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">del</span> sys<span style="color:#f92672">.</span>modules[<span style="color:#e6db74">&#34;application.container&#34;</span>]  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@mock.patch.dict</span>(os<span style="color:#f92672">.</span>environ, {<span style="color:#e6db74">&#34;CLIENT_ID&#34;</span>: <span style="color:#e6db74">&#34;test-client&#34;</span>, <span style="color:#e6db74">&#34;WORKING_DIRECTORY&#34;</span>: <span style="color:#e6db74">&#34;/some/root/path&#34;</span>}, clear<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test_it_should_initialize_container</span>(self):  
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">from</span> application.container <span style="color:#f92672">import</span> Container  
+</span></span><span style="display:flex;"><span>        container <span style="color:#f92672">=</span> Container()  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>assertEqual(<span style="color:#e6db74">&#34;test-client&#34;</span>, container<span style="color:#f92672">.</span>config<span style="color:#f92672">.</span>tenant_id())  
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>assertEqual(<span style="color:#e6db74">&#34;/some/root/path&#34;</span>, container<span style="color:#f92672">.</span>config<span style="color:#f92672">.</span>working_directory())  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@mock.patch.dict</span>(os<span style="color:#f92672">.</span>environ, {<span style="color:#e6db74">&#34;WORKING_DIRECTORY&#34;</span>: <span style="color:#e6db74">&#34;/some/root/path&#34;</span>}, clear<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test_it_should_not_initialize_container_without_tenant_variable</span>(self):  
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">with</span> self<span style="color:#f92672">.</span>assertRaises(<span style="color:#a6e22e">ValueError</span>) <span style="color:#66d9ef">as</span> ve:  
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">from</span> application.container <span style="color:#f92672">import</span> Container  
+</span></span><span style="display:flex;"><span>            _ <span style="color:#f92672">=</span> Container()  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>        exception <span style="color:#f92672">=</span> ve<span style="color:#f92672">.</span>exception  
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>assertEqual(<span style="color:#e6db74">&#39;Environment variable &#34;CLIENT_ID&#34; is undefined&#39;</span>, str(exception))  
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">@mock.patch.dict</span>(os<span style="color:#f92672">.</span>environ, {<span style="color:#e6db74">&#34;CLIENT_ID&#34;</span>: <span style="color:#e6db74">&#34;test-client&#34;</span>}, clear<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)  
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">test_it_should_initialize_container_with_default_policy_sets_root_path</span>(self):  
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">from</span> application.container <span style="color:#f92672">import</span> Container  
+</span></span><span style="display:flex;"><span>        container <span style="color:#f92672">=</span> Container()  
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>assertEqual(os<span style="color:#f92672">.</span>getcwd(), container<span style="color:#f92672">.</span>config<span style="color:#f92672">.</span>working_directory())
+</span></span></code></pre></div><p>The clue is in the comments already, but here&rsquo;s the full details. When I started writing my tests I imported the container at the top of the file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> application.container <span style="color:#f92672">import</span> Container
+</span></span></code></pre></div><p>This made each individual test pass in isolation but not all together in a single run&hellip; What&rsquo;s the deal? I mistakenly assumed that those declarations inside the container&rsquo;s <code>class</code> would happen at the moment the container was constructed (<code>container = Container()</code>) but this is not the case.</p>
+<p>In my assumption I mixed up <strong>instance</strong> level attributes (those that operate at instance creation) and <strong>class</strong> attributes (these run when the container code is imported!). Which in the case of the container makes sense, we want those dependencies to be constant.</p>
+<p>This also explains why the tests kept failing when running in a single session. <strong>The import only took place once</strong>! As soon as the container code was imported, its state (those environment variables and other dependencies) was locked in and would not change from one test to the next. The other tests after it would fail due to the container&rsquo;s unexpected state.</p>
+<h2 id="the-solution">The solution</h2>
+<p>Ok, then how do you get around this? Well I learned that you can remove modules that have already been imported and then&hellip; Import them again! Precisely what I need. Python keeps track of all <a href="https://docs.python.org/3/library/sys.html#sys.modules">the modules that have been loaded</a> in a special list in <code>sys.modules</code>. Turns out you can also remove modules from this list. It does come with a word of caution about its use though:</p>
+<p><code>sys.modules</code>:</p>
+<blockquote>
+<p>This is a dictionary that maps module names to modules which have already been loaded. This can be manipulated to force reloading of modules and other tricks. However, replacing the dictionary will not necessarily work as expected and deleting essential items from the dictionary may cause Python to fail. If you want to iterate over this global dictionary always use sys.modules.copy() or tuple(sys.modules) to avoid exceptions as its size may change during iteration as a side effect of code or activity in other threads.</p>
+</blockquote>
+<p>Not really something you would use in your every day Python code I think, but these are tests, so we are in a well known state for each of the test modules and we should be fine.</p>
+<p>To unload a module you can delete it from the list using the module&rsquo;s name:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">del</span> sys<span style="color:#f92672">.</span>modules[<span style="color:#e6db74">&#34;application.container&#34;</span>]
+</span></span></code></pre></div><p>Since we are running more than one test, we need to unload the container module before each one. This can be achieved using Python <code>unittest</code>&rsquo;s <code>setUp</code> helper method. This method runs before each test and deletes the <code>application.container</code> module if it&rsquo;s present.
+Each test preps its own conditions using mocks and can then decide at what point the container code should get imported, and we can successfully assert the behavior we expect from it.</p>
+<p>While <code>sys.modules</code> does come with a little disclaimer about unpredictable behavior, code that runs during import (instead of instantiation) can now be tested without running into unpredictable state issues in your own code.</p>
+<p>Happy coding!</p>
+
+
+    </main>
+    <footer>
+        <small>
+    <span>🌱 content written by an actual human.</span>
+    <span>©️ copyright 2015-2024 harre.dev</span>
+</small>
+<a href="/blog/index.xml">
+    📡 rss
+</a>
+
+    </footer>
+</div>
+</body>
+</html>

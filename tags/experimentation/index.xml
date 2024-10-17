@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Experimentation on harre.dev</title>
+    <link>http://localhost:1313/tags/experimentation/</link>
+    <description>Recent content in Experimentation on harre.dev</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
+    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
+    <copyright>© harre.dev</copyright>
+    <lastBuildDate>Wed, 02 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/experimentation/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Are you failing enough?</title>
+      <link>http://localhost:1313/blog/are-you-failing-enough/</link>
+      <pubDate>Wed, 02 Oct 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/are-you-failing-enough/</guid>
+      <description>&lt;p&gt;The process of creating software, compared to other manufacturing processes, is a little bit special. One unique property of a software product is that it can be changed easily and (relatively) cheaply.&lt;/p&gt;&#xA;&lt;p&gt;Over in the physical world, changing a product is not so easy. Supply chains, inventory, machinery, whole factories, who knows what&amp;rsquo;s involved that is either difficult to change quickly and/or prohibitively expensive to change.&lt;/p&gt;&#xA;&lt;p&gt;So what about this failing more often? Well if you have the ability to quickly change your software product, you can also run A LOT of experiments!&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

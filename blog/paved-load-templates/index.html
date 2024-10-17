@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="shortcut icon" href="/favicon.png" type="image/png">
+<title>Paved road - Templates | harre.dev</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+
+
+
+</head>
+<body>
+<div class="site">
+    <header>
+        <div class="site-title">
+    <img src="/og-img.png" alt="H is for Harre.">
+    <h1>harre.dev</h1>
+</div>
+<nav>
+    <a href="/">home</a>
+    <a href="/blog">blog</a>
+    <a href="/about">about</a>
+    <a href="/blog/index.xml">rss</a>
+</nav>
+
+
+    </header>
+    <main>
+        
+  
+  
+  <small class="blog-meta">
+    <time datetime="2022-07-29T00:00:00&#43;00:00">July 29, 2022</time>
+    
+  <div>
+    Tags:
+        <a href="/tags/devops/">Devops</a>
+        <a href="/tags/developer-experience/">Developer Experience</a>
+        <a href="/tags/cloudnative/">Cloudnative</a>
+  </div>
+
+  </small>
+  <h1>Paved road - Templates</h1>
+  <p>In my previous post about paving the road to production there were some ideas around offering deployment pipelines as a service in your organization. In this post, we&rsquo;re going to take it up a level and have a look what we can do to remove even more friction, specifically when creating a new app from scratch.</p>
+<p>The process of creating a new app generally looks something like this:</p>
+<ul>
+<li>Pick runtime and language</li>
+<li>Pick any suitable frameworks</li>
+<li>Add any additional dependencies for stuff like databases, single sign on, logging, etc.</li>
+<li>Integrate all the above</li>
+<li>Make sure it all works locally</li>
+<li>Set up configs for various environments</li>
+<li>Set up a pipeline</li>
+<li>Deploy to dev/test or other environment to get pipeline working</li>
+<li>Create value for your users ✨</li>
+</ul>
+<p>Before you go ahead and start building something generic that you can quickly duplicate for new apps, you should think about what you are willing to support and what level of customization is going to make the most sense.</p>
+<p>Let&rsquo;s say for example many teams in an organization are using Python with Django for their apps. There might also be teams that have settled on Dotnet Core for their apps but they are far outnumbered by the amount of python. The logical conclusion would be to first cater to the biggest slice which in our case is  Python Django.</p>
+<p>Our imaginary org also has some sort internal single sign on system that is used in pretty much every app that gets deployed. It would make a lot of sense to include that by default so that teams only need to provide config values for their specific app. The same choices can be made for every dependency commonly used. There might be teams that don&rsquo;t need this SSO functionality but they can remove the bits they don&rsquo;t need (more on this later).</p>
+<p>One big thing we can also include in the template app: a pipeline that is able to build and deploy this app. Bonus points if this is a pipeline straight off the shelf as we described previously.</p>
+<p>By this point we have a pretty good understanding of what the most generic version (with all the most used bells and whistles!) of our python app should look like. So how do you make this easy to use?</p>
+<p>A way to give teams easy access is built right into Git. You could use the <code>subtree</code> command to stick the contents of our template repo in the repo that the team is working in. This could be a solution but it lacks a key thing that other solutions have to offer: customization (and with many things Git, it has a learning curve and comes with its own complexities). So what else is out there?</p>
+<p><a href="https://www.cookiecutter.io/">Cookiecutter</a> is one such tool that allows custom settings in templates. It uses a repository that holds the template code and a CLI tool that makes use of the code in that repo to enable the customization. Customization can make the templates a lot more friendly. Don&rsquo;t need SSO? Turn it off before generating the code.</p>
+<p>If we&rsquo;re moving into the more enterprise-y world there is <a href="https://docs.vmware.com/en/Application-Accelerator-for-VMware-Tanzu/1.1/acc-docs/GUID-index.html">VMware Tanzu Application Accelerator</a>, this also works with a template repository and allows for advanced transformations on templates to modify it in many ways. It has a web UI where developers can enter values for all the customization options and click a button to download a zip file that contains the template code. This generated code can then be pushed to the teams own repo for further development.</p>
+<p><a href="https://backstage.io/docs/features/software-templates/software-templates-index">Backstage Software Templates</a> offers features similar to the Application Accelerator.</p>
+<p>So now we have tools to help teams get off the ground much faster by skipping a lot of the boilerplate that goes into creating new apps and should be a big boost in the developer experience. But as with the pipelines from the previous post, you can&rsquo;t really force anyone into using a setup like this and the advice is still the same: Make the templates super easy to use and keep your developers in the loop about any changes in the templates.</p>
+<p>Ownership also comes into play once more and as with the pipelines, someone has to take care of the templates. It could be a core team, or the internal developer community, or tech guilds within that community, it largely depends on your internal org structure and culture.</p>
+<p>At some point I hope to gather enough insights into what it takes to build such a community and I can write something about community building but it&rsquo;s a fuzzy and soft topic which makes it quite complicated. I&rsquo;ll keep working on that because I find that specific part of helping organizations improve their practices very interesting.</p>
+<p>See you in the next one!</p>
+
+
+    </main>
+    <footer>
+        <small>
+    <span>🌱 content written by an actual human.</span>
+    <span>©️ copyright 2015-2024 harre.dev</span>
+</small>
+<a href="/blog/index.xml">
+    📡 rss
+</a>
+
+    </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="shortcut icon" href="/favicon.png" type="image/png">
+<title>Logging | harre.dev</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+
+
+
+</head>
+<body>
+<div class="site">
+    <header>
+        <div class="site-title">
+    <img src="/og-img.png" alt="H is for Harre.">
+    <h1>harre.dev</h1>
+</div>
+<nav>
+    <a href="/">home</a>
+    <a href="/blog">blog</a>
+    <a href="/about">about</a>
+    <a href="/blog/index.xml">rss</a>
+</nav>
+
+
+    </header>
+    <main>
+        
+<h1>Logging</h1>
+
+
+<h2><a href="/blog/cf-netcore-logging/">ASP.NET Core logging on Cloud Foundry</a></h2>
+<p>All apps I&rsquo;ve ever worked on have some sort of logging going on for various reasons, mostly to keep track of whats going on or debugging, but it&rsquo;s all the same. Logs are needed to see what your code is up to.</p>
+<p>Cloud Foundry <a href="https://docs.cloudfoundry.org/devguide/deploy-apps/streaming-logs.html#writing">is very explicit</a> about <em>how</em> an app should write its logs. As you can see in the documentation, apps must write to <code>stdout</code> or <code>stderr</code>.</p>
+<p>For C# that means we can use the static methods on the <code>Console</code> to write our logs. Couldn&rsquo;t be easier. But&hellip; now our code is littered with these <code>Console.Write...</code> lines all over the place!</p>
+
+
+    </main>
+    <footer>
+        <small>
+    <span>🌱 content written by an actual human.</span>
+    <span>©️ copyright 2015-2024 harre.dev</span>
+</small>
+<a href="/blog/index.xml">
+    📡 rss
+</a>
+
+    </footer>
+</div>
+</body>
+</html>

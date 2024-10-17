@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="shortcut icon" href="/favicon.png" type="image/png">
+<title>Azure | harre.dev</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+
+
+
+</head>
+<body>
+<div class="site">
+    <header>
+        <div class="site-title">
+    <img src="/og-img.png" alt="H is for Harre.">
+    <h1>harre.dev</h1>
+</div>
+<nav>
+    <a href="/">home</a>
+    <a href="/blog">blog</a>
+    <a href="/about">about</a>
+    <a href="/blog/index.xml">rss</a>
+</nav>
+
+
+    </header>
+    <main>
+        
+<h1>Azure</h1>
+
+
+<h2><a href="/blog/web-config-domain-redirect/">Web.config domain rewriting</a></h2>
+<p>Here&rsquo;s a quick and easy domain rewriting solution running on an Azure App service.</p>
+<p>Some assumptions before you can start though:</p>
+<ul>
+<li>The app service must be configured with the custom domain you want to redirect from.</li>
+<li>The app service is running on the Windows stack (you can configure this during App Service setup).</li>
+</ul>
+<p>To make things even easier, you can set this whole thing up from inside the Azure portal using the Advanced Tools option which opens the Kudu interface for the web server.
+In the Kudu interface click on Debug Console -&gt; CMD. Next, browse to the <code>wwwroot</code> directory at <code>site/wwwroot</code>. From there you can create new files.</p>
+
+<h2><a href="/blog/netcore-az-container-environment/">Environment variables in an Azure Web App for Containers</a></h2>
+<p>Here&rsquo;s a little gotcha I ran into. A .net core app I wrote needs to run inside a container and the target was a Web App for Containers on the Azure platform. No big deal so far.</p>
+<p>The app also needs a few settings for it to do its work. We provide these via environment variables for maximum flexibility. After setting up some CI/CD stuff and deploying the app it wouldn&rsquo;t start because it wasn&rsquo;t loading the settings.</p>
+
+<h2><a href="/blog/azure-static-website/">Setting up an Azure Storage static website</a></h2>
+<p>Not very long ago, Microsoft made the <a href="https://azure.microsoft.com/en-us/blog/static-websites-on-azure-storage-now-generally-available/">static website feature generally available</a> on the Azure platform. What this means is that you can now publicly host content with Azure (blob) storage.</p>
+<!-- raw HTML omitted -->
+<p>So in a few easy steps you can create a host for your angular/react/vue/(insert-client-side-web-thing-here)/static app. The <a href="https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-static-website-host">docs</a> are great but we&rsquo;ll have a look at what&rsquo;s what.</p>
+<p>Please remember that there is no server-side processing for this hosting option! If you want to do server-side stuff, use an App Service instead.</p>
+
+<h2><a href="/blog/sf-multiple-listeners/">Multiple listeners for your Service Fabric service</a></h2>
+<p>Service Fabric is a great piece of technology on the Azure platform and I&rsquo;ve been using it quite a lot in recent projects. It takes away a lot of the setup and orchestration when dealing with microservices.</p>
+<p>There comes a point where services need to talk to each other and this is easily achieved using the Remoting bits you can get from NuGet. The general way of doing this is creating an <code>Interfaces</code> project next to the service that
+contains the service interface and classes used in transport. The interface is implemented on the service entrypoint and a listener is exposed to the Fabric runtime so that it can communicate with the rest of the platform. We&rsquo;re
+going to take it one step further and put the service implementations in their own class instead of on the service entrypoint (keeps things nice and clean) and also enable dependency injection from that point forward.</p>
+
+<h2><a href="/blog/openhack-ams-2017/">Openhack Amsterdam 2017</a></h2>
+<p>So this hackathon/training thing popped up on my twitter feed a week before it actually started.</p>
+<p><img src="openhack-banner.jpeg" alt="Openhack"></p>
+<p>It caught my attention because it mentioned Azure Service Fabric as one of the tech stacks (the other being Kubernetes)
+that would be the focus of the event. The event is Openhack that took place in Amsterdam from 9 to 11 october 2017.</p>
+<p>So Azure Service Fabric caught my attention because it&rsquo;s a big part of the job I&rsquo;m currently working on. We run a bunch
+of services and actors with great satisfaction, but there&rsquo;s always more to know and learn.</p>
+
+
+    </main>
+    <footer>
+        <small>
+    <span>🌱 content written by an actual human.</span>
+    <span>©️ copyright 2015-2024 harre.dev</span>
+</small>
+<a href="/blog/index.xml">
+    📡 rss
+</a>
+
+    </footer>
+</div>
+</body>
+</html>

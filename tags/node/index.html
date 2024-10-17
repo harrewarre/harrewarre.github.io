@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="shortcut icon" href="/favicon.png" type="image/png">
+<title>Node | harre.dev</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+
+
+
+</head>
+<body>
+<div class="site">
+    <header>
+        <div class="site-title">
+    <img src="/og-img.png" alt="H is for Harre.">
+    <h1>harre.dev</h1>
+</div>
+<nav>
+    <a href="/">home</a>
+    <a href="/blog">blog</a>
+    <a href="/about">about</a>
+    <a href="/blog/index.xml">rss</a>
+</nav>
+
+
+    </header>
+    <main>
+        
+<h1>Node</h1>
+
+
+<h2><a href="/blog/expressjs-route-management/">Express route management</a></h2>
+<p>Setting up a webserver with Node and <a href="http://expressjs.com/">Express</a> is easy very easy.</p>
+<p>Here is a small example:</p>
+<pre><code>var express = require(&quot;express&quot;);
+var app = express();
+
+app.get(&quot;/&quot;, function (request, response) {
+	response.send(&quot;Hello world!&quot;);
+});
+
+app.listen(3000);
+</code></pre>
+<p>Running this and navigating to <code>http://localhost:3000</code> will give you the following result:</p>
+<p><img src="hw.png" alt="Hello world"></p>
+<p>If you only have a few of those endpoints (<code>app.get</code> etc.) things will be fine living in the same <code>index.js</code> file. But what if this starts growing? You add more and more endpoints to your <code>index.js</code> and before you know it you have a 1500 line Javascript mess. Here is a good way of tackling that problem before it rears its head.</p>
+
+
+    </main>
+    <footer>
+        <small>
+    <span>🌱 content written by an actual human.</span>
+    <span>©️ copyright 2015-2024 harre.dev</span>
+</small>
+<a href="/blog/index.xml">
+    📡 rss
+</a>
+
+    </footer>
+</div>
+</body>
+</html>

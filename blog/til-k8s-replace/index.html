@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="shortcut icon" href="/favicon.png" type="image/png">
+<title>Today I learned - kubectl replace | harre.dev</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+
+
+
+</head>
+<body>
+<div class="site">
+    <header>
+        <div class="site-title">
+    <img src="/og-img.png" alt="H is for Harre.">
+    <h1>harre.dev</h1>
+</div>
+<nav>
+    <a href="/">home</a>
+    <a href="/blog">blog</a>
+    <a href="/about">about</a>
+    <a href="/blog/index.xml">rss</a>
+</nav>
+
+
+    </header>
+    <main>
+        
+  
+  
+  <small class="blog-meta">
+    <time datetime="2022-11-21T00:00:00&#43;00:00">November 21, 2022</time>
+    
+  <div>
+    Tags:
+        <a href="/tags/today-i-learned/">Today-I-Learned</a>
+        <a href="/tags/kubernetes/">Kubernetes</a>
+        <a href="/tags/kubectl/">Kubectl</a>
+  </div>
+
+  </small>
+  <h1>Today I learned - kubectl replace</h1>
+  <p>Here&rsquo;s one for your toolbox, but use with care. Say you have an app running on kubernetes in a pod and you spot something you want to change. This is one way to get it done.</p>
+<p>For the example, I spun up an nginx server called <code>webapp</code>.</p>
+<p>The command to edit a resource running on kubernetes is <code>kubectl edit &lt;thing&gt; &lt;name&gt;</code>. So here goes:</p>
+<pre><code>kubectl edit pod webapp
+</code></pre>
+<p>You&rsquo;ll see a whole bunch of yaml that represents the pods definition. In what editor will depend on what you&rsquo;ve set as your default editor for any <code>kubectl</code> related business. (See: <code>KUBE_EDITOR</code> environment variable).</p>
+<pre><code># Please edit the object below. Lines beginning with a '#' will be ignored,
+# and an empty file will abort the edit. If an error occurs while saving this file will be
+# reopened with the relevant failures.
+#
+apiVersion: v1
+kind: Pod
+metadata:
+creationTimestamp: &quot;2022-11-21T18:51:24Z&quot;
+labels:
+  run: webapp
+name: webapp
+namespace: default
+spec:
+  containers:
+  - image: nginx
+    name: webapp
+</code></pre>
+<p><!-- raw HTML omitted -->Shortened for sanity<!-- raw HTML omitted --></p>
+<p>Now you can make any changes you want and when you save them, they&rsquo;ll get applied to the resource you started editting. Not so fast though. You&rsquo;re not allowed to just update anything and apply it!</p>
+<pre><code>resources:
+  requests:
+    memory: 128M
+  limits:
+    memory: 512M
+</code></pre>
+<p>If for example you try to set resource limits you&rsquo;ll get an error.</p>
+<pre><code># pods &quot;webapp&quot; was not valid:
+# * spec: Forbidden: pod updates may not change fields other than `spec.containers[*].image`, `spec.initContainers[*].image`, `spec.activeDeadlineSeconds`... &lt;snipped&gt;
+</code></pre>
+<p>If you close out of the editor and go back to the CLI you&rsquo;ll see this message:</p>
+<pre><code>A copy of your changes has been stored to &quot;/tmp/kubectl-edit-4134617318.yaml&quot;
+error: Edit cancelled, no valid changes were saved.
+</code></pre>
+<p>See that? They saved our changes in a temporary file. Let&rsquo;s say your really really wanted to apply these changes. Here you go:</p>
+<pre><code>kubectl replace -f /tmp/kubectl-edit-4134617318.yaml --force
+</code></pre>
+<p>Doing the above will cause two things. The first is: <strong>it will delete the running pod we had in the definition</strong>. The second thing is, <strong>it will replace</strong> the thing we had with whatever we have in our temporary definition.</p>
+<pre><code>pod &quot;webapp&quot; deleted
+pod/webapp replaced
+</code></pre>
+<p>As you can see, it&rsquo;s quite destructive, but for local development and a bit of hacking around this is a nice quick and dirty way to recreate something with different parameters quickly.</p>
+
+
+    </main>
+    <footer>
+        <small>
+    <span>🌱 content written by an actual human.</span>
+    <span>©️ copyright 2015-2024 harre.dev</span>
+</small>
+<a href="/blog/index.xml">
+    📡 rss
+</a>
+
+    </footer>
+</div>
+</body>
+</html>

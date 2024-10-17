@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mobile on harre.dev</title>
+    <link>http://localhost:1313/tags/mobile/</link>
+    <description>Recent content in Mobile on harre.dev</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
+    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
+    <copyright>© harre.dev</copyright>
+    <lastBuildDate>Sat, 29 Jul 2023 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/mobile/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gaming on your phone</title>
+      <link>http://localhost:1313/blog/mobile-phone-games/</link>
+      <pubDate>Sat, 29 Jul 2023 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/mobile-phone-games/</guid>
+      <description>&lt;p&gt;Time for something else for a change. Games! Summer vacation is here and you&amp;rsquo;re going to be away from your computer for a while. You still want to play some games, but you don&amp;rsquo;t want to lug around your laptop.&lt;/p&gt;&#xA;&lt;p&gt;Mobile phone gaming is kind of a trash fire with a few gems hidden here and there. To make your life a bit easier, here are my favorites to get you started.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

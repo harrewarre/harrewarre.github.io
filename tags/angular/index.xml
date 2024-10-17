@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Angular on harre.dev</title>
+    <link>http://localhost:1313/tags/angular/</link>
+    <description>Recent content in Angular on harre.dev</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
+    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
+    <copyright>© harre.dev</copyright>
+    <lastBuildDate>Tue, 02 Jan 2018 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/angular/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Angular (5) and aspnet core (2) quickstart</title>
+      <link>http://localhost:1313/blog/angularcli-aspnetcore-quickstart/</link>
+      <pubDate>Tue, 02 Jan 2018 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/angularcli-aspnetcore-quickstart/</guid>
+      <description>&lt;p&gt;Here is a get-up-and-go style post to get going with the angular CLI and aspnet core. Before we begin, there is a template you can use to set (most, if not more) of this up, but it&amp;rsquo;s good to know what is going on behind the curtains.&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;h2 id=&#34;first-things-first&#34;&gt;First things first.&lt;/h2&gt;&#xA;&lt;p&gt;You need some tools installed to get the base project set up.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.microsoft.com/net/learn/get-started&#34;&gt;dotnet core SDK&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://nodejs.org/en/&#34;&gt;Node&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://cli.angular.io/&#34;&gt;angular-cli&lt;/a&gt; which we&amp;rsquo;ll install using NPM.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Open a command prompt and run the following command:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Date validation in AngularJS</title>
+      <link>http://localhost:1313/blog/date-validation-in-angularjs/</link>
+      <pubDate>Thu, 27 Oct 2016 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/date-validation-in-angularjs/</guid>
+      <description>&lt;p&gt;Another angular post! This time we take a look at how to create a directive that ensures the user enters a valid date (and/or time).&lt;/p&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s start with some boilerplate stuff first. I&amp;rsquo;m going to assume that you have something working Angular already, we will only cover the date validation directive in this post.&#xA;Here is some HTML.&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;&amp;lt;div ng-app=&amp;quot;validDateApp&amp;quot;&amp;gt;&#xA;    &amp;lt;div ng-form=&amp;quot;myForm&amp;quot; ng-controller=&amp;quot;testController&amp;quot;&amp;gt;&#xA;        &amp;lt;input ng-model=&amp;quot;myDate&amp;quot; my-valid-date name=&amp;quot;myDateInput&amp;quot; type=&amp;quot;text&amp;quot; /&amp;gt;&#xA;    &amp;lt;/div&amp;gt;&#xA;&amp;lt;/div&amp;gt;&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;And it&amp;rsquo;s Angular app to go with it:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Simple dialogs with AngularJS and TypeScript</title>
+      <link>http://localhost:1313/blog/simple-dialogs-with-angularjs-and-typescript/</link>
+      <pubDate>Thu, 15 Sep 2016 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/simple-dialogs-with-angularjs-and-typescript/</guid>
+      <description>&lt;p&gt;While working an Angular (1) web app I ran into the age-old problem of showing the user notifications when certain conditions are met. Show them a little pop-up, in simple terms.&lt;/p&gt;&#xA;&lt;p&gt;So what does it take to show a popup? We know the &lt;a href=&#34;http://harrewijnen.net/the-dialog-element/&#34;&gt;&lt;code&gt;dialog&lt;/code&gt; element exists&lt;/a&gt; but cannot be used in this case due to browser requirements. The easiest way I could think of is adding a &lt;code&gt;fixed&lt;/code&gt; positioned &lt;code&gt;div&lt;/code&gt; the the user on top of all other content. Add some CSS in there to make it look nice and we have dialogs.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

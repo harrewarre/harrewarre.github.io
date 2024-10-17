@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hosting on harre.dev</title>
+    <link>http://localhost:1313/tags/hosting/</link>
+    <description>Recent content in Hosting on harre.dev</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
+    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
+    <copyright>© harre.dev</copyright>
+    <lastBuildDate>Fri, 09 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/hosting/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Web.config domain rewriting</title>
+      <link>http://localhost:1313/blog/web-config-domain-redirect/</link>
+      <pubDate>Fri, 09 Aug 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/web-config-domain-redirect/</guid>
+      <description>&lt;p&gt;Here&amp;rsquo;s a quick and easy domain rewriting solution running on an Azure App service.&lt;/p&gt;&#xA;&lt;p&gt;Some assumptions before you can start though:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;The app service must be configured with the custom domain you want to redirect from.&lt;/li&gt;&#xA;&lt;li&gt;The app service is running on the Windows stack (you can configure this during App Service setup).&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;To make things even easier, you can set this whole thing up from inside the Azure portal using the Advanced Tools option which opens the Kudu interface for the web server.&#xA;In the Kudu interface click on Debug Console -&amp;gt; CMD. Next, browse to the &lt;code&gt;wwwroot&lt;/code&gt; directory at &lt;code&gt;site/wwwroot&lt;/code&gt;. From there you can create new files.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="shortcut icon" href="/favicon.png" type="image/png">
+<title>Angular (5) and aspnet core (2) quickstart | harre.dev</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+
+
+
+</head>
+<body>
+<div class="site">
+    <header>
+        <div class="site-title">
+    <img src="/og-img.png" alt="H is for Harre.">
+    <h1>harre.dev</h1>
+</div>
+<nav>
+    <a href="/">home</a>
+    <a href="/blog">blog</a>
+    <a href="/about">about</a>
+    <a href="/blog/index.xml">rss</a>
+</nav>
+
+
+    </header>
+    <main>
+        
+  
+  
+  <small class="blog-meta">
+    <time datetime="2018-01-02T00:00:00&#43;00:00">January 2, 2018</time>
+    
+  <div>
+    Tags:
+        <a href="/tags/angular/">Angular</a>
+        <a href="/tags/angular-cli/">Angular CLI</a>
+        <a href="/tags/dotnet-core/">Dotnet Core</a>
+        <a href="/tags/aspnet-core/">Aspnet Core</a>
+        <a href="/tags/itq/">Itq</a>
+  </div>
+
+  </small>
+  <h1>Angular (5) and aspnet core (2) quickstart</h1>
+  <p>Here is a get-up-and-go style post to get going with the angular CLI and aspnet core. Before we begin, there is a template you can use to set (most, if not more) of this up, but it&rsquo;s good to know what is going on behind the curtains.</p>
+<!-- raw HTML omitted -->
+<h2 id="first-things-first">First things first.</h2>
+<p>You need some tools installed to get the base project set up.</p>
+<ol>
+<li><a href="https://www.microsoft.com/net/learn/get-started">dotnet core SDK</a></li>
+<li><a href="https://nodejs.org/en/">Node</a></li>
+<li><a href="https://cli.angular.io/">angular-cli</a> which we&rsquo;ll install using NPM.</li>
+</ol>
+<p>Open a command prompt and run the following command:</p>
+<pre><code>npm install @angular/cli -g
+</code></pre>
+<p>This will install the angular tooling globally. Time to start creating things!</p>
+<h2 id="project-setup">Project setup.</h2>
+<p>Find a nice spot on your harddisk where the project will live, I&rsquo;m starting in <code>C:\workspace\angular</code>. Next, grab a command prompt and run <code>ng new AngularAspNetCore</code>.
+The <code>angular-cli</code> will create a new folder called <code>AngularAspNetCore</code> with a new blank angular project inside. Something along the lines below should appear and the angular project is done (for now).</p>
+<pre><code>C:\workspace\angular&gt; ng new AngularAspNetCore
+create AngularAspNetCore/e2e/app.e2e-spec.ts (302 bytes)
+create AngularAspNetCore/e2e/app.po.ts (208 bytes)
+&lt;snip&gt;
+Installed packages for tooling via npm.
+Successfully initialized git.
+Project 'AngularAspNetCore' successfully created.
+</code></pre>
+<p>Up next is the aspnet core web API project. Move into the <code>AngularAspNetCore</code> folder and create a new web API project with the following command:</p>
+<pre><code>dotnet new webapi
+</code></pre>
+<p>Something like below will spew out on the command line:</p>
+<pre><code>PS C:\workspace\angular\AngularAspNetCore&gt; dotnet new webapi
+The template &quot;ASP.NET Core Web API&quot; was created successfully.
+
+Processing post-creation actions...
+Running 'dotnet restore' on C:\workspace\angular\AngularAspNetCore\AngularAspNetCore.csproj...
+&lt;snip&gt;
+Restore completed in 3,2 sec for C:\workspace\angular\AngularAspNetCore\AngularAspNetCore.csproj.
+
+Restore succeeded.
+</code></pre>
+<h2 id="pulling-it-all-together">Pulling it all together.</h2>
+<p>The core of the project is now done, but we need to make some changes first. The aspnet core project we created serves as an API, but it won&rsquo;t serve files to the browser. Let&rsquo;s fix that first.
+Pull up your editor of choice and open our newly created project. Open the <code>Startup.cs</code> file and look at the <code>Configure</code> method. The thing we want to add will let our back-end serve static files and also service a default document (<code>index.html</code>).</p>
+<p>Update the following:</p>
+<pre><code>app.UseMvc();
+</code></pre>
+<p>To:</p>
+<pre><code>app.UseDefaultFiles();
+app.UseStaticFiles();
+app.UseMvc();
+</code></pre>
+<p>Next open the <code>Program.cs</code> file and look at the <code>Main</code> method. We need to set the ContentRoot of the web app so that we can serve files from it.
+This will let our API project also serve static content and serve a default document (index.html in our case) when the browser hits the root of the web app (ie: the / url).</p>
+<p>Change this:</p>
+<pre><code>public static IWebHost BuildWebHost(string[] args) =&gt;
+	WebHost.CreateDefaultBuilder(args)
+        .UseStartup&lt;Startup&gt;()
+        .Build();
+</code></pre>
+<p>To this:</p>
+<pre><code>public static IWebHost BuildWebHost(string[] args) =&gt;
+	WebHost.CreateDefaultBuilder(args)
+		.UseContentRoot(Directory.GetCurrentDirectory())
+        .UseStartup&lt;Startup&gt;()
+        .Build();
+</code></pre>
+<p>This tells the dotnet runtime where all the files can be found.</p>
+<p>The next change is done in <code>.angular-cli.json</code>, this file controls all the things that <code>ng build</code> will do with our angular app. Find the <code>apps</code> section and look for <code>outDir</code>.</p>
+<pre><code>&quot;apps&quot;: [
+	{
+		&lt;snip&gt;
+		&quot;outDir&quot;: &quot;wwwroot&quot;,
+		&lt;snip&gt;
+	}
+]
+</code></pre>
+<p>It points to the <code>dist</code> folder by default for the compiled angular app. We are hosting this from aspnet core which uses the <code>wwwroot</code> folder for static content so go ahead and change <code>dist</code> to <code>wwwroot</code>.</p>
+<p>To make sure we got this right, it&rsquo;s time to start it all up. First thing is building the angular app. Pull up the command prompt again and run <code>ng build</code> inside the project folder. This creates the angular app in the <code>wwwroot</code> folder.
+Next run <code>dotnet build</code> to compile the API, after that run <code>dotnet run</code> to start it up. Open a browser and go the URL that was given after running running the API project (in my case http://localhost:5000). You should be greeted with the following
+default angular page:</p>
+<p><img src="angular.png" alt="Angular app"></p>
+<h2 id="auto-reloading">Auto-reloading.</h2>
+<p>So we have the basics down, but there is a problem. Every time we change something, we need to run <code>ng build</code> and refresh the page. We are not yet using the hot reloading that the angular CLI can give us. To get the hot reloading to work we would have to run <code>ng serve</code> instead of <code>ng build</code>.
+The former will wait for changes and rebuild the app on the fly, the latter will only build when the command is given. Running <code>ng serve</code> will start a seperate webserver that hosts only the angular content, that might work for some cases but we since our web API project will also spin up a webserver we are
+dealing with 2 webservers instead of just one that serves everything. To get around this we need to proxy some http calls to our web API project, but not everything.</p>
+<p>To tell the angular webserver that we want to proxy certain requests, we need to add a file to our project: <code>proxy.conf.json</code>.
+Create the file and add the following code to it:</p>
+<pre><code>{
+	&quot;/api&quot;: {
+		&quot;target&quot;: &quot;http://localhost:5000&quot;,
+		&quot;secure&quot;: false
+	}
+}
+</code></pre>
+<p>This will forward any requests to a URL that points to a route starting with <code>/api</code> to <code>localhost:5000</code> which is where our API is running. To test this you can update the following pieces of code:</p>
+<p>app.module.ts</p>
+<pre><code>import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+
+import { AppComponent } from './app.component';
+
+
+@NgModule({
+  declarations: [
+	AppComponent
+  ],
+  imports: [
+	BrowserModule,
+	HttpClientModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+</code></pre>
+<p>(Import the HttpClientModule so we can inject it into other things.)</p>
+<p>app.component.ts</p>
+<pre><code>import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+
+export class AppComponent implements OnInit {
+  title = 'app';
+  result = [];
+
+  constructor(private http: HttpClient) { }
+  ngOnInit(): void {
+
+	this.http.get('/api/values').subscribe(data =&gt; {
+	  console.log(data);
+	  this.result = &lt;any[]&gt;data;
+	});
+  }
+}
+</code></pre>
+<p>(Add some init code to the app module to request some data from our API - on another webserver!)</p>
+<p>And add the following to the end of app.component.html</p>
+<pre><code>&lt;div&gt;
+	&lt;div&gt;Values found: {{ result.length }}&lt;/div&gt;
+	&lt;div *ngFor=&quot;let val of result&quot;&gt;{{ val }}&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>(Render the data we got from the API)</p>
+<p>If you&rsquo;ve updated all the code to make an HTTP request to the webserver we can start things back up. First run the webserver:</p>
+<pre><code>dotnet run
+</code></pre>
+<p>When it&rsquo;s up and running, open a second command prompt and run the following to start serving the angular web app:</p>
+<pre><code>ng serve --proxy-config proxy.conf.json
+</code></pre>
+<p>This will launch a second webserver hosting the angular app with hot reloading enabled, our proxy configuration will make sure that any request to URLs starting with <code>/api</code> will be forwarded to our web API. If you&rsquo;ve done all of the above and browse to the angular app URL (http://localhost:4200 for me), you should be seeing this page:</p>
+<p><img src="angular-serve.png" alt="Angular app"></p>
+<p>It&rsquo;s a lot to take in all at once, but this is a once-per-project setup. You&rsquo;ll get all the nice reloading features while still being able to debug the &ldquo;real&rdquo; API when working on the client-side app. Bonus points if you also enable watching on the web API project and you&rsquo;ll get hot reloading on both ends.</p>
+<h2 id="dotnet-watch-run">dotnet watch run</h2>
+<p>Righto, here&rsquo;s the auto reloading for dotnet core! :-)</p>
+<p>Open the <code>.csproj</code> file and add the following reference:</p>
+<pre><code>&lt;DotNetCliToolReference Include=&quot;Microsoft.DotNet.Watcher.Tools&quot; Version=&quot;2.0.0&quot; /&gt;
+</code></pre>
+<p>Restore the packages using:</p>
+<pre><code>dotnet restore
+</code></pre>
+<p>You now have access to the watching features when you start the project with the following command:</p>
+<pre><code>dotnet watch run
+</code></pre>
+<p>Wew, have some fun with this one, it&rsquo;s all you need to get a boilerplate project set up with angular and aspnet core while still maintaining the best of both during development.</p>
+
+
+    </main>
+    <footer>
+        <small>
+    <span>🌱 content written by an actual human.</span>
+    <span>©️ copyright 2015-2024 harre.dev</span>
+</small>
+<a href="/blog/index.xml">
+    📡 rss
+</a>
+
+    </footer>
+</div>
+</body>
+</html>

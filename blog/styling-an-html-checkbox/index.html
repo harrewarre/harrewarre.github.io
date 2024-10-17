@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="shortcut icon" href="/favicon.png" type="image/png">
+<title>Creating a toggle switch with HTML and CSS | harre.dev</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+
+
+
+</head>
+<body>
+<div class="site">
+    <header>
+        <div class="site-title">
+    <img src="/og-img.png" alt="H is for Harre.">
+    <h1>harre.dev</h1>
+</div>
+<nav>
+    <a href="/">home</a>
+    <a href="/blog">blog</a>
+    <a href="/about">about</a>
+    <a href="/blog/index.xml">rss</a>
+</nav>
+
+
+    </header>
+    <main>
+        
+  
+  
+  <small class="blog-meta">
+    <time datetime="2016-04-27T00:00:00&#43;00:00">April 27, 2016</time>
+    
+  <div>
+    Tags:
+        <a href="/tags/html/">HTML</a>
+        <a href="/tags/css/">CSS</a>
+        <a href="/tags/itq/">Itq</a>
+  </div>
+
+  </small>
+  <h1>Creating a toggle switch with HTML and CSS</h1>
+  <p>My current project involves an interface that is 100% touch driven (no keyboard and mouse) and I was asked to turn a regular old checkbox into a toggle switch.</p>
+<p>Initially I assumed it would be very easy but as with many things browser related, it was not. Let&rsquo;s take a look at some of the things browsers do to checkboxes using this quick example:</p>
+<pre><code>&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;Test&lt;/title&gt;
+		&lt;style&gt;
+			input {
+				border: 1px solid red;
+				background-color: green;
+				width: 50px;
+				height: 50px;
+			}
+		&lt;/style&gt;
+	&lt;/head&gt;
+&lt;body&gt;
+	&lt;div&gt;
+		&lt;input type=&quot;text&quot; /&gt;
+		&lt;input type=&quot;checkbox&quot; /&gt;
+	&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><img src="browsers.PNG" alt="Browsers pls"></p>
+<p>Sooooo, not a whole lot it seems&hellip; The text input will do as we ask but the checkbox only listens to the new width and height.</p>
+<p>So a little more HTML is needed. We need a toggle switch such as this but a checkbox by itself (and <code>:before</code> and <code>:after</code> styling) won&rsquo;t cut it.</p>
+<p><img src="prettycheckbox.PNG" alt="Toggle"></p>
+<p>What do we need to get that result? The actual checkbox needs to stay, because we need it to save the state of its fancy counterpart. To keep the ability to (un)check the box we need a label. Labels can be styled any way we want and they can be hooked up to form controls with the <code>for</code> attribute. The last part is a wrapper in the form of a <code>div</code> to keep everything together.</p>
+<p>Putting all those elements to use leaves us with this markup:</p>
+<pre><code>&lt;div class=&quot;checkbox&quot;&gt;
+	&lt;input id=&quot;checkMe&quot; type=&quot;checkbox&quot; /&gt;
+	&lt;label for=&quot;checkMe&quot;&gt;&lt;/label&gt;
+&lt;/div&gt;
+</code></pre>
+<p>As noted above, we use the <code>for</code> attribute of the label to tie it to the checkbox. When a label is tied to a form control, clicking the label puts focus on the control. In the case of the checkbox, it toggles the checkbox state. By using this ability we can hide the checkbox itself but still control its state.</p>
+<p>We have the HTML, now for the CSS. Hide the checkbox element inside our new faux-checkbox <code>div</code>.</p>
+<pre><code>.checkbox &gt; input[type=checkbox] {
+	visibility: hidden;
+}
+</code></pre>
+<p>We need to make room for the toggle to move left and right so the <code>checkbox</code> needs a width and a height.</p>
+<pre><code>.checkbox {
+	display: inline-block;
+	position: relative;
+	width: 110px;
+	height: 50px;
+	border: 1px solid blue;
+}
+</code></pre>
+<p>Use <code>inline-block</code> to make the <code>div</code> behave like an inline element just like the checkbox (instead of the <code>div</code>s default block behavior). To make sure we got it right, apply a border so we can see the outline.</p>
+<p>The next step is turning the <code>label</code> into the toggle switch that will show the state of the checkbox.</p>
+<pre><code>.checkbox &gt; label {
+	position: absolute;
+	width: 46px;
+	height: 46px;
+	top: 2px;
+	left: 2px;
+	background-color: blue;
+	cursor: pointer;
+}
+</code></pre>
+<p>Because we made the wrapper div positioned relative, we can use absolute positioning inside it to precisely set the position of the label. If you look at the browser and refresh with the newly created styles and markup, it should look like this:</p>
+<p><img src="newcheckbox.PNG" alt="New checkbox"></p>
+<p>Looking like a toggle switch already, except that it doesn&rsquo;t work yet. Technically it does work, but the state is not yet reflected in the state of the toggle switch. Let&rsquo;s fix that. Being able to react to the checkbox state requires a selector called <code>:checked</code> which lets you style elements that are in the <code>checked</code> state. In our case our unchecked state is the default state but if you need it you can combine <code>:checked</code> with the <code>:not</code> selector to find elements that are in an unchecked state. More info and compatibility stuff can be found <a href="http://caniuse.com/#search=%3Achecked">here</a>.</p>
+<p>So <code>:checked</code> allows us to style our checked state, but we don&rsquo;t want to style the checkbox, we want to style the label! It needs to move over to the right when the checked state is active.</p>
+<p>This is where we use the direct sibling selector <code>+</code> (if you have more elements you want to style you should look at the <code>~</code> general sibling selector). We select the checkbox <code>:checked</code> state but we extend that by selecting the label on the same level in the DOM.</p>
+<pre><code>.checkbox &gt; input[type=checkbox]:checked + label {
+	left: 62px;
+}
+</code></pre>
+<p>Now we can change the style of label based on whether the invisible checkbox is checked or not. In our case, we move it over to the left to show the changed state of the checkbox. Refresh your browser and click the <code>label</code> that we positioned to the right of the wrapper <code>div</code>.</p>
+<p><img src="toggled.PNG" alt="Toggled"></p>
+<p>Here is a demo showing the end-result.</p>
+<!-- raw HTML omitted -->
+<p>With this basic setup you can now start dressing it up with all sorts of cool stuff like gradients, transitions, rounded corners and whatever else you like. Source to the screenshot of the green, shaded, rounded toggle can be found <a href="https://github.com/harrewarre/WebStuff/tree/master/Checkbox">here</a> if you want to tinker with that.</p>
+<p>With a little bit of extra markup you can now turn a boring old checkbox into something nice. You can also turn this into a toggle button instead of a slider or a custom checkbox with your own images for the checked and unchecked state and have all the benefits of using regular checkbox that you can use in Javascript.</p>
+
+
+    </main>
+    <footer>
+        <small>
+    <span>🌱 content written by an actual human.</span>
+    <span>©️ copyright 2015-2024 harre.dev</span>
+</small>
+<a href="/blog/index.xml">
+    📡 rss
+</a>
+
+    </footer>
+</div>
+</body>
+</html>

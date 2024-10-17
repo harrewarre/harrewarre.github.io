@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="shortcut icon" href="/favicon.png" type="image/png">
+<title>Dotnet Core CLI user secrets | harre.dev</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+
+
+
+</head>
+<body>
+<div class="site">
+    <header>
+        <div class="site-title">
+    <img src="/og-img.png" alt="H is for Harre.">
+    <h1>harre.dev</h1>
+</div>
+<nav>
+    <a href="/">home</a>
+    <a href="/blog">blog</a>
+    <a href="/about">about</a>
+    <a href="/blog/index.xml">rss</a>
+</nav>
+
+
+    </header>
+    <main>
+        
+  
+  
+  <small class="blog-meta">
+    <time datetime="2017-04-20T00:00:00&#43;00:00">April 20, 2017</time>
+    
+  <div>
+    Tags:
+        <a href="/tags/dotnet-core/">Dotnet Core</a>
+        <a href="/tags/itq/">Itq</a>
+  </div>
+
+  </small>
+  <h1>Dotnet Core CLI user secrets</h1>
+  <p>User secrets are what you use for settings in a .NET Core app that you don&rsquo;t want committed to your public repos (think API keys, passwords, anything sensitive). You map out your actual settings and they override them with the values from the secrets, which are stored outside of the tracked source folder.</p>
+<p>On windows the user secrets folder is located here: <code>%APPDATA%\microsoft\UserSecrets</code>. Let&rsquo;s have a look at how use them with the new tooling for .NET Core that came out recently.</p>
+<p>Create a little test project to play around, I&rsquo;ve used a webapi project for these examples. Create the project in a folder of your choosing with the <code>dotnet new webapi</code> command.</p>
+<p><img src="setup.png" alt="Project setup"></p>
+<p>Restore the packages (<code>dotnet restore</code>) and open the project (<code>code .</code> I&rsquo;m using Visual Studio Code).</p>
+<p>The command to set up user secrets is <code>dotnet user-secrets</code> but before we can use it, we need to tell <code>dotnet</code> that it is part of our project. To enable the user secrets tooling we need to make a change to the <code>.csproj</code> file. Open the project file and add the following code.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;ItemGroup&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&lt;DotNetCliToolReference</span> <span style="color:#a6e22e">Include=</span><span style="color:#e6db74">&#34;Microsoft.Extensions.SecretManager.Tools&#34;</span> <span style="color:#a6e22e">Version=</span><span style="color:#e6db74">&#34;1.0.0-msbuild3-final&#34;</span> <span style="color:#f92672">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/ItemGroup&gt;</span>
+</span></span></code></pre></div><p>To enable the use of secrets in the configuration system add the following package reference:</p>
+<pre><code>&lt;PackageReference Include=&quot;Microsoft.Extensions.Configuration.UserSecrets&quot; Version=&quot;1.1.1&quot; /&gt;
+</code></pre>
+<p><img src="code-1.png" alt="csproj change"></p>
+<p>Save the <code>.csproj</code> file and restore the packages. You need to run the <code>restore</code> command before you can start using the <code>user-secret</code> command! Otherwise the additional tooling isn&rsquo;t available to the <code>dotnet</code> command. To make sure we have it all set up, run the <code>dotnet user-secrets -h</code> to what it offers.</p>
+<p><img src="user-secrets-h.png" alt="user-secrets-h"></p>
+<p>We need one last component before we can start adding settings and secrets to our project. We need to give the project a unique id that identifies the user secrets file that belongs to this project. Go back to the <code>.csproj</code> file and add the following code to it:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;PropertyGroup&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;UserSecretsId&gt;</span>demo-project-secrets<span style="color:#f92672">&lt;/UserSecretsId&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/PropertyGroup&gt;</span>
+</span></span></code></pre></div><p>You can choose any name you want but remember that it serves as an identifier for the project!</p>
+<p><img src="propgroup.png" alt="propgroup"></p>
+<p>Let&rsquo;s add a setting to the <code>appsettings.json</code> file and create a secret override for it using the <code>user-secrets</code> tooling.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;Logging&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;IncludeScopes&#34;</span>: <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;LogLevel&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">&#34;Default&#34;</span>: <span style="color:#e6db74">&#34;Warning&#34;</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  },
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;Settings&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;SomeApiKey&#34;</span>: <span style="color:#e6db74">&#34;abcdef&#34;</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>I chose an extra group <code>Settings</code> with a setting called <code>SomeApiKey</code> with the value <code>abcdef</code>. Grab the command line and add the a secret override for this setting to the user secrets file: <code>dotnet user-secrets set Settings:SomeApiKey secretapikey</code>. Note the <code>:</code> between Settings and SomeApiKey. The tooling does not support nested objects the way JSON describes them. Instead, the properties are flattened and then written to a JSON object without nesting. The .NET Core configuration system doesn&rsquo;t care about the literal notation of the settings and will read them correctly when it loads the configuration files. The only requirement is that any nesting is noted with the <code>:</code> separator (think folder paths in explorer, except it&rsquo;s now JSON :-)</p>
+<p>If we go and look in the secrets folder (<code>%APPDATA%\microsoft\UserSecrets\</code>) we will find a folder with our key as its name containing a <code>secrets.json</code> file.</p>
+<p><img src="json.png" alt="secrets.json"></p>
+<h2 id="using-the-user-secrets-in-a-project">Using the user secrets in a project</h2>
+<p>Now that we have all this set up, we need to tell the configuration system of your project that we have user secrets and that it should load them when we are in development mode. As mentioned above, these user secrets are strictly for things you don&rsquo;t want ending up in your source repositories where they are possibly out in the open! Use them for development purposes only.</p>
+<p>We&rsquo;ll run down some code to get the settings up and running. Open the <code>Startup.cs</code> file and go to the <code>Startup(HostingEnvironment env)</code> method. Update the method body to the following code below. Note that the development check goes at the end of the builder config chain.. This ensures that any config that was previously loaded is overwritten by a secret if we have one.</p>
+<pre><code>var builder = new ConfigurationBuilder()
+	.SetBasePath(env.ContentRootPath)
+	.AddJsonFile(&quot;appsettings.json&quot;, optional: false, reloadOnChange: true)
+	.AddJsonFile($&quot;appsettings.{env.EnvironmentName}.json&quot;, optional: true)
+	.AddEnvironmentVariables();
+
+if(env.IsDevelopment())
+{
+	builder.AddUserSecrets&lt;Startup&gt;();
+}
+
+Configuration = builder.Build();
+</code></pre>
+<p>Register the options as a dependency in the <code>ConfigureServices</code> method:</p>
+<pre><code>public void ConfigureServices(IServiceCollection services)
+{
+	services.AddOptions();
+	services.Configure&lt;Settings&gt;(Configuration.GetSection(&quot;Settings&quot;));
+
+	// Add framework services.
+	services.AddMvc();
+}
+</code></pre>
+<p>The following class is used to create a typed representation of our settings.</p>
+<pre><code>namespace secrets.Model
+{
+	public class Settings
+	{
+		public string SomeApiKey { get; set; }
+	}
+}
+</code></pre>
+<p>Because we have a class (<code>Settings</code>) for our settings that is available in the services collection we can inject the settings into a controller. Add a new controller to expose our setting value that receives the options from the configuration system via constructor injection.</p>
+<pre><code>using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
+using secrets.Model;
+
+namespace secrets.Controllers
+{
+	[Route(&quot;api/[controller]&quot;)]
+	public class ConfigController : Controller
+	{
+		private readonly Settings _settings;
+
+		public ConfigController (IOptions&lt;Settings&gt; settings)
+		{
+			_settings = settings.Value;
+		}
+
+		[HttpGet]
+		public string ConfiguredKey()
+		{
+			return _settings.SomeApiKey;
+		}
+	}
+}
+</code></pre>
+<p>Run the project and point your browser to <code>http://localhost:&lt;port&gt;/api/Config</code> (the port can vary, look at the console output to see which one it chose). If all the stuff we did so far is set up right you should get the following response from the api:</p>
+<p><img src="response.png" alt="Response"></p>
+<p>It gives us the value from <code>secrets.json</code> we configured earlier! Even though our <code>appSettings.json</code> file says that the value should be <code>abcdef</code>. You can now safely commit a dummy setting to your repo in the appSettings and keep the real value locally on your development system.</p>
+<p>One last test to make sure we can still get the actual value from <code>appSettings.json</code>. Remove the secret from our secrets file by running the following command: <code>dotnet user-secrets remove Settings:SomeApiKey</code>. Run the project again and call the <code>Config</code> endpoint.</p>
+<p><img src="response2.png" alt="Response 2"></p>
+<p>Knowing all this, you can now start using user secrets on a per-project basis and prevent leaking those keys, passwords and other sensitive things in a commit to your (possibly) public repo. We even covered a good part of the configuration system to boot. Just keep in mind that this system is only intended for the development cycle and nothing beyond that. Use environment variables where possible on the hosting environment, that way, you have no settings to struggle with and you can set empty values in the appSettings file.</p>
+<p>Keep those secrets secret!</p>
+
+
+    </main>
+    <footer>
+        <small>
+    <span>🌱 content written by an actual human.</span>
+    <span>©️ copyright 2015-2024 harre.dev</span>
+</small>
+<a href="/blog/index.xml">
+    📡 rss
+</a>
+
+    </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="shortcut icon" href="/favicon.png" type="image/png">
+<title>Dependency Injection | harre.dev</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+
+
+
+</head>
+<body>
+<div class="site">
+    <header>
+        <div class="site-title">
+    <img src="/og-img.png" alt="H is for Harre.">
+    <h1>harre.dev</h1>
+</div>
+<nav>
+    <a href="/">home</a>
+    <a href="/blog">blog</a>
+    <a href="/about">about</a>
+    <a href="/blog/index.xml">rss</a>
+</nav>
+
+
+    </header>
+    <main>
+        
+<h1>Dependency Injection</h1>
+
+
+<h2><a href="/blog/inversion-of-control-dive/">Getting started with Inversion of Control</a></h2>
+<p>Alright, lets dive straight into the deep end! &hellip; ok, but not drown in the process of doing so. One step at a time. Lets&rsquo;s start with an example.</p>
+<h2 id="the-technical-side">The technical side</h2>
+<p>Here is some code:</p>
+<pre><code>public class Foo
+{
+    private readonly Bar bar;
+
+    public Foo()
+    {
+        this.bar = new Bar();
+    }
+}
+</code></pre>
+<p>To create an instance of Foo we write</p>
+<pre><code>Foo theFoo = new Foo();
+</code></pre>
+<p>In this example we have two classes, Foo and Bar. Foo makes use of a Bar to do some work. When a Foo instance is created the creator of the Foo instance has no control over what kind of Bar the Foo instance is going to use. They are stuck together. This code is completely valid but what if we want to let the creator of Foo <strong>control</strong> the kind of Bar that is used? We have to invert control! Here is the same code with it&rsquo;s control flow inverted:</p>
+
+<h2><a href="/blog/signalr-dependency-injection/">SignalR dependency injection</a></h2>
+<p>My go-to container for IoC at the moment is <a href="https://simpleinjector.codeplex.com/">SimpleInjector</a> because you know.. it&rsquo;s simple. I&rsquo;ve used it in a couple of projects and used in a hobby project recently again.</p>
+<p>This hobby project uses <a href="http://www.asp.net/signalr">SignalR</a> for real-time communication between browser and server and after setting that up I wanted to inject dependencies in to the SignalR hubs. It is pretty easy but there was a minor catch. Let&rsquo;s look at some code.</p>
+
+
+    </main>
+    <footer>
+        <small>
+    <span>🌱 content written by an actual human.</span>
+    <span>©️ copyright 2015-2024 harre.dev</span>
+</small>
+<a href="/blog/index.xml">
+    📡 rss
+</a>
+
+    </footer>
+</div>
+</body>
+</html>

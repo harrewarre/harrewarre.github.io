@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="shortcut icon" href="/favicon.png" type="image/png">
+<title>HTML | harre.dev</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+
+
+
+</head>
+<body>
+<div class="site">
+    <header>
+        <div class="site-title">
+    <img src="/og-img.png" alt="H is for Harre.">
+    <h1>harre.dev</h1>
+</div>
+<nav>
+    <a href="/">home</a>
+    <a href="/blog">blog</a>
+    <a href="/about">about</a>
+    <a href="/blog/index.xml">rss</a>
+</nav>
+
+
+    </header>
+    <main>
+        
+<h1>HTML</h1>
+
+
+<h2><a href="/blog/uploading-files-filereader/">Uploading files - a simple approach</a></h2>
+<p>Here&rsquo;s a nice way of getting images to your server using a little bit of Javascript and HTML. We&rsquo;ll be using the <code>FileReader</code> API that comes with
+Javascript and is supported in <a href="http://caniuse.com/#search=filereader">all</a> major browsers.</p>
+<p>For this example we&rsquo;ll need some HTML from which we can select files and show a preview:</p>
+<pre><code>&lt;div&gt;
+    &lt;input id=&quot;fileInput&quot; type=&quot;file&quot; /&gt;
+    &lt;button id=&quot;clearFile&quot;&gt;Clear&lt;/button&gt;
+    &lt;button id=&quot;uploadFile&quot;&gt;Upload&lt;/button&gt;
+&lt;/div&gt;
+&lt;div&gt;
+    &lt;label&gt;Preview&lt;/label&gt;
+    &lt;div&gt;
+        &lt;img id=&quot;preview&quot; /&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>We have an <code>input</code> element set to <code>type=&quot;file&quot;</code> to select the file(s) we want to upload. Two <code>button</code>s for submitting and clearing our inputs and an <code>img</code> where we can show a preview.
+This demo only depends on jQuery, which is only used to make performing a POST to the webserver so much simpler. Feel free to substitute that with whatever you like best.</p>
+
+<h2><a href="/blog/simple-dialogs-with-angularjs-and-typescript/">Simple dialogs with AngularJS and TypeScript</a></h2>
+<p>While working an Angular (1) web app I ran into the age-old problem of showing the user notifications when certain conditions are met. Show them a little pop-up, in simple terms.</p>
+<p>So what does it take to show a popup? We know the <a href="http://harrewijnen.net/the-dialog-element/"><code>dialog</code> element exists</a> but cannot be used in this case due to browser requirements. The easiest way I could think of is adding a <code>fixed</code> positioned <code>div</code> the the user on top of all other content. Add some CSS in there to make it look nice and we have dialogs.</p>
+
+<h2><a href="/blog/the-dialog-element/">The dialog element</a></h2>
+<p>I was grinding my teeth on a z-index problem today. I needed to cover the entire webpage to show something was happening and nothing else was to interrupt. Some elements (for whatever reasons) were poking through the overlay and nothing seemed to fix my problem with the plain old <code>position: fixed</code> element I was using to cover the page.</p>
+<p>So after getting fed up with looking for possible fixes I spent a bit of time looking for alternatives and came across the <code>&lt;dialog&gt;</code> element.</p>
+
+<h2><a href="/blog/styling-an-html-checkbox/">Creating a toggle switch with HTML and CSS</a></h2>
+<p>My current project involves an interface that is 100% touch driven (no keyboard and mouse) and I was asked to turn a regular old checkbox into a toggle switch.</p>
+<p>Initially I assumed it would be very easy but as with many things browser related, it was not. Let&rsquo;s take a look at some of the things browsers do to checkboxes using this quick example:</p>
+<pre><code>&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;Test&lt;/title&gt;
+		&lt;style&gt;
+			input {
+				border: 1px solid red;
+				background-color: green;
+				width: 50px;
+				height: 50px;
+			}
+		&lt;/style&gt;
+	&lt;/head&gt;
+&lt;body&gt;
+	&lt;div&gt;
+		&lt;input type=&quot;text&quot; /&gt;
+		&lt;input type=&quot;checkbox&quot; /&gt;
+	&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p><img src="browsers.PNG" alt="Browsers pls"></p>
+
+<h2><a href="/blog/another-simple-loading-indicator/">Another simple loading indicator</a></h2>
+<p>Here is another loading indicator for when your webpage is busy waiting for a server request to come back with an answer. It&rsquo;s a bar at the very top of the page this time.</p>
+<p>Let&rsquo;s look at a demo before we dive in:</p>
+<!-- raw HTML omitted -->
+<p>Press the button to do some imaginary tasks that simulates a workload. A rolling bar will appear at the top of the demo to show that something is happening in the background. So how does it work?</p>
+
+<h2><a href="/blog/animations-and-transforms/">Animations and transforms</a></h2>
+<p>Every employee at <a href="http://www.itq.nl">ITQ</a> has their own little mini-me in the form of a little character based on your appearance. Here is mine:</p>
+<!-- raw HTML omitted -->
+<p><img src="minime-front.png" alt="MiniMe"></p>
+<p>So I have this image sitting in a folder on my Ondrive for whenever I might need it. Queue a boring evening with not much else to do, I figured, lets animate some life into the little guy using CSS. Here is the result.</p>
+
+<h2><a href="/blog/the-simplest-loading-indicator/">The simplest loading indicator</a></h2>
+<p>I had a brainwave and dove into codepen for a little bit to doodle around and when I emerged I had this simple little loading indicator. Very simple in terms of markup and CSS (LESS in this case).</p>
+<p>Have a look see :-)</p>
+<!-- raw HTML omitted -->
+
+
+    </main>
+    <footer>
+        <small>
+    <span>🌱 content written by an actual human.</span>
+    <span>©️ copyright 2015-2024 harre.dev</span>
+</small>
+<a href="/blog/index.xml">
+    📡 rss
+</a>
+
+    </footer>
+</div>
+</body>
+</html>

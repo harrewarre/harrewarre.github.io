@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="shortcut icon" href="/favicon.png" type="image/png">
+<title>Enable tethering on LineageOS using ADB | harre.dev</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+
+
+
+</head>
+<body>
+<div class="site">
+    <header>
+        <div class="site-title">
+    <img src="/og-img.png" alt="H is for Harre.">
+    <h1>harre.dev</h1>
+</div>
+<nav>
+    <a href="/">home</a>
+    <a href="/blog">blog</a>
+    <a href="/about">about</a>
+    <a href="/blog/index.xml">rss</a>
+</nav>
+
+
+    </header>
+    <main>
+        
+  
+  
+  <small class="blog-meta">
+    <time datetime="2017-05-01T00:00:00&#43;00:00">May 1, 2017</time>
+    
+  <div>
+    Tags:
+        <a href="/tags/android/">Android</a>
+        <a href="/tags/lineageos/">LineageOS</a>
+  </div>
+
+  </small>
+  <h1>Enable tethering on LineageOS using ADB</h1>
+  <h4 id="update">Update</h4>
+<p>After updating to a newer version, I couldn&rsquo;t get the below steps to work any more. Here is some extra stuff to get it to work again. It comes down to <code>build.prop</code> not accepting the changes you make because it&rsquo;s being loaded as read-only. Remounting the filesystem as read-write and then pushing the updated file will do the trick.</p>
+<p>Run the following through ADB <strong>with root enabled</strong> (flash the SuperSU zip found on the lineage OS website and enable root in the developer settings).</p>
+<pre><code>// Get the required root access.
+adb root;
+// Mount the filesystem as read-write.
+adb shell mount -o rw,remount /;
+// Now you can push in the updated build.prop file.
+</code></pre>
+<hr>
+<p>A while back I tried the successor to Cyanomod, LineageOS on my OnePlus2 to see if was any good. I really liked it but there were some things that didn&rsquo;t work and it wasn&rsquo;t very stable yet either so I went back to the stock OxygenOS ROM. This weekend, the itch came back and I gave it another go. I was very happy to see that LineageOS works very well now (the only missing thing is Bluetooth audio track info).</p>
+<p>My long commute on Mondays by train lets me get some work done but to be able to access everything I need to be online. Mobile hotspot solves this problem easily and it&rsquo;s what I use when on the train. When I got on the train this morning I found that tethering wasn&rsquo;t available on the ROM I was using!</p>
+<p><img src="Screenshot_20170501-070948.png" alt="No tether"></p>
+<p>This was no good if I were to get anything done.</p>
+<p>A quick search on my phone led me to a helpful post about editing the <code>build.prop</code> file. This file controls all sorts of things on your phone including the availability of tethering. First thing I needed was the value I had to add to the prop file to get tethering enabled. Turns out the name and value for that are <code>net.tethering.noprovisioning=true</code>.
+Easy enough, but now to get that into the <code>build.prop</code> file without rooting (I have no need for root, so why bother).</p>
+<p>The Android Debug Bridge (adb) is what you can use to pull and push files from and to the phone so that&rsquo;s the direction I took. After hooking up the phone and enabling USB debugging I took the following steps to update my <code>build.prop</code> file:</p>
+<pre><code>adb reboot recovery
+</code></pre>
+<p>This loads the phone into recovery mode (I&rsquo;m using TWRP).</p>
+<pre><code>adb pull /system/build.prop
+</code></pre>
+<p>Downloads the file to my laptop so I can edit it. This is where you add <code>net.tethering.noprovisioning=true</code> to the file.</p>
+<pre><code>adb push build.prop /system/build.prop
+</code></pre>
+<p>Upload the file back to the phone.</p>
+<pre><code>adb reboot
+</code></pre>
+<p>Reboot back to the main operating system.</p>
+<p>Lo and behold! It works again :-)</p>
+<p><img src="Screenshot_20170501-080155.png" alt="Yes tether"></p>
+<p>Just a few easy steps and we are back online.</p>
+
+
+    </main>
+    <footer>
+        <small>
+    <span>🌱 content written by an actual human.</span>
+    <span>©️ copyright 2015-2024 harre.dev</span>
+</small>
+<a href="/blog/index.xml">
+    📡 rss
+</a>
+
+    </footer>
+</div>
+</body>
+</html>

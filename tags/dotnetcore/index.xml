@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dotnetcore on harre.dev</title>
+    <link>http://localhost:1313/tags/dotnetcore/</link>
+    <description>Recent content in Dotnetcore on harre.dev</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
+    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
+    <copyright>© harre.dev</copyright>
+    <lastBuildDate>Fri, 11 Jan 2019 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/dotnetcore/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cloud Foundry configuration with SteelToe</title>
+      <link>http://localhost:1313/blog/netcore-steeltoe-config-loading/</link>
+      <pubDate>Fri, 11 Jan 2019 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/netcore-steeltoe-config-loading/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve been playing around with the &lt;a href=&#34;https://steeltoe.io/&#34;&gt;SteelToe&lt;/a&gt; framework for .net apps on Cloud Foundry a bit and it&amp;rsquo;s been nice overall (I&amp;rsquo;ll probably write a few more posts about it at some point 😊). While playing around with it the configuration part of it I wasn&amp;rsquo;t really liking the way settings can be read from the main configuration.&lt;/p&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s start with a really short primer on how the configuration system works. Cloud Foundry apps can be bound to services, doing so adds a reference to the bound service in the environment variables of the app that was bound. You can take a look at what is provided to an applications environment by running&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

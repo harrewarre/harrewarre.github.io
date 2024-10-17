@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="shortcut icon" href="/favicon.png" type="image/png">
+<title>Environment variables in an Azure Web App for Containers | harre.dev</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+
+
+
+</head>
+<body>
+<div class="site">
+    <header>
+        <div class="site-title">
+    <img src="/og-img.png" alt="H is for Harre.">
+    <h1>harre.dev</h1>
+</div>
+<nav>
+    <a href="/">home</a>
+    <a href="/blog">blog</a>
+    <a href="/about">about</a>
+    <a href="/blog/index.xml">rss</a>
+</nav>
+
+
+    </header>
+    <main>
+        
+  
+  
+  <small class="blog-meta">
+    <time datetime="2019-05-04T00:00:00&#43;00:00">May 4, 2019</time>
+    
+  <div>
+    Tags:
+        <a href="/tags/docker/">Docker</a>
+        <a href="/tags/containers/">Containers</a>
+        <a href="/tags/dotnet-core/">Dotnet Core</a>
+        <a href="/tags/azure/">Azure</a>
+        <a href="/tags/itq/">Itq</a>
+  </div>
+
+  </small>
+  <h1>Environment variables in an Azure Web App for Containers</h1>
+  <p>Here&rsquo;s a little gotcha I ran into. A .net core app I wrote needs to run inside a container and the target was a Web App for Containers on the Azure platform. No big deal so far.</p>
+<p>The app also needs a few settings for it to do its work. We provide these via environment variables for maximum flexibility. After setting up some CI/CD stuff and deploying the app it wouldn&rsquo;t start because it wasn&rsquo;t loading the settings.</p>
+<p>But why?? The <a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.2#hierarchical-configuration-data">spec</a> is pretty clear on how to write the keys for the settings in such a way that .net understands them.</p>
+<p><img src="settings.png" alt="Settings"></p>
+<p>So the secret sauce to this problem is replacing <code>:</code> in the settings for your app with <code>__</code> (that&rsquo;s 2 underscores). I managed to get to this by messing around (there were some other settings with just 1 <code>_</code> as well &hellip;) and I wasn&rsquo;t able to find an official source for this.</p>
+<p>It probably has something to do with passing stuff on the command-line that launches the container and the arguments containing <code>:</code>-characters, I have no idea. Using <code>__</code> is what works right now 🙂</p>
+
+
+    </main>
+    <footer>
+        <small>
+    <span>🌱 content written by an actual human.</span>
+    <span>©️ copyright 2015-2024 harre.dev</span>
+</small>
+<a href="/blog/index.xml">
+    📡 rss
+</a>
+
+    </footer>
+</div>
+</body>
+</html>

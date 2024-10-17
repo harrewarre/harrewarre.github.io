@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="shortcut icon" href="/favicon.png" type="image/png">
+<title>Easy Windows Service debugging | harre.dev</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+
+
+
+</head>
+<body>
+<div class="site">
+    <header>
+        <div class="site-title">
+    <img src="/og-img.png" alt="H is for Harre.">
+    <h1>harre.dev</h1>
+</div>
+<nav>
+    <a href="/">home</a>
+    <a href="/blog">blog</a>
+    <a href="/about">about</a>
+    <a href="/blog/index.xml">rss</a>
+</nav>
+
+
+    </header>
+    <main>
+        
+  
+  
+  <small class="blog-meta">
+    <time datetime="2015-04-26T00:00:00&#43;00:00">April 26, 2015</time>
+    
+  <div>
+    Tags:
+        <a href="/tags/c%23/">C#</a>
+        <a href="/tags/windows-service/">Windows Service</a>
+        <a href="/tags/debugging/">Debugging</a>
+        <a href="/tags/itq/">Itq</a>
+  </div>
+
+  </small>
+  <h1>Easy Windows Service debugging</h1>
+  <p>Long-running processes in a web application running on IIS is a bad idea. The reason for that is that IIS might unload the AppPool that is running your process due to inactivity. Inactivity? Yep, if IIS does not recieve a requests for a while, it will shut the site down to conserve system resources. (This is all configurable ofcourse, but I&rsquo;ve
+seen it happen)</p>
+<p>To allow for long-running stuff, a Windows Service might be a right fit. Here is what the default startup code for a Windows service looks like:</p>
+<pre><code>static class Program
+{
+    /// &lt;summary&gt;
+    /// The main entry point for the application.
+    /// &lt;/summary&gt;
+    static void Main()
+    {
+        ServiceBase[] ServicesToRun;
+        ServicesToRun = new ServiceBase[] 
+        { 
+            new Service1() 
+        };
+        ServiceBase.Run(ServicesToRun);
+    }
+}
+</code></pre>
+<p>If you run this as your start-up project in Visual Studio, it fails to launch with the following message:</p>
+<blockquote>
+<p>Cannot start service from the command line or a debugger. A Windows Service must first be installed (using installutil.exe) and then started with the ServerExplorer, Windows Services Administrative tool or the NET START command.</p>
+</blockquote>
+<p>You can&rsquo;t start a service by just running it. Not as a real service at least. Here is a neat trick you can implement to make this run inside the debugger.</p>
+<p>First thing is this method that we need:</p>
+<pre><code>public void StartDebug()
+{
+    Debugger.Launch();
+    OnStart(new string[] { });
+    Thread.Sleep(Timeout.Infinite);
+}
+</code></pre>
+<p>It instructs the debugger to attach, calls the OnStart method and then blocks the current thread (more about this in second). So where do we put this code?</p>
+<p>When you created your service, a file (in this example) was added called Service1, when you select the file in the Solution Explorer and hit F7 you can access the code that runs the service. Add the method seen above to Service1 class and you end up with this:</p>
+<pre><code>public partial class Service1 : ServiceBase
+{
+    public Service1()
+    {
+        InitializeComponent();
+    }
+
+    protected override void OnStart(string[] args)
+    {
+    }
+
+    protected override void OnStop()
+    {
+    }
+
+    public void StartDebug()
+    {
+        Debugger.Launch();
+        OnStart(new string[] { });
+        Thread.Sleep(Timeout.Infinite);
+    }
+}
+</code></pre>
+<p>Don&rsquo;t forget these using statements:</p>
+<pre><code>using System.Diagnostics;
+using System.Threading;
+</code></pre>
+<p>When all that is in place, we can modify the start-up code to call this method instead of running the default Run method.</p>
+<pre><code>static class Program
+{
+    /// &lt;summary&gt;
+    /// The main entry point for the application.
+    /// &lt;/summary&gt;
+    static void Main()
+    {
+        var service = new Service1();
+
+#if DEBUG
+        service.StartDebug();
+#else
+        ServiceBase.Run(service);
+#endif
+    }
+}
+</code></pre>
+<p>This new code runs our new StartDebug() method when Visual Studio is set to the <strong>Debug</strong> Solution Configuration (which is available by default). If any other configuration is selected, the normal ServiceBase.Run(&hellip;) method is used instead. So what does all this accomplish?</p>
+<p>Our StartDebug() method does the following things:</p>
+<pre><code>Debugger.Launch();
+</code></pre>
+<p>Attaches a debugger to the process (see <a href="https://msdn.microsoft.com/en-s/library/system.diagnostics.debugger.launch(v=vs.110).aspx">here</a> for some more info),
+<em>the process</em> in this case, is our Windows Service code launching.</p>
+<pre><code>OnStart(new string[] { });
+</code></pre>
+<p>We call the OnStart(&hellip;) method the same way the actual Windows service would be started.</p>
+<pre><code>Thread.Sleep(Timeout.Infinite);
+</code></pre>
+<p>By blocking the thread that starts the service code, the debugger will only detach when we stop our process (by hitting <strong>stop</strong> in Visual Studio).</p>
+<p>If we don&rsquo;t block the thread, the program immediately exits and we won&rsquo;t be able to debug. This all assumes that you run all your heavy work on a new thread inside the service. Locking the start-up thread like this in a real service will cause it to never start (thats what the #if DEBUG is for). The Service Control manager in Windows waits for the OnStart(&hellip;) method to complete. Never completing it will cause a time-out and your service will never start.</p>
+<p>So, use with a little care but this should make your life a little easier.</p>
+
+
+    </main>
+    <footer>
+        <small>
+    <span>🌱 content written by an actual human.</span>
+    <span>©️ copyright 2015-2024 harre.dev</span>
+</small>
+<a href="/blog/index.xml">
+    📡 rss
+</a>
+
+    </footer>
+</div>
+</body>
+</html>

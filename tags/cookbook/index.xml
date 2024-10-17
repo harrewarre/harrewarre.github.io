@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cookbook on harre.dev</title>
+    <link>http://localhost:1313/tags/cookbook/</link>
+    <description>Recent content in Cookbook on harre.dev</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
+    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
+    <copyright>© harre.dev</copyright>
+    <lastBuildDate>Thu, 29 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/cookbook/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Your organization could use a cookbook</title>
+      <link>http://localhost:1313/blog/your-org-could-use-a-cookbook/</link>
+      <pubDate>Thu, 29 Aug 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/your-org-could-use-a-cookbook/</guid>
+      <description>&lt;p&gt;That is&amp;hellip; if you don&amp;rsquo;t have one yet of course.&lt;/p&gt;&#xA;&lt;p&gt;A self-service effort is not complete without proper documentation. You could store that inside the repository with the code that makes up the service, but that could make it harder to find. And what if you have a bunch of services that all have their own docs? It&amp;rsquo;ll be completely scattered. To make knowledge easily find-able, and even searchable, a central knowledge base is the solution. In other words&amp;hellip; a cookbook!&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

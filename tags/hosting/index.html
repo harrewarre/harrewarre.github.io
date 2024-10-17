@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="shortcut icon" href="/favicon.png" type="image/png">
+<title>Hosting | harre.dev</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+
+
+
+</head>
+<body>
+<div class="site">
+    <header>
+        <div class="site-title">
+    <img src="/og-img.png" alt="H is for Harre.">
+    <h1>harre.dev</h1>
+</div>
+<nav>
+    <a href="/">home</a>
+    <a href="/blog">blog</a>
+    <a href="/about">about</a>
+    <a href="/blog/index.xml">rss</a>
+</nav>
+
+
+    </header>
+    <main>
+        
+<h1>Hosting</h1>
+
+
+<h2><a href="/blog/web-config-domain-redirect/">Web.config domain rewriting</a></h2>
+<p>Here&rsquo;s a quick and easy domain rewriting solution running on an Azure App service.</p>
+<p>Some assumptions before you can start though:</p>
+<ul>
+<li>The app service must be configured with the custom domain you want to redirect from.</li>
+<li>The app service is running on the Windows stack (you can configure this during App Service setup).</li>
+</ul>
+<p>To make things even easier, you can set this whole thing up from inside the Azure portal using the Advanced Tools option which opens the Kudu interface for the web server.
+In the Kudu interface click on Debug Console -&gt; CMD. Next, browse to the <code>wwwroot</code> directory at <code>site/wwwroot</code>. From there you can create new files.</p>
+
+
+    </main>
+    <footer>
+        <small>
+    <span>🌱 content written by an actual human.</span>
+    <span>©️ copyright 2015-2024 harre.dev</span>
+</small>
+<a href="/blog/index.xml">
+    📡 rss
+</a>
+
+    </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="shortcut icon" href="/favicon.png" type="image/png">
+<title>You build it, you run it... but what exactly? | harre.dev</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+
+
+
+</head>
+<body>
+<div class="site">
+    <header>
+        <div class="site-title">
+    <img src="/og-img.png" alt="H is for Harre.">
+    <h1>harre.dev</h1>
+</div>
+<nav>
+    <a href="/">home</a>
+    <a href="/blog">blog</a>
+    <a href="/about">about</a>
+    <a href="/blog/index.xml">rss</a>
+</nav>
+
+
+    </header>
+    <main>
+        
+  
+  
+  <small class="blog-meta">
+    <time datetime="2024-09-13T00:00:00&#43;00:00">September 13, 2024</time>
+    
+  <div>
+    Tags:
+        <a href="/tags/ownership/">Ownership</a>
+        <a href="/tags/valueline/">Valueline</a>
+        <a href="/tags/cloudnative/">Cloudnative</a>
+  </div>
+
+  </small>
+  <h1>You build it, you run it... but what exactly?</h1>
+  <p>&ldquo;You build it, you run it&rdquo;, easy to say, but, depending on your developer experience and platform capability&hellip; not at all easy.
+What am I expected to &ldquo;build&rdquo; and what should I &ldquo;run&rdquo;? Let&rsquo;s take a look.</p>
+<p>Let&rsquo;s start with this overview that I show teams I engage with during their onboarding and where their responsibilities begin and what not to worry about (but can still affect them of course).</p>
+<p><img src="value-line.png" alt="The value line"></p>
+<p>So you&rsquo;re a new team with a great idea, and you get the green light from management to start building.
+In the traditional world you would need to take care of many things. Many of those things will contribute nothing to the actual value you are trying to create.</p>
+<p>Imagine having to set up a server, from scratch, operating system, networks, security, runtimes, the whole lot of it. It might work with the right people and context, but if you mix in an IT department that governs the hardware and connections etc&hellip; you&rsquo;ll be in for a tough time.
+And of course all of that stuff needs maintenance and updates, scaling, patches, fixes&hellip; And you&rsquo;ve not built anything your users can actually use!
+We&rsquo;re still talking about just an app, it&rsquo;ll probably have a database and maybe other services that all need maintenance and updates.</p>
+<p>Moving up a layer into a more virtualized world you can get rid of some of that busywork that goes into maintaining your own servers but that VM still needs all the work of patching and maintenance that any other server would need.</p>
+<p>So if we say &ldquo;you build it, you run it&rdquo; in this context, the cognitive load is crazy, the team would need a lot of different skill sets to maintain and run everything.</p>
+<p>One way to deal with all this was (still is in some places probably?) to offload all that server stuff to a separate IT department and let developers build the software. That split comes with a whole suite of problems, with the most prominent one being difference in goals between the two teams.
+What do admins want? Stable systems. What do developers want? Ship features. There will be constant conflict between the two, and it results in the classic &ldquo;throw it over the wall&rdquo; type of workflow that leads to heated arguments&hellip; &ldquo;You&rsquo;re not deploying it right!&rdquo;, &ldquo;Yeah well your app is broken!&rdquo;</p>
+<p>This is more &ldquo;we build it, they run it&rdquo;. Definitely don&rsquo;t want that.</p>
+<p>Let&rsquo;s move up another layer, containers! Now we&rsquo;re moving in the right direction. There&rsquo;s no more &ldquo;machine&rdquo; to speak of, and we&rsquo;re shipping neatly packaged software components that run on some kind of shared foundation that doesn&rsquo;t really care what&rsquo;s inside the container.
+The team is managing a lot less by this point. Looking at the first image, we&rsquo;re in a sort of gray area between runtimes and middlewares.</p>
+<p>We&rsquo;re now at a level where it is becoming quite manageable but if your team is also running their own databases and what not with backups and patches and maintenance it can still be quite a bit of work.</p>
+<p><img src="docker-meme.jpg" alt="Docker meme"></p>
+<p><!-- raw HTML omitted -->I&rsquo;d love to credit this meme, but I have no idea where it came from.<!-- raw HTML omitted --></p>
+<p>There&rsquo;s just one problem though&hellip;</p>
+<p>Where does all that work that we&rsquo;ve been casually discarding actually go? That IT department that we mentioned earlier is one place it could go, but then we&rsquo;ve just moved the work from one place to another.
+Handling all those apps and databases for any number of teams that exist in an organization is not realistic. We&rsquo;re still not in a real position to proclaim &ldquo;You build it, you run it&rdquo;.</p>
+<h2 id="platform-engineering">Platform engineering</h2>
+<p>Welcome to the current times, where organizations are realizing that in order to ship features, teams should focus on the right things. Which, in case of developer teams that build end-user products, is their apps, and their data. Additionally, that &ldquo;other&rdquo; work we came across will need to be seen as valuable, but for a different userbase. Those users? the developers building apps!</p>
+<p>So, the platform that is hosting these apps is also a product. Just like a &ldquo;normal&rdquo; app, it should cater to the needs of its users. At the platform level, going from traditional IT to this new platform-as-product approach is a huge shift.
+This team running the platform will have their own responsibilities and ownership. Developers want to ship apps, what should the platform provide to facilitate this need? There should also be a clear boundary between what developer teams do, and what the platform team does. Platform teams should not have to know anything about the inner workings of the apps it is hosting. Same for backing services such as databases, the platform does not care about the table structures or queries, only that the databases are up and running and backed-up properly.</p>
+<p>Standardizing things is key, it&rsquo;s impossible to provide a bespoke service for many teams and still be able to manage and maintain everything. Same goes for automation, whatever manual processes exist, they should be automated. Not just to remove the manual toil of executing these tasks, but also to make them less error-prone, faster and repeatable.
+So what should be standardized? As with anything, it depends on the needs of the teams on the platform, but some good examples are authentication systems, databases, queues and other backing services of various types and sizes. These systems form a catalog of services that the developer teams can choose from.</p>
+<p>At first, you might still have some manual steps here and there but at scale, the developer teams should be able to request services from the catalog as they desire. This way, responsibility ends up in the right places, developers own their apps and data, the platform owns the operation of the runtimes and services.
+A platform that offers these capabilities will be a complex product and will require substantial engineering power from a dedicated team but in return will provide the developer teams with the agility they need to be able to keep up with the ever-changing requirements of the business and end-users.</p>
+<p>An example of such capabilities can be found in the hyperscale cloud providers such as AWS, Google Cloud and Azure. A broad catalog of services to choose from and use, but that&rsquo;s also where it ends, any additional value creation should come from you as a user of those services.</p>
+<p>So self-service is a key component, documentation for all that self-service stuff is also important. You don&rsquo;t want to spend all your time answering questions that could be answered by <a href="https://harre.dev/blog/your-org-could-use-a-cookbook">a cookbook</a>.</p>
+<p>Something else is needed though, if you are going to be developing your platform as a product, the obvious thing would be to a have a product manager on the team.
+This will probably be the biggest switch for organizations that want to start building a platform for themselves.
+The platform will have its own backlog and iterations, demos, documentation. And why stop there? You might also want to have someone with design experience to do research on what features are most in demand. What about marketing? To grow your capability as a platform, you&rsquo;ll need users. Spread the word on all the work you are doing to enable other teams.
+Does this all sound familiar? It should, because that&rsquo;s what you do for any product.</p>
+<p>And we can keep going! Golden paths! Make the right way to work on the platform very easy, but venturing off the beaten paths very hard. Standardized ways of deploying combined with application templates let developer teams build MVPs in a matter of days or even hours.
+Start facilitating an internal community that supports each other (and helps keep the support pressure low from the platform team!). The developer experience sky is the limit.</p>
+<p>We&rsquo;ve gone a bit off-topic with all this platform engineering and developer experience but, I think it&rsquo;s safe to say that when you want to excite a team with &ldquo;You build it, you run it&rdquo;, it needs to be very clear what exactly is being built, and what is being run by the people you&rsquo;re talking to.
+Cognitive load is a real thing if it becomes too high, happiness, performance, speed and efficiency will all suffer.</p>
+<h2 id="building-and-running">Building and running</h2>
+<p>In conclusion, telling teams &ldquo;you build it, you run it&rdquo; can only be successful if actually letting the team own and run everything is feasible or risk the team drowning in work that does not actually create any value for anyone. In practice, it really only works with a dedicated platform that does a lot of heavy lifting to give the teams that use the platform the freedom and agility to meet changing business and user requirements.
+The better this internal platform becomes the more developers it can service. And as with any product, start small and make well researched decisions when adding capabilities.
+Maybe set up an enabling team that can kickstart teams that are onboarding and provide them all the tools to be successful.</p>
+<p>Setting all this up is a long process that also requires a shift in company culture that goes from siloed command-control structures to autonomous teams that actually <strong>build it, run it, and even own it</strong>.</p>
+<p>Curious about ways to get there? Get in touch 🙂</p>
+
+
+    </main>
+    <footer>
+        <small>
+    <span>🌱 content written by an actual human.</span>
+    <span>©️ copyright 2015-2024 harre.dev</span>
+</small>
+<a href="/blog/index.xml">
+    📡 rss
+</a>
+
+    </footer>
+</div>
+</body>
+</html>

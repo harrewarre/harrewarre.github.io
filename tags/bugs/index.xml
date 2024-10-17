@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bugs on harre.dev</title>
+    <link>http://localhost:1313/tags/bugs/</link>
+    <description>Recent content in Bugs on harre.dev</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
+    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
+    <copyright>© harre.dev</copyright>
+    <lastBuildDate>Tue, 12 May 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/bugs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The bug report</title>
+      <link>http://localhost:1313/blog/bugs/</link>
+      <pubDate>Tue, 12 May 2015 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/bugs/</guid>
+      <description>&lt;p&gt;When you work on software, you will at some point encounter bugs. You think everything is peachy and you covered all the bases. Here comes this one user that finds a way to break your stuff.&lt;/p&gt;&#xA;&lt;p&gt;So a user found a bug. He/she (hopefully) reports the bug and you can fix the problem. While this is true most of the time, the sad reality is that most bug reports I encounter look something like this:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

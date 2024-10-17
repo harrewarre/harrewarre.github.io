@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Factorio on harre.dev</title>
+    <link>http://localhost:1313/tags/factorio/</link>
+    <description>Recent content in Factorio on harre.dev</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
+    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
+    <copyright>© harre.dev</copyright>
+    <lastBuildDate>Wed, 08 Feb 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/factorio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A game for programmers</title>
+      <link>http://localhost:1313/blog/a-game-for-programmers/</link>
+      <pubDate>Wed, 08 Feb 2017 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/a-game-for-programmers/</guid>
+      <description>&lt;p&gt;I play video games occasionally, and I&amp;rsquo;ve recently discovered a game (that was in my Steam library for quite some time already) that gives me the same sensation as when I&amp;rsquo;m programming.&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;The game I&amp;rsquo;m talking about is &lt;a href=&#34;http://store.steampowered.com/app/427520/&#34;&gt;Factorio&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;The goal of the game is simple, build a factory that produces all the required parts necessary to launch a rocket that carries a satellite into space. Building the factory is what made me fall in love with this game.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

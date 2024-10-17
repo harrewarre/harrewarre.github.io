@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Valueline on harre.dev</title>
+    <link>http://localhost:1313/tags/valueline/</link>
+    <description>Recent content in Valueline on harre.dev</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
+    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
+    <copyright>© harre.dev</copyright>
+    <lastBuildDate>Fri, 13 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/valueline/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>You build it, you run it... but what exactly?</title>
+      <link>http://localhost:1313/blog/you-build-it-you-run-it/</link>
+      <pubDate>Fri, 13 Sep 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/you-build-it-you-run-it/</guid>
+      <description>&lt;p&gt;&amp;ldquo;You build it, you run it&amp;rdquo;, easy to say, but, depending on your developer experience and platform capability&amp;hellip; not at all easy.&#xA;What am I expected to &amp;ldquo;build&amp;rdquo; and what should I &amp;ldquo;run&amp;rdquo;? Let&amp;rsquo;s take a look.&lt;/p&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s start with this overview that I show teams I engage with during their onboarding and where their responsibilities begin and what not to worry about (but can still affect them of course).&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

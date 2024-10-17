@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Configuration Transforms on harre.dev</title>
+    <link>http://localhost:1313/tags/configuration-transforms/</link>
+    <description>Recent content in Configuration Transforms on harre.dev</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
+    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
+    <copyright>© harre.dev</copyright>
+    <lastBuildDate>Fri, 13 Nov 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/configuration-transforms/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>App.config xdt transforms</title>
+      <link>http://localhost:1313/blog/app-config-xdt-transforms/</link>
+      <pubDate>Fri, 13 Nov 2015 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/app-config-xdt-transforms/</guid>
+      <description>&lt;p&gt;Here is a little hack you can do to enable transformations in &lt;code&gt;app.config&lt;/code&gt; like you can in your &lt;code&gt;web.config&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;A quick intro to transformations, they can make your life a bit easier by storing different configs in different files that, depending on your build configuration, end up in the actual config file. Here is a simple example.&lt;/p&gt;&#xA;&lt;p&gt;This is the original &lt;code&gt;web.config&lt;/code&gt; file:&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot; ?&amp;gt;&#xA;&amp;lt;configuration&amp;gt;&#xA;  &amp;lt;appSettings&amp;gt;&#xA;&#x9;&amp;lt;add key=&amp;quot;SomeSetting&amp;quot; value=&amp;quot;true&amp;quot; /&amp;gt;&#xA;&#x9;&amp;lt;add key=&amp;quot;Title&amp;quot; value=&amp;quot;Debug&amp;quot; /&amp;gt;&#xA;  &amp;lt;/appSettings&amp;gt;&#xA;&amp;lt;/configuration&amp;gt;&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;And there is also a &lt;code&gt;web.Release.config&lt;/code&gt;, that looks like this:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

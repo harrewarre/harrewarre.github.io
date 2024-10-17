@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="shortcut icon" href="/favicon.png" type="image/png">
+<title>The dialog element | harre.dev</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+
+
+
+</head>
+<body>
+<div class="site">
+    <header>
+        <div class="site-title">
+    <img src="/og-img.png" alt="H is for Harre.">
+    <h1>harre.dev</h1>
+</div>
+<nav>
+    <a href="/">home</a>
+    <a href="/blog">blog</a>
+    <a href="/about">about</a>
+    <a href="/blog/index.xml">rss</a>
+</nav>
+
+
+    </header>
+    <main>
+        
+  
+  
+  <small class="blog-meta">
+    <time datetime="2016-07-06T00:00:00&#43;00:00">July 6, 2016</time>
+    
+  <div>
+    Tags:
+        <a href="/tags/javascript/">Javascript</a>
+        <a href="/tags/html/">HTML</a>
+        <a href="/tags/css/">CSS</a>
+        <a href="/tags/itq/">Itq</a>
+  </div>
+
+  </small>
+  <h1>The dialog element</h1>
+  <p>I was grinding my teeth on a z-index problem today. I needed to cover the entire webpage to show something was happening and nothing else was to interrupt. Some elements (for whatever reasons) were poking through the overlay and nothing seemed to fix my problem with the plain old <code>position: fixed</code> element I was using to cover the page.</p>
+<p>So after getting fed up with looking for possible fixes I spent a bit of time looking for alternatives and came across the <code>&lt;dialog&gt;</code> element.</p>
+<p>First things first, the <code>&lt;dialog&gt;</code> element isn&rsquo;t all that well supported. At the time or writing, <a href="http://caniuse.com/#search=dialog">support looks like this</a>.</p>
+<p><img src="dialoguse.PNG" alt="Sad dialog is sad"></p>
+<p>Chrome and Opera have support for it, the rest is out&hellip; Sad times. <strong>BUT!</strong> I am very lucky, I only need to support a few versions of <a href="http://www.chromium.org/">Chromium</a> (what Chrome is based on) running in kiosk mode and I <em>can</em> use the <code>&lt;dialog&gt;</code> element.</p>
+<p>So, what is this <code>&lt;dialog&gt;</code> all about? The full spec is <a href="https://html.spec.whatwg.org/multipage/forms.html#the-dialog-element">here</a> but read on for the quick and easy.</p>
+<p>The <code>&lt;dialog&gt;</code> element is just a plain old HTML element and can be used as such.</p>
+<pre><code>&lt;dialog id=&quot;myDialog&quot;&gt;...&lt;/dialog&gt;
+</code></pre>
+<p>It has some handy properties as well. There is the <code>open</code> attribute. Putting it on the element will make the dialog show itself by default.</p>
+<pre><code>&lt;dialog id=&quot;myDialog&quot; open&gt;...&lt;/dialog&gt;
+</code></pre>
+<p>The real power lies in its very simple API you can use in your scripts. It has an <code>show</code>, <code>showModal</code> and <code>close</code> function. To get access to the elements API, all you need is select the element.</p>
+<pre><code>var popup = document.getElementById(&quot;myDialog&quot;);
+</code></pre>
+<p>The <code>show</code> and <code>close</code> functions do exactly what you&rsquo;d expect, they show and hide the dialog.</p>
+<pre><code>var someElement = document.getElementById(&quot;thing&quot;).addEventListener(&quot;click&quot;, function () {
+	popup.show(); // or .close() or .showModal()
+});
+</code></pre>
+<p>The <code>showModal</code> function adds an overlay below the dialog but above every other element in the DOM making it impossible to interact with other elements on the page.</p>
+<p>As far as styling goes, the dialog is just an HTML element and can be styled as such. One notable exception to this is the <code>::backdrop</code> selector that you can apply to the dialog element. This controls the look of the overlay that is created when the dialog is displaying as a modal dialog.</p>
+<pre><code>.yourDialog::backdrop {
+	background-color: rgba(0, 0, 0, .25);
+}
+</code></pre>
+<p>It has made creation of popups and dialogs a whole lot easier for me but browser support need to catch up big time before we can start using this in the wild. There are polyfills to fill the gap, but it&rsquo;s a really big gap with only a handful of browsers offering support but that&rsquo;s a call you&rsquo;ll have to make for yourself.</p>
+<p>To wrap it all up, here is a simple demo (that will not work in some browsers - use Chrome) showing off the basic usage of a dialog. Have fun!</p>
+<!-- raw HTML omitted -->
+
+
+    </main>
+    <footer>
+        <small>
+    <span>🌱 content written by an actual human.</span>
+    <span>©️ copyright 2015-2024 harre.dev</span>
+</small>
+<a href="/blog/index.xml">
+    📡 rss
+</a>
+
+    </footer>
+</div>
+</body>
+</html>

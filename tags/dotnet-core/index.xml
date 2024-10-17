@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dotnet Core on harre.dev</title>
+    <link>http://localhost:1313/tags/dotnet-core/</link>
+    <description>Recent content in Dotnet Core on harre.dev</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
+    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
+    <copyright>© harre.dev</copyright>
+    <lastBuildDate>Mon, 10 Jun 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/dotnet-core/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dotnet Core Entity Framework Migrations on Cloud Foundry</title>
+      <link>http://localhost:1313/blog/dotnet-ef-migrations-on-cloud-foundry/</link>
+      <pubDate>Mon, 10 Jun 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/dotnet-ef-migrations-on-cloud-foundry/</guid>
+      <description>&lt;p&gt;Run database migrations on Cloud Foundry using a task to ensure that migrations are only done once on deployment (and not during app start up!) for dotnet core applications. This post assumes you are deploying built applications and not raw source code.&lt;/p&gt;&#xA;&lt;p&gt;Instead of depending on dotnet tooling (&lt;code&gt;dotnet-ef&lt;/code&gt;), leverage the built-in migration capability of the DataContext. Interrupt the startup procedure when a special argument is passed in, instead of starting the web application, run the migrations and then exit.&#xA;So here we go, to start we need a DbContext:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Dotnet core 5 on a raspberry pi</title>
+      <link>http://localhost:1313/blog/net-core-5-on-raspberry-pi/</link>
+      <pubDate>Sun, 10 Jan 2021 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/net-core-5-on-raspberry-pi/</guid>
+      <description>&lt;p&gt;Here&amp;rsquo;s a quick get-up-and-go style post on how to get dotnet core 5 usable on a Raspberry Pi (a R-Pi 3 Model B in my case).&lt;/p&gt;&#xA;&lt;p&gt;We&amp;rsquo;re doing all this over SSH because my goal was to run a small webapp on the Pi which is located in a cupboard somewhere in my house without a keyboard and mouse attached to it 😁&#xA;So, after you&amp;rsquo;ve connected to the Pi over SSH, the first step is to install the dotnet core SDK.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Environment variables in an Azure Web App for Containers</title>
+      <link>http://localhost:1313/blog/netcore-az-container-environment/</link>
+      <pubDate>Sat, 04 May 2019 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/netcore-az-container-environment/</guid>
+      <description>&lt;p&gt;Here&amp;rsquo;s a little gotcha I ran into. A .net core app I wrote needs to run inside a container and the target was a Web App for Containers on the Azure platform. No big deal so far.&lt;/p&gt;&#xA;&lt;p&gt;The app also needs a few settings for it to do its work. We provide these via environment variables for maximum flexibility. After setting up some CI/CD stuff and deploying the app it wouldn&amp;rsquo;t start because it wasn&amp;rsquo;t loading the settings.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>ASP.NET Core logging on Cloud Foundry</title>
+      <link>http://localhost:1313/blog/cf-netcore-logging/</link>
+      <pubDate>Thu, 10 Jan 2019 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/cf-netcore-logging/</guid>
+      <description>&lt;p&gt;All apps I&amp;rsquo;ve ever worked on have some sort of logging going on for various reasons, mostly to keep track of whats going on or debugging, but it&amp;rsquo;s all the same. Logs are needed to see what your code is up to.&lt;/p&gt;&#xA;&lt;p&gt;Cloud Foundry &lt;a href=&#34;https://docs.cloudfoundry.org/devguide/deploy-apps/streaming-logs.html#writing&#34;&gt;is very explicit&lt;/a&gt; about &lt;em&gt;how&lt;/em&gt; an app should write its logs. As you can see in the documentation, apps must write to &lt;code&gt;stdout&lt;/code&gt; or &lt;code&gt;stderr&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;For C# that means we can use the static methods on the &lt;code&gt;Console&lt;/code&gt; to write our logs. Couldn&amp;rsquo;t be easier. But&amp;hellip; now our code is littered with these &lt;code&gt;Console.Write...&lt;/code&gt; lines all over the place!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Angular (5) and aspnet core (2) quickstart</title>
+      <link>http://localhost:1313/blog/angularcli-aspnetcore-quickstart/</link>
+      <pubDate>Tue, 02 Jan 2018 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/angularcli-aspnetcore-quickstart/</guid>
+      <description>&lt;p&gt;Here is a get-up-and-go style post to get going with the angular CLI and aspnet core. Before we begin, there is a template you can use to set (most, if not more) of this up, but it&amp;rsquo;s good to know what is going on behind the curtains.&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;h2 id=&#34;first-things-first&#34;&gt;First things first.&lt;/h2&gt;&#xA;&lt;p&gt;You need some tools installed to get the base project set up.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.microsoft.com/net/learn/get-started&#34;&gt;dotnet core SDK&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://nodejs.org/en/&#34;&gt;Node&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://cli.angular.io/&#34;&gt;angular-cli&lt;/a&gt; which we&amp;rsquo;ll install using NPM.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Open a command prompt and run the following command:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Dotnet Core CLI user secrets</title>
+      <link>http://localhost:1313/blog/dotnet-core-cli-user-secrets/</link>
+      <pubDate>Thu, 20 Apr 2017 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/dotnet-core-cli-user-secrets/</guid>
+      <description>&lt;p&gt;User secrets are what you use for settings in a .NET Core app that you don&amp;rsquo;t want committed to your public repos (think API keys, passwords, anything sensitive). You map out your actual settings and they override them with the values from the secrets, which are stored outside of the tracked source folder.&lt;/p&gt;&#xA;&lt;p&gt;On windows the user secrets folder is located here: &lt;code&gt;%APPDATA%\microsoft\UserSecrets&lt;/code&gt;. Let&amp;rsquo;s have a look at how use them with the new tooling for .NET Core that came out recently.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Dotnet Core tooling quickstart</title>
+      <link>http://localhost:1313/blog/dotnet-core-tooling-quickstart/</link>
+      <pubDate>Sun, 09 Apr 2017 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/dotnet-core-tooling-quickstart/</guid>
+      <description>&lt;p&gt;With the .NET Core tools finally showing signs of stabilizing in version 1.0.1 we can have a little look at how you can get started with a new project using just the tools.&lt;/p&gt;&#xA;&lt;p&gt;You can download the new stuff &lt;a href=&#34;https://www.microsoft.com/net/core#windowscmd&#34;&gt;here&lt;/a&gt;. I&amp;rsquo;m writing this post using the 1.0.1 version of the tools.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;coreversion.png&#34; alt=&#34;dotnet &amp;ndash;version&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;A new very nice thing is that the new tooling comes with some built in templates you can use instead of relying on something like &lt;a href=&#34;http://yeoman.io/&#34;&gt;Yeoman&lt;/a&gt; to create an empty project for you. The &lt;code&gt;dotnet new&lt;/code&gt; command is still the way to create a new project (like it was in the older tools) but you can now specify what kind of project you want as a base.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>My first ASP.NET Core app on Cloud Foundry</title>
+      <link>http://localhost:1313/blog/my-first-asp-net-core-app-on-cloud-foundry/</link>
+      <pubDate>Wed, 30 Mar 2016 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/my-first-asp-net-core-app-on-cloud-foundry/</guid>
+      <description>&lt;p&gt;Today I tried to deploy a .NET Core web app to a Pivotal Cloud Foundry platform that my &lt;a href=&#34;http://www.itq.nl&#34;&gt;ITQ&lt;/a&gt; buddy &lt;a href=&#34;http://www.ruurdkeizer.com&#34;&gt;Ruurd&lt;/a&gt; set up for us to tinker with. The app itself is a very basic ASP.NET MVC app built with the new ASP.NET Core framework to make it cross-platform. It being cross platform makes it very easy to deploy on something like Cloud Foundry since there is no dependency on Windows or the full .NET Framework anymore.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

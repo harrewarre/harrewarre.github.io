@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SignalR on harre.dev</title>
+    <link>http://localhost:1313/tags/signalr/</link>
+    <description>Recent content in SignalR on harre.dev</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
+    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
+    <copyright>© harre.dev</copyright>
+    <lastBuildDate>Sun, 26 Apr 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/signalr/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SignalR dependency injection</title>
+      <link>http://localhost:1313/blog/signalr-dependency-injection/</link>
+      <pubDate>Sun, 26 Apr 2015 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/signalr-dependency-injection/</guid>
+      <description>&lt;p&gt;My go-to container for IoC at the moment is &lt;a href=&#34;https://simpleinjector.codeplex.com/&#34;&gt;SimpleInjector&lt;/a&gt; because you know.. it&amp;rsquo;s simple. I&amp;rsquo;ve used it in a couple of projects and used in a hobby project recently again.&lt;/p&gt;&#xA;&lt;p&gt;This hobby project uses &lt;a href=&#34;http://www.asp.net/signalr&#34;&gt;SignalR&lt;/a&gt; for real-time communication between browser and server and after setting that up I wanted to inject dependencies in to the SignalR hubs. It is pretty easy but there was a minor catch. Let&amp;rsquo;s look at some code.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

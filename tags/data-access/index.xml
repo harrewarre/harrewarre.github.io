@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Access on harre.dev</title>
+    <link>http://localhost:1313/tags/data-access/</link>
+    <description>Recent content in Data Access on harre.dev</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
+    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
+    <copyright>© harre.dev</copyright>
+    <lastBuildDate>Wed, 06 May 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/data-access/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fluent data access</title>
+      <link>http://localhost:1313/blog/fluent-data-access/</link>
+      <pubDate>Wed, 06 May 2015 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/fluent-data-access/</guid>
+      <description>&lt;p&gt;Working in a team of developers, the following might happen:&lt;/p&gt;&#xA;&lt;p&gt;Developer 1 creates a piece of UI and adds a method to load data into said UI. The method he creates is called GetUserInfo(…)&lt;/p&gt;&#xA;&lt;p&gt;Here comes Developer 2 and he also creates a piece of UI that displays user info. Developer 2 however, needs to display more than just the user info, he also needs the requests made by the user. And then GetUserInfoWithRequests(…) is created next to the already existing GetUserInfo method.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CSS on harre.dev</title>
+    <link>http://localhost:1313/tags/css/</link>
+    <description>Recent content in CSS on harre.dev</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
+    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
+    <copyright>© harre.dev</copyright>
+    <lastBuildDate>Fri, 11 May 2018 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/css/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Easy CSS grid</title>
+      <link>http://localhost:1313/blog/easy-css-grid/</link>
+      <pubDate>Fri, 11 May 2018 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/easy-css-grid/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve been working with a lot of forms lately and it required some kind of grid system to make it all lay out nicely. I&amp;rsquo;ve always been a bit hesitant to immediatly pull in another dependency and decided I was going to solve this one myself. How hard could it be?&lt;/p&gt;&#xA;&lt;p&gt;By using the CSS flex layout, I ended up with just the right amount of flexibility and extensibility while keeping things very small code wise. Let&amp;rsquo;s have a look!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Simple dialogs with AngularJS and TypeScript</title>
+      <link>http://localhost:1313/blog/simple-dialogs-with-angularjs-and-typescript/</link>
+      <pubDate>Thu, 15 Sep 2016 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/simple-dialogs-with-angularjs-and-typescript/</guid>
+      <description>&lt;p&gt;While working an Angular (1) web app I ran into the age-old problem of showing the user notifications when certain conditions are met. Show them a little pop-up, in simple terms.&lt;/p&gt;&#xA;&lt;p&gt;So what does it take to show a popup? We know the &lt;a href=&#34;http://harrewijnen.net/the-dialog-element/&#34;&gt;&lt;code&gt;dialog&lt;/code&gt; element exists&lt;/a&gt; but cannot be used in this case due to browser requirements. The easiest way I could think of is adding a &lt;code&gt;fixed&lt;/code&gt; positioned &lt;code&gt;div&lt;/code&gt; the the user on top of all other content. Add some CSS in there to make it look nice and we have dialogs.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The dialog element</title>
+      <link>http://localhost:1313/blog/the-dialog-element/</link>
+      <pubDate>Wed, 06 Jul 2016 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/the-dialog-element/</guid>
+      <description>&lt;p&gt;I was grinding my teeth on a z-index problem today. I needed to cover the entire webpage to show something was happening and nothing else was to interrupt. Some elements (for whatever reasons) were poking through the overlay and nothing seemed to fix my problem with the plain old &lt;code&gt;position: fixed&lt;/code&gt; element I was using to cover the page.&lt;/p&gt;&#xA;&lt;p&gt;So after getting fed up with looking for possible fixes I spent a bit of time looking for alternatives and came across the &lt;code&gt;&amp;lt;dialog&amp;gt;&lt;/code&gt; element.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Creating a toggle switch with HTML and CSS</title>
+      <link>http://localhost:1313/blog/styling-an-html-checkbox/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/styling-an-html-checkbox/</guid>
+      <description>&lt;p&gt;My current project involves an interface that is 100% touch driven (no keyboard and mouse) and I was asked to turn a regular old checkbox into a toggle switch.&lt;/p&gt;&#xA;&lt;p&gt;Initially I assumed it would be very easy but as with many things browser related, it was not. Let&amp;rsquo;s take a look at some of the things browsers do to checkboxes using this quick example:&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;&amp;lt;html&amp;gt;&#xA;&#x9;&amp;lt;head&amp;gt;&#xA;&#x9;&#x9;&amp;lt;title&amp;gt;Test&amp;lt;/title&amp;gt;&#xA;&#x9;&#x9;&amp;lt;style&amp;gt;&#xA;&#x9;&#x9;&#x9;input {&#xA;&#x9;&#x9;&#x9;&#x9;border: 1px solid red;&#xA;&#x9;&#x9;&#x9;&#x9;background-color: green;&#xA;&#x9;&#x9;&#x9;&#x9;width: 50px;&#xA;&#x9;&#x9;&#x9;&#x9;height: 50px;&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&amp;lt;/style&amp;gt;&#xA;&#x9;&amp;lt;/head&amp;gt;&#xA;&amp;lt;body&amp;gt;&#xA;&#x9;&amp;lt;div&amp;gt;&#xA;&#x9;&#x9;&amp;lt;input type=&amp;quot;text&amp;quot; /&amp;gt;&#xA;&#x9;&#x9;&amp;lt;input type=&amp;quot;checkbox&amp;quot; /&amp;gt;&#xA;&#x9;&amp;lt;/div&amp;gt;&#xA;&amp;lt;/body&amp;gt;&#xA;&amp;lt;/html&amp;gt;&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;&lt;img src=&#34;browsers.PNG&#34; alt=&#34;Browsers pls&#34;&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Another simple loading indicator</title>
+      <link>http://localhost:1313/blog/another-simple-loading-indicator/</link>
+      <pubDate>Thu, 14 Jan 2016 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/another-simple-loading-indicator/</guid>
+      <description>&lt;p&gt;Here is another loading indicator for when your webpage is busy waiting for a server request to come back with an answer. It&amp;rsquo;s a bar at the very top of the page this time.&lt;/p&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s look at a demo before we dive in:&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;Press the button to do some imaginary tasks that simulates a workload. A rolling bar will appear at the top of the demo to show that something is happening in the background. So how does it work?&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Animations and transforms</title>
+      <link>http://localhost:1313/blog/animations-and-transforms/</link>
+      <pubDate>Tue, 01 Dec 2015 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/animations-and-transforms/</guid>
+      <description>&lt;p&gt;Every employee at &lt;a href=&#34;http://www.itq.nl&#34;&gt;ITQ&lt;/a&gt; has their own little mini-me in the form of a little character based on your appearance. Here is mine:&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;&lt;img src=&#34;minime-front.png&#34; alt=&#34;MiniMe&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;So I have this image sitting in a folder on my Ondrive for whenever I might need it. Queue a boring evening with not much else to do, I figured, lets animate some life into the little guy using CSS. Here is the result.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>CurrentColor in CSS</title>
+      <link>http://localhost:1313/blog/currentcolor-in-css/</link>
+      <pubDate>Mon, 22 Jun 2015 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/currentcolor-in-css/</guid>
+      <description>&lt;p&gt;If you&amp;rsquo;ve ever used something like LESS or SASS you know what a variable is in CSS. There is also a working draft for native &lt;a href=&#34;http://www.w3.org/TR/css-variables-1/&#34;&gt;CSS variables&lt;/a&gt; but there is something in CSS right now that resembles some variable behavior. Not an actual variable, but interesting nonetheless.&lt;/p&gt;&#xA;&lt;p&gt;Meet &lt;a href=&#34;http://www.w3.org/wiki/CSS3/Color/currentColor&#34;&gt;currentColor&lt;/a&gt;. Like the description says on the w3 wiki, its value is whatever the &lt;code&gt;color&lt;/code&gt; is set to. So how does that work? Lets look at some examples.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>CSS Transitions basics</title>
+      <link>http://localhost:1313/blog/css-transitions-basics/</link>
+      <pubDate>Tue, 19 May 2015 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/css-transitions-basics/</guid>
+      <description>&lt;p&gt;End-users interact with your applications via the user interface (UI for short). If everything was designed with the user in mind, the UI will make things very easy for the user. Everything is nice and organized and easy to navigate. Actions are communicated to the user in a friendly way and the user is happy.&lt;/p&gt;&#xA;&lt;p&gt;The sad thing is, state changes in the UI tend to be very abrupt and cold. Instant flashes, so fast the user might not even notice if it is something small. So what can we do about this? CSS supports something called transitions. Transitions allow us to specify what happens what state changes on an element. For example, a button going from normal, to being hovered on by the user, rows in a grid that the user can select or a signal telling the user something happened.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The simplest loading indicator</title>
+      <link>http://localhost:1313/blog/the-simplest-loading-indicator/</link>
+      <pubDate>Sun, 26 Apr 2015 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/the-simplest-loading-indicator/</guid>
+      <description>&lt;p&gt;I had a brainwave and dove into codepen for a little bit to doodle around and when I emerged I had this simple little loading indicator. Very simple in terms of markup and CSS (LESS in this case).&lt;/p&gt;&#xA;&lt;p&gt;Have a look see :-)&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Wfh on harre.dev</title>
+    <link>http://localhost:1313/tags/wfh/</link>
+    <description>Recent content in Wfh on harre.dev</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
+    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
+    <copyright>© harre.dev</copyright>
+    <lastBuildDate>Thu, 29 Oct 2020 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/wfh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The great quarantine of 2020</title>
+      <link>http://localhost:1313/blog/the-quarantine-of-2020/</link>
+      <pubDate>Thu, 29 Oct 2020 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/the-quarantine-of-2020/</guid>
+      <description>&lt;p&gt;We&amp;rsquo;re almost at the end of 2020 and we&amp;rsquo;re not really quarantining anymore but kinda still are.&lt;/p&gt;&#xA;&lt;h2 id=&#34;from-home-all-the-things&#34;&gt;From-home all the things&lt;/h2&gt;&#xA;&lt;p&gt;The biggest game changer in this whole pandemic: companies are forced to figure out&#xA;how to let folks work from home. I was working from home 2 days a week already so the change wasn&amp;rsquo;t that&#xA;extreme but 5 days, especially during the full lockdown we had with the whole family together was someting entirely new.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

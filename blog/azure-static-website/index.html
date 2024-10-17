@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="shortcut icon" href="/favicon.png" type="image/png">
+<title>Setting up an Azure Storage static website | harre.dev</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+
+
+
+</head>
+<body>
+<div class="site">
+    <header>
+        <div class="site-title">
+    <img src="/og-img.png" alt="H is for Harre.">
+    <h1>harre.dev</h1>
+</div>
+<nav>
+    <a href="/">home</a>
+    <a href="/blog">blog</a>
+    <a href="/about">about</a>
+    <a href="/blog/index.xml">rss</a>
+</nav>
+
+
+    </header>
+    <main>
+        
+  
+  
+  <small class="blog-meta">
+    <time datetime="2019-01-03T00:00:00&#43;00:00">January 3, 2019</time>
+    
+  <div>
+    Tags:
+        <a href="/tags/azure/">Azure</a>
+        <a href="/tags/static-website/">Static Website</a>
+        <a href="/tags/itq/">Itq</a>
+  </div>
+
+  </small>
+  <h1>Setting up an Azure Storage static website</h1>
+  <p>Not very long ago, Microsoft made the <a href="https://azure.microsoft.com/en-us/blog/static-websites-on-azure-storage-now-generally-available/">static website feature generally available</a> on the Azure platform. What this means is that you can now publicly host content with Azure (blob) storage.</p>
+<!-- raw HTML omitted -->
+<p>So in a few easy steps you can create a host for your angular/react/vue/(insert-client-side-web-thing-here)/static app. The <a href="https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-static-website-host">docs</a> are great but we&rsquo;ll have a look at what&rsquo;s what.</p>
+<p>Please remember that there is no server-side processing for this hosting option! If you want to do server-side stuff, use an App Service instead.</p>
+<p>After creating the storage and enabling the static website feature, you can upload index.html to the storage container (the default name is <code>$web</code>) and view it in the browser by pointing it to the containers primary endpoint.</p>
+<p><img src="static-site-endpoint.jpg" alt="Static website endpoint"></p>
+<p>The endpoint comes with its own certificate so you can use HTTPS right out of the gate. At this point you might consider adding a custom domain, but I quickly ran into the HTTPS problem. The available certificate does not include the custom domain you set up, so the browser will display an ugly &lsquo;This site is unsafe&rsquo; warning when you view it in your browser.</p>
+<p>To work around the domain TLS problem we can use a CDN, which is also available on Azure.</p>
+<p>While creating the CDN service, take note of the pricing tier. The only tier that supports rules is the <strong>Premium Verizon</strong> tier.</p>
+<p><img src="cdn-profile.jpg" alt="Premium Verizon tier"></p>
+<p>The rule engine is needed later when we enable a custom domain on the CDN and add a certificate. The premium tier is, as the name implies, a little bit more expensive, but as we&rsquo;ll soon find out, we really need that rule engine.</p>
+<p>With the CDN created, there is one last thing we need to change before we can set up the custom domain. By default, the CDN Endpoint uses the storage service root. While this is a valid location, it is not the location that serves our static content. To make the change, look at the <strong>Origin</strong> blade in the CDN Endpoint settings.</p>
+<p><img src="cdn-endpoint-origin.jpg" alt="CDN Endpoint origin"></p>
+<p>Change the <code>Origin type</code> to <code>Custom</code> and then set the public storage URL as the <code>Origin hostname</code> and <code>Origin host header</code>.</p>
+<p>Any request to the CDN Endpoint can now reach the static content in the storage container.</p>
+<p>After setting all this up, the static content should be available at the CDN address as well as the public storage URL.</p>
+<p>The last steps are setting up a custom domain and adding a custom certificate. Before adding the custom domain, make sure you&rsquo;ve added a <code>CNAME</code> record that links the custom domain to the CDN Endpoint URL. DNS updates may take some time to propagate so if it doesn&rsquo;t work after a few minutes, try again a little later.</p>
+<p>After the domain is succesfully added, we can enable the custom certificate with just a click of a button. Open the custom domain properties and click the switch to <strong>On</strong>, then click <strong>Save</strong>.</p>
+<p><img src="custom-cert.jpg" alt="Domain validation"></p>
+<p>Adding the certificate is an automated multi-step process that can take up to 8 hours to complete so give this one some time and check back every now and then to see if it completed.</p>
+<p>With this all done, you now have:</p>
+<ol>
+<li>A place to host static content.</li>
+<li>A custom domain where the content is accesible.</li>
+<li>HTTPS!</li>
+</ol>
+<p>But wait, when you browse to the non-HTTP endpoint you see an ugly &lsquo;This site is only accesible via HTTPS&rsquo; warning page! Remember that rule engine from earlier? This is where we need it.</p>
+<p>At the time of writing, there&rsquo;s no way in the standard price tier to redirect non-HTTP traffic to HTTPS, which is why we need the rule engine, which is only part of the premium  (verizon) price tier.</p>
+<p><img src="advanced-features.jpg" alt="Advanced features"></p>
+<p>Go to the CDN Endpoint details and open the <strong>Advanced Features</strong> blade and click the <strong>Manage</strong> button. It will open a new page where we can add traffic rules.</p>
+<p>Open the HTTP Large menu and click Rules Engine.</p>
+<p><img src="rule-engine.jpg" alt="Rule engine"></p>
+<p>To set up the HTTP to HTTPS forwarding rule, select the following things:</p>
+<ul>
+<li>IF
+<ul>
+<li>Request Scheme</li>
+<li>Http</li>
+</ul>
+</li>
+<li>Features
+<ul>
+<li>URL Redirect</li>
+<li>301</li>
+<li><strong>Source</strong>
+<ul>
+<li>(Select your storage/endpoint option)</li>
+<li>(.*)</li>
+</ul>
+</li>
+<li><strong>Destination</strong>
+<ul>
+<li>https://%{host}/$1</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Give the rule a nice name and hit save. As stated on the page, it can take a few hours so this might take a little while as well.</p>
+<p>After all the waiting is done should now be redirected to the HTTPS endpoint with a valid certificate!</p>
+<p>You can find all this in the docs of course, but this write up is a bit shorter and gathers all the pieces in one place.</p>
+<p>I really hope they add an option to redirect all non-HTTP traffic to HTTPS to regular CDN options. plain ol&rsquo; HTTP just isn&rsquo;t good enough anymore so I feel this should have been in there already. Hiding the more advanced things behind a premium is fine, but a basic feature like force HTTPS should be there for everyone. Especially with the existence of the one-click-no-extra-charge certificates!</p>
+
+
+    </main>
+    <footer>
+        <small>
+    <span>🌱 content written by an actual human.</span>
+    <span>©️ copyright 2015-2024 harre.dev</span>
+</small>
+<a href="/blog/index.xml">
+    📡 rss
+</a>
+
+    </footer>
+</div>
+</body>
+</html>

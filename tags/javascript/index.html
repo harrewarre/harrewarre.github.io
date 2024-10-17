@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="shortcut icon" href="/favicon.png" type="image/png">
+<title>Javascript | harre.dev</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+
+
+
+</head>
+<body>
+<div class="site">
+    <header>
+        <div class="site-title">
+    <img src="/og-img.png" alt="H is for Harre.">
+    <h1>harre.dev</h1>
+</div>
+<nav>
+    <a href="/">home</a>
+    <a href="/blog">blog</a>
+    <a href="/about">about</a>
+    <a href="/blog/index.xml">rss</a>
+</nav>
+
+
+    </header>
+    <main>
+        
+<h1>Javascript</h1>
+
+
+<h2><a href="/blog/edge-pip/">Microsoft Edge Picture-in-Picture</a></h2>
+<hr>
+<p><strong>Small update</strong>: Edge now supports picture-in-picture with a little button out of the box! So you no longer need the code snippet.</p>
+<hr>
+<p>Here&rsquo;s a quick little helper to pop out video players in Microsoft Edge.</p>
+<h2 id="requestpictureinpicture">requestPictureInPicture</h2>
+<p>Edge (like Chrome these days) supports <a href="https://caniuse.com/?search=requestPictureInPicture">picture in picture mode</a> for videos but it&rsquo;s not always apparent how to actually pop out a videoplayer. Here&rsquo;s a quick one-liner that you can try in the browser console:</p>
+
+<h2><a href="/blog/uploading-files-filereader/">Uploading files - a simple approach</a></h2>
+<p>Here&rsquo;s a nice way of getting images to your server using a little bit of Javascript and HTML. We&rsquo;ll be using the <code>FileReader</code> API that comes with
+Javascript and is supported in <a href="http://caniuse.com/#search=filereader">all</a> major browsers.</p>
+<p>For this example we&rsquo;ll need some HTML from which we can select files and show a preview:</p>
+<pre><code>&lt;div&gt;
+    &lt;input id=&quot;fileInput&quot; type=&quot;file&quot; /&gt;
+    &lt;button id=&quot;clearFile&quot;&gt;Clear&lt;/button&gt;
+    &lt;button id=&quot;uploadFile&quot;&gt;Upload&lt;/button&gt;
+&lt;/div&gt;
+&lt;div&gt;
+    &lt;label&gt;Preview&lt;/label&gt;
+    &lt;div&gt;
+        &lt;img id=&quot;preview&quot; /&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>We have an <code>input</code> element set to <code>type=&quot;file&quot;</code> to select the file(s) we want to upload. Two <code>button</code>s for submitting and clearing our inputs and an <code>img</code> where we can show a preview.
+This demo only depends on jQuery, which is only used to make performing a POST to the webserver so much simpler. Feel free to substitute that with whatever you like best.</p>
+
+<h2><a href="/blog/date-validation-in-angularjs/">Date validation in AngularJS</a></h2>
+<p>Another angular post! This time we take a look at how to create a directive that ensures the user enters a valid date (and/or time).</p>
+<p>Let&rsquo;s start with some boilerplate stuff first. I&rsquo;m going to assume that you have something working Angular already, we will only cover the date validation directive in this post.
+Here is some HTML.</p>
+<pre><code>&lt;div ng-app=&quot;validDateApp&quot;&gt;
+    &lt;div ng-form=&quot;myForm&quot; ng-controller=&quot;testController&quot;&gt;
+        &lt;input ng-model=&quot;myDate&quot; my-valid-date name=&quot;myDateInput&quot; type=&quot;text&quot; /&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>And it&rsquo;s Angular app to go with it:</p>
+
+<h2><a href="/blog/simple-dialogs-with-angularjs-and-typescript/">Simple dialogs with AngularJS and TypeScript</a></h2>
+<p>While working an Angular (1) web app I ran into the age-old problem of showing the user notifications when certain conditions are met. Show them a little pop-up, in simple terms.</p>
+<p>So what does it take to show a popup? We know the <a href="http://harrewijnen.net/the-dialog-element/"><code>dialog</code> element exists</a> but cannot be used in this case due to browser requirements. The easiest way I could think of is adding a <code>fixed</code> positioned <code>div</code> the the user on top of all other content. Add some CSS in there to make it look nice and we have dialogs.</p>
+
+<h2><a href="/blog/the-dialog-element/">The dialog element</a></h2>
+<p>I was grinding my teeth on a z-index problem today. I needed to cover the entire webpage to show something was happening and nothing else was to interrupt. Some elements (for whatever reasons) were poking through the overlay and nothing seemed to fix my problem with the plain old <code>position: fixed</code> element I was using to cover the page.</p>
+<p>So after getting fed up with looking for possible fixes I spent a bit of time looking for alternatives and came across the <code>&lt;dialog&gt;</code> element.</p>
+
+<h2><a href="/blog/expressjs-route-management/">Express route management</a></h2>
+<p>Setting up a webserver with Node and <a href="http://expressjs.com/">Express</a> is easy very easy.</p>
+<p>Here is a small example:</p>
+<pre><code>var express = require(&quot;express&quot;);
+var app = express();
+
+app.get(&quot;/&quot;, function (request, response) {
+	response.send(&quot;Hello world!&quot;);
+});
+
+app.listen(3000);
+</code></pre>
+<p>Running this and navigating to <code>http://localhost:3000</code> will give you the following result:</p>
+<p><img src="hw.png" alt="Hello world"></p>
+<p>If you only have a few of those endpoints (<code>app.get</code> etc.) things will be fine living in the same <code>index.js</code> file. But what if this starts growing? You add more and more endpoints to your <code>index.js</code> and before you know it you have a 1500 line Javascript mess. Here is a good way of tackling that problem before it rears its head.</p>
+
+<h2><a href="/blog/rabbitmq-with-nodejs-on-cloud-foundry/">RabbitMQ with NodeJS on Cloud Foundry</a></h2>
+<p>I&rsquo;ve been having some more fun with Cloud Foundry deploying Node apps and wanted the apps to communicate in a more disconnected way. A messaging system is a good fit for such a requirement and lucky for me, (Pivotal) Cloud Foundry has RabbitMQ-as-a-Service for me to use.</p>
+<p>So what are we working with? The code is Javascript running on Node, RabbitMQ for the messages and Cloud Foundry is hosting it all.</p>
+
+<h2><a href="/blog/posting-json-to-a-web-api-controller/">POST-ing JSON to an ASP.NET Web API controller</a></h2>
+<p>So you want to post some JSON to an ASP.NET Web API controller?</p>
+<p>I bet you&rsquo;ve written this more than you wanted to:</p>
+<pre><code>$.ajax({
+	type: &quot;POST&quot;,
+	url: url,
+	data: JSON.stringify(data),
+	dataType: &quot;json&quot;,
+	contentType: &quot;application/json; charset=utf-8&quot;
+});
+</code></pre>
+<p>I hate that work-around where you specify all sorts of stuff that you don&rsquo;t really want to specify (like <code>dataType</code>, <code>contentType</code>, etc&hellip;). This is all required because the friendlier <code>$.post(...)</code> will send your data in a Form encoded way.</p>
+
+<h2><a href="/blog/overwriting-a-function-in-javascript/">Overwriting a function in Javascript</a></h2>
+<p>A quick little post about overwriting a function in Javascript.</p>
+<p>Take the following piece of code:</p>
+<pre><code>function Thing() {
+    this.Load = function () {
+        // Do stuff some specific way.
+    };
+};
+</code></pre>
+<p>When we want to creat a new Thing we do:</p>
+<pre><code>var newThing = new Thing();
+</code></pre>
+<p>Easy enough. But what if we have a corner case where the Thing needs to load data in another specific way?</p>
+
+
+    </main>
+    <footer>
+        <small>
+    <span>🌱 content written by an actual human.</span>
+    <span>©️ copyright 2015-2024 harre.dev</span>
+</small>
+<a href="/blog/index.xml">
+    📡 rss
+</a>
+
+    </footer>
+</div>
+</body>
+</html>

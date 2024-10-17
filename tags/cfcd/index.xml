@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cfcd on harre.dev</title>
+    <link>http://localhost:1313/tags/cfcd/</link>
+    <description>Recent content in Cfcd on harre.dev</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
+    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
+    <copyright>© harre.dev</copyright>
+    <lastBuildDate>Mon, 09 Apr 2018 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/cfcd/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cloud Foundry Certified Developer</title>
+      <link>http://localhost:1313/blog/cfcd-certification/</link>
+      <pubDate>Mon, 09 Apr 2018 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/cfcd-certification/</guid>
+      <description>&lt;p&gt;Hey look, I got certified in something :-)&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;cert.png&#34; alt=&#34;CFCD Certificate&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;After a good few nights of self-paced training and practice over at &lt;a href=&#34;https://run.pivotal.io&#34;&gt;Pivotal&lt;/a&gt; I felt confident enough and took the CFCD exam. As you can see&#xA;above, I passed!&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

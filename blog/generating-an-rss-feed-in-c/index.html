@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="shortcut icon" href="/favicon.png" type="image/png">
+<title>Generating an RSS feed in C# | harre.dev</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+
+
+
+</head>
+<body>
+<div class="site">
+    <header>
+        <div class="site-title">
+    <img src="/og-img.png" alt="H is for Harre.">
+    <h1>harre.dev</h1>
+</div>
+<nav>
+    <a href="/">home</a>
+    <a href="/blog">blog</a>
+    <a href="/about">about</a>
+    <a href="/blog/index.xml">rss</a>
+</nav>
+
+
+    </header>
+    <main>
+        
+  
+  
+  <small class="blog-meta">
+    <time datetime="2015-04-26T00:00:00&#43;00:00">April 26, 2015</time>
+    
+  <div>
+    Tags:
+        <a href="/tags/c%23/">C#</a>
+        <a href="/tags/rss/">RSS</a>
+        <a href="/tags/asp.net/">ASP.NET</a>
+        <a href="/tags/system.servicemodel/">System.ServiceModel</a>
+        <a href="/tags/itq/">Itq</a>
+  </div>
+
+  </small>
+  <h1>Generating an RSS feed in C#</h1>
+  <p>A hobby project of mine needed to generate an RSS feed. I was already doing this by just generating and XML file in the webroot and linking to that on the frontpage. But during this coding session, where all the data is pulled straight from the markdown files I wanted to create a controller action to do the generating for me.</p>
+<p>First things first, there is an assembly available out of the box in the .NET Framework. All you need is to make reference to <strong>System.ServiceModel.Syndication</strong> and you are ready to start writing code. The classes we are using are</p>
+<ul>
+<li>SyndicationItem</li>
+<li>SyndicationFeed</li>
+<li>TextSyndicationContent</li>
+</ul>
+<p>We want to write the result straight into the response, so a FileResult will serve as a baseclass for our RssResult class. First you&rsquo;ll want to create a new constructor that takes in the items that you want to display in the feed. Don&rsquo;t forget to call the base constructor with the right content type (<strong>application/rss+xml</strong> in our case) to tell the requesting client that we are serving an RSS feed.</p>
+<p>By overriding the WriteFile method, we take control of writing to the response stream. To make my code independent of site location I first resolve the domain from the request URL. Next we convert the items we want in the feed to SyndicationItems. A quick LINQ select statement makes short work of the conversion.</p>
+<p>To create a feed, we need to put the SyndicationItems in a SyndicationFeed. Set the title and description of the feed and you are ready to write to the response stream. Create a new XmlWriter object and point it into the outputstream of the response we are going to send to the client. All that is left then is to put the writer to work using the WriteTo method on the SyndicationFeed&rsquo;s Rss20Formatter.</p>
+<p>Pretty easy right? :-) Copy-Pasta ready code below! Enjoy.</p>
+<pre><code>public class RssResult : FileResult
+{
+    private readonly IEnumerable&lt;BlogPost&gt; FeedItems;
+    private readonly Uri Url;
+
+    public RssResult(IEnumerable&lt;BlogPost&gt; items)
+        : base(&quot;application/rss+xml&quot;)
+    {
+        this.FeedItems = items;
+        this.Url = HttpContext.Current.Request.Url;
+    }
+
+    protected override void WriteFile(HttpResponseBase response)
+    {
+        var sourceUrl = this.Url.GetLeftPart(UriPartial.Authority);
+
+        var feedItems = this.FeedItems.Select(p =&gt; new SyndicationItem(p.Title, p.Body, new Uri(string.Format(&quot;{0}/post/{1}&quot;, sourceUrl, p.Slug)))
+        {
+            PublishDate = new DateTimeOffset(p.CreateDate)
+        });
+
+        var feed = new SyndicationFeed(feedItems)
+        {
+            Title = new TextSyndicationContent(&quot;Harrewijnen.net&quot;, TextSyndicationContentKind.Html),
+            Description = new TextSyndicationContent(&quot;From the mind of a coder/gamer&quot;)
+        };
+
+        using (XmlWriter writer = XmlWriter.Create(response.OutputStream))
+        {
+           feed.GetRss20Formatter().WriteTo(writer);
+        }
+    }
+}</code></pre>
+
+
+    </main>
+    <footer>
+        <small>
+    <span>🌱 content written by an actual human.</span>
+    <span>©️ copyright 2015-2024 harre.dev</span>
+</small>
+<a href="/blog/index.xml">
+    📡 rss
+</a>
+
+    </footer>
+</div>
+</body>
+</html>

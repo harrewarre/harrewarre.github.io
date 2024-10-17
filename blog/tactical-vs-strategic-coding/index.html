@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="shortcut icon" href="/favicon.png" type="image/png">
+<title>Tactical versus strategic coding | harre.dev</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+
+
+
+</head>
+<body>
+<div class="site">
+    <header>
+        <div class="site-title">
+    <img src="/og-img.png" alt="H is for Harre.">
+    <h1>harre.dev</h1>
+</div>
+<nav>
+    <a href="/">home</a>
+    <a href="/blog">blog</a>
+    <a href="/about">about</a>
+    <a href="/blog/index.xml">rss</a>
+</nav>
+
+
+    </header>
+    <main>
+        
+  
+  
+  <small class="blog-meta">
+    <time datetime="2024-08-06T00:00:00&#43;00:00">August 6, 2024</time>
+    
+  <div>
+    Tags:
+        <a href="/tags/programming/">Programming</a>
+        <a href="/tags/practices/">Practices</a>
+        <a href="/tags/devrel/">Devrel</a>
+        <a href="/tags/cloudnative/">Cloudnative</a>
+  </div>
+
+  </small>
+  <h1>Tactical versus strategic coding</h1>
+  <p>Vacation time for me generally means reading time and for this occasion I brought &ldquo;A philosophy of software design&rdquo; by John Ousterhout with me.
+So over the course of a few warm summer evenings I read my way through it and here are some thoughts and an interesting thing I picked up.</p>
+<p>Many things that the book covered were more or less in the tool belt, a refresher is always nice and I agree with most of the things the book describes.</p>
+<p><img src="software-design-book.png" alt="A philosophy of software design"></p>
+<p>Something that really made something click was the distinction between Tactical and Strategic coding.
+It&rsquo;s one of the first topics the book dives into, and it put proper words on something I&rsquo;ve been explaining to teams I work with in far more words.</p>
+<h2 id="tactical-coding">Tactical coding</h2>
+<p>The way of working that the book describes as &ldquo;Tactical&rdquo; is one where you go straight for the solution to the task at hand.
+In this mode you skip most of the design work to build a clean, extensible solution to get out new work as fast as possible.
+The time saving comes with the risk of building something that might not be so easy to modify later when the system needs to change.</p>
+<p>This fits my description of &ldquo;quick and dirty&rdquo; to get stuff shipped in a hurry. While this sort of work has its place, the technical debt this leaves behind will have to be dealt with at some point.</p>
+<h2 id="strategic-coding">Strategic coding</h2>
+<p>In contrast to &ldquo;Tactical&rdquo;, the book describes a &ldquo;Strategic&rdquo; way of working where instead of diving straight in, you take some additional time to do some investigation into various solutions and do some design work to ensure
+the final solution is best fit for purpose and is far less likely to come back to haunt you later when additional changes or extensions need to be made to the code.</p>
+<p>I&rsquo;m all for taking a little time to properly implement a solution and this is also one of the things I work on when engaging with developer teams.</p>
+<p>Properly architecting a solution is a great upfront investment which will pay itself back down the line when the inevitable changes start coming in.</p>
+<p>I also really like the wording to set the two ways of working apart and these will definitely go into the toolbox for future engagements to help give words to the &ldquo;quick and dirty&rdquo; style versus a more deliberate development cycle.</p>
+<h2 id="some-thoughts-on-test-driven-development">Some thoughts on test-driven-development</h2>
+<p>The book did surprise me in a later chapter about test driven development and how it enables and encourages tactical working.
+One of the practices I present is test driven development and how it can be a great tool in designing modular solutions in code.</p>
+<p>The style of TDD I present to teams is writing a single test that describes some desired behavior and then write just enough code to satisfy the test.</p>
+<p>I guess you could see that as getting to a solution as quickly as possible, but a crucial step I include in the workflow is a refactor step after the code starts passing the test.
+This practice is known as <a href="https://martinfowler.com/bliki/TestDrivenDevelopment.html">Red-Green-Refactor</a> and greatly helps with code modularity while also creating well-defined interfaces separate from implementation (also a topic the book covers in great detail!)</p>
+<p>Writing a test, then implementing the behavior and finally taking a moment to clean, optimize and improve the code from various angles (performance, readability, etc) seems like a great way to write code to me.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Overall I found the book insightful and while I don&rsquo;t agree with everything it&rsquo;s always good have some different views of topics you&rsquo;re already familiar with.</p>
+
+
+    </main>
+    <footer>
+        <small>
+    <span>🌱 content written by an actual human.</span>
+    <span>©️ copyright 2015-2024 harre.dev</span>
+</small>
+<a href="/blog/index.xml">
+    📡 rss
+</a>
+
+    </footer>
+</div>
+</body>
+</html>

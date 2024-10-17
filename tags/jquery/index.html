@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="shortcut icon" href="/favicon.png" type="image/png">
+<title>JQuery | harre.dev</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+
+
+
+</head>
+<body>
+<div class="site">
+    <header>
+        <div class="site-title">
+    <img src="/og-img.png" alt="H is for Harre.">
+    <h1>harre.dev</h1>
+</div>
+<nav>
+    <a href="/">home</a>
+    <a href="/blog">blog</a>
+    <a href="/about">about</a>
+    <a href="/blog/index.xml">rss</a>
+</nav>
+
+
+    </header>
+    <main>
+        
+<h1>JQuery</h1>
+
+
+<h2><a href="/blog/posting-json-to-a-web-api-controller/">POST-ing JSON to an ASP.NET Web API controller</a></h2>
+<p>So you want to post some JSON to an ASP.NET Web API controller?</p>
+<p>I bet you&rsquo;ve written this more than you wanted to:</p>
+<pre><code>$.ajax({
+	type: &quot;POST&quot;,
+	url: url,
+	data: JSON.stringify(data),
+	dataType: &quot;json&quot;,
+	contentType: &quot;application/json; charset=utf-8&quot;
+});
+</code></pre>
+<p>I hate that work-around where you specify all sorts of stuff that you don&rsquo;t really want to specify (like <code>dataType</code>, <code>contentType</code>, etc&hellip;). This is all required because the friendlier <code>$.post(...)</code> will send your data in a Form encoded way.</p>
+
+
+    </main>
+    <footer>
+        <small>
+    <span>🌱 content written by an actual human.</span>
+    <span>©️ copyright 2015-2024 harre.dev</span>
+</small>
+<a href="/blog/index.xml">
+    📡 rss
+</a>
+
+    </footer>
+</div>
+</body>
+</html>

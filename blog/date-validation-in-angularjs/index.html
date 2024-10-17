@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="shortcut icon" href="/favicon.png" type="image/png">
+<title>Date validation in AngularJS | harre.dev</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+
+
+
+</head>
+<body>
+<div class="site">
+    <header>
+        <div class="site-title">
+    <img src="/og-img.png" alt="H is for Harre.">
+    <h1>harre.dev</h1>
+</div>
+<nav>
+    <a href="/">home</a>
+    <a href="/blog">blog</a>
+    <a href="/about">about</a>
+    <a href="/blog/index.xml">rss</a>
+</nav>
+
+
+    </header>
+    <main>
+        
+  
+  
+  <small class="blog-meta">
+    <time datetime="2016-10-27T00:00:00&#43;00:00">October 27, 2016</time>
+    
+  <div>
+    Tags:
+        <a href="/tags/javascript/">Javascript</a>
+        <a href="/tags/angular/">Angular</a>
+        <a href="/tags/itq/">Itq</a>
+  </div>
+
+  </small>
+  <h1>Date validation in AngularJS</h1>
+  <p>Another angular post! This time we take a look at how to create a directive that ensures the user enters a valid date (and/or time).</p>
+<p>Let&rsquo;s start with some boilerplate stuff first. I&rsquo;m going to assume that you have something working Angular already, we will only cover the date validation directive in this post.
+Here is some HTML.</p>
+<pre><code>&lt;div ng-app=&quot;validDateApp&quot;&gt;
+    &lt;div ng-form=&quot;myForm&quot; ng-controller=&quot;testController&quot;&gt;
+        &lt;input ng-model=&quot;myDate&quot; my-valid-date name=&quot;myDateInput&quot; type=&quot;text&quot; /&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>And it&rsquo;s Angular app to go with it:</p>
+<pre><code>var app = angular.module(&quot;validDateApp&quot;);
+
+app.controller(&quot;testController&quot;, function ($scope) {
+	$scope.myDate = null;
+});
+
+app.directive(&quot;myValidDate&quot;, function () {
+	// Magic here.
+});
+</code></pre>
+<p>Let&rsquo;s take a quick look at the basic structure of a directive. It&rsquo;s an object that Angular binds to nodes that have a certain predefined properties on them. In our case, we want to use an attribute (<code>my-valid-date</code>). When we put that on an element, Angular will run our directive against it and we want our element to have a model property (<code>ng-model</code> on the element) bound to it as well, because we need access to the routines that Angular uses for validation.</p>
+<pre><code>app.directive(&quot;myValidDate&quot;, function () {
+	return {
+		restrict: &quot;A&quot;,
+		require: &quot;ngModel&quot;,
+		link: function () {
+			// Magic now here.
+		}
+	}
+});
+</code></pre>
+<p>The above code is the skeleton we will use to create our date validation attribute. We restrict our directive to only attributes. By requiring <code>ngModel</code> we enforce that this directive only works on elements that specify an <code>ng-model</code>. The link function is our gateway into hooking up the stuff to let us validate the user input on the element.</p>
+<p>We will be using <a href="http://momentjs.com/">MomentJS</a> for the date validation in this directive so make sure you have it referenced in your page.</p>
+<p>So we want moment to validate the user input. By requiring that <code>ngModel</code> is present, we get access to the modelcontroller that belongs to the input. Which in turn gives us the <code>$validators</code> object that is bound to the input!</p>
+<p>knowing this, let&rsquo;s give the <code>link</code> function a body.</p>
+<pre><code>link: function (scope, elem, attr, ctrl) {
+	ctrl.$validators.myValidDate = function(value) {
+		if (value === undefined || value === null || value === &quot;&quot;) {
+			return true;
+		}
+
+		return moment(value, [&quot;D-M-YYYY&quot;], true).isValid();
+	}
+}
+</code></pre>
+<p>The 4th argument on the link function contains a reference to the modelcontroller we need for validation. If you want to know more about the other arguments, you can read more <a href="https://docs.angularjs.org/guide/directive">here</a></p>
+<p>To get our validation to work, we add function (<code>myValidDate</code>) to the validators object. The function accepts the input that was supplied by the user. First we check if there was any input at all. We don&rsquo;t require input for the date validation. Use the <code>required</code> attribute for that.</p>
+<p>If we did receive input, we create a moment object with the supplied input and check if it matches the format we want. The moment object exposes an <code>isValid()</code> <a href="http://momentjs.com/docs/#/parsing/is-valid/">function</a> to check if the object contains a valid date. We simply return the result of the <code>isValid</code> call as the result of our validation.</p>
+<p>Now you can make any input enforce a valid date format by added the <code>my-valid-date</code> attribute. If you want to take this another step forward, you could add the format string to the attribute and have the option of validating in different formats per input, but I&rsquo;ll leave that as an exercise :-)</p>
+<p>To round this off, here is a working demo of the above descriptions. Enjoy!</p>
+<!-- raw HTML omitted -->
+<p>Or go <a href="http://plnkr.co/edit/PsDnVPClv6d9D7hthUp2">here</a> for the full plunker.</p>
+
+
+    </main>
+    <footer>
+        <small>
+    <span>🌱 content written by an actual human.</span>
+    <span>©️ copyright 2015-2024 harre.dev</span>
+</small>
+<a href="/blog/index.xml">
+    📡 rss
+</a>
+
+    </footer>
+</div>
+</body>
+</html>

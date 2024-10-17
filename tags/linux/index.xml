@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on harre.dev</title>
+    <link>http://localhost:1313/tags/linux/</link>
+    <description>Recent content in Linux on harre.dev</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
+    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
+    <copyright>© harre.dev</copyright>
+    <lastBuildDate>Wed, 23 Nov 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Valheim public-test server</title>
+      <link>http://localhost:1313/blog/valheim-public-test-server/</link>
+      <pubDate>Wed, 23 Nov 2022 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/valheim-public-test-server/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;UPDATE&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;The testing appears to be done and is now part of the regular version of the game. This is still a handy guide for any future betas though.&lt;/p&gt;&#xA;&lt;p&gt;Here&amp;rsquo;s a cool update for &lt;a href=&#34;valheim-linux-server.md&#34;&gt;your Valheim linux server&lt;/a&gt; if you&amp;rsquo;re up from some beta testing.&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;The Valheim devs announced the Mistlands update and we can all get in on the action early through a beta branch on Steam (and GamePass). You can find out more about the update &lt;a href=&#34;https://valheim.com/news/mistlands-public-test/&#34;&gt;here&lt;/a&gt; and there&amp;rsquo;s a nice trailer &lt;a href=&#34;https://youtu.be/cZOuBjvETR8&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Valheim server on Linux</title>
+      <link>http://localhost:1313/blog/valheim-linux-server/</link>
+      <pubDate>Sun, 12 Sep 2021 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/valheim-linux-server/</guid>
+      <description>&lt;p&gt;Here is a step-by-step guide for setting up a &lt;a href=&#34;https://store.steampowered.com/app/892970/Valheim/&#34;&gt;Valheim&lt;/a&gt; server on Linux. Having done it twice now I thought it would be a good idea to capture this somewhere so that next time I don&amp;rsquo;t have to look any of this up again.&lt;/p&gt;&#xA;&lt;p&gt;The only assumptions being made here is that your server is running Ubuntu of some semi-recent version and a basic understanding of Linux.&lt;/p&gt;&#xA;&lt;h2 id=&#34;steamcmd&#34;&gt;SteamCMD&lt;/h2&gt;&#xA;&lt;p&gt;The &lt;a href=&#34;https://developer.valvesoftware.com/wiki/SteamCMD&#34;&gt;SteamCMD&lt;/a&gt; utility from Valve will help us install the gamefiles on the server.&#xA;Follow the instructions on the &lt;a href=&#34;https://developer.valvesoftware.com/wiki/SteamCMD#Linux.2FmacOS&#34;&gt;wiki&lt;/a&gt; to get it up and running.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Dotnet core 5 on a raspberry pi</title>
+      <link>http://localhost:1313/blog/net-core-5-on-raspberry-pi/</link>
+      <pubDate>Sun, 10 Jan 2021 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/net-core-5-on-raspberry-pi/</guid>
+      <description>&lt;p&gt;Here&amp;rsquo;s a quick get-up-and-go style post on how to get dotnet core 5 usable on a Raspberry Pi (a R-Pi 3 Model B in my case).&lt;/p&gt;&#xA;&lt;p&gt;We&amp;rsquo;re doing all this over SSH because my goal was to run a small webapp on the Pi which is located in a cupboard somewhere in my house without a keyboard and mouse attached to it 😁&#xA;So, after you&amp;rsquo;ve connected to the Pi over SSH, the first step is to install the dotnet core SDK.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

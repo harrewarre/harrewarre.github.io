@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="shortcut icon" href="/favicon.png" type="image/png">
+<title>Express route management | harre.dev</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+
+
+
+</head>
+<body>
+<div class="site">
+    <header>
+        <div class="site-title">
+    <img src="/og-img.png" alt="H is for Harre.">
+    <h1>harre.dev</h1>
+</div>
+<nav>
+    <a href="/">home</a>
+    <a href="/blog">blog</a>
+    <a href="/about">about</a>
+    <a href="/blog/index.xml">rss</a>
+</nav>
+
+
+    </header>
+    <main>
+        
+  
+  
+  <small class="blog-meta">
+    <time datetime="2016-06-03T00:00:00&#43;00:00">June 3, 2016</time>
+    
+  <div>
+    Tags:
+        <a href="/tags/javascript/">Javascript</a>
+        <a href="/tags/node/">Node</a>
+        <a href="/tags/express/">Express</a>
+        <a href="/tags/itq/">Itq</a>
+  </div>
+
+  </small>
+  <h1>Express route management</h1>
+  <p>Setting up a webserver with Node and <a href="http://expressjs.com/">Express</a> is easy very easy.</p>
+<p>Here is a small example:</p>
+<pre><code>var express = require(&quot;express&quot;);
+var app = express();
+
+app.get(&quot;/&quot;, function (request, response) {
+	response.send(&quot;Hello world!&quot;);
+});
+
+app.listen(3000);
+</code></pre>
+<p>Running this and navigating to <code>http://localhost:3000</code> will give you the following result:</p>
+<p><img src="hw.png" alt="Hello world"></p>
+<p>If you only have a few of those endpoints (<code>app.get</code> etc.) things will be fine living in the same <code>index.js</code> file. But what if this starts growing? You add more and more endpoints to your <code>index.js</code> and before you know it you have a 1500 line Javascript mess. Here is a good way of tackling that problem before it rears its head.</p>
+<p>Express exposes a Router that you use to register&hellip; routes :-). This router can be passed   back to express (as middleware) to link routes together using these routers. By nesting the routers we can separate every route into it&rsquo;s own folder or even file if we want.</p>
+<p>We&rsquo;ll be creating a simple web API that will greet you. Here is my file structure.</p>
+<p><img src="fs.png" alt="Filestructure"></p>
+<p>Let&rsquo;s start with the basics, we need code that will format the greeting text, this lives in the <code>back-end\queries\hello.js</code> file.</p>
+<pre><code>exports.formatGreeting = function (name) {
+	return &quot;Hello &quot; + name + &quot;!&quot;;
+}
+</code></pre>
+<p>The next step is creating the controller that will call this code when a request comes in on the API. The receiving endpoint lives in <code>greeter.js</code>.</p>
+<pre><code>var router = require(&quot;express&quot;).Router();
+var hello = require(&quot;../../back-end/queries/hello&quot;);
+
+router.get(&quot;/&quot;, function (request, response) {
+	response.send(&quot;Hello!&quot;);
+});
+
+router.get(&quot;/:name&quot;, function (request, response) {
+	response.send(hello.formatGreeting(request.params.name));
+});
+
+module.exports = router;
+</code></pre>
+<p>We import the express module because we want to hook up endpoints to code and the <code>hello</code> module we created above to greet us. Instead of using the base of express we instantiate a router from it on which we create the endpoints. Notice how we only specify the last part of the route (<code>/</code> and <code>/:name</code>), we&rsquo;ll look at why in a bit. So we have an endpoint that returns <code>Hello!</code> if the <code>:name</code> parameter is not supplied and an endpoint that will return <code>Hello &lt;value of :name&gt;</code> if the <code>:name</code> parameter <strong>is</strong> supplied.</p>
+<p>The last line is very important, we export the entire router we created as the module, this let&rsquo;s us use the module as a router later.</p>
+<p>In the same folder as <code>greeter.js</code> sits an <code>index.js</code> file:</p>
+<pre><code>var router = require(&quot;express&quot;).Router();
+
+router.use(&quot;/greet&quot;, require(&quot;./greeter&quot;));
+
+module.exports = router;
+</code></pre>
+<p>First, another router is created, this lets us define new routes. The <code>/greet</code> route is added to the router and we import the <code>greeter</code> module we created above. Remember that we exported the entire router from that module? Express now consumes that module as a router creating the routes <code>/greet</code> and <code>/greet/:name</code> in the process. The last step is exporting the newly created router again.</p>
+<p>Moving up to the root <code>index.js</code> file where the web app is started by node, we find the following code:</p>
+<pre><code>var express = require(&quot;express&quot;);
+var app = express();
+
+app.use(&quot;/api&quot;, require(&quot;./controllers/api&quot;));
+
+app.listen(3000);
+</code></pre>
+<p>We create an express app and create the <code>/api</code> route on it which we set to the router we created in the <code>api</code> folder. This creates the routes <code>/api/greet</code> and <code>/api/greet/:name</code> for us.</p>
+<p>Run the app from the command line using <code>node ./source</code> and browse to <code>http://localhost:3000/api/greet</code> and <code>http://localhost:3000/api/greet/world</code>.</p>
+<p><img src="fs-1.png" alt="Hello!"></p>
+<p><img src="fs-2.png" alt="Hello world!"></p>
+<p>So why go through all this trouble? Adding a route is now trivial and it will not polute any existing files if you don&rsquo;t want it to. You can extend from any level by added new routes to the routers thate live at any level.</p>
+<p>Want to add a route that says goodbye? Let&rsquo;s do it!</p>
+<p>Create a file called <code>leaver.js</code> in the <code>api</code> folder with the following code.</p>
+<pre><code>var router = require(&quot;express&quot;).Router();
+
+router.get(&quot;/&quot;, function (request, response) {
+	response.send(&quot;Bye!&quot;);
+});
+
+module.exports = router;
+</code></pre>
+<p>Next, open the <code>index.js</code> file in the <code>api</code> folder and add the following line below the other <code>app.use(...)</code> call.</p>
+<pre><code>router.use(&quot;/leave&quot;, require(&quot;./leaver&quot;));
+</code></pre>
+<p>Run the app again and browse to <code>http://localhost:3000/api/leave</code>.</p>
+<p><img src="fs-3.png" alt="Bye"></p>
+<p>You can extend this as deep as you want on as many files and folders as you like. Routes are very portable now as all it takes is hooking them up to another router. Added new routes is a breeze as you saw above.</p>
+<p>No more 1000 line <code>index.js</code> files! Enjoy!</p>
+<p>Demo code can be found <a href="https://github.com/harrewarre/nested-router-demo">here</a>.</p>
+
+
+    </main>
+    <footer>
+        <small>
+    <span>🌱 content written by an actual human.</span>
+    <span>©️ copyright 2015-2024 harre.dev</span>
+</small>
+<a href="/blog/index.xml">
+    📡 rss
+</a>
+
+    </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="shortcut icon" href="/favicon.png" type="image/png">
+<title>Fluent data access | harre.dev</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+
+
+
+
+</head>
+<body>
+<div class="site">
+    <header>
+        <div class="site-title">
+    <img src="/og-img.png" alt="H is for Harre.">
+    <h1>harre.dev</h1>
+</div>
+<nav>
+    <a href="/">home</a>
+    <a href="/blog">blog</a>
+    <a href="/about">about</a>
+    <a href="/blog/index.xml">rss</a>
+</nav>
+
+
+    </header>
+    <main>
+        
+  
+  
+  <small class="blog-meta">
+    <time datetime="2015-05-06T00:00:00&#43;00:00">May 6, 2015</time>
+    
+  <div>
+    Tags:
+        <a href="/tags/c%23/">C#</a>
+        <a href="/tags/data-access/">Data Access</a>
+  </div>
+
+  </small>
+  <h1>Fluent data access</h1>
+  <p>Working in a team of developers, the following might happen:</p>
+<p>Developer 1 creates a piece of UI and adds a method to load data into said UI. The method he creates is called GetUserInfo(…)</p>
+<p>Here comes Developer 2 and he also creates a piece of UI that displays user info. Developer 2 however, needs to display more than just the user info, he also needs the requests made by the user. And then GetUserInfoWithRequests(…) is created next to the already existing GetUserInfo method.</p>
+<p>Developer 3 wants to display some user info as well, but not just the info by itself, and also without the requests but WITH the users team information. Can you guess what happens? … Right. GetUserInfoWithTeamMembers(…) is added to our list.</p>
+<p>So we now have three methods that do something similar, but not quite the same:</p>
+<pre><code>GetUserInfo(…)
+GetUserInfoWithRequests(…)
+GetUserInfoWithTeamMembers(…)
+</code></pre>
+<p>If you let this run uncontrolled it will turn in to a maintenance nightmare! We could simply end the discussion and say it’s a lack of discipline within the team, but there is a nice way to help prevent this through code!</p>
+<p>What is needed is a query-building object that will handle the loading of all this data for us. Without resorting to separate methods that all touch the database.</p>
+<p>This query-building object has at least one method: Fetch(). The fetch method is the only method that will touch the database. The constructor of our object will take in the key on which to filter. In our example, this would probably be the primary key for the user in our database. Lets call it a UserInfoRetriever to match the example.</p>
+<pre><code>public class UserInfoRetriever
+{
+    readonly int _userId;
+
+    public UserInfoRetriever(int userId)
+    {
+        _userId = userId;
+    }
+
+    public User Fetch()
+    {
+        using (var context = new DbContext())
+        {
+            return context.Users.Where(u =&gt; u.UserId == _userId).SingleOrDefault();
+        }
+    }
+}
+</code></pre>
+<p>The code above is what this might look like for the first method in our set of three. But we have more! Lets expand the class a bit further to support the other scenarios.</p>
+<pre><code>public class UserInfoRetriever
+{
+    readonly int _userId;
+
+    bool _withRequests;
+    bool _withTeamMembers;
+
+    public UserInfoRetriever(int userId)
+    {
+        _userId = userId;
+    }
+
+    public UserInfoRetriever WithRequests()
+    {
+        _withRequests = true;
+        return this;
+    }
+
+    public UserInfoRetriever WithTeamMembers()
+    {
+        _withTeamMembers = true;
+        return this;
+    }
+
+    public User Fetch()
+    {
+        using (var context = new DbContext())
+        {
+            var users = context.Users;
+
+            if (_withRequests)
+            {
+                users.Include(&quot;Requests&quot;);
+            }
+
+            if (_withTeamMembers)
+            {
+                users.Include(&quot;TeamMembers&quot;);
+            }
+
+            return context.Users.Where(u =&gt; u.UserId == _userId).SingleOrDefault();
+        }
+    }
+}
+</code></pre>
+<p>This version of the class implements two extra methods. They only change the bools on our class and then returns itself. This is where the cool stuff is at. Because we return to ourselves in the methods, we can chain them together to form queries as we see fit like this:</p>
+<pre><code>var userInfo = new UserInfoRetriever(10).Fetch();
+
+var userInfo = new UserInfoRetriever(10).WithTeamMembers().WithRequests().Fetch();
+
+var userInfo = new UserInfoRetriever(10).WithRequests().Fetch();
+</code></pre>
+<p>var userInfo = new UserInfoRetriever(10).WithTeamMembers().Fetch();
+As you can see, we can load the data any way we like and our data-access code is still all in one place (in the Fetch() method). Adding new scenarios is very easy and it prevents (with a little discipline of course :-)) willy-nilly methods that all handle their own data-access.</p>
+
+
+    </main>
+    <footer>
+        <small>
+    <span>🌱 content written by an actual human.</span>
+    <span>©️ copyright 2015-2024 harre.dev</span>
+</small>
+<a href="/blog/index.xml">
+    📡 rss
+</a>
+
+    </footer>
+</div>
+</body>
+</html>

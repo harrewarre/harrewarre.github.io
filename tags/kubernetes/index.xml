@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kubernetes on harre.dev</title>
+    <link>http://localhost:1313/tags/kubernetes/</link>
+    <description>Recent content in Kubernetes on harre.dev</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
+    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
+    <copyright>© harre.dev</copyright>
+    <lastBuildDate>Mon, 21 Nov 2022 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Today I learned - kubectl replace</title>
+      <link>http://localhost:1313/blog/til-k8s-replace/</link>
+      <pubDate>Mon, 21 Nov 2022 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/til-k8s-replace/</guid>
+      <description>&lt;p&gt;Here&amp;rsquo;s one for your toolbox, but use with care. Say you have an app running on kubernetes in a pod and you spot something you want to change. This is one way to get it done.&lt;/p&gt;&#xA;&lt;p&gt;For the example, I spun up an nginx server called &lt;code&gt;webapp&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;The command to edit a resource running on kubernetes is &lt;code&gt;kubectl edit &amp;lt;thing&amp;gt; &amp;lt;name&amp;gt;&lt;/code&gt;. So here goes:&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;kubectl edit pod webapp&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;You&amp;rsquo;ll see a whole bunch of yaml that represents the pods definition. In what editor will depend on what you&amp;rsquo;ve set as your default editor for any &lt;code&gt;kubectl&lt;/code&gt; related business. (See: &lt;code&gt;KUBE_EDITOR&lt;/code&gt; environment variable).&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Let&#39;s talk containers</title>
+      <link>http://localhost:1313/blog/lets-talk-containers/</link>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/lets-talk-containers/</guid>
+      <description>&lt;p&gt;A recent talk by one of my buddies at ITQ sparked something and I thought I&amp;rsquo;d share that with you. It&amp;rsquo;s about containers and where they sit in a software developer point of view.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-platform-stack&#34;&gt;The platform stack&lt;/h2&gt;&#xA;&lt;p&gt;The thing that caused the spark was this image:&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;stack.jpg&#34; alt=&#34;The platform stack&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Here we have a rough outline of the platform abstractions we currently see in the wild. Let&amp;rsquo;s start at the bottom.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

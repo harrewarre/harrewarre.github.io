@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Comics on harre.dev</title>
+    <link>http://localhost:1313/tags/comics/</link>
+    <description>Recent content in Comics on harre.dev</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
+    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
+    <copyright>© harre.dev</copyright>
+    <lastBuildDate>Fri, 19 Jul 2019 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/comics/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Read comics on your Kindle e-reader</title>
+      <link>http://localhost:1313/blog/comics-on-kindle/</link>
+      <pubDate>Fri, 19 Jul 2019 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>http://localhost:1313/blog/comics-on-kindle/</guid>
+      <description>&lt;p&gt;Vacation is coming and I was looking at stuff to put on my Kindle e-reader. Found some books to read and then I came across comic books on Amazon. Nothing sparked my interest right away but it did remind me of some old comics I read a looooong time ago (of which I still have the actual paper versions!).&lt;/p&gt;&#xA;&lt;p&gt;The specific comics are about Storm, a dude&amp;rsquo;s adventure after falling into Jupiters great red spot and accidentally traveling through time in the process.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
