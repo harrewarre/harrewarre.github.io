@@ -9,8 +9,15 @@
     <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
     <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
-    <lastBuildDate>Mon, 14 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 18 Oct 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://harre.dev/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cloud Foundry buildpack environment variables</title>
+      <link>https://harre.dev/blog/cloud-foundry-buildpack-environment-variables/</link>
+      <pubDate>Fri, 18 Oct 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>https://harre.dev/blog/cloud-foundry-buildpack-environment-variables/</guid>
+      <description>&lt;p&gt;I recently ran into a situation I hadn&amp;rsquo;t dealt with before.&lt;/p&gt;&#xA;&lt;p&gt;A Python app I was working on was loading modules from a location outside of Pythons known locations.&#xA;My first instinct was to update the &lt;code&gt;manifest.yml&lt;/code&gt; &lt;code&gt;env&lt;/code&gt; section with a &lt;code&gt;PYTHONPATH&lt;/code&gt; variable that would add this additional location to the Python path but that would not stick.&#xA;Using &lt;code&gt;cf set-env&lt;/code&gt; to update the variable after the fact also did not work.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Fairphone 5 app switcher fix</title>
       <link>https://harre.dev/blog/fairphone-5-app-switcher-fix/</link>
@@ -73,13 +80,6 @@
       <pubDate>Tue, 28 May 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
       <guid>https://harre.dev/blog/six-months-with-the-fairphone/</guid>
       <description>&lt;p&gt;Somewhere in December of 2023 I got my Fairphone 5 delivered. I was using an iPhone 12 mini at the time that was suffering from a pretty degraded battery and was in need of something else. That iPhone was my first one and also my last, the lack of customization on iOS was also getting a bit of an annoyance so the choice for Android was not a difficult one.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>EV Driving</title>
-      <link>https://harre.dev/blog/ev-driving/</link>
-      <pubDate>Sat, 20 Jan 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
-      <guid>https://harre.dev/blog/ev-driving/</guid>
-      <description>&lt;p&gt;Having done a long drive into France not that long ago using an EV (a 2020 Polestar 2), I encountered some stuff that I thought was worth writing down.&lt;/p&gt;&#xA;&lt;h2 id=&#34;charging&#34;&gt;Charging&lt;/h2&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s get some of the obvious stuff out of the way first. Yes, doing long trips in an EV requires a little bit of upfront planning so you wont run out of spark along the way.&#xA;EVs also don&amp;rsquo;t have the same range as a petrol or diesel car, so you&amp;rsquo;ll need to stop more often.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+<head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<link rel="shortcut icon" href="/favicon.png" type="image/png">
+<title>Cloud Foundry buildpack environment variables | harre.dev</title>
+<meta property="og:url" content="https://harre.dev/blog/cloud-foundry-buildpack-environment-variables/">
+<meta property="og:site_name" content="harre.dev">
+<meta property="og:title" content="Cloud Foundry buildpack environment variables">
+<meta property="og:description" content="Cloud Foundry buildpack environment variables">
+<meta property="og:locale" content="en_us">
+<meta property="og:type" content="article">
+<meta property="article:section" content="blog">
+<meta property="article:published_time" content="2024-10-18T00:00:00+00:00">
+<meta property="article:modified_time" content="2024-10-18T00:00:00+00:00">
+<meta property="article:tag" content="Cloudfoundry">
+<meta property="article:tag" content="Buildpack">
+
+<meta property="og:image" content="/og-img.png">
+
+
+      <link rel="stylesheet" href="/css/main.min.948bcf17bd5cd65b6abf520e857bf181c650b91fb05fd2969ec82ee016d026d8.css" integrity="sha256-lIvPF71c1ltqv1IOhXvxgcZQuR&#43;wX9KWnsgu4BbQJtg=" crossorigin="anonymous">
+
+
+
+<script defer src="https://www.fairanalytics.de/pixel/834UxRaqtQBFLx4i"></script>
+
+</head>
+<body>
+<div class="site">
+    <header>
+        <div class="site-title">
+    <img src="/og-img.png" alt="H is for Harre.">
+    <h1>harre.dev</h1>
+</div>
+<nav>
+    <a href="/">home</a>
+    <a href="/blog">blog</a>
+    <a href="/about">about</a>
+    <a href="/blog/index.xml">rss</a>
+</nav>
+
+
+    </header>
+    <main>
+        
+  
+  
+  <small class="blog-meta">
+    <time datetime="2024-10-18T00:00:00&#43;00:00">October 18, 2024</time>
+    
+  <div>
+    Tags:
+        <a href="/tags/cloudfoundry/">Cloudfoundry</a>
+        <a href="/tags/buildpack/">Buildpack</a>
+  </div>
+
+  </small>
+  <h1>Cloud Foundry buildpack environment variables</h1>
+  <p>I recently ran into a situation I hadn&rsquo;t dealt with before.</p>
+<p>A Python app I was working on was loading modules from a location outside of Pythons known locations.
+My first instinct was to update the <code>manifest.yml</code> <code>env</code> section with a <code>PYTHONPATH</code> variable that would add this additional location to the Python path but that would not stick.
+Using <code>cf set-env</code> to update the variable after the fact also did not work.</p>
+<p>The environment variable was already set and consumed before we could apply our changes! The cause for this is the buildpack. The <code>python_buildpack</code> I was using was explicitly setting the <code>PYTHONPATH</code> and by the time we applied our changes it was already to late for our changes to take effect.</p>
+<p>Thankfully, Cloud Foundry buildpacks have a solution for this.
+You can add a <code>.profile</code> file to the root of your project (from where <code>cf push</code> runs) and use that to run scripts during the release stage of the buildpack.</p>
+<p>The contents of the <code>.profile</code> ended up looking like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>export PYTHONPATH<span style="color:#f92672">=</span>$PYTHONPATH:$HOME/submodules/my-module
+</span></span></code></pre></div><p>When the app is now deployed the buildpack will ensure that the <code>PYTHONPATH</code> is set correctly and the rest of the app can load the additional submodules.</p>
+<h2 id="resources">Resources</h2>
+<ul>
+<li><a href="https://docs.cloudfoundry.org/buildpacks/understand-buildpacks.html">Working with buildpacks in Cloud Foundry</a></li>
+</ul>
+
+
+    </main>
+    <footer>
+        <small>
+    <span>🌱 content written by an actual human.</span>
+    <span>©️ copyright 2015-2024 harre.dev</span>
+</small>
+<a href="/blog/index.xml">
+    📡 rss
+</a>
+
+    </footer>
+</div>
+</body>
+</html>
