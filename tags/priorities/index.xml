@@ -1,29 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Ownership on harre.dev</title>
-    <link>https://harre.dev/tags/ownership/</link>
-    <description>Recent content in Ownership on harre.dev</description>
+    <title>Priorities on harre.dev</title>
+    <link>https://harre.dev/tags/priorities/</link>
+    <description>Recent content in Priorities on harre.dev</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
     <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
     <lastBuildDate>Fri, 29 Nov 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://harre.dev/tags/ownership/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://harre.dev/tags/priorities/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Team priorities</title>
       <link>https://harre.dev/blog/team-priorities/</link>
       <pubDate>Fri, 29 Nov 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
       <guid>https://harre.dev/blog/team-priorities/</guid>
       <description>&lt;p&gt;Not all work is equally important in the stream of stuff that needs to get done when building and shipping software. So how do you make sense of what to work on?&lt;/p&gt;&#xA;&lt;p&gt;If work items are prioritized outside your development team, you need to have a discussion about ownership. A team that does not have control over what to work on is not in a position of ownership and (assuming the team is working in good faith) cannot be held responsible for any misaligned outcomes.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>You build it, you run it... but what exactly?</title>
-      <link>https://harre.dev/blog/you-build-it-you-run-it/</link>
-      <pubDate>Fri, 13 Sep 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
-      <guid>https://harre.dev/blog/you-build-it-you-run-it/</guid>
-      <description>&lt;p&gt;&amp;ldquo;You build it, you run it&amp;rdquo;, easy to say, but, depending on your developer experience and platform capability&amp;hellip; not at all easy.&#xA;What am I expected to &amp;ldquo;build&amp;rdquo; and what should I &amp;ldquo;run&amp;rdquo;? Let&amp;rsquo;s take a look.&lt;/p&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s start with this overview that I show teams I engage with during their onboarding and where their responsibilities begin and what not to worry about (but can still affect them of course).&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

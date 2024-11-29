@@ -9,8 +9,15 @@
     <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
     <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
-    <lastBuildDate>Fri, 18 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 29 Nov 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://harre.dev/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Team priorities</title>
+      <link>https://harre.dev/blog/team-priorities/</link>
+      <pubDate>Fri, 29 Nov 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>https://harre.dev/blog/team-priorities/</guid>
+      <description>&lt;p&gt;Not all work is equally important in the stream of stuff that needs to get done when building and shipping software. So how do you make sense of what to work on?&lt;/p&gt;&#xA;&lt;p&gt;If work items are prioritized outside your development team, you need to have a discussion about ownership. A team that does not have control over what to work on is not in a position of ownership and (assuming the team is working in good faith) cannot be held responsible for any misaligned outcomes.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Cloud Foundry buildpack environment variables</title>
       <link>https://harre.dev/blog/cloud-foundry-buildpack-environment-variables/</link>
@@ -73,13 +80,6 @@
       <pubDate>Mon, 10 Jun 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
       <guid>https://harre.dev/blog/dotnet-ef-migrations-on-cloud-foundry/</guid>
       <description>&lt;p&gt;Run database migrations on Cloud Foundry using a task to ensure that migrations are only done once on deployment (and not during app start up!) for dotnet core applications. This post assumes you are deploying built applications and not raw source code.&lt;/p&gt;&#xA;&lt;p&gt;Instead of depending on dotnet tooling (&lt;code&gt;dotnet-ef&lt;/code&gt;), leverage the built-in migration capability of the DataContext. Interrupt the startup procedure when a special argument is passed in, instead of starting the web application, run the migrations and then exit.&#xA;So here we go, to start we need a DbContext:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>6 Months with the Fairphone 5</title>
-      <link>https://harre.dev/blog/six-months-with-the-fairphone/</link>
-      <pubDate>Tue, 28 May 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
-      <guid>https://harre.dev/blog/six-months-with-the-fairphone/</guid>
-      <description>&lt;p&gt;Somewhere in December of 2023 I got my Fairphone 5 delivered. I was using an iPhone 12 mini at the time that was suffering from a pretty degraded battery and was in need of something else. That iPhone was my first one and also my last, the lack of customization on iOS was also getting a bit of an annoyance so the choice for Android was not a difficult one.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
