@@ -152,13 +152,12 @@ This demo only depends on jQuery, which is only used to make performing a POST t
 <p>Another angular post! This time we take a look at how to create a directive that ensures the user enters a valid date (and/or time).</p>
 <p>Let&rsquo;s start with some boilerplate stuff first. I&rsquo;m going to assume that you have something working Angular already, we will only cover the date validation directive in this post.
 Here is some HTML.</p>
-<pre><code>&lt;div ng-app=&quot;validDateApp&quot;&gt;
-    &lt;div ng-form=&quot;myForm&quot; ng-controller=&quot;testController&quot;&gt;
-        &lt;input ng-model=&quot;myDate&quot; my-valid-date name=&quot;myDateInput&quot; type=&quot;text&quot; /&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-<p>And it&rsquo;s Angular app to go with it:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">ng-app</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;validDateApp&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>	&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">ng-form</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;myForm&#34;</span> <span style="color:#a6e22e">ng-controller</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;testController&#34;</span>&gt;
+</span></span><span style="display:flex;"><span>		&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">ng-model</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;myDate&#34;</span> <span style="color:#a6e22e">my-valid-date</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;myDateInput&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> /&gt;
+</span></span><span style="display:flex;"><span>	&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">div</span>&gt;
+</span></span></code></pre></div><p>And it&rsquo;s Angular app to go with it:</p>
 
 <h2><a href="/blog/simple-dialogs-with-angularjs-and-typescript/">Simple dialogs with AngularJS and TypeScript</a></h2>
 <p>While working an Angular (1) web app I ran into the age-old problem of showing the user notifications when certain conditions are met. Show them a little pop-up, in simple terms.</p>
