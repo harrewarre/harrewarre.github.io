@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Content on harre.dev</title>
+    <link>https://harre.dev/tags/content/</link>
+    <description>Recent content in Content on harre.dev</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
+    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
+    <copyright>© harre.dev</copyright>
+    <lastBuildDate>Fri, 31 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://harre.dev/tags/content/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linkstream</title>
+      <link>https://harre.dev/blog/linkstream/</link>
+      <pubDate>Fri, 31 Jan 2025 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>https://harre.dev/blog/linkstream/</guid>
+      <description>&lt;p&gt;I read a lot of stuff in the internet and after reading about sharing links to content I find interesting I figured &amp;ldquo;why not?&amp;rdquo;.&lt;/p&gt;&#xA;&lt;p&gt;So as of today, there&amp;rsquo;s a new section on my site where you can follow along if you want. They won&amp;rsquo;t be full posts but short snippets, quotes and of course, the link to the article.&lt;/p&gt;&#xA;&lt;p&gt;You can find the links in &lt;a href=&#34;https://harre.dev/linkstream&#34;&gt;their own section&lt;/a&gt; or &lt;a href=&#34;https://harre.dev/linkstream/index.xml&#34;&gt;subscribe via de feed&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

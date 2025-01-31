@@ -9,8 +9,15 @@
     <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
     <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
-    <lastBuildDate>Fri, 29 Nov 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 31 Jan 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://harre.dev/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linkstream</title>
+      <link>https://harre.dev/blog/linkstream/</link>
+      <pubDate>Fri, 31 Jan 2025 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>https://harre.dev/blog/linkstream/</guid>
+      <description>&lt;p&gt;I read a lot of stuff in the internet and after reading about sharing links to content I find interesting I figured &amp;ldquo;why not?&amp;rdquo;.&lt;/p&gt;&#xA;&lt;p&gt;So as of today, there&amp;rsquo;s a new section on my site where you can follow along if you want. They won&amp;rsquo;t be full posts but short snippets, quotes and of course, the link to the article.&lt;/p&gt;&#xA;&lt;p&gt;You can find the links in &lt;a href=&#34;https://harre.dev/linkstream&#34;&gt;their own section&lt;/a&gt; or &lt;a href=&#34;https://harre.dev/linkstream/index.xml&#34;&gt;subscribe via de feed&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Team priorities</title>
       <link>https://harre.dev/blog/team-priorities/</link>
@@ -73,13 +80,6 @@
       <pubDate>Tue, 06 Aug 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
       <guid>https://harre.dev/blog/tactical-vs-strategic-coding/</guid>
       <description>&lt;p&gt;Vacation time for me generally means reading time and for this occasion I brought &amp;ldquo;A philosophy of software design&amp;rdquo; by John Ousterhout with me.&#xA;So over the course of a few warm summer evenings I read my way through it and here are some thoughts and an interesting thing I picked up.&lt;/p&gt;&#xA;&lt;p&gt;Many things that the book covered were more or less in the tool belt, a refresher is always nice and I agree with most of the things the book describes.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Dotnet Core Entity Framework Migrations on Cloud Foundry</title>
-      <link>https://harre.dev/blog/dotnet-ef-migrations-on-cloud-foundry/</link>
-      <pubDate>Mon, 10 Jun 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
-      <guid>https://harre.dev/blog/dotnet-ef-migrations-on-cloud-foundry/</guid>
-      <description>&lt;p&gt;Run database migrations on Cloud Foundry using a task to ensure that migrations are only done once on deployment (and not during app start up!) for dotnet core applications. This post assumes you are deploying built applications and not raw source code.&lt;/p&gt;&#xA;&lt;p&gt;Instead of depending on dotnet tooling (&lt;code&gt;dotnet-ef&lt;/code&gt;), leverage the built-in migration capability of the DataContext. Interrupt the startup procedure when a special argument is passed in, instead of starting the web application, run the migrations and then exit.&#xA;So here we go, to start we need a DbContext:&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
