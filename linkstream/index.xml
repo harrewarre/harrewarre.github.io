@@ -9,8 +9,15 @@
     <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
     <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
-    <lastBuildDate>Mon, 03 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 13 Feb 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://harre.dev/linkstream/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introduction to a Self Managed Life by FUTO</title>
+      <link>https://harre.dev/linkstream/futo-self-managed-life/</link>
+      <pubDate>Thu, 13 Feb 2025 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>https://harre.dev/linkstream/futo-self-managed-life/</guid>
+      <description>&lt;p&gt;A guide to building your own sovereing cloud, from top to bottom. Everything you could self-manage is probably in here. Amazing content.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://wiki.futo.org/wiki/Introduction_to_a_Self_Managed_Life:_a_13_hour_%26_28_minute_presentation_by_FUTO_software&#34;&gt;https://wiki.futo.org/wiki/Introduction_to_a_Self_Managed_Life:_a_13_hour_%26_28_minute_presentation_by_FUTO_software&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Best Simple System Now by Dan North</title>
       <link>https://harre.dev/linkstream/best-simple-system-now/</link>
