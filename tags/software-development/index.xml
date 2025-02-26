@@ -13,9 +13,9 @@
     <atom:link href="https://harre.dev/tags/software-development/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Best Simple System Now by Dan North</title>
-      <link>https://harre.dev/linkstream/best-simple-system-now/</link>
+      <link>https://harre.dev/blog/best-simple-system-now/</link>
       <pubDate>Mon, 03 Feb 2025 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
-      <guid>https://harre.dev/linkstream/best-simple-system-now/</guid>
+      <guid>https://harre.dev/blog/best-simple-system-now/</guid>
       <description>&lt;p&gt;A long-form post about focussing on the simplest system you can get away with &lt;strong&gt;right now&lt;/strong&gt;.&#xA;I like the idea but I bet it takes quite some discipline to not accidentally over or under-do the thing you are looking to ship.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&amp;ldquo;We can do this the quick way and pay later, or the thorough way and pay now.&amp;rdquo; This seems to be a fundamental dichotomy in software development, between ‘perfectionism’ and ‘pragmatism’, but I do not think it has to be a trade-off at all.&lt;/p&gt;</description>
     </item>
   </channel>

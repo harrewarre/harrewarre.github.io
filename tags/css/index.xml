@@ -44,14 +44,14 @@
       <link>https://harre.dev/blog/another-simple-loading-indicator/</link>
       <pubDate>Thu, 14 Jan 2016 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
       <guid>https://harre.dev/blog/another-simple-loading-indicator/</guid>
-      <description>&lt;p&gt;Here is another loading indicator for when your webpage is busy waiting for a server request to come back with an answer. It&amp;rsquo;s a bar at the very top of the page this time.&lt;/p&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s look at a demo before we dive in:&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;Press the button to do some imaginary tasks that simulates a workload. A rolling bar will appear at the top of the demo to show that something is happening in the background. So how does it work?&lt;/p&gt;</description>
+      <description>&lt;p&gt;Here is another loading indicator for when your webpage is busy waiting for a server request to come back with an answer. It&amp;rsquo;s a bar at the very top of the page this time.&lt;/p&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s look at a demo before we dive in:&lt;/p&gt;&#xA;&lt;p data-height=&#34;268&#34; data-theme-id=&#34;14183&#34; data-slug-hash=&#34;vLJVbo&#34; data-default-tab=&#34;result&#34; data-user=&#34;Harrewarre&#34; class=&#39;codepen&#39;&gt;See the Pen &lt;a href=&#39;http://codepen.io/Harrewarre/pen/vLJVbo/&#39;&gt;Another simple loading indicator&lt;/a&gt; by Sander Harrewijnen (&lt;a href=&#39;http://codepen.io/Harrewarre&#39;&gt;@Harrewarre&lt;/a&gt;) on &lt;a href=&#39;http://codepen.io&#39;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;script async src=&#34;//assets.codepen.io/assets/embed/ei.js&#34;&gt;&lt;/script&gt;&#xA;&lt;p&gt;Press the button to do some imaginary tasks that simulates a workload. A rolling bar will appear at the top of the demo to show that something is happening in the background. So how does it work?&lt;/p&gt;</description>
     </item>
     <item>
       <title>Animations and transforms</title>
       <link>https://harre.dev/blog/animations-and-transforms/</link>
       <pubDate>Tue, 01 Dec 2015 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
       <guid>https://harre.dev/blog/animations-and-transforms/</guid>
-      <description>&lt;p&gt;Every employee at &lt;a href=&#34;http://www.itq.nl&#34;&gt;ITQ&lt;/a&gt; has their own little mini-me in the form of a little character based on your appearance. Here is mine:&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;&#xA;&lt;p&gt;&lt;img src=&#34;minime-front.png&#34; alt=&#34;MiniMe&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;So I have this image sitting in a folder on my Ondrive for whenever I might need it. Queue a boring evening with not much else to do, I figured, lets animate some life into the little guy using CSS. Here is the result.&lt;/p&gt;</description>
+      <description>&lt;p&gt;Every employee at &lt;a href=&#34;http://www.itq.nl&#34;&gt;ITQ&lt;/a&gt; has their own little mini-me in the form of a little character based on your appearance. Here is mine:&lt;/p&gt;&#xA;&lt;!-- more --&gt;&#xA;&lt;p&gt;&lt;img src=&#34;minime-front.png&#34; alt=&#34;MiniMe&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;So I have this image sitting in a folder on my Ondrive for whenever I might need it. Queue a boring evening with not much else to do, I figured, lets animate some life into the little guy using CSS. Here is the result.&lt;/p&gt;</description>
     </item>
     <item>
       <title>CurrentColor in CSS</title>
@@ -72,7 +72,7 @@
       <link>https://harre.dev/blog/the-simplest-loading-indicator/</link>
       <pubDate>Sun, 26 Apr 2015 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
       <guid>https://harre.dev/blog/the-simplest-loading-indicator/</guid>
-      <description>&lt;p&gt;I had a brainwave and dove into codepen for a little bit to doodle around and when I emerged I had this simple little loading indicator. Very simple in terms of markup and CSS (LESS in this case).&lt;/p&gt;&#xA;&lt;p&gt;Have a look see :-)&lt;/p&gt;&#xA;&lt;!-- raw HTML omitted --&gt;</description>
+      <description>&lt;p&gt;I had a brainwave and dove into codepen for a little bit to doodle around and when I emerged I had this simple little loading indicator. Very simple in terms of markup and CSS (LESS in this case).&lt;/p&gt;&#xA;&lt;p&gt;Have a look see :-)&lt;/p&gt;&#xA;&lt;p data-height=&#34;268&#34; data-theme-id=&#34;14183&#34; data-slug-hash=&#34;VYogvX&#34; data-default-tab=&#34;result&#34; data-user=&#34;Harrewarre&#34; class=&#39;codepen&#39;&gt;See the Pen &lt;a href=&#39;http://codepen.io/Harrewarre/pen/VYogvX/&#39;&gt;Loading indicator&lt;/a&gt; by Sander Harrewijnen (&lt;a href=&#39;http://codepen.io/Harrewarre&#39;&gt;@Harrewarre&lt;/a&gt;) on &lt;a href=&#39;http://codepen.io&#39;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;script async src=&#34;//assets.codepen.io/assets/embed/ei.js&#34;&gt;&lt;/script&gt;</description>
     </item>
   </channel>
 </rss>

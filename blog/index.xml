@@ -9,14 +9,35 @@
     <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
     <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
-    <lastBuildDate>Fri, 31 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 26 Feb 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://harre.dev/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Linkstream</title>
-      <link>https://harre.dev/blog/linkstream/</link>
+      <title>Cloud Native Chronicles - Balanced teams</title>
+      <link>https://harre.dev/blog/cloud-native-chronicles-balanced-teams/</link>
+      <pubDate>Wed, 26 Feb 2025 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>https://harre.dev/blog/cloud-native-chronicles-balanced-teams/</guid>
+      <description>&lt;p&gt;The first episode is out! Johan and I talk about balanced teams.&lt;/p&gt;&#xA;&lt;p&gt;In this episode of Cloud Native Chronicles, hosts Johan and Sander discuss the concept of balanced teams in cloud-native development.&#xA;They explore the essential roles needed for effective product development, the risks associated with not validating products, and the challenges posed by siloed organizations.&lt;/p&gt;&#xA;&lt;p&gt;The conversation emphasizes the importance of collaboration across disciplines and the need for leadership to drive cultural change within organizations.&#xA;Key takeaways include the necessity of diverse skill sets in teams and the dangers of building products without user validation.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Introduction to a Self Managed Life by FUTO</title>
+      <link>https://harre.dev/blog/futo-self-managed-life/</link>
+      <pubDate>Thu, 13 Feb 2025 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>https://harre.dev/blog/futo-self-managed-life/</guid>
+      <description>&lt;p&gt;A guide to building your own sovereign cloud, from top to bottom. Everything you could self-manage is probably in here. Amazing content.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://wiki.futo.org/wiki/Introduction_to_a_Self_Managed_Life:_a_13_hour_%26_28_minute_presentation_by_FUTO_software&#34;&gt;https://wiki.futo.org/wiki/Introduction_to_a_Self_Managed_Life:_a_13_hour_%26_28_minute_presentation_by_FUTO_software&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Best Simple System Now by Dan North</title>
+      <link>https://harre.dev/blog/best-simple-system-now/</link>
+      <pubDate>Mon, 03 Feb 2025 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>https://harre.dev/blog/best-simple-system-now/</guid>
+      <description>&lt;p&gt;A long-form post about focussing on the simplest system you can get away with &lt;strong&gt;right now&lt;/strong&gt;.&#xA;I like the idea but I bet it takes quite some discipline to not accidentally over or under-do the thing you are looking to ship.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&amp;ldquo;We can do this the quick way and pay later, or the thorough way and pay now.&amp;rdquo; This seems to be a fundamental dichotomy in software development, between ‘perfectionism’ and ‘pragmatism’, but I do not think it has to be a trade-off at all.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Forest &amp; Desert by Beth Andres-Beck</title>
+      <link>https://harre.dev/blog/forest-and-desert/</link>
       <pubDate>Fri, 31 Jan 2025 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
-      <guid>https://harre.dev/blog/linkstream/</guid>
-      <description>&lt;p&gt;I read a lot of stuff on the internet and after &lt;a href=&#34;https://simonwillison.net/2024/Dec/22/link-blog/&#34;&gt;reading about linkblogs&lt;/a&gt; I figured &amp;ldquo;why not?&amp;rdquo;.&lt;/p&gt;&#xA;&lt;p&gt;So as of today, there&amp;rsquo;s a new section on my site where you can follow along with the stuff I find noteworthy. They won&amp;rsquo;t be full posts but short snippets, quotes and of course, the link to the article.&lt;/p&gt;&#xA;&lt;p&gt;I do want to keep the links seperate from the rest of the content just to give the option of not having to see the links.&lt;/p&gt;</description>
+      <guid>https://harre.dev/blog/forest-and-desert/</guid>
+      <description>&lt;p&gt;The article describes two distinct cultures that exist for software development. The forest and the desert.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;There is a path from the desert to the forest, a series of small, safe steps a community can take to terraform the landscape. No developer can do it alone, and no amount of technology will get us there, but it is possible.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Beth Andres-Beck&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://tidyfirst.substack.com/p/forest-and-desert&#34;&gt;https://tidyfirst.substack.com/p/forest-and-desert&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Team priorities</title>
@@ -59,27 +80,6 @@
       <pubDate>Thu, 29 Aug 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
       <guid>https://harre.dev/blog/your-org-could-use-a-cookbook/</guid>
       <description>&lt;p&gt;That is&amp;hellip; if you don&amp;rsquo;t have one yet of course.&lt;/p&gt;&#xA;&lt;p&gt;A self-service effort is not complete without proper documentation. You could store that inside the repository with the code that makes up the service, but that could make it harder to find. And what if you have a bunch of services that all have their own docs? It&amp;rsquo;ll be completely scattered. To make knowledge easily find-able, and even searchable, a central knowledge base is the solution. In other words&amp;hellip; a cookbook!&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Testing Python code that runs during import</title>
-      <link>https://harre.dev/blog/python-testing-import-time-code/</link>
-      <pubDate>Mon, 19 Aug 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
-      <guid>https://harre.dev/blog/python-testing-import-time-code/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;ve been pretty comfortable with Python after making the switch from dotnet core to Python for a new client.&lt;/p&gt;&#xA;&lt;p&gt;During this time I&amp;rsquo;ve gotten to know the way around the ecosystem and Python-isms, but sometimes I run into something that makes me go &amp;ldquo;huh? oh&amp;hellip;&amp;rdquo;.&#xA;This post describes one such moment.&lt;/p&gt;&#xA;&lt;h2 id=&#34;modules&#34;&gt;Modules&lt;/h2&gt;&#xA;&lt;p&gt;So in Python modules can use each others functionality by importing them into one another using the &lt;code&gt;import&lt;/code&gt; keyword and referencing the module you want to use e.g:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Web.config domain rewriting</title>
-      <link>https://harre.dev/blog/web-config-domain-redirect/</link>
-      <pubDate>Fri, 09 Aug 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
-      <guid>https://harre.dev/blog/web-config-domain-redirect/</guid>
-      <description>&lt;p&gt;Here&amp;rsquo;s a quick and easy domain rewriting solution running on an Azure App service.&lt;/p&gt;&#xA;&lt;p&gt;Some assumptions before you can start though:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;The app service must be configured with the custom domain you want to redirect from.&lt;/li&gt;&#xA;&lt;li&gt;The app service is running on the Windows stack (you can configure this during App Service setup).&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;To make things even easier, you can set this whole thing up from inside the Azure portal using the Advanced Tools option which opens the Kudu interface for the web server.&#xA;In the Kudu interface click on Debug Console -&amp;gt; CMD. Next, browse to the &lt;code&gt;wwwroot&lt;/code&gt; directory at &lt;code&gt;site/wwwroot&lt;/code&gt;. From there you can create new files.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Tactical versus strategic coding</title>
-      <link>https://harre.dev/blog/tactical-vs-strategic-coding/</link>
-      <pubDate>Tue, 06 Aug 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
-      <guid>https://harre.dev/blog/tactical-vs-strategic-coding/</guid>
-      <description>&lt;p&gt;Vacation time for me generally means reading time and for this occasion I brought &amp;ldquo;A philosophy of software design&amp;rdquo; by John Ousterhout with me.&#xA;So over the course of a few warm summer evenings I read my way through it and here are some thoughts and an interesting thing I picked up.&lt;/p&gt;&#xA;&lt;p&gt;Many things that the book covered were more or less in the tool belt, a refresher is always nice and I agree with most of the things the book describes.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

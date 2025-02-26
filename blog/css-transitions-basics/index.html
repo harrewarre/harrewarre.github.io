@@ -21,7 +21,7 @@
 <meta property="og:image" content="/og-img.png">
 
 
-      <link rel="stylesheet" href="/css/main.min.bfcda6427f1eada43a41d6f64d8ae292399dc8875d7fcbb3e906a9915ef79474.css" integrity="sha256-v82mQn8eraQ6Qdb2TYrikjmdyIddf8uz6QapkV73lHQ=" crossorigin="anonymous">
+      <link rel="stylesheet" href="/css/main.min.f5466cde32ee58ff8dffa03492338359ae392acc017e48244ea85757160f7e9e.css" integrity="sha256-9UZs3jLuWP&#43;N/6A0kjODWa45KswBfkgkTqhXVxYPfp4=" crossorigin="anonymous">
 
 
 
@@ -37,9 +37,7 @@
 <nav>
     <a href="/">home</a>
     <a href="/blog">blog</a>
-    <a href="/linkstream">links</a>
-    <a href="/blog/index.xml">blog rss</a>
-    <a href="/linkstream/index.xml">links rss</a>
+    <a href="/blog/index.xml">rss</a>
     <a href="/about">about</a>
 </nav>
 
@@ -64,7 +62,8 @@
   <p>End-users interact with your applications via the user interface (UI for short). If everything was designed with the user in mind, the UI will make things very easy for the user. Everything is nice and organized and easy to navigate. Actions are communicated to the user in a friendly way and the user is happy.</p>
 <p>The sad thing is, state changes in the UI tend to be very abrupt and cold. Instant flashes, so fast the user might not even notice if it is something small. So what can we do about this? CSS supports something called transitions. Transitions allow us to specify what happens what state changes on an element. For example, a button going from normal, to being hovered on by the user, rows in a grid that the user can select or a signal telling the user something happened.</p>
 <p>So we know CSS can so these things but as always, <a href="http://caniuse.com/#search=transitions">better safe than sorry</a>. Those old browsers are still out there. Lucky for us, transitions degrade very nice since there is no change to the styles that were already used. We&rsquo;re only adding some sugar on top. Lets look at some examples.</p>
-<!-- raw HTML omitted -->
+<p data-height="268" data-theme-id="14183" data-slug-hash="LVZvve" data-default-tab="result" data-user="Harrewarre" class='codepen'>See the Pen <a href='http://codepen.io/Harrewarre/pen/LVZvve/'>Some simple transitions</a> by Sander Harrewijnen (<a href='http://codepen.io/Harrewarre'>@Harrewarre</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 <p>The button example is very straight forward, so lets have a look at what is going on. The first button has no transitions defined, the change in background is instant (and not very subtle). The other button does have transitions defined. The background color will transition when the <strong>:hover</strong> state changes. So when the user hovers over the second button, the browser will create a smooth animation between the normal and hovered states that lasts for as long as the transition dictates (half a second in this case). <strong>Ease</strong> tells the browser to slowly start and end the transition, varying the speed of the transition. Various options are available such as ease-in and ease-out.</p>
 <p>The second example works in a similar way, except the transition acts on the <strong>:checked</strong> state to highlight the label that belongs to the checkbox. As you can see in the example, you can define more than one transition by separating them by a <strong>,</strong> (comma). If you want to transition every property of a class you can use the <strong>transition: all (duration) (easing)</strong> shortcut.</p>
 <p>Before you start adding transitions to ALL the things, be aware that effects such as these can be very intrusive and distracting. Don&rsquo;t overdo it.</p>
@@ -78,8 +77,7 @@
     <span>©️ copyright 2015-2025 harre.dev</span>
 </small>
 <div>
-    <a href="/blog/index.xml">blog rss</a>
-    <a href="/blog/index.xml">links rss</a>
+    <a href="/blog/index.xml">rss</a>
 </div>
 
     </footer>

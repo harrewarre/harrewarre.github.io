@@ -20,7 +20,7 @@
 <meta property="og:image" content="/og-img.png">
 
 
-      <link rel="stylesheet" href="/css/main.min.bfcda6427f1eada43a41d6f64d8ae292399dc8875d7fcbb3e906a9915ef79474.css" integrity="sha256-v82mQn8eraQ6Qdb2TYrikjmdyIddf8uz6QapkV73lHQ=" crossorigin="anonymous">
+      <link rel="stylesheet" href="/css/main.min.f5466cde32ee58ff8dffa03492338359ae392acc017e48244ea85757160f7e9e.css" integrity="sha256-9UZs3jLuWP&#43;N/6A0kjODWa45KswBfkgkTqhXVxYPfp4=" crossorigin="anonymous">
 
 
 
@@ -36,9 +36,7 @@
 <nav>
     <a href="/">home</a>
     <a href="/blog">blog</a>
-    <a href="/linkstream">links</a>
-    <a href="/blog/index.xml">blog rss</a>
-    <a href="/linkstream/index.xml">links rss</a>
+    <a href="/blog/index.xml">rss</a>
     <a href="/about">about</a>
 </nav>
 
@@ -61,7 +59,8 @@
   <h1>Another simple loading indicator</h1>
   <p>Here is another loading indicator for when your webpage is busy waiting for a server request to come back with an answer. It&rsquo;s a bar at the very top of the page this time.</p>
 <p>Let&rsquo;s look at a demo before we dive in:</p>
-<!-- raw HTML omitted -->
+<p data-height="268" data-theme-id="14183" data-slug-hash="vLJVbo" data-default-tab="result" data-user="Harrewarre" class='codepen'>See the Pen <a href='http://codepen.io/Harrewarre/pen/vLJVbo/'>Another simple loading indicator</a> by Sander Harrewijnen (<a href='http://codepen.io/Harrewarre'>@Harrewarre</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 <p>Press the button to do some imaginary tasks that simulates a workload. A rolling bar will appear at the top of the demo to show that something is happening in the background. So how does it work?</p>
 <p>Let&rsquo;s get the Javascript out of the way first. All it does is add/remove CSS classes to and from the <code>busyBar</code> element. It simulates waiting for something using a <code>setTimeout</code>.</p>
 <p>The HTML is very simple as well, 2 divs and a button. The first <code>div</code> represents the loading indicator, named <code>busyBar</code> and the second is a little container where our button lives. When you click the button, a Javascript functin is called that does all the work.</p>
@@ -78,8 +77,7 @@
     <span>©️ copyright 2015-2025 harre.dev</span>
 </small>
 <div>
-    <a href="/blog/index.xml">blog rss</a>
-    <a href="/blog/index.xml">links rss</a>
+    <a href="/blog/index.xml">rss</a>
 </div>
 
     </footer>

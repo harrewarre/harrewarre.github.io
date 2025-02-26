@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cloud Native Chronicles on harre.dev</title>
+    <link>https://harre.dev/tags/cloud-native-chronicles/</link>
+    <description>Recent content in Cloud Native Chronicles on harre.dev</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
+    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
+    <copyright>© harre.dev</copyright>
+    <lastBuildDate>Wed, 26 Feb 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://harre.dev/tags/cloud-native-chronicles/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cloud Native Chronicles - Balanced teams</title>
+      <link>https://harre.dev/blog/cloud-native-chronicles-balanced-teams/</link>
+      <pubDate>Wed, 26 Feb 2025 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <guid>https://harre.dev/blog/cloud-native-chronicles-balanced-teams/</guid>
+      <description>&lt;p&gt;The first episode is out! Johan and I talk about balanced teams.&lt;/p&gt;&#xA;&lt;p&gt;In this episode of Cloud Native Chronicles, hosts Johan and Sander discuss the concept of balanced teams in cloud-native development.&#xA;They explore the essential roles needed for effective product development, the risks associated with not validating products, and the challenges posed by siloed organizations.&lt;/p&gt;&#xA;&lt;p&gt;The conversation emphasizes the importance of collaboration across disciplines and the need for leadership to drive cultural change within organizations.&#xA;Key takeaways include the necessity of diverse skill sets in teams and the dangers of building products without user validation.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
