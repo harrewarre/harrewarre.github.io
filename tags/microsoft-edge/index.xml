@@ -4,19 +4,20 @@
     <title>Microsoft Edge on harre.dev</title>
     <link>https://harre.dev/tags/microsoft-edge/</link>
     <description>Recent content in Microsoft Edge on harre.dev</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
-    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
-    <lastBuildDate>Fri, 19 Feb 2021 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://harre.dev/tags/microsoft-edge/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 19 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://harre.dev/tags/microsoft-edge/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Microsoft Edge Picture-in-Picture</title>
       <link>https://harre.dev/blog/edge-pip/</link>
-      <pubDate>Fri, 19 Feb 2021 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Fri, 19 Feb 2021 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/edge-pip/</guid>
-      <description>&lt;hr&gt;&#xA;&lt;p&gt;&lt;strong&gt;Small update&lt;/strong&gt;: Edge now supports picture-in-picture with a little button out of the box! So you no longer need the code snippet.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;p&gt;Here&amp;rsquo;s a quick little helper to pop out video players in Microsoft Edge.&lt;/p&gt;&#xA;&lt;h2 id=&#34;requestpictureinpicture&#34;&gt;requestPictureInPicture&lt;/h2&gt;&#xA;&lt;p&gt;Edge (like Chrome these days) supports &lt;a href=&#34;https://caniuse.com/?search=requestPictureInPicture&#34;&gt;picture in picture mode&lt;/a&gt; for videos but it&amp;rsquo;s not always apparent how to actually pop out a videoplayer. Here&amp;rsquo;s a quick one-liner that you can try in the browser console:&lt;/p&gt;</description>
+      <description>Small update: Edge now supports picture-in-picture with a little button out of the box! So you no longer need the code snippet.
+ Here&amp;rsquo;s a quick little helper to pop out video players in Microsoft Edge.
+requestPictureInPicture Edge (like Chrome these days) supports picture in picture mode for videos but it&amp;rsquo;s not always apparent how to actually pop out a videoplayer. Here&amp;rsquo;s a quick one-liner that you can try in the browser console:</description>
     </item>
+    
   </channel>
 </rss>

@@ -4,11 +4,11 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 <link rel="shortcut icon" href="/favicon.png" type="image/png">
-<title>JQuery | harre.dev</title>
+<title>jQuery | harre.dev</title>
 <meta property="og:url" content="https://harre.dev/tags/jquery/">
 <meta property="og:site_name" content="harre.dev">
-<meta property="og:title" content="JQuery">
-<meta property="og:description" content="JQuery">
+<meta property="og:title" content="jQuery">
+<meta property="og:description" content="jQuery">
 <meta property="og:locale" content="en_us">
 <meta property="og:type" content="website">
 
@@ -39,21 +39,13 @@
     </header>
     <main>
         
-<h1>JQuery</h1>
+<h1>jQuery</h1>
 
 
 <h2><a href="/blog/posting-json-to-a-web-api-controller/">POST-ing JSON to an ASP.NET Web API controller</a></h2>
-<p>So you want to post some JSON to an ASP.NET Web API controller?</p>
-<p>I bet you&rsquo;ve written this more than you wanted to:</p>
-<pre><code>$.ajax({
-	type: &quot;POST&quot;,
-	url: url,
-	data: JSON.stringify(data),
-	dataType: &quot;json&quot;,
-	contentType: &quot;application/json; charset=utf-8&quot;
-});
-</code></pre>
-<p>I hate that work-around where you specify all sorts of stuff that you don&rsquo;t really want to specify (like <code>dataType</code>, <code>contentType</code>, etc&hellip;). This is all required because the friendlier <code>$.post(...)</code> will send your data in a Form encoded way.</p>
+So you want to post some JSON to an ASP.NET Web API controller?
+I bet you&rsquo;ve written this more than you wanted to:
+$.ajax({ type: &quot;POST&quot;, url: url, data: JSON.stringify(data), dataType: &quot;json&quot;, contentType: &quot;application/json; charset=utf-8&quot; });  I hate that work-around where you specify all sorts of stuff that you don&rsquo;t really want to specify (like dataType, contentType, etc&hellip;). This is all required because the friendlier $.post(...) will send your data in a Form encoded way.
 
 
     </main>

@@ -1,50 +1,65 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Azure on harre.dev</title>
+    <title>azure on harre.dev</title>
     <link>https://harre.dev/tags/azure/</link>
-    <description>Recent content in Azure on harre.dev</description>
-    <generator>Hugo</generator>
+    <description>Recent content in azure on harre.dev</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
-    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
-    <lastBuildDate>Fri, 09 Aug 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://harre.dev/tags/azure/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 09 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://harre.dev/tags/azure/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Web.config domain rewriting</title>
       <link>https://harre.dev/blog/web-config-domain-redirect/</link>
-      <pubDate>Fri, 09 Aug 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Fri, 09 Aug 2024 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/web-config-domain-redirect/</guid>
-      <description>&lt;p&gt;Here&amp;rsquo;s a quick and easy domain rewriting solution running on an Azure App service.&lt;/p&gt;&#xA;&lt;p&gt;Some assumptions before you can start though:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;The app service must be configured with the custom domain you want to redirect from.&lt;/li&gt;&#xA;&lt;li&gt;The app service is running on the Windows stack (you can configure this during App Service setup).&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;To make things even easier, you can set this whole thing up from inside the Azure portal using the Advanced Tools option which opens the Kudu interface for the web server.&#xA;In the Kudu interface click on Debug Console -&amp;gt; CMD. Next, browse to the &lt;code&gt;wwwroot&lt;/code&gt; directory at &lt;code&gt;site/wwwroot&lt;/code&gt;. From there you can create new files.&lt;/p&gt;</description>
+      <description>Here&amp;rsquo;s a quick and easy domain rewriting solution running on an Azure App service.
+Some assumptions before you can start though:
+ The app service must be configured with the custom domain you want to redirect from. The app service is running on the Windows stack (you can configure this during App Service setup).  To make things even easier, you can set this whole thing up from inside the Azure portal using the Advanced Tools option which opens the Kudu interface for the web server.</description>
     </item>
+    
     <item>
       <title>Environment variables in an Azure Web App for Containers</title>
       <link>https://harre.dev/blog/netcore-az-container-environment/</link>
-      <pubDate>Sat, 04 May 2019 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Sat, 04 May 2019 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/netcore-az-container-environment/</guid>
-      <description>&lt;p&gt;Here&amp;rsquo;s a little gotcha I ran into. A .net core app I wrote needs to run inside a container and the target was a Web App for Containers on the Azure platform. No big deal so far.&lt;/p&gt;&#xA;&lt;p&gt;The app also needs a few settings for it to do its work. We provide these via environment variables for maximum flexibility. After setting up some CI/CD stuff and deploying the app it wouldn&amp;rsquo;t start because it wasn&amp;rsquo;t loading the settings.&lt;/p&gt;</description>
+      <description>Here&amp;rsquo;s a little gotcha I ran into. A .net core app I wrote needs to run inside a container and the target was a Web App for Containers on the Azure platform. No big deal so far.
+The app also needs a few settings for it to do its work. We provide these via environment variables for maximum flexibility. After setting up some CI/CD stuff and deploying the app it wouldn&amp;rsquo;t start because it wasn&amp;rsquo;t loading the settings.</description>
     </item>
+    
     <item>
       <title>Setting up an Azure Storage static website</title>
       <link>https://harre.dev/blog/azure-static-website/</link>
-      <pubDate>Thu, 03 Jan 2019 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Thu, 03 Jan 2019 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/azure-static-website/</guid>
-      <description>&lt;p&gt;Not very long ago, Microsoft made the &lt;a href=&#34;https://azure.microsoft.com/en-us/blog/static-websites-on-azure-storage-now-generally-available/&#34;&gt;static website feature generally available&lt;/a&gt; on the Azure platform. What this means is that you can now publicly host content with Azure (blob) storage.&lt;/p&gt;&#xA;&lt;!-- more --&gt;&#xA;&lt;p&gt;So in a few easy steps you can create a host for your angular/react/vue/(insert-client-side-web-thing-here)/static app. The &lt;a href=&#34;https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-static-website-host&#34;&gt;docs&lt;/a&gt; are great but we&amp;rsquo;ll have a look at what&amp;rsquo;s what.&lt;/p&gt;&#xA;&lt;p&gt;Please remember that there is no server-side processing for this hosting option! If you want to do server-side stuff, use an App Service instead.&lt;/p&gt;</description>
+      <description>Not very long ago, Microsoft made the static website feature generally available on the Azure platform. What this means is that you can now publicly host content with Azure (blob) storage.
+So in a few easy steps you can create a host for your angular/react/vue/(insert-client-side-web-thing-here)/static app. The docs are great but we&amp;rsquo;ll have a look at what&amp;rsquo;s what.
+Please remember that there is no server-side processing for this hosting option! If you want to do server-side stuff, use an App Service instead.</description>
     </item>
+    
     <item>
       <title>Multiple listeners for your Service Fabric service</title>
       <link>https://harre.dev/blog/sf-multiple-listeners/</link>
-      <pubDate>Sat, 31 Mar 2018 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Sat, 31 Mar 2018 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/sf-multiple-listeners/</guid>
-      <description>&lt;p&gt;Service Fabric is a great piece of technology on the Azure platform and I&amp;rsquo;ve been using it quite a lot in recent projects. It takes away a lot of the setup and orchestration when dealing with microservices.&lt;/p&gt;&#xA;&lt;p&gt;There comes a point where services need to talk to each other and this is easily achieved using the Remoting bits you can get from NuGet. The general way of doing this is creating an &lt;code&gt;Interfaces&lt;/code&gt; project next to the service that&#xA;contains the service interface and classes used in transport. The interface is implemented on the service entrypoint and a listener is exposed to the Fabric runtime so that it can communicate with the rest of the platform. We&amp;rsquo;re&#xA;going to take it one step further and put the service implementations in their own class instead of on the service entrypoint (keeps things nice and clean) and also enable dependency injection from that point forward.&lt;/p&gt;</description>
+      <description>Service Fabric is a great piece of technology on the Azure platform and I&amp;rsquo;ve been using it quite a lot in recent projects. It takes away a lot of the setup and orchestration when dealing with microservices.
+There comes a point where services need to talk to each other and this is easily achieved using the Remoting bits you can get from NuGet. The general way of doing this is creating an Interfaces project next to the service that contains the service interface and classes used in transport.</description>
     </item>
+    
     <item>
       <title>Openhack Amsterdam 2017</title>
       <link>https://harre.dev/blog/openhack-ams-2017/</link>
-      <pubDate>Sat, 14 Oct 2017 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Sat, 14 Oct 2017 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/openhack-ams-2017/</guid>
-      <description>&lt;p&gt;So this hackathon/training thing popped up on my twitter feed a week before it actually started.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;openhack-banner.jpeg&#34; alt=&#34;Openhack&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;It caught my attention because it mentioned Azure Service Fabric as one of the tech stacks (the other being Kubernetes)&#xA;that would be the focus of the event. The event is Openhack that took place in Amsterdam from 9 to 11 october 2017.&lt;/p&gt;&#xA;&lt;p&gt;So Azure Service Fabric caught my attention because it&amp;rsquo;s a big part of the job I&amp;rsquo;m currently working on. We run a bunch&#xA;of services and actors with great satisfaction, but there&amp;rsquo;s always more to know and learn.&lt;/p&gt;</description>
+      <description>So this hackathon/training thing popped up on my twitter feed a week before it actually started.
+It caught my attention because it mentioned Azure Service Fabric as one of the tech stacks (the other being Kubernetes) that would be the focus of the event. The event is Openhack that took place in Amsterdam from 9 to 11 october 2017.
+So Azure Service Fabric caught my attention because it&amp;rsquo;s a big part of the job I&amp;rsquo;m currently working on.</description>
     </item>
+    
   </channel>
 </rss>

@@ -4,33 +4,41 @@
     <title>Angular on harre.dev</title>
     <link>https://harre.dev/tags/angular/</link>
     <description>Recent content in Angular on harre.dev</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
-    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
-    <lastBuildDate>Tue, 02 Jan 2018 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://harre.dev/tags/angular/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 02 Jan 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://harre.dev/tags/angular/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Angular (5) and aspnet core (2) quickstart</title>
       <link>https://harre.dev/blog/angularcli-aspnetcore-quickstart/</link>
-      <pubDate>Tue, 02 Jan 2018 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Tue, 02 Jan 2018 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/angularcli-aspnetcore-quickstart/</guid>
-      <description>&lt;p&gt;Here is a get-up-and-go style post to get going with the angular CLI and aspnet core. Before we begin, there is a template you can use to set (most, if not more) of this up, but it&amp;rsquo;s good to know what is going on behind the curtains.&lt;/p&gt;&#xA;&lt;!-- more --&gt;&#xA;&lt;h2 id=&#34;first-things-first&#34;&gt;First things first.&lt;/h2&gt;&#xA;&lt;p&gt;You need some tools installed to get the base project set up.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://www.microsoft.com/net/learn/get-started&#34;&gt;dotnet core SDK&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://nodejs.org/en/&#34;&gt;Node&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://cli.angular.io/&#34;&gt;angular-cli&lt;/a&gt; which we&amp;rsquo;ll install using NPM.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Open a command prompt and run the following command:&lt;/p&gt;</description>
+      <description>Here is a get-up-and-go style post to get going with the angular CLI and aspnet core. Before we begin, there is a template you can use to set (most, if not more) of this up, but it&amp;rsquo;s good to know what is going on behind the curtains.
+First things first. You need some tools installed to get the base project set up.
+ dotnet core SDK Node angular-cli which we&amp;rsquo;ll install using NPM.</description>
     </item>
+    
     <item>
       <title>Date validation in AngularJS</title>
       <link>https://harre.dev/blog/date-validation-in-angularjs/</link>
-      <pubDate>Thu, 27 Oct 2016 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Thu, 27 Oct 2016 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/date-validation-in-angularjs/</guid>
-      <description>&lt;p&gt;Another angular post! This time we take a look at how to create a directive that ensures the user enters a valid date (and/or time).&lt;/p&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s start with some boilerplate stuff first. I&amp;rsquo;m going to assume that you have something working Angular already, we will only cover the date validation directive in this post.&#xA;Here is some HTML.&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-html&#34; data-lang=&#34;html&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;div&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ng-app&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;validDateApp&amp;#34;&lt;/span&gt;&amp;gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;div&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ng-form&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;myForm&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ng-controller&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;testController&amp;#34;&lt;/span&gt;&amp;gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&#x9;&amp;lt;&lt;span style=&#34;color:#f92672&#34;&gt;input&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;ng-model&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;myDate&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;my-valid-date&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;name&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;myDateInput&amp;#34;&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;type&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;text&amp;#34;&lt;/span&gt; /&amp;gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;div&lt;/span&gt;&amp;gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&amp;lt;/&lt;span style=&#34;color:#f92672&#34;&gt;div&lt;/span&gt;&amp;gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And it&amp;rsquo;s Angular app to go with it:&lt;/p&gt;</description>
+      <description>Another angular post! This time we take a look at how to create a directive that ensures the user enters a valid date (and/or time).
+Let&amp;rsquo;s start with some boilerplate stuff first. I&amp;rsquo;m going to assume that you have something working Angular already, we will only cover the date validation directive in this post. Here is some HTML.
+&amp;lt;div ng-app=&amp;#34;validDateApp&amp;#34;&amp;gt; &amp;lt;div ng-form=&amp;#34;myForm&amp;#34; ng-controller=&amp;#34;testController&amp;#34;&amp;gt; &amp;lt;input ng-model=&amp;#34;myDate&amp;#34; my-valid-date name=&amp;#34;myDateInput&amp;#34; type=&amp;#34;text&amp;#34; /&amp;gt; &amp;lt;/div&amp;gt; &amp;lt;/div&amp;gt; And it&amp;rsquo;s Angular app to go with it:</description>
     </item>
+    
     <item>
       <title>Simple dialogs with AngularJS and TypeScript</title>
       <link>https://harre.dev/blog/simple-dialogs-with-angularjs-and-typescript/</link>
-      <pubDate>Thu, 15 Sep 2016 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Thu, 15 Sep 2016 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/simple-dialogs-with-angularjs-and-typescript/</guid>
-      <description>&lt;p&gt;While working an Angular (1) web app I ran into the age-old problem of showing the user notifications when certain conditions are met. Show them a little pop-up, in simple terms.&lt;/p&gt;&#xA;&lt;p&gt;So what does it take to show a popup? We know the &lt;a href=&#34;http://harrewijnen.net/the-dialog-element/&#34;&gt;&lt;code&gt;dialog&lt;/code&gt; element exists&lt;/a&gt; but cannot be used in this case due to browser requirements. The easiest way I could think of is adding a &lt;code&gt;fixed&lt;/code&gt; positioned &lt;code&gt;div&lt;/code&gt; the the user on top of all other content. Add some CSS in there to make it look nice and we have dialogs.&lt;/p&gt;</description>
+      <description>While working an Angular (1) web app I ran into the age-old problem of showing the user notifications when certain conditions are met. Show them a little pop-up, in simple terms.
+So what does it take to show a popup? We know the dialog element exists but cannot be used in this case due to browser requirements. The easiest way I could think of is adding a fixed positioned div the the user on top of all other content.</description>
     </item>
+    
   </channel>
 </rss>

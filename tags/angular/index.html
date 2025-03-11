@@ -43,31 +43,18 @@
 
 
 <h2><a href="/blog/angularcli-aspnetcore-quickstart/">Angular (5) and aspnet core (2) quickstart</a></h2>
-<p>Here is a get-up-and-go style post to get going with the angular CLI and aspnet core. Before we begin, there is a template you can use to set (most, if not more) of this up, but it&rsquo;s good to know what is going on behind the curtains.</p>
-<!-- more -->
-<h2 id="first-things-first">First things first.</h2>
-<p>You need some tools installed to get the base project set up.</p>
-<ol>
-<li><a href="https://www.microsoft.com/net/learn/get-started">dotnet core SDK</a></li>
-<li><a href="https://nodejs.org/en/">Node</a></li>
-<li><a href="https://cli.angular.io/">angular-cli</a> which we&rsquo;ll install using NPM.</li>
-</ol>
-<p>Open a command prompt and run the following command:</p>
+Here is a get-up-and-go style post to get going with the angular CLI and aspnet core. Before we begin, there is a template you can use to set (most, if not more) of this up, but it&rsquo;s good to know what is going on behind the curtains.
+First things first. You need some tools installed to get the base project set up.
+ dotnet core SDK Node angular-cli which we&rsquo;ll install using NPM.
 
 <h2><a href="/blog/date-validation-in-angularjs/">Date validation in AngularJS</a></h2>
-<p>Another angular post! This time we take a look at how to create a directive that ensures the user enters a valid date (and/or time).</p>
-<p>Let&rsquo;s start with some boilerplate stuff first. I&rsquo;m going to assume that you have something working Angular already, we will only cover the date validation directive in this post.
-Here is some HTML.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">ng-app</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;validDateApp&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>	&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">ng-form</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;myForm&#34;</span> <span style="color:#a6e22e">ng-controller</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;testController&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>		&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">ng-model</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;myDate&#34;</span> <span style="color:#a6e22e">my-valid-date</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;myDateInput&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> /&gt;
-</span></span><span style="display:flex;"><span>	&lt;/<span style="color:#f92672">div</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">div</span>&gt;
-</span></span></code></pre></div><p>And it&rsquo;s Angular app to go with it:</p>
+Another angular post! This time we take a look at how to create a directive that ensures the user enters a valid date (and/or time).
+Let&rsquo;s start with some boilerplate stuff first. I&rsquo;m going to assume that you have something working Angular already, we will only cover the date validation directive in this post. Here is some HTML.
+&lt;div ng-app=&#34;validDateApp&#34;&gt; &lt;div ng-form=&#34;myForm&#34; ng-controller=&#34;testController&#34;&gt; &lt;input ng-model=&#34;myDate&#34; my-valid-date name=&#34;myDateInput&#34; type=&#34;text&#34; /&gt; &lt;/div&gt; &lt;/div&gt; And it&rsquo;s Angular app to go with it:
 
 <h2><a href="/blog/simple-dialogs-with-angularjs-and-typescript/">Simple dialogs with AngularJS and TypeScript</a></h2>
-<p>While working an Angular (1) web app I ran into the age-old problem of showing the user notifications when certain conditions are met. Show them a little pop-up, in simple terms.</p>
-<p>So what does it take to show a popup? We know the <a href="http://harrewijnen.net/the-dialog-element/"><code>dialog</code> element exists</a> but cannot be used in this case due to browser requirements. The easiest way I could think of is adding a <code>fixed</code> positioned <code>div</code> the the user on top of all other content. Add some CSS in there to make it look nice and we have dialogs.</p>
+While working an Angular (1) web app I ran into the age-old problem of showing the user notifications when certain conditions are met. Show them a little pop-up, in simple terms.
+So what does it take to show a popup? We know the dialog element exists but cannot be used in this case due to browser requirements. The easiest way I could think of is adding a fixed positioned div the the user on top of all other content.
 
 
     </main>

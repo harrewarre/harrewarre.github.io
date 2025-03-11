@@ -4,19 +4,19 @@
     <title>Microservices on harre.dev</title>
     <link>https://harre.dev/tags/microservices/</link>
     <description>Recent content in Microservices on harre.dev</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
-    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
-    <lastBuildDate>Sat, 31 Mar 2018 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://harre.dev/tags/microservices/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 31 Mar 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://harre.dev/tags/microservices/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Multiple listeners for your Service Fabric service</title>
       <link>https://harre.dev/blog/sf-multiple-listeners/</link>
-      <pubDate>Sat, 31 Mar 2018 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Sat, 31 Mar 2018 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/sf-multiple-listeners/</guid>
-      <description>&lt;p&gt;Service Fabric is a great piece of technology on the Azure platform and I&amp;rsquo;ve been using it quite a lot in recent projects. It takes away a lot of the setup and orchestration when dealing with microservices.&lt;/p&gt;&#xA;&lt;p&gt;There comes a point where services need to talk to each other and this is easily achieved using the Remoting bits you can get from NuGet. The general way of doing this is creating an &lt;code&gt;Interfaces&lt;/code&gt; project next to the service that&#xA;contains the service interface and classes used in transport. The interface is implemented on the service entrypoint and a listener is exposed to the Fabric runtime so that it can communicate with the rest of the platform. We&amp;rsquo;re&#xA;going to take it one step further and put the service implementations in their own class instead of on the service entrypoint (keeps things nice and clean) and also enable dependency injection from that point forward.&lt;/p&gt;</description>
+      <description>Service Fabric is a great piece of technology on the Azure platform and I&amp;rsquo;ve been using it quite a lot in recent projects. It takes away a lot of the setup and orchestration when dealing with microservices.
+There comes a point where services need to talk to each other and this is easily achieved using the Remoting bits you can get from NuGet. The general way of doing this is creating an Interfaces project next to the service that contains the service interface and classes used in transport.</description>
     </item>
+    
   </channel>
 </rss>

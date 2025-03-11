@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Misc on harre.dev</title>
+    <title>misc on harre.dev</title>
     <link>https://harre.dev/tags/misc/</link>
-    <description>Recent content in Misc on harre.dev</description>
-    <generator>Hugo</generator>
+    <description>Recent content in misc on harre.dev</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
-    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
-    <lastBuildDate>Sat, 20 Jan 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://harre.dev/tags/misc/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 20 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://harre.dev/tags/misc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>EV Driving</title>
       <link>https://harre.dev/blog/ev-driving/</link>
-      <pubDate>Sat, 20 Jan 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Sat, 20 Jan 2024 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/ev-driving/</guid>
-      <description>&lt;p&gt;Having done a long drive into France not that long ago using an EV (a 2020 Polestar 2), I encountered some stuff that I thought was worth writing down.&lt;/p&gt;&#xA;&lt;h2 id=&#34;charging&#34;&gt;Charging&lt;/h2&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s get some of the obvious stuff out of the way first. Yes, doing long trips in an EV requires a little bit of upfront planning so you wont run out of spark along the way.&#xA;EVs also don&amp;rsquo;t have the same range as a petrol or diesel car, so you&amp;rsquo;ll need to stop more often.&lt;/p&gt;</description>
+      <description>Having done a long drive into France not that long ago using an EV (a 2020 Polestar 2), I encountered some stuff that I thought was worth writing down.
+Charging Let&amp;rsquo;s get some of the obvious stuff out of the way first. Yes, doing long trips in an EV requires a little bit of upfront planning so you wont run out of spark along the way. EVs also don&amp;rsquo;t have the same range as a petrol or diesel car, so you&amp;rsquo;ll need to stop more often.</description>
     </item>
+    
   </channel>
 </rss>

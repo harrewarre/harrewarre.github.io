@@ -1,29 +1,34 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Fairphone on harre.dev</title>
+    <title>fairphone on harre.dev</title>
     <link>https://harre.dev/tags/fairphone/</link>
-    <description>Recent content in Fairphone on harre.dev</description>
-    <generator>Hugo</generator>
+    <description>Recent content in fairphone on harre.dev</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
-    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
-    <lastBuildDate>Mon, 14 Oct 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://harre.dev/tags/fairphone/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 14 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://harre.dev/tags/fairphone/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Fairphone 5 app switcher fix</title>
       <link>https://harre.dev/blog/fairphone-5-app-switcher-fix/</link>
-      <pubDate>Mon, 14 Oct 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Mon, 14 Oct 2024 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/fairphone-5-app-switcher-fix/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;tl;dr:&lt;/strong&gt; Turn of Desktop mode in Settings -&amp;gt; Display -&amp;gt; Desktop mode&lt;/p&gt;&#xA;&lt;p&gt;Putting this here in case the forum gets cleaned or closes or who knows what.&#xA;Quick one here for you Fairphone 5 users.&lt;/p&gt;&#xA;&lt;p&gt;A while ago I wrote about my experience with the Fairphone 5 and that it was &amp;ldquo;Meh&amp;rdquo; at best due to some pretty annoying software issues.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://harre.dev/blog/six-months-with-the-fairphone&#34;&gt;Here is a link to that previous post.&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Updates did not fix the issue since then, but an &lt;a href=&#34;https://forum.fairphone.com/t/latest-update-broke-multitasking-pane/105558/56&#34;&gt;observant user on the Fairphone forum&lt;/a&gt; noticed when his phone started acting up.&#xA;It has something to do with the &amp;ldquo;Desktop mode&amp;rdquo; that can be enabled via Settings -&amp;gt; Display -&amp;gt; Desktop mode.&lt;/p&gt;</description>
+      <description>tl;dr: Turn of Desktop mode in Settings -&amp;gt; Display -&amp;gt; Desktop mode
+Putting this here in case the forum gets cleaned or closes or who knows what. Quick one here for you Fairphone 5 users.
+A while ago I wrote about my experience with the Fairphone 5 and that it was &amp;ldquo;Meh&amp;rdquo; at best due to some pretty annoying software issues.
+Here is a link to that previous post.
+Updates did not fix the issue since then, but an observant user on the Fairphone forum noticed when his phone started acting up.</description>
     </item>
+    
     <item>
       <title>6 Months with the Fairphone 5</title>
       <link>https://harre.dev/blog/six-months-with-the-fairphone/</link>
-      <pubDate>Tue, 28 May 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Tue, 28 May 2024 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/six-months-with-the-fairphone/</guid>
-      <description>&lt;p&gt;Somewhere in December of 2023 I got my Fairphone 5 delivered. I was using an iPhone 12 mini at the time that was suffering from a pretty degraded battery and was in need of something else. That iPhone was my first one and also my last, the lack of customization on iOS was also getting a bit of an annoyance so the choice for Android was not a difficult one.&lt;/p&gt;</description>
+      <description>Somewhere in December of 2023 I got my Fairphone 5 delivered. I was using an iPhone 12 mini at the time that was suffering from a pretty degraded battery and was in need of something else. That iPhone was my first one and also my last, the lack of customization on iOS was also getting a bit of an annoyance so the choice for Android was not a difficult one.</description>
     </item>
+    
   </channel>
 </rss>

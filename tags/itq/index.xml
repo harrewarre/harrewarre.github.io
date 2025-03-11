@@ -1,85 +1,117 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Itq on harre.dev</title>
+    <title>itq on harre.dev</title>
     <link>https://harre.dev/tags/itq/</link>
-    <description>Recent content in Itq on harre.dev</description>
-    <generator>Hugo</generator>
+    <description>Recent content in itq on harre.dev</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
-    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
-    <lastBuildDate>Sat, 12 Oct 2019 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://harre.dev/tags/itq/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 12 Oct 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://harre.dev/tags/itq/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SpringOne Platform 2019</title>
       <link>https://harre.dev/blog/sp1p-2019/</link>
-      <pubDate>Sat, 12 Oct 2019 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Sat, 12 Oct 2019 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/sp1p-2019/</guid>
-      <description>&lt;p&gt;Pivotal organized another SpringOne conference this year, and the ITQ Cloud Native team hopped across the large pond into the Texes heat to attend.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;sp1p.jpg&#34; alt=&#34;SpringOne Platform by Pivotal&#34;&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;spring-for-the-net-dev&#34;&gt;Spring for the .net dev&lt;/h2&gt;&#xA;&lt;p&gt;While Spring is a Java thing, SteelToe is there for us .net folks. It&amp;rsquo;s getting a big shot of TLC with a new website and new and improved docs!&#xA;Creating microservices using .net got a bit easier than it already was with some new stuff such as actuators and service connectors.&#xA;Go have a look at the &lt;a href=&#34;https://www.steeltoe.io&#34;&gt;SteelToe website&lt;/a&gt; for all the ins and outs. (also, &lt;a href=&#34;https://start.steeltoe.io&#34;&gt;this&lt;/a&gt; exists to quickly start a new service)&lt;/p&gt;</description>
+      <description>Pivotal organized another SpringOne conference this year, and the ITQ Cloud Native team hopped across the large pond into the Texes heat to attend.
+Spring for the .net dev While Spring is a Java thing, SteelToe is there for us .net folks. It&amp;rsquo;s getting a big shot of TLC with a new website and new and improved docs! Creating microservices using .net got a bit easier than it already was with some new stuff such as actuators and service connectors.</description>
     </item>
+    
     <item>
       <title>Environment variables in an Azure Web App for Containers</title>
       <link>https://harre.dev/blog/netcore-az-container-environment/</link>
-      <pubDate>Sat, 04 May 2019 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Sat, 04 May 2019 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/netcore-az-container-environment/</guid>
-      <description>&lt;p&gt;Here&amp;rsquo;s a little gotcha I ran into. A .net core app I wrote needs to run inside a container and the target was a Web App for Containers on the Azure platform. No big deal so far.&lt;/p&gt;&#xA;&lt;p&gt;The app also needs a few settings for it to do its work. We provide these via environment variables for maximum flexibility. After setting up some CI/CD stuff and deploying the app it wouldn&amp;rsquo;t start because it wasn&amp;rsquo;t loading the settings.&lt;/p&gt;</description>
+      <description>Here&amp;rsquo;s a little gotcha I ran into. A .net core app I wrote needs to run inside a container and the target was a Web App for Containers on the Azure platform. No big deal so far.
+The app also needs a few settings for it to do its work. We provide these via environment variables for maximum flexibility. After setting up some CI/CD stuff and deploying the app it wouldn&amp;rsquo;t start because it wasn&amp;rsquo;t loading the settings.</description>
     </item>
+    
     <item>
       <title>Let&#39;s talk containers</title>
       <link>https://harre.dev/blog/lets-talk-containers/</link>
-      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/lets-talk-containers/</guid>
-      <description>&lt;p&gt;A recent talk by one of my buddies at ITQ sparked something and I thought I&amp;rsquo;d share that with you. It&amp;rsquo;s about containers and where they sit in a software developer point of view.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-platform-stack&#34;&gt;The platform stack&lt;/h2&gt;&#xA;&lt;p&gt;The thing that caused the spark was this image:&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;stack.jpg&#34; alt=&#34;The platform stack&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Here we have a rough outline of the platform abstractions we currently see in the wild. Let&amp;rsquo;s start at the bottom.&lt;/p&gt;</description>
+      <description>A recent talk by one of my buddies at ITQ sparked something and I thought I&amp;rsquo;d share that with you. It&amp;rsquo;s about containers and where they sit in a software developer point of view.
+The platform stack The thing that caused the spark was this image:
+Here we have a rough outline of the platform abstractions we currently see in the wild. Let&amp;rsquo;s start at the bottom.
+Bare metal Let&amp;rsquo;s be quick about this one.</description>
     </item>
+    
     <item>
       <title>Cloud Foundry configuration with SteelToe</title>
       <link>https://harre.dev/blog/netcore-steeltoe-config-loading/</link>
-      <pubDate>Fri, 11 Jan 2019 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Fri, 11 Jan 2019 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/netcore-steeltoe-config-loading/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;ve been playing around with the &lt;a href=&#34;https://steeltoe.io/&#34;&gt;SteelToe&lt;/a&gt; framework for .net apps on Cloud Foundry a bit and it&amp;rsquo;s been nice overall (I&amp;rsquo;ll probably write a few more posts about it at some point 😊). While playing around with it the configuration part of it I wasn&amp;rsquo;t really liking the way settings can be read from the main configuration.&lt;/p&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s start with a really short primer on how the configuration system works. Cloud Foundry apps can be bound to services, doing so adds a reference to the bound service in the environment variables of the app that was bound. You can take a look at what is provided to an applications environment by running&lt;/p&gt;</description>
+      <description>I&amp;rsquo;ve been playing around with the SteelToe framework for .net apps on Cloud Foundry a bit and it&amp;rsquo;s been nice overall (I&amp;rsquo;ll probably write a few more posts about it at some point 😊). While playing around with it the configuration part of it I wasn&amp;rsquo;t really liking the way settings can be read from the main configuration.
+Let&amp;rsquo;s start with a really short primer on how the configuration system works.</description>
     </item>
+    
     <item>
       <title>ASP.NET Core logging on Cloud Foundry</title>
       <link>https://harre.dev/blog/cf-netcore-logging/</link>
-      <pubDate>Thu, 10 Jan 2019 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Thu, 10 Jan 2019 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/cf-netcore-logging/</guid>
-      <description>&lt;p&gt;All apps I&amp;rsquo;ve ever worked on have some sort of logging going on for various reasons, mostly to keep track of whats going on or debugging, but it&amp;rsquo;s all the same. Logs are needed to see what your code is up to.&lt;/p&gt;&#xA;&lt;p&gt;Cloud Foundry &lt;a href=&#34;https://docs.cloudfoundry.org/devguide/deploy-apps/streaming-logs.html#writing&#34;&gt;is very explicit&lt;/a&gt; about &lt;em&gt;how&lt;/em&gt; an app should write its logs. As you can see in the documentation, apps must write to &lt;code&gt;stdout&lt;/code&gt; or &lt;code&gt;stderr&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;For C# that means we can use the static methods on the &lt;code&gt;Console&lt;/code&gt; to write our logs. Couldn&amp;rsquo;t be easier. But&amp;hellip; now our code is littered with these &lt;code&gt;Console.Write...&lt;/code&gt; lines all over the place!&lt;/p&gt;</description>
+      <description>All apps I&amp;rsquo;ve ever worked on have some sort of logging going on for various reasons, mostly to keep track of whats going on or debugging, but it&amp;rsquo;s all the same. Logs are needed to see what your code is up to.
+Cloud Foundry is very explicit about how an app should write its logs. As you can see in the documentation, apps must write to stdout or stderr.
+For C# that means we can use the static methods on the Console to write our logs.</description>
     </item>
+    
     <item>
       <title>Setting up an Azure Storage static website</title>
       <link>https://harre.dev/blog/azure-static-website/</link>
-      <pubDate>Thu, 03 Jan 2019 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Thu, 03 Jan 2019 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/azure-static-website/</guid>
-      <description>&lt;p&gt;Not very long ago, Microsoft made the &lt;a href=&#34;https://azure.microsoft.com/en-us/blog/static-websites-on-azure-storage-now-generally-available/&#34;&gt;static website feature generally available&lt;/a&gt; on the Azure platform. What this means is that you can now publicly host content with Azure (blob) storage.&lt;/p&gt;&#xA;&lt;!-- more --&gt;&#xA;&lt;p&gt;So in a few easy steps you can create a host for your angular/react/vue/(insert-client-side-web-thing-here)/static app. The &lt;a href=&#34;https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-static-website-host&#34;&gt;docs&lt;/a&gt; are great but we&amp;rsquo;ll have a look at what&amp;rsquo;s what.&lt;/p&gt;&#xA;&lt;p&gt;Please remember that there is no server-side processing for this hosting option! If you want to do server-side stuff, use an App Service instead.&lt;/p&gt;</description>
+      <description>Not very long ago, Microsoft made the static website feature generally available on the Azure platform. What this means is that you can now publicly host content with Azure (blob) storage.
+So in a few easy steps you can create a host for your angular/react/vue/(insert-client-side-web-thing-here)/static app. The docs are great but we&amp;rsquo;ll have a look at what&amp;rsquo;s what.
+Please remember that there is no server-side processing for this hosting option! If you want to do server-side stuff, use an App Service instead.</description>
     </item>
+    
     <item>
       <title>Pivotal Cloud Foundry Certified Developer</title>
       <link>https://harre.dev/blog/pivotalcf-certification/</link>
-      <pubDate>Thu, 28 Jun 2018 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Thu, 28 Jun 2018 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/pivotalcf-certification/</guid>
-      <description>&lt;p&gt;With all the knowledge built up for my &lt;a href=&#34;cfcd-certification.md&#34;&gt;CFCD&lt;/a&gt; exam I did earlier I took another Cloud Foundry exam. The Pivotal flavor this time.&lt;/p&gt;&#xA;&lt;!-- more --&gt;&#xA;&lt;p&gt;Not as involved as the other Cloud Foundry exam I did but still a wide variety of questions. I&amp;rsquo;m not sure if I screwed up all the Metrics questions, or that there was only 1 that I got incorrect.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;pivotalcfresult.png&#34; alt=&#34;Exam results&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Still really happy with the result.&lt;/p&gt;</description>
+      <description>With all the knowledge built up for my CFCD exam I did earlier I took another Cloud Foundry exam. The Pivotal flavor this time.
+Not as involved as the other Cloud Foundry exam I did but still a wide variety of questions. I&amp;rsquo;m not sure if I screwed up all the Metrics questions, or that there was only 1 that I got incorrect.
+Still really happy with the result.</description>
     </item>
+    
     <item>
       <title>Easy CSS grid</title>
       <link>https://harre.dev/blog/easy-css-grid/</link>
-      <pubDate>Fri, 11 May 2018 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Fri, 11 May 2018 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/easy-css-grid/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;ve been working with a lot of forms lately and it required some kind of grid system to make it all lay out nicely. I&amp;rsquo;ve always been a bit hesitant to immediatly pull in another dependency and decided I was going to solve this one myself. How hard could it be?&lt;/p&gt;&#xA;&lt;p&gt;By using the CSS flex layout, I ended up with just the right amount of flexibility and extensibility while keeping things very small code wise. Let&amp;rsquo;s have a look!&lt;/p&gt;</description>
+      <description>I&amp;rsquo;ve been working with a lot of forms lately and it required some kind of grid system to make it all lay out nicely. I&amp;rsquo;ve always been a bit hesitant to immediatly pull in another dependency and decided I was going to solve this one myself. How hard could it be?
+By using the CSS flex layout, I ended up with just the right amount of flexibility and extensibility while keeping things very small code wise.</description>
     </item>
+    
     <item>
       <title>Cloud Foundry Certified Developer</title>
       <link>https://harre.dev/blog/cfcd-certification/</link>
-      <pubDate>Mon, 09 Apr 2018 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Mon, 09 Apr 2018 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/cfcd-certification/</guid>
-      <description>&lt;p&gt;Hey look, I got certified in something :-)&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;cert.png&#34; alt=&#34;CFCD Certificate&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;After a good few nights of self-paced training and practice over at &lt;a href=&#34;https://run.pivotal.io&#34;&gt;Pivotal&lt;/a&gt; I felt confident enough and took the CFCD exam. As you can see&#xA;above, I passed!&lt;/p&gt;</description>
+      <description>Hey look, I got certified in something :-)
+After a good few nights of self-paced training and practice over at Pivotal I felt confident enough and took the CFCD exam. As you can see above, I passed!</description>
     </item>
+    
     <item>
       <title>Multiple listeners for your Service Fabric service</title>
       <link>https://harre.dev/blog/sf-multiple-listeners/</link>
-      <pubDate>Sat, 31 Mar 2018 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Sat, 31 Mar 2018 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/sf-multiple-listeners/</guid>
-      <description>&lt;p&gt;Service Fabric is a great piece of technology on the Azure platform and I&amp;rsquo;ve been using it quite a lot in recent projects. It takes away a lot of the setup and orchestration when dealing with microservices.&lt;/p&gt;&#xA;&lt;p&gt;There comes a point where services need to talk to each other and this is easily achieved using the Remoting bits you can get from NuGet. The general way of doing this is creating an &lt;code&gt;Interfaces&lt;/code&gt; project next to the service that&#xA;contains the service interface and classes used in transport. The interface is implemented on the service entrypoint and a listener is exposed to the Fabric runtime so that it can communicate with the rest of the platform. We&amp;rsquo;re&#xA;going to take it one step further and put the service implementations in their own class instead of on the service entrypoint (keeps things nice and clean) and also enable dependency injection from that point forward.&lt;/p&gt;</description>
+      <description>Service Fabric is a great piece of technology on the Azure platform and I&amp;rsquo;ve been using it quite a lot in recent projects. It takes away a lot of the setup and orchestration when dealing with microservices.
+There comes a point where services need to talk to each other and this is easily achieved using the Remoting bits you can get from NuGet. The general way of doing this is creating an Interfaces project next to the service that contains the service interface and classes used in transport.</description>
     </item>
+    
   </channel>
 </rss>

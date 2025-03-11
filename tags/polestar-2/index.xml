@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Polestar 2 on harre.dev</title>
+    <title>polestar 2 on harre.dev</title>
     <link>https://harre.dev/tags/polestar-2/</link>
-    <description>Recent content in Polestar 2 on harre.dev</description>
-    <generator>Hugo</generator>
+    <description>Recent content in polestar 2 on harre.dev</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
-    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
-    <lastBuildDate>Mon, 16 Oct 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://harre.dev/tags/polestar-2/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 16 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://harre.dev/tags/polestar-2/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Polestar 2 battery state API</title>
       <link>https://harre.dev/blog/polestar2-soc-api/</link>
-      <pubDate>Mon, 16 Oct 2023 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Mon, 16 Oct 2023 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/polestar2-soc-api/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Update in 2024&lt;/strong&gt;:&lt;/p&gt;&#xA;&lt;p&gt;It appears that Polestar is working on a proper API and folks have been figuring out how to get to the data used by the mobile app. See &lt;a href=&#34;https://github.com/loebse/polestar_api/tree/main&#34;&gt;here&lt;/a&gt; for an example of a custom Home Assistant integration that surfaces quite a bit more than just the state of charge. This code will still work even with the existence of a polestar API but be aware that an official API might at some point appear.&lt;/p&gt;</description>
+      <description>Update in 2024:
+It appears that Polestar is working on a proper API and folks have been figuring out how to get to the data used by the mobile app. See here for an example of a custom Home Assistant integration that surfaces quite a bit more than just the state of charge. This code will still work even with the existence of a polestar API but be aware that an official API might at some point appear.</description>
     </item>
+    
   </channel>
 </rss>

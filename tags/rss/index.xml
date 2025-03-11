@@ -4,19 +4,19 @@
     <title>RSS on harre.dev</title>
     <link>https://harre.dev/tags/rss/</link>
     <description>Recent content in RSS on harre.dev</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
-    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
-    <lastBuildDate>Sun, 26 Apr 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://harre.dev/tags/rss/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 Apr 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://harre.dev/tags/rss/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Generating an RSS feed in C#</title>
       <link>https://harre.dev/blog/generating-an-rss-feed-in-c/</link>
-      <pubDate>Sun, 26 Apr 2015 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Sun, 26 Apr 2015 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/generating-an-rss-feed-in-c/</guid>
-      <description>&lt;p&gt;A hobby project of mine needed to generate an RSS feed. I was already doing this by just generating and XML file in the webroot and linking to that on the frontpage. But during this coding session, where all the data is pulled straight from the markdown files I wanted to create a controller action to do the generating for me.&lt;/p&gt;&#xA;&lt;p&gt;First things first, there is an assembly available out of the box in the .NET Framework. All you need is to make reference to &lt;strong&gt;System.ServiceModel.Syndication&lt;/strong&gt; and you are ready to start writing code. The classes we are using are&lt;/p&gt;</description>
+      <description>A hobby project of mine needed to generate an RSS feed. I was already doing this by just generating and XML file in the webroot and linking to that on the frontpage. But during this coding session, where all the data is pulled straight from the markdown files I wanted to create a controller action to do the generating for me.
+First things first, there is an assembly available out of the box in the .</description>
     </item>
+    
   </channel>
 </rss>

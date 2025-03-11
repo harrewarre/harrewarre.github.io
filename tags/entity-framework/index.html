@@ -4,11 +4,11 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 <link rel="shortcut icon" href="/favicon.png" type="image/png">
-<title>Entity Framework | harre.dev</title>
+<title>entity framework | harre.dev</title>
 <meta property="og:url" content="https://harre.dev/tags/entity-framework/">
 <meta property="og:site_name" content="harre.dev">
-<meta property="og:title" content="Entity Framework">
-<meta property="og:description" content="Entity Framework">
+<meta property="og:title" content="entity framework">
+<meta property="og:description" content="entity framework">
 <meta property="og:locale" content="en_us">
 <meta property="og:type" content="website">
 
@@ -39,17 +39,16 @@
     </header>
     <main>
         
-<h1>Entity Framework</h1>
+<h1>entity framework</h1>
 
 
 <h2><a href="/blog/dotnet-ef-migrations-on-cloud-foundry/">Dotnet Core Entity Framework Migrations on Cloud Foundry</a></h2>
-<p>Run database migrations on Cloud Foundry using a task to ensure that migrations are only done once on deployment (and not during app start up!) for dotnet core applications. This post assumes you are deploying built applications and not raw source code.</p>
-<p>Instead of depending on dotnet tooling (<code>dotnet-ef</code>), leverage the built-in migration capability of the DataContext. Interrupt the startup procedure when a special argument is passed in, instead of starting the web application, run the migrations and then exit.
-So here we go, to start we need a DbContext:</p>
+Run database migrations on Cloud Foundry using a task to ensure that migrations are only done once on deployment (and not during app start up!) for dotnet core applications. This post assumes you are deploying built applications and not raw source code.
+Instead of depending on dotnet tooling (dotnet-ef), leverage the built-in migration capability of the DataContext. Interrupt the startup procedure when a special argument is passed in, instead of starting the web application, run the migrations and then exit.
 
 <h2><a href="/blog/multiple-dbcontexts-on-a-single-database/">Multiple DbContext&#39;s with migrations on a single database</a></h2>
-<p>Here is a small problem I ran into while working on my current project. This project already has an Entity Framework <a href="https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=vs.113).aspx"><code>DbContext</code></a> class with entities and a database. I&rsquo;m adding a new feature but want to keep the changes as isolated as possible. So I wanted to create a second <code>DbContext</code> that handles the entities specific to my new feature.</p>
-<p>Adding the context to the codebase is no hassle, just create the new class and derive it from <code>DbContext</code>. The problem is in the <a href="https://msdn.microsoft.com/en-us/data/jj591621.aspx">migrations</a>. Entity Framework has a system that can track changes to the model and apply those changes to the actual database. To keep track of these changes, Entity Framework uses a table called <code>__MigrationHistory</code> where it stores all kinds of metadata about the model that it can compare to when you make changes to your entities in code.</p>
+Here is a small problem I ran into while working on my current project. This project already has an Entity Framework DbContext class with entities and a database. I&rsquo;m adding a new feature but want to keep the changes as isolated as possible. So I wanted to create a second DbContext that handles the entities specific to my new feature.
+Adding the context to the codebase is no hassle, just create the new class and derive it from DbContext.
 
 
     </main>

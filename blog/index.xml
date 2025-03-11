@@ -4,82 +4,116 @@
     <title>Blogs on harre.dev</title>
     <link>https://harre.dev/blog/</link>
     <description>Recent content in Blogs on harre.dev</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
-    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
-    <lastBuildDate>Wed, 26 Feb 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://harre.dev/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 11 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://harre.dev/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cloud Native Chronicles - Product Mindset</title>
+      <link>https://harre.dev/blog/chronicles-product-mindset/</link>
+      <pubDate>Tue, 11 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://harre.dev/blog/chronicles-product-mindset/</guid>
+      <description>A new episode launched on the Cloud Native Chronicles podcast and we&amp;rsquo;re talking about Product Mindset. We&amp;rsquo;re a bit all over the place with this one but I think the main message is clear: Think about what you want to build and for who.
+In this episode of Cloud Native Chronicles, hosts Johan and Sander explore the concept of a product mindset in software development.
+They discuss the differences between building software and creating a product, emphasizing the importance of understanding stakeholder needs and engaging with them throughout the development process.</description>
+    </item>
+    
     <item>
       <title>Cloud Native Chronicles - Balanced teams</title>
       <link>https://harre.dev/blog/cloud-native-chronicles-balanced-teams/</link>
-      <pubDate>Wed, 26 Feb 2025 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Wed, 26 Feb 2025 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/cloud-native-chronicles-balanced-teams/</guid>
-      <description>&lt;p&gt;The first episode is out! Johan and I talk about balanced teams.&lt;/p&gt;&#xA;&lt;p&gt;In this episode of Cloud Native Chronicles, hosts Johan and Sander discuss the concept of balanced teams in cloud-native development.&#xA;They explore the essential roles needed for effective product development, the risks associated with not validating products, and the challenges posed by siloed organizations.&lt;/p&gt;&#xA;&lt;p&gt;The conversation emphasizes the importance of collaboration across disciplines and the need for leadership to drive cultural change within organizations.&#xA;Key takeaways include the necessity of diverse skill sets in teams and the dangers of building products without user validation.&lt;/p&gt;</description>
+      <description>The first episode is out! Johan and I talk about balanced teams.
+In this episode of Cloud Native Chronicles, hosts Johan and Sander discuss the concept of balanced teams in cloud-native development. They explore the essential roles needed for effective product development, the risks associated with not validating products, and the challenges posed by siloed organizations.
+The conversation emphasizes the importance of collaboration across disciplines and the need for leadership to drive cultural change within organizations.</description>
     </item>
+    
     <item>
       <title>Introduction to a Self Managed Life by FUTO</title>
       <link>https://harre.dev/blog/futo-self-managed-life/</link>
-      <pubDate>Thu, 13 Feb 2025 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Thu, 13 Feb 2025 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/futo-self-managed-life/</guid>
-      <description>&lt;p&gt;A guide to building your own sovereign cloud, from top to bottom. Everything you could self-manage is probably in here. Amazing content.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://wiki.futo.org/wiki/Introduction_to_a_Self_Managed_Life:_a_13_hour_%26_28_minute_presentation_by_FUTO_software&#34;&gt;https://wiki.futo.org/wiki/Introduction_to_a_Self_Managed_Life:_a_13_hour_%26_28_minute_presentation_by_FUTO_software&lt;/a&gt;&lt;/p&gt;</description>
+      <description>A guide to building your own sovereign cloud, from top to bottom. Everything you could self-manage is probably in here. Amazing content.
+https://wiki.futo.org/wiki/Introduction_to_a_Self_Managed_Life:_a_13_hour_%26_28_minute_presentation_by_FUTO_software</description>
     </item>
+    
     <item>
       <title>Best Simple System Now by Dan North</title>
       <link>https://harre.dev/blog/best-simple-system-now/</link>
-      <pubDate>Mon, 03 Feb 2025 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Mon, 03 Feb 2025 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/best-simple-system-now/</guid>
-      <description>&lt;p&gt;A long-form post about focussing on the simplest system you can get away with &lt;strong&gt;right now&lt;/strong&gt;.&#xA;I like the idea but I bet it takes quite some discipline to not accidentally over or under-do the thing you are looking to ship.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&amp;ldquo;We can do this the quick way and pay later, or the thorough way and pay now.&amp;rdquo; This seems to be a fundamental dichotomy in software development, between ‘perfectionism’ and ‘pragmatism’, but I do not think it has to be a trade-off at all.&lt;/p&gt;</description>
+      <description>A long-form post about focussing on the simplest system you can get away with right now. I like the idea but I bet it takes quite some discipline to not accidentally over or under-do the thing you are looking to ship.
+ &amp;ldquo;We can do this the quick way and pay later, or the thorough way and pay now.&amp;rdquo; This seems to be a fundamental dichotomy in software development, between ‘perfectionism’ and ‘pragmatism’, but I do not think it has to be a trade-off at all.</description>
     </item>
+    
     <item>
       <title>Forest &amp; Desert by Beth Andres-Beck</title>
       <link>https://harre.dev/blog/forest-and-desert/</link>
-      <pubDate>Fri, 31 Jan 2025 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Fri, 31 Jan 2025 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/forest-and-desert/</guid>
-      <description>&lt;p&gt;The article describes two distinct cultures that exist for software development. The forest and the desert.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;There is a path from the desert to the forest, a series of small, safe steps a community can take to terraform the landscape. No developer can do it alone, and no amount of technology will get us there, but it is possible.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Beth Andres-Beck&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://tidyfirst.substack.com/p/forest-and-desert&#34;&gt;https://tidyfirst.substack.com/p/forest-and-desert&lt;/a&gt;&lt;/p&gt;</description>
+      <description>The article describes two distinct cultures that exist for software development. The forest and the desert.
+ There is a path from the desert to the forest, a series of small, safe steps a community can take to terraform the landscape. No developer can do it alone, and no amount of technology will get us there, but it is possible.
+  Beth Andres-Beck  https://tidyfirst.substack.com/p/forest-and-desert</description>
     </item>
+    
     <item>
       <title>Team priorities</title>
       <link>https://harre.dev/blog/team-priorities/</link>
-      <pubDate>Fri, 29 Nov 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Fri, 29 Nov 2024 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/team-priorities/</guid>
-      <description>&lt;p&gt;Not all work is equally important in the stream of stuff that needs to get done when building and shipping software. So how do you make sense of what to work on?&lt;/p&gt;&#xA;&lt;p&gt;If work items are prioritized outside your development team, you need to have a discussion about ownership. A team that does not have control over what to work on is not in a position of ownership and (assuming the team is working in good faith) cannot be held responsible for any misaligned outcomes.&lt;/p&gt;</description>
+      <description>Not all work is equally important in the stream of stuff that needs to get done when building and shipping software. So how do you make sense of what to work on?
+If work items are prioritized outside your development team, you need to have a discussion about ownership. A team that does not have control over what to work on is not in a position of ownership and (assuming the team is working in good faith) cannot be held responsible for any misaligned outcomes.</description>
     </item>
+    
     <item>
       <title>Cloud Foundry buildpack environment variables</title>
       <link>https://harre.dev/blog/cloud-foundry-buildpack-environment-variables/</link>
-      <pubDate>Fri, 18 Oct 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Fri, 18 Oct 2024 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/cloud-foundry-buildpack-environment-variables/</guid>
-      <description>&lt;p&gt;I recently ran into a situation I hadn&amp;rsquo;t dealt with before.&lt;/p&gt;&#xA;&lt;p&gt;A Python app I was working on was loading modules from a location outside of Pythons known locations.&#xA;My first instinct was to update the &lt;code&gt;manifest.yml&lt;/code&gt; &lt;code&gt;env&lt;/code&gt; section with a &lt;code&gt;PYTHONPATH&lt;/code&gt; variable that would add this additional location to the Python path but that would not stick.&#xA;Using &lt;code&gt;cf set-env&lt;/code&gt; to update the variable after the fact also did not work.&lt;/p&gt;</description>
+      <description>I recently ran into a situation I hadn&amp;rsquo;t dealt with before.
+A Python app I was working on was loading modules from a location outside of Pythons known locations. My first instinct was to update the manifest.yml env section with a PYTHONPATH variable that would add this additional location to the Python path but that would not stick. Using cf set-env to update the variable after the fact also did not work.</description>
     </item>
+    
     <item>
       <title>Fairphone 5 app switcher fix</title>
       <link>https://harre.dev/blog/fairphone-5-app-switcher-fix/</link>
-      <pubDate>Mon, 14 Oct 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Mon, 14 Oct 2024 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/fairphone-5-app-switcher-fix/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;tl;dr:&lt;/strong&gt; Turn of Desktop mode in Settings -&amp;gt; Display -&amp;gt; Desktop mode&lt;/p&gt;&#xA;&lt;p&gt;Putting this here in case the forum gets cleaned or closes or who knows what.&#xA;Quick one here for you Fairphone 5 users.&lt;/p&gt;&#xA;&lt;p&gt;A while ago I wrote about my experience with the Fairphone 5 and that it was &amp;ldquo;Meh&amp;rdquo; at best due to some pretty annoying software issues.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://harre.dev/blog/six-months-with-the-fairphone&#34;&gt;Here is a link to that previous post.&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Updates did not fix the issue since then, but an &lt;a href=&#34;https://forum.fairphone.com/t/latest-update-broke-multitasking-pane/105558/56&#34;&gt;observant user on the Fairphone forum&lt;/a&gt; noticed when his phone started acting up.&#xA;It has something to do with the &amp;ldquo;Desktop mode&amp;rdquo; that can be enabled via Settings -&amp;gt; Display -&amp;gt; Desktop mode.&lt;/p&gt;</description>
+      <description>tl;dr: Turn of Desktop mode in Settings -&amp;gt; Display -&amp;gt; Desktop mode
+Putting this here in case the forum gets cleaned or closes or who knows what. Quick one here for you Fairphone 5 users.
+A while ago I wrote about my experience with the Fairphone 5 and that it was &amp;ldquo;Meh&amp;rdquo; at best due to some pretty annoying software issues.
+Here is a link to that previous post.
+Updates did not fix the issue since then, but an observant user on the Fairphone forum noticed when his phone started acting up.</description>
     </item>
+    
     <item>
       <title>Are you failing enough?</title>
       <link>https://harre.dev/blog/are-you-failing-enough/</link>
-      <pubDate>Wed, 02 Oct 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Wed, 02 Oct 2024 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/are-you-failing-enough/</guid>
-      <description>&lt;p&gt;The process of creating software, compared to other manufacturing processes, is a little bit special. One unique property of a software product is that it can be changed easily and (relatively) cheaply.&lt;/p&gt;&#xA;&lt;p&gt;Over in the physical world, changing a product is not so easy. Supply chains, inventory, machinery, whole factories, who knows what&amp;rsquo;s involved that is either difficult to change quickly and/or prohibitively expensive to change.&lt;/p&gt;&#xA;&lt;p&gt;So what about this failing more often? Well if you have the ability to quickly change your software product, you can also run A LOT of experiments!&lt;/p&gt;</description>
+      <description>The process of creating software, compared to other manufacturing processes, is a little bit special. One unique property of a software product is that it can be changed easily and (relatively) cheaply.
+Over in the physical world, changing a product is not so easy. Supply chains, inventory, machinery, whole factories, who knows what&amp;rsquo;s involved that is either difficult to change quickly and/or prohibitively expensive to change.
+So what about this failing more often?</description>
     </item>
+    
     <item>
       <title>You build it, you run it... but what exactly?</title>
       <link>https://harre.dev/blog/you-build-it-you-run-it/</link>
-      <pubDate>Fri, 13 Sep 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Fri, 13 Sep 2024 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/you-build-it-you-run-it/</guid>
-      <description>&lt;p&gt;&amp;ldquo;You build it, you run it&amp;rdquo;, easy to say, but, depending on your developer experience and platform capability&amp;hellip; not at all easy.&#xA;What am I expected to &amp;ldquo;build&amp;rdquo; and what should I &amp;ldquo;run&amp;rdquo;? Let&amp;rsquo;s take a look.&lt;/p&gt;&#xA;&lt;p&gt;Let&amp;rsquo;s start with this overview that I show teams I engage with during their onboarding and where their responsibilities begin and what not to worry about (but can still affect them of course).&lt;/p&gt;</description>
+      <description>&amp;ldquo;You build it, you run it&amp;rdquo;, easy to say, but, depending on your developer experience and platform capability&amp;hellip; not at all easy. What am I expected to &amp;ldquo;build&amp;rdquo; and what should I &amp;ldquo;run&amp;rdquo;? Let&amp;rsquo;s take a look.
+Let&amp;rsquo;s start with this overview that I show teams I engage with during their onboarding and where their responsibilities begin and what not to worry about (but can still affect them of course).</description>
     </item>
-    <item>
-      <title>Your organization could use a cookbook</title>
-      <link>https://harre.dev/blog/your-org-could-use-a-cookbook/</link>
-      <pubDate>Thu, 29 Aug 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
-      <guid>https://harre.dev/blog/your-org-could-use-a-cookbook/</guid>
-      <description>&lt;p&gt;That is&amp;hellip; if you don&amp;rsquo;t have one yet of course.&lt;/p&gt;&#xA;&lt;p&gt;A self-service effort is not complete without proper documentation. You could store that inside the repository with the code that makes up the service, but that could make it harder to find. And what if you have a bunch of services that all have their own docs? It&amp;rsquo;ll be completely scattered. To make knowledge easily find-able, and even searchable, a central knowledge base is the solution. In other words&amp;hellip; a cookbook!&lt;/p&gt;</description>
-    </item>
+    
   </channel>
 </rss>

@@ -14,8 +14,8 @@
 <meta property="article:section" content="blog">
 <meta property="article:published_time" content="2024-10-18T00:00:00+00:00">
 <meta property="article:modified_time" content="2024-10-18T00:00:00+00:00">
-<meta property="article:tag" content="Cloudfoundry">
-<meta property="article:tag" content="Buildpack">
+<meta property="article:tag" content="cloudfoundry">
+<meta property="article:tag" content="buildpack">
 
 <meta property="og:image" content="/og-img.png">
 
@@ -51,8 +51,8 @@
     
   <div>
     Tags:
-        <a href="/tags/cloudfoundry/">Cloudfoundry</a>
-        <a href="/tags/buildpack/">Buildpack</a>
+        <a href="/tags/cloudfoundry/">cloudfoundry</a>
+        <a href="/tags/buildpack/">buildpack</a>
   </div>
 
   </small>
@@ -65,8 +65,8 @@ Using <code>cf set-env</code> to update the variable after the fact also did not
 <p>Thankfully, Cloud Foundry buildpacks have a solution for this.
 You can add a <code>.profile</code> file to the root of your project (from where <code>cf push</code> runs) and use that to run scripts during the release stage of the buildpack.</p>
 <p>The contents of the <code>.profile</code> ended up looking like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>export PYTHONPATH<span style="color:#f92672">=</span>$PYTHONPATH:$HOME/submodules/my-module
-</span></span></code></pre></div><p>When the app is now deployed the buildpack will ensure that the <code>PYTHONPATH</code> is set correctly and the rest of the app can load the additional submodules.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">export PYTHONPATH<span style="color:#f92672">=</span>$PYTHONPATH:$HOME/submodules/my-module
+</code></pre></div><p>When the app is now deployed the buildpack will ensure that the <code>PYTHONPATH</code> is set correctly and the rest of the app can load the additional submodules.</p>
 <h2 id="resources">Resources</h2>
 <ul>
 <li><a href="https://docs.cloudfoundry.org/buildpacks/understand-buildpacks.html">Working with buildpacks in Cloud Foundry</a></li>

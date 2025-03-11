@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Python on harre.dev</title>
+    <title>python on harre.dev</title>
     <link>https://harre.dev/tags/python/</link>
-    <description>Recent content in Python on harre.dev</description>
-    <generator>Hugo</generator>
+    <description>Recent content in python on harre.dev</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
-    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
-    <lastBuildDate>Mon, 19 Aug 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://harre.dev/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 19 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://harre.dev/tags/python/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Testing Python code that runs during import</title>
       <link>https://harre.dev/blog/python-testing-import-time-code/</link>
-      <pubDate>Mon, 19 Aug 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Mon, 19 Aug 2024 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/python-testing-import-time-code/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;ve been pretty comfortable with Python after making the switch from dotnet core to Python for a new client.&lt;/p&gt;&#xA;&lt;p&gt;During this time I&amp;rsquo;ve gotten to know the way around the ecosystem and Python-isms, but sometimes I run into something that makes me go &amp;ldquo;huh? oh&amp;hellip;&amp;rdquo;.&#xA;This post describes one such moment.&lt;/p&gt;&#xA;&lt;h2 id=&#34;modules&#34;&gt;Modules&lt;/h2&gt;&#xA;&lt;p&gt;So in Python modules can use each others functionality by importing them into one another using the &lt;code&gt;import&lt;/code&gt; keyword and referencing the module you want to use e.g:&lt;/p&gt;</description>
+      <description>I&amp;rsquo;ve been pretty comfortable with Python after making the switch from dotnet core to Python for a new client.
+During this time I&amp;rsquo;ve gotten to know the way around the ecosystem and Python-isms, but sometimes I run into something that makes me go &amp;ldquo;huh? oh&amp;hellip;&amp;rdquo;. This post describes one such moment.
+Modules So in Python modules can use each others functionality by importing them into one another using the import keyword and referencing the module you want to use e.</description>
     </item>
+    
   </channel>
 </rss>

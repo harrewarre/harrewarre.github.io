@@ -51,7 +51,7 @@
     
   <div>
     Tags:
-        <a href="/tags/c%23/">C#</a>
+        <a href="/tags/c#/">C#</a>
         <a href="/tags/spotify/">Spotify</a>
   </div>
 
@@ -60,78 +60,78 @@
   <p>Spotify recently updated the desktop app again and it is once again possible to read current track info directly from it. Here is how you to read it using a little C# code.</p>
 <p>A tiny little disclaimer, Spotify can break this code by updating their desktop app. It&rsquo;ll work now, but if they remove the track info from the title again, things won&rsquo;t work anymore.</p>
 <p>So the current track is hidden somewhere, let&rsquo;s find out where it is.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Program</span>
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main(<span style="color:#66d9ef">string</span>[] args)
-</span></span><span style="display:flex;"><span>	{
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">var</span> procs = Process.GetProcessesByName(<span style="color:#e6db74">&#34;Spotify&#34;</span>);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">foreach</span> (<span style="color:#66d9ef">var</span> p <span style="color:#66d9ef">in</span> procs)
-</span></span><span style="display:flex;"><span>		{
-</span></span><span style="display:flex;"><span>			Console.WriteLine(p.MainWindowTitle);
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		Console.ReadLine();
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>As you can see, the track title is in the window name of a Spotify process:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Program</span>
+{
+	<span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main(<span style="color:#66d9ef">string</span>[] args)
+	{
+		<span style="color:#66d9ef">var</span> procs = Process.GetProcessesByName(<span style="color:#e6db74">&#34;Spotify&#34;</span>);
+
+		<span style="color:#66d9ef">foreach</span> (<span style="color:#66d9ef">var</span> p <span style="color:#66d9ef">in</span> procs)
+		{
+			Console.WriteLine(p.MainWindowTitle);
+		}
+
+		Console.ReadLine();
+	}
+}
+</code></pre></div><p>As you can see, the track title is in the window name of a Spotify process:</p>
 <p><img src="demo1.PNG" alt="Spotify track info in the process"></p>
 <p>While a bit limited (no track times or anything) it&rsquo;s at least something to work with. Older versions of Spotify showed the title as well until it got removed at some point but it has returned once again. Now that we know where it is we need to make it usable somehow.</p>
 <p>We want the track info to be up to date so we have to keep reading it over and over again. A timer will let us do exactly that.</p>
 <p>A timer lets us poll for the track info every x milliseconds by whatever way we want but we still need to read the track info in simple way. A scraper will do the trick, we find the Spotify process that has a title on its window and read it if we find something.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> System;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> System.Diagnostics;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> System.Linq;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">namespace</span> Harrewarre.Spotify.Demo
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Scraper</span>
-</span></span><span style="display:flex;"><span>	{
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> GetSpotifyTrackInfo()
-</span></span><span style="display:flex;"><span>		{
-</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">var</span> proc = Process.GetProcessesByName(<span style="color:#e6db74">&#34;Spotify&#34;</span>).FirstOrDefault(p =&gt; !<span style="color:#66d9ef">string</span>.IsNullOrWhiteSpace(p.MainWindowTitle));
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">if</span>(proc == <span style="color:#66d9ef">null</span>)
-</span></span><span style="display:flex;"><span>			{
-</span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Spotify is not running!&#34;</span>;
-</span></span><span style="display:flex;"><span>			}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">if</span>(<span style="color:#66d9ef">string</span>.Equals(proc.MainWindowTitle, <span style="color:#e6db74">&#34;Spotify&#34;</span>, StringComparison.InvariantCultureIgnoreCase))
-</span></span><span style="display:flex;"><span>			{
-</span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;No track is playing&#34;</span>;
-</span></span><span style="display:flex;"><span>			}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">return</span> proc.MainWindowTitle;
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>We look for a process named <code>Spotify</code> that as some text set as its <code>MainWindowTitle</code>, if we find it, then Spotify is running. When it comes up <code>null</code>, Spotify is not running. If the title is set to <code>&quot;Spotify&quot;</code> there is no track playing. If we don&rsquo;t return before we reach the last <code>return</code> statement, we have found the currently playing track.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">using</span> System;
+<span style="color:#66d9ef">using</span> System.Diagnostics;
+<span style="color:#66d9ef">using</span> System.Linq;
+
+<span style="color:#66d9ef">namespace</span> Harrewarre.Spotify.Demo
+{
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Scraper</span>
+	{
+		<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> GetSpotifyTrackInfo()
+		{
+			<span style="color:#66d9ef">var</span> proc = Process.GetProcessesByName(<span style="color:#e6db74">&#34;Spotify&#34;</span>).FirstOrDefault(p =&gt; !<span style="color:#66d9ef">string</span>.IsNullOrWhiteSpace(p.MainWindowTitle));
+
+			<span style="color:#66d9ef">if</span>(proc == <span style="color:#66d9ef">null</span>)
+			{
+				<span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Spotify is not running!&#34;</span>;
+			}
+
+			<span style="color:#66d9ef">if</span>(<span style="color:#66d9ef">string</span>.Equals(proc.MainWindowTitle, <span style="color:#e6db74">&#34;Spotify&#34;</span>, StringComparison.InvariantCultureIgnoreCase))
+			{
+				<span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;No track is playing&#34;</span>;
+			}
+
+			<span style="color:#66d9ef">return</span> proc.MainWindowTitle;
+		}
+	}
+}
+</code></pre></div><p>We look for a process named <code>Spotify</code> that as some text set as its <code>MainWindowTitle</code>, if we find it, then Spotify is running. When it comes up <code>null</code>, Spotify is not running. If the title is set to <code>&quot;Spotify&quot;</code> there is no track playing. If we don&rsquo;t return before we reach the last <code>return</code> statement, we have found the currently playing track.</p>
 <p>Here is the final console app code for a quick demo:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> System;
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">using</span> System.Timers;
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">namespace</span> Harrewarre.Spotify.Demo
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Program</span>
-</span></span><span style="display:flex;"><span>	{
-</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main(<span style="color:#66d9ef">string</span>[] args)
-</span></span><span style="display:flex;"><span>		{
-</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">var</span> timer = <span style="color:#66d9ef">new</span> Timer(<span style="color:#ae81ff">1000</span>);
-</span></span><span style="display:flex;"><span>			<span style="color:#66d9ef">var</span> scraper = <span style="color:#66d9ef">new</span> Scraper();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>			timer.Elapsed += (sender, elapsedArgs) =&gt;
-</span></span><span style="display:flex;"><span>			{
-</span></span><span style="display:flex;"><span>				<span style="color:#66d9ef">var</span> title = scraper.GetSpotifyTrackInfo();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>				Console.WriteLine(title);
-</span></span><span style="display:flex;"><span>			};
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>			timer.Start();
-</span></span><span style="display:flex;"><span>			Console.ReadLine();
-</span></span><span style="display:flex;"><span>		}
-</span></span><span style="display:flex;"><span>	}
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>We create a new timer that is set to raise an event every 1000 milliseconds (or 1 second). An instance of our <code>Scraper</code> is created to read the track info for us. The <code>TimerElapsed</code> event we created for our timer is wired up so that the code can do something every second. When the timer elapses, we read the track info using the scraper and write it to the console.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">using</span> System;
+<span style="color:#66d9ef">using</span> System.Timers;
+
+<span style="color:#66d9ef">namespace</span> Harrewarre.Spotify.Demo
+{
+	<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Program</span>
+	{
+		<span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main(<span style="color:#66d9ef">string</span>[] args)
+		{
+			<span style="color:#66d9ef">var</span> timer = <span style="color:#66d9ef">new</span> Timer(<span style="color:#ae81ff">1000</span>);
+			<span style="color:#66d9ef">var</span> scraper = <span style="color:#66d9ef">new</span> Scraper();
+
+			timer.Elapsed += (sender, elapsedArgs) =&gt;
+			{
+				<span style="color:#66d9ef">var</span> title = scraper.GetSpotifyTrackInfo();
+
+				Console.WriteLine(title);
+			};
+
+			timer.Start();
+			Console.ReadLine();
+		}
+	}
+}
+</code></pre></div><p>We create a new timer that is set to raise an event every 1000 milliseconds (or 1 second). An instance of our <code>Scraper</code> is created to read the track info for us. The <code>TimerElapsed</code> event we created for our timer is wired up so that the code can do something every second. When the timer elapses, we read the track info using the scraper and write it to the console.</p>
 <p>Finally we start the timer and leave the console open by waiting for the enter key using the <code>Console.ReadLine</code> method. Here is what you might see if you run the code, start Spotify and let it play a track:</p>
 <p><img src="demo2.PNG" alt="Result"></p>
 <p>This code lets you access the current track title and do whatever you want with it. Write it to a file, post it to some server somewhere or, like I do, display it on the front of your PC:</p>

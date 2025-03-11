@@ -4,26 +4,30 @@
     <title>ASP.NET on harre.dev</title>
     <link>https://harre.dev/tags/asp.net/</link>
     <description>Recent content in ASP.NET on harre.dev</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
-    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
-    <lastBuildDate>Tue, 12 Jan 2016 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://harre.dev/tags/asp.net/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 12 Jan 2016 00:00:00 +0000</lastBuildDate><atom:link href="https://harre.dev/tags/asp.net/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>POST-ing JSON to an ASP.NET Web API controller</title>
       <link>https://harre.dev/blog/posting-json-to-a-web-api-controller/</link>
-      <pubDate>Tue, 12 Jan 2016 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Tue, 12 Jan 2016 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/posting-json-to-a-web-api-controller/</guid>
-      <description>&lt;p&gt;So you want to post some JSON to an ASP.NET Web API controller?&lt;/p&gt;&#xA;&lt;p&gt;I bet you&amp;rsquo;ve written this more than you wanted to:&lt;/p&gt;&#xA;&lt;pre&gt;&lt;code&gt;$.ajax({&#xA;&#x9;type: &amp;quot;POST&amp;quot;,&#xA;&#x9;url: url,&#xA;&#x9;data: JSON.stringify(data),&#xA;&#x9;dataType: &amp;quot;json&amp;quot;,&#xA;&#x9;contentType: &amp;quot;application/json; charset=utf-8&amp;quot;&#xA;});&#xA;&lt;/code&gt;&lt;/pre&gt;&#xA;&lt;p&gt;I hate that work-around where you specify all sorts of stuff that you don&amp;rsquo;t really want to specify (like &lt;code&gt;dataType&lt;/code&gt;, &lt;code&gt;contentType&lt;/code&gt;, etc&amp;hellip;). This is all required because the friendlier &lt;code&gt;$.post(...)&lt;/code&gt; will send your data in a Form encoded way.&lt;/p&gt;</description>
+      <description>So you want to post some JSON to an ASP.NET Web API controller?
+I bet you&amp;rsquo;ve written this more than you wanted to:
+$.ajax({ type: &amp;quot;POST&amp;quot;, url: url, data: JSON.stringify(data), dataType: &amp;quot;json&amp;quot;, contentType: &amp;quot;application/json; charset=utf-8&amp;quot; });  I hate that work-around where you specify all sorts of stuff that you don&amp;rsquo;t really want to specify (like dataType, contentType, etc&amp;hellip;). This is all required because the friendlier $.post(...) will send your data in a Form encoded way.</description>
     </item>
+    
     <item>
       <title>Generating an RSS feed in C#</title>
       <link>https://harre.dev/blog/generating-an-rss-feed-in-c/</link>
-      <pubDate>Sun, 26 Apr 2015 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Sun, 26 Apr 2015 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/generating-an-rss-feed-in-c/</guid>
-      <description>&lt;p&gt;A hobby project of mine needed to generate an RSS feed. I was already doing this by just generating and XML file in the webroot and linking to that on the frontpage. But during this coding session, where all the data is pulled straight from the markdown files I wanted to create a controller action to do the generating for me.&lt;/p&gt;&#xA;&lt;p&gt;First things first, there is an assembly available out of the box in the .NET Framework. All you need is to make reference to &lt;strong&gt;System.ServiceModel.Syndication&lt;/strong&gt; and you are ready to start writing code. The classes we are using are&lt;/p&gt;</description>
+      <description>A hobby project of mine needed to generate an RSS feed. I was already doing this by just generating and XML file in the webroot and linking to that on the frontpage. But during this coding session, where all the data is pulled straight from the markdown files I wanted to create a controller action to do the generating for me.
+First things first, there is an assembly available out of the box in the .</description>
     </item>
+    
   </channel>
 </rss>

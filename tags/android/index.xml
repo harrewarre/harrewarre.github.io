@@ -1,43 +1,54 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Android on harre.dev</title>
+    <title>android on harre.dev</title>
     <link>https://harre.dev/tags/android/</link>
-    <description>Recent content in Android on harre.dev</description>
-    <generator>Hugo</generator>
+    <description>Recent content in android on harre.dev</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
-    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
-    <lastBuildDate>Mon, 14 Oct 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://harre.dev/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 14 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://harre.dev/tags/android/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Fairphone 5 app switcher fix</title>
       <link>https://harre.dev/blog/fairphone-5-app-switcher-fix/</link>
-      <pubDate>Mon, 14 Oct 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Mon, 14 Oct 2024 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/fairphone-5-app-switcher-fix/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;tl;dr:&lt;/strong&gt; Turn of Desktop mode in Settings -&amp;gt; Display -&amp;gt; Desktop mode&lt;/p&gt;&#xA;&lt;p&gt;Putting this here in case the forum gets cleaned or closes or who knows what.&#xA;Quick one here for you Fairphone 5 users.&lt;/p&gt;&#xA;&lt;p&gt;A while ago I wrote about my experience with the Fairphone 5 and that it was &amp;ldquo;Meh&amp;rdquo; at best due to some pretty annoying software issues.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://harre.dev/blog/six-months-with-the-fairphone&#34;&gt;Here is a link to that previous post.&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Updates did not fix the issue since then, but an &lt;a href=&#34;https://forum.fairphone.com/t/latest-update-broke-multitasking-pane/105558/56&#34;&gt;observant user on the Fairphone forum&lt;/a&gt; noticed when his phone started acting up.&#xA;It has something to do with the &amp;ldquo;Desktop mode&amp;rdquo; that can be enabled via Settings -&amp;gt; Display -&amp;gt; Desktop mode.&lt;/p&gt;</description>
+      <description>tl;dr: Turn of Desktop mode in Settings -&amp;gt; Display -&amp;gt; Desktop mode
+Putting this here in case the forum gets cleaned or closes or who knows what. Quick one here for you Fairphone 5 users.
+A while ago I wrote about my experience with the Fairphone 5 and that it was &amp;ldquo;Meh&amp;rdquo; at best due to some pretty annoying software issues.
+Here is a link to that previous post.
+Updates did not fix the issue since then, but an observant user on the Fairphone forum noticed when his phone started acting up.</description>
     </item>
+    
     <item>
       <title>6 Months with the Fairphone 5</title>
       <link>https://harre.dev/blog/six-months-with-the-fairphone/</link>
-      <pubDate>Tue, 28 May 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Tue, 28 May 2024 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/six-months-with-the-fairphone/</guid>
-      <description>&lt;p&gt;Somewhere in December of 2023 I got my Fairphone 5 delivered. I was using an iPhone 12 mini at the time that was suffering from a pretty degraded battery and was in need of something else. That iPhone was my first one and also my last, the lack of customization on iOS was also getting a bit of an annoyance so the choice for Android was not a difficult one.&lt;/p&gt;</description>
+      <description>Somewhere in December of 2023 I got my Fairphone 5 delivered. I was using an iPhone 12 mini at the time that was suffering from a pretty degraded battery and was in need of something else. That iPhone was my first one and also my last, the lack of customization on iOS was also getting a bit of an annoyance so the choice for Android was not a difficult one.</description>
     </item>
+    
     <item>
       <title>Debloat your Sony smart TV</title>
       <link>https://harre.dev/blog/debloat-your-sony-smart-tv/</link>
-      <pubDate>Wed, 26 Sep 2018 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Wed, 26 Sep 2018 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/debloat-your-sony-smart-tv/</guid>
-      <description>&lt;h1 id=&#34;debloat-your-sony-smart-tv&#34;&gt;Debloat your Sony smart TV&lt;/h1&gt;&#xA;&lt;p&gt;Here&amp;rsquo;s a little tweak for your Sony smart TV that runs Android.&lt;/p&gt;&#xA;&lt;p&gt;The start screen for these TV&amp;rsquo;s (at least mine did) has a section that shows you recommended apps. Having things recommended for me by some &amp;ldquo;&amp;ldquo;&amp;ldquo;algorithm&amp;rdquo;&amp;rdquo;&amp;rdquo; has become&#xA;somewhat of an annoyance and the stuff it was showing me wasn&amp;rsquo;t really helpful. Not terrible mind you, but I never clicked on a single one of them.&lt;/p&gt;</description>
+      <description>Debloat your Sony smart TV Here&amp;rsquo;s a little tweak for your Sony smart TV that runs Android.
+The start screen for these TV&amp;rsquo;s (at least mine did) has a section that shows you recommended apps. Having things recommended for me by some &amp;ldquo;&amp;ldquo;&amp;ldquo;algorithm&amp;rdquo;&amp;rdquo;&amp;rdquo; has become somewhat of an annoyance and the stuff it was showing me wasn&amp;rsquo;t really helpful. Not terrible mind you, but I never clicked on a single one of them.</description>
     </item>
+    
     <item>
       <title>Enable tethering on LineageOS using ADB</title>
       <link>https://harre.dev/blog/enable-tethering-on-lineageos-using-adb/</link>
-      <pubDate>Mon, 01 May 2017 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Mon, 01 May 2017 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/enable-tethering-on-lineageos-using-adb/</guid>
-      <description>&lt;h4 id=&#34;update&#34;&gt;Update&lt;/h4&gt;&#xA;&lt;p&gt;After updating to a newer version, I couldn&amp;rsquo;t get the below steps to work any more. Here is some extra stuff to get it to work again. It comes down to &lt;code&gt;build.prop&lt;/code&gt; not accepting the changes you make because it&amp;rsquo;s being loaded as read-only. Remounting the filesystem as read-write and then pushing the updated file will do the trick.&lt;/p&gt;&#xA;&lt;p&gt;Run the following through ADB &lt;strong&gt;with root enabled&lt;/strong&gt; (flash the SuperSU zip found on the lineage OS website and enable root in the developer settings).&lt;/p&gt;</description>
+      <description>Update After updating to a newer version, I couldn&amp;rsquo;t get the below steps to work any more. Here is some extra stuff to get it to work again. It comes down to build.prop not accepting the changes you make because it&amp;rsquo;s being loaded as read-only. Remounting the filesystem as read-write and then pushing the updated file will do the trick.
+Run the following through ADB with root enabled (flash the SuperSU zip found on the lineage OS website and enable root in the developer settings).</description>
     </item>
+    
   </channel>
 </rss>

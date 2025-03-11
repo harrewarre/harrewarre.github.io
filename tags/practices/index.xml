@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Practices on harre.dev</title>
+    <title>practices on harre.dev</title>
     <link>https://harre.dev/tags/practices/</link>
-    <description>Recent content in Practices on harre.dev</description>
-    <generator>Hugo</generator>
+    <description>Recent content in practices on harre.dev</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
-    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
-    <lastBuildDate>Tue, 06 Aug 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://harre.dev/tags/practices/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 06 Aug 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://harre.dev/tags/practices/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tactical versus strategic coding</title>
       <link>https://harre.dev/blog/tactical-vs-strategic-coding/</link>
-      <pubDate>Tue, 06 Aug 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Tue, 06 Aug 2024 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/tactical-vs-strategic-coding/</guid>
-      <description>&lt;p&gt;Vacation time for me generally means reading time and for this occasion I brought &amp;ldquo;A philosophy of software design&amp;rdquo; by John Ousterhout with me.&#xA;So over the course of a few warm summer evenings I read my way through it and here are some thoughts and an interesting thing I picked up.&lt;/p&gt;&#xA;&lt;p&gt;Many things that the book covered were more or less in the tool belt, a refresher is always nice and I agree with most of the things the book describes.&lt;/p&gt;</description>
+      <description>Vacation time for me generally means reading time and for this occasion I brought &amp;ldquo;A philosophy of software design&amp;rdquo; by John Ousterhout with me. So over the course of a few warm summer evenings I read my way through it and here are some thoughts and an interesting thing I picked up.
+Many things that the book covered were more or less in the tool belt, a refresher is always nice and I agree with most of the things the book describes.</description>
     </item>
+    
   </channel>
 </rss>

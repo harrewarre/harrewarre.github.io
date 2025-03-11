@@ -4,26 +4,41 @@
     <title>Podcast on harre.dev</title>
     <link>https://harre.dev/tags/podcast/</link>
     <description>Recent content in Podcast on harre.dev</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
-    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
-    <lastBuildDate>Wed, 26 Feb 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://harre.dev/tags/podcast/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 11 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://harre.dev/tags/podcast/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cloud Native Chronicles - Product Mindset</title>
+      <link>https://harre.dev/blog/chronicles-product-mindset/</link>
+      <pubDate>Tue, 11 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://harre.dev/blog/chronicles-product-mindset/</guid>
+      <description>A new episode launched on the Cloud Native Chronicles podcast and we&amp;rsquo;re talking about Product Mindset. We&amp;rsquo;re a bit all over the place with this one but I think the main message is clear: Think about what you want to build and for who.
+In this episode of Cloud Native Chronicles, hosts Johan and Sander explore the concept of a product mindset in software development.
+They discuss the differences between building software and creating a product, emphasizing the importance of understanding stakeholder needs and engaging with them throughout the development process.</description>
+    </item>
+    
     <item>
       <title>Cloud Native Chronicles - Balanced teams</title>
       <link>https://harre.dev/blog/cloud-native-chronicles-balanced-teams/</link>
-      <pubDate>Wed, 26 Feb 2025 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Wed, 26 Feb 2025 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/cloud-native-chronicles-balanced-teams/</guid>
-      <description>&lt;p&gt;The first episode is out! Johan and I talk about balanced teams.&lt;/p&gt;&#xA;&lt;p&gt;In this episode of Cloud Native Chronicles, hosts Johan and Sander discuss the concept of balanced teams in cloud-native development.&#xA;They explore the essential roles needed for effective product development, the risks associated with not validating products, and the challenges posed by siloed organizations.&lt;/p&gt;&#xA;&lt;p&gt;The conversation emphasizes the importance of collaboration across disciplines and the need for leadership to drive cultural change within organizations.&#xA;Key takeaways include the necessity of diverse skill sets in teams and the dangers of building products without user validation.&lt;/p&gt;</description>
+      <description>The first episode is out! Johan and I talk about balanced teams.
+In this episode of Cloud Native Chronicles, hosts Johan and Sander discuss the concept of balanced teams in cloud-native development. They explore the essential roles needed for effective product development, the risks associated with not validating products, and the challenges posed by siloed organizations.
+The conversation emphasizes the importance of collaboration across disciplines and the need for leadership to drive cultural change within organizations.</description>
     </item>
+    
     <item>
       <title>My first podcast appearance</title>
       <link>https://harre.dev/blog/capicast-podcast-devex/</link>
-      <pubDate>Thu, 01 Sep 2022 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Thu, 01 Sep 2022 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/capicast-podcast-devex/</guid>
-      <description>&lt;p&gt;On the 9th of August 2022 &lt;a href=&#34;https://twitter.com/thefluffysysop&#34;&gt;Robert Kloosterhuis&lt;/a&gt; and myself recorded a podcast episode with the nice folks at &lt;a href=&#34;https://codecapi.nl&#34;&gt;CodeCapi&lt;/a&gt;. They invited us over to talk about developer experience. A pretty broad topic and we covered a lot of stuff in the recording.&lt;/p&gt;&#xA;&lt;p&gt;This was my first experience with recording something so I was a bit nervous but in the end it was a great experience and I&amp;rsquo;m very happy with the episode that came from it.&lt;/p&gt;</description>
+      <description>On the 9th of August 2022 Robert Kloosterhuis and myself recorded a podcast episode with the nice folks at CodeCapi. They invited us over to talk about developer experience. A pretty broad topic and we covered a lot of stuff in the recording.
+This was my first experience with recording something so I was a bit nervous but in the end it was a great experience and I&amp;rsquo;m very happy with the episode that came from it.</description>
     </item>
+    
   </channel>
 </rss>

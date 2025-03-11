@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Raspberry on harre.dev</title>
+    <title>raspberry on harre.dev</title>
     <link>https://harre.dev/tags/raspberry/</link>
-    <description>Recent content in Raspberry on harre.dev</description>
-    <generator>Hugo</generator>
+    <description>Recent content in raspberry on harre.dev</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
-    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
-    <lastBuildDate>Sun, 10 Jan 2021 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://harre.dev/tags/raspberry/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://harre.dev/tags/raspberry/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Dotnet core 5 on a raspberry pi</title>
       <link>https://harre.dev/blog/net-core-5-on-raspberry-pi/</link>
-      <pubDate>Sun, 10 Jan 2021 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Sun, 10 Jan 2021 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/net-core-5-on-raspberry-pi/</guid>
-      <description>&lt;p&gt;Here&amp;rsquo;s a quick get-up-and-go style post on how to get dotnet core 5 usable on a Raspberry Pi (a R-Pi 3 Model B in my case).&lt;/p&gt;&#xA;&lt;p&gt;We&amp;rsquo;re doing all this over SSH because my goal was to run a small webapp on the Pi which is located in a cupboard somewhere in my house without a keyboard and mouse attached to it 😁&#xA;So, after you&amp;rsquo;ve connected to the Pi over SSH, the first step is to install the dotnet core SDK.&lt;/p&gt;</description>
+      <description>Here&amp;rsquo;s a quick get-up-and-go style post on how to get dotnet core 5 usable on a Raspberry Pi (a R-Pi 3 Model B in my case).
+We&amp;rsquo;re doing all this over SSH because my goal was to run a small webapp on the Pi which is located in a cupboard somewhere in my house without a keyboard and mouse attached to it 😁 So, after you&amp;rsquo;ve connected to the Pi over SSH, the first step is to install the dotnet core SDK.</description>
     </item>
+    
   </channel>
 </rss>

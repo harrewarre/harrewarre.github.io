@@ -4,19 +4,20 @@
     <title>Home Assistant on harre.dev</title>
     <link>https://harre.dev/tags/home-assistant/</link>
     <description>Recent content in Home Assistant on harre.dev</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
-    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
-    <lastBuildDate>Sun, 06 Aug 2023 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://harre.dev/tags/home-assistant/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 06 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://harre.dev/tags/home-assistant/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>HVC Trash pickup dates in Home Assistant</title>
       <link>https://harre.dev/blog/home-assistant-hvc-pickup-dates/</link>
-      <pubDate>Sun, 06 Aug 2023 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Sun, 06 Aug 2023 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/home-assistant-hvc-pickup-dates/</guid>
-      <description>&lt;p&gt;Maybe something you can use, maybe not, but if you are in an intersection of people who use Home Assistant and live in the Netherlands and in a region where HVC operates, this might be useful.&lt;/p&gt;&#xA;&lt;p&gt;The integrations below will let you display a day counter until the next trash pickup takes place. This sensor data can also be used in other automations such as notifications or reminders.&lt;/p&gt;&#xA;&lt;p&gt;The payload we want to load into Home Assistant looks like this:&lt;/p&gt;</description>
+      <description>Maybe something you can use, maybe not, but if you are in an intersection of people who use Home Assistant and live in the Netherlands and in a region where HVC operates, this might be useful.
+The integrations below will let you display a day counter until the next trash pickup takes place. This sensor data can also be used in other automations such as notifications or reminders.
+The payload we want to load into Home Assistant looks like this:</description>
     </item>
+    
   </channel>
 </rss>

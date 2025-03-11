@@ -4,19 +4,19 @@
     <title>Debugging on harre.dev</title>
     <link>https://harre.dev/tags/debugging/</link>
     <description>Recent content in Debugging on harre.dev</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
-    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
-    <lastBuildDate>Sun, 26 Apr 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://harre.dev/tags/debugging/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 26 Apr 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://harre.dev/tags/debugging/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Easy Windows Service debugging</title>
       <link>https://harre.dev/blog/easy-windows-service-debugging/</link>
-      <pubDate>Sun, 26 Apr 2015 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Sun, 26 Apr 2015 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/easy-windows-service-debugging/</guid>
-      <description>&lt;p&gt;Long-running processes in a web application running on IIS is a bad idea. The reason for that is that IIS might unload the AppPool that is running your process due to inactivity. Inactivity? Yep, if IIS does not recieve a requests for a while, it will shut the site down to conserve system resources. (This is all configurable ofcourse, but I&amp;rsquo;ve&#xA;seen it happen)&lt;/p&gt;&#xA;&lt;p&gt;To allow for long-running stuff, a Windows Service might be a right fit. Here is what the default startup code for a Windows service looks like:&lt;/p&gt;</description>
+      <description>Long-running processes in a web application running on IIS is a bad idea. The reason for that is that IIS might unload the AppPool that is running your process due to inactivity. Inactivity? Yep, if IIS does not recieve a requests for a while, it will shut the site down to conserve system resources. (This is all configurable ofcourse, but I&amp;rsquo;ve seen it happen)
+To allow for long-running stuff, a Windows Service might be a right fit.</description>
     </item>
+    
   </channel>
 </rss>

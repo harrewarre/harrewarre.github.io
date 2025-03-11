@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>String Templating on harre.dev</title>
+    <title>String templating on harre.dev</title>
     <link>https://harre.dev/tags/string-templating/</link>
-    <description>Recent content in String Templating on harre.dev</description>
-    <generator>Hugo</generator>
+    <description>Recent content in String templating on harre.dev</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
-    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
-    <lastBuildDate>Tue, 07 Jul 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://harre.dev/tags/string-templating/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 07 Jul 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://harre.dev/tags/string-templating/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Basic string templating in C#</title>
       <link>https://harre.dev/blog/basic-string-templating-in-c/</link>
-      <pubDate>Tue, 07 Jul 2015 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Tue, 07 Jul 2015 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/basic-string-templating-in-c/</guid>
-      <description>&lt;p&gt;Every solution I&amp;rsquo;ve worked on required some form of communication via e-mail or other form of text to the outside world, reporting, notifications or something else. There are a bunch of libraries out there that can make your life easy if you need complex templates. But this is not about complex, this is supporting the basics without including all sorts of unnecessary stuff.&lt;/p&gt;&#xA;&lt;p&gt;What do we need to make this happen? The first thing is a template. A template is nothing more than a piece of plain text (or HTML if you want) in which we want to replace parts to create a complete message. Lets use something very simple, a single line, one tag.&lt;/p&gt;</description>
+      <description>Every solution I&amp;rsquo;ve worked on required some form of communication via e-mail or other form of text to the outside world, reporting, notifications or something else. There are a bunch of libraries out there that can make your life easy if you need complex templates. But this is not about complex, this is supporting the basics without including all sorts of unnecessary stuff.
+What do we need to make this happen?</description>
     </item>
+    
   </channel>
 </rss>

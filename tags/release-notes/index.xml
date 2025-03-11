@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Release Notes on harre.dev</title>
+    <title>Release notes on harre.dev</title>
     <link>https://harre.dev/tags/release-notes/</link>
-    <description>Recent content in Release Notes on harre.dev</description>
-    <generator>Hugo</generator>
+    <description>Recent content in Release notes on harre.dev</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
-    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
-    <lastBuildDate>Thu, 21 May 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://harre.dev/tags/release-notes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 21 May 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://harre.dev/tags/release-notes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Creating release notes with Visual Studio and TFS</title>
       <link>https://harre.dev/blog/creating-release-notes-with-visual-studio-and-tfs/</link>
-      <pubDate>Thu, 21 May 2015 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Thu, 21 May 2015 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/creating-release-notes-with-visual-studio-and-tfs/</guid>
-      <description>&lt;p&gt;Here is a scenario for you. You&amp;rsquo;ve been slaving away at the next big release of your product, fixing reported bugs, adding features and cleaning up code. Lot&amp;rsquo;s of changes all over your code. Then comes that moment that you want to ship all that delicious code to your customers.&lt;/p&gt;&#xA;&lt;p&gt;You prep a release build, zip it up and are pretty much done. Except for the release notes&amp;hellip; What changed since the previous release?&lt;/p&gt;</description>
+      <description>Here is a scenario for you. You&amp;rsquo;ve been slaving away at the next big release of your product, fixing reported bugs, adding features and cleaning up code. Lot&amp;rsquo;s of changes all over your code. Then comes that moment that you want to ship all that delicious code to your customers.
+You prep a release build, zip it up and are pretty much done. Except for the release notes&amp;hellip; What changed since the previous release?</description>
     </item>
+    
   </channel>
 </rss>

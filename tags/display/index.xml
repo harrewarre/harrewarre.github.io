@@ -4,19 +4,19 @@
     <title>Display on harre.dev</title>
     <link>https://harre.dev/tags/display/</link>
     <description>Recent content in Display on harre.dev</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
-    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
-    <lastBuildDate>Wed, 06 Jan 2016 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://harre.dev/tags/display/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 06 Jan 2016 00:00:00 +0000</lastBuildDate><atom:link href="https://harre.dev/tags/display/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Going 4K with the Philips BDM4065UC</title>
       <link>https://harre.dev/blog/going-4k/</link>
-      <pubDate>Wed, 06 Jan 2016 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Wed, 06 Jan 2016 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/going-4k/</guid>
-      <description>&lt;p&gt;Dual screen setups are great for work but you can&amp;rsquo;t always have two of the same size/model side by side. In my previous setup I had my laptop display as the primary and a secondary smaller screen. This being sub-optimal I figured it might be a good time to ask for a new display at &lt;a href=&#34;http://www.itq.nl&#34;&gt;work&lt;/a&gt;. New screens are nice, but what to ask for? Research time!&lt;/p&gt;&#xA;&lt;p&gt;I looked at a bunch of 1440p displays but with 4k becoming a more viable solution I started researching really big screens. During my search I came across this &lt;a href=&#34;http://weblog.west-wind.com/posts/2015/Nov/23/Going-Big-40-Glorious-inches-of-4k-with-the-Philips-BDM4065UC&#34;&gt;post&lt;/a&gt; by Rick Strahl and his 4k Philips display. I had seen this display in my search and it certainly looked good on paper but having someone actually use it for development purposes gave me a really good insight. I was sold. 4K should be the way to go.&lt;/p&gt;</description>
+      <description>Dual screen setups are great for work but you can&amp;rsquo;t always have two of the same size/model side by side. In my previous setup I had my laptop display as the primary and a secondary smaller screen. This being sub-optimal I figured it might be a good time to ask for a new display at work. New screens are nice, but what to ask for? Research time!
+I looked at a bunch of 1440p displays but with 4k becoming a more viable solution I started researching really big screens.</description>
     </item>
+    
   </channel>
 </rss>

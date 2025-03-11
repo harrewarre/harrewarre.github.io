@@ -4,19 +4,19 @@
     <title>RabbitMQ on harre.dev</title>
     <link>https://harre.dev/tags/rabbitmq/</link>
     <description>Recent content in RabbitMQ on harre.dev</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
-    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
-    <lastBuildDate>Fri, 27 May 2016 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://harre.dev/tags/rabbitmq/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 27 May 2016 00:00:00 +0000</lastBuildDate><atom:link href="https://harre.dev/tags/rabbitmq/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>RabbitMQ with NodeJS on Cloud Foundry</title>
       <link>https://harre.dev/blog/rabbitmq-with-nodejs-on-cloud-foundry/</link>
-      <pubDate>Fri, 27 May 2016 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Fri, 27 May 2016 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/rabbitmq-with-nodejs-on-cloud-foundry/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;ve been having some more fun with Cloud Foundry deploying Node apps and wanted the apps to communicate in a more disconnected way. A messaging system is a good fit for such a requirement and lucky for me, (Pivotal) Cloud Foundry has RabbitMQ-as-a-Service for me to use.&lt;/p&gt;&#xA;&lt;p&gt;So what are we working with? The code is Javascript running on Node, RabbitMQ for the messages and Cloud Foundry is hosting it all.&lt;/p&gt;</description>
+      <description>I&amp;rsquo;ve been having some more fun with Cloud Foundry deploying Node apps and wanted the apps to communicate in a more disconnected way. A messaging system is a good fit for such a requirement and lucky for me, (Pivotal) Cloud Foundry has RabbitMQ-as-a-Service for me to use.
+So what are we working with? The code is Javascript running on Node, RabbitMQ for the messages and Cloud Foundry is hosting it all.</description>
     </item>
+    
   </channel>
 </rss>

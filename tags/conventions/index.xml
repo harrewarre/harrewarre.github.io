@@ -4,19 +4,19 @@
     <title>Conventions on harre.dev</title>
     <link>https://harre.dev/tags/conventions/</link>
     <description>Recent content in Conventions on harre.dev</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
-    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
-    <lastBuildDate>Wed, 04 Nov 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://harre.dev/tags/conventions/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 04 Nov 2015 00:00:00 +0000</lastBuildDate><atom:link href="https://harre.dev/tags/conventions/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cloud Foundry Summit 2015 Berlin</title>
       <link>https://harre.dev/blog/cloudfoundry-summit-2015-berlin/</link>
-      <pubDate>Wed, 04 Nov 2015 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Wed, 04 Nov 2015 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/cloudfoundry-summit-2015-berlin/</guid>
-      <description>&lt;p&gt;On the 2nd and 3rd November in 2015, the &lt;a href=&#34;https://www.cloudfoundry.org/foundation/&#34;&gt;Cloud Foundry Foundation&lt;/a&gt; held the &lt;a href=&#34;https://www.cloudfoundry.org/&#34;&gt;Cloud Foundry&lt;/a&gt; Summit in Berlin. The focus of this conference is on Cloud Foundry itself and the community around it.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;http://itq.nl/&#34;&gt;ITQ&lt;/a&gt; (my employer) is focussing on &lt;a href=&#34;http://itq.nl/expertise/cloud-native-apps/&#34;&gt;Cloud Native apps&lt;/a&gt; and let a small group including myself attend the conference. After a canceled flight due to fog and a 650km roadtrip with my co-workers &lt;a href=&#34;https://twitter.com/rwwilden&#34;&gt;Ronald&lt;/a&gt; and &lt;a href=&#34;https://twitter.com/ruurdkeizer&#34;&gt;Ruurd&lt;/a&gt; we arrived at the hotel at 2am in morning just in time for the first workshop.&lt;/p&gt;</description>
+      <description>On the 2nd and 3rd November in 2015, the Cloud Foundry Foundation held the Cloud Foundry Summit in Berlin. The focus of this conference is on Cloud Foundry itself and the community around it.
+ITQ (my employer) is focussing on Cloud Native apps and let a small group including myself attend the conference. After a canceled flight due to fog and a 650km roadtrip with my co-workers Ronald and Ruurd we arrived at the hotel at 2am in morning just in time for the first workshop.</description>
     </item>
+    
   </channel>
 </rss>

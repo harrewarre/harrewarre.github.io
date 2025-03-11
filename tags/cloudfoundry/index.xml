@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Cloudfoundry on harre.dev</title>
+    <title>cloudfoundry on harre.dev</title>
     <link>https://harre.dev/tags/cloudfoundry/</link>
-    <description>Recent content in Cloudfoundry on harre.dev</description>
-    <generator>Hugo</generator>
+    <description>Recent content in cloudfoundry on harre.dev</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
-    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
-    <lastBuildDate>Fri, 18 Oct 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://harre.dev/tags/cloudfoundry/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Oct 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://harre.dev/tags/cloudfoundry/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cloud Foundry buildpack environment variables</title>
       <link>https://harre.dev/blog/cloud-foundry-buildpack-environment-variables/</link>
-      <pubDate>Fri, 18 Oct 2024 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Fri, 18 Oct 2024 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/cloud-foundry-buildpack-environment-variables/</guid>
-      <description>&lt;p&gt;I recently ran into a situation I hadn&amp;rsquo;t dealt with before.&lt;/p&gt;&#xA;&lt;p&gt;A Python app I was working on was loading modules from a location outside of Pythons known locations.&#xA;My first instinct was to update the &lt;code&gt;manifest.yml&lt;/code&gt; &lt;code&gt;env&lt;/code&gt; section with a &lt;code&gt;PYTHONPATH&lt;/code&gt; variable that would add this additional location to the Python path but that would not stick.&#xA;Using &lt;code&gt;cf set-env&lt;/code&gt; to update the variable after the fact also did not work.&lt;/p&gt;</description>
+      <description>I recently ran into a situation I hadn&amp;rsquo;t dealt with before.
+A Python app I was working on was loading modules from a location outside of Pythons known locations. My first instinct was to update the manifest.yml env section with a PYTHONPATH variable that would add this additional location to the Python path but that would not stick. Using cf set-env to update the variable after the fact also did not work.</description>
     </item>
+    
   </channel>
 </rss>

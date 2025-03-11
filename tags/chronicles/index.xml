@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>chronicles on harre.dev</title>
+    <link>https://harre.dev/tags/chronicles/</link>
+    <description>Recent content in chronicles on harre.dev</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© harre.dev</copyright>
+    <lastBuildDate>Tue, 11 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://harre.dev/tags/chronicles/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cloud Native Chronicles - Product Mindset</title>
+      <link>https://harre.dev/blog/chronicles-product-mindset/</link>
+      <pubDate>Tue, 11 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://harre.dev/blog/chronicles-product-mindset/</guid>
+      <description>A new episode launched on the Cloud Native Chronicles podcast and we&amp;rsquo;re talking about Product Mindset. We&amp;rsquo;re a bit all over the place with this one but I think the main message is clear: Think about what you want to build and for who.
+In this episode of Cloud Native Chronicles, hosts Johan and Sander explore the concept of a product mindset in software development.
+They discuss the differences between building software and creating a product, emphasizing the importance of understanding stakeholder needs and engaging with them throughout the development process.</description>
+    </item>
+    
+  </channel>
+</rss>

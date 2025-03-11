@@ -14,9 +14,9 @@
 <meta property="article:section" content="blog">
 <meta property="article:published_time" content="2024-06-10T00:00:00+00:00">
 <meta property="article:modified_time" content="2024-06-10T00:00:00+00:00">
-<meta property="article:tag" content="Dotnet Core">
-<meta property="article:tag" content="Entity Framework">
-<meta property="article:tag" content="Cloud Foundry">
+<meta property="article:tag" content="dotnet core">
+<meta property="article:tag" content="entity framework">
+<meta property="article:tag" content="cloud foundry">
 
 <meta property="og:image" content="/og-img.png">
 
@@ -52,9 +52,9 @@
     
   <div>
     Tags:
-        <a href="/tags/dotnet-core/">Dotnet Core</a>
-        <a href="/tags/entity-framework/">Entity Framework</a>
-        <a href="/tags/cloud-foundry/">Cloud Foundry</a>
+        <a href="/tags/dotnet-core/">dotnet core</a>
+        <a href="/tags/entity-framework/">entity framework</a>
+        <a href="/tags/cloud-foundry/">cloud foundry</a>
   </div>
 
   </small>
@@ -62,80 +62,80 @@
   <p>Run database migrations on Cloud Foundry using a task to ensure that migrations are only done once on deployment (and not during app start up!) for dotnet core applications. This post assumes you are deploying built applications and not raw source code.</p>
 <p>Instead of depending on dotnet tooling (<code>dotnet-ef</code>), leverage the built-in migration capability of the DataContext. Interrupt the startup procedure when a special argument is passed in, instead of starting the web application, run the migrations and then exit.
 So here we go, to start we need a DbContext:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> Microsoft.EntityFrameworkCore;  
-</span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">namespace</span> MyApp.Secondary;  
-</span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyDbContext</span> : DbContext  
-</span></span><span style="display:flex;"><span>{  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> MyDbContext(DbContextOptions&lt;MyDbContext&gt; options)  
-</span></span><span style="display:flex;"><span>        : <span style="color:#66d9ef">base</span>(options)  
-</span></span><span style="display:flex;"><span>    { }
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> DbSet&lt;User&gt; Users { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>In the solution that I was working on we had a factory that can create a DbContext when one is needed.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> Microsoft.EntityFrameworkCore;  
-</span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">namespace</span> MyApp.Secondary;  
-</span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> <span style="color:#a6e22e">IMyDbContextFactory</span>
-</span></span><span style="display:flex;"><span>{  
-</span></span><span style="display:flex;"><span>    MyDbContextFactory Create();  
-</span></span><span style="display:flex;"><span>}  
-</span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyDbContextFactory</span>(IConfiguration configuration) : IMyDbContextFactory  
-</span></span><span style="display:flex;"><span>{  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span> MyDbContextFactory Create()  
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>	    <span style="color:#66d9ef">var</span> services = <span style="color:#66d9ef">new</span> VcapServices(configuration);  
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> connectionString = services.GetPostGresConnectionString(<span style="color:#e6db74">&#34;my-database-service&#34;</span>);  
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">var</span> optionsBuilder = <span style="color:#66d9ef">new</span> DbContextOptionsBuilder&lt;MyDbContext&gt;();  
-</span></span><span style="display:flex;"><span>        optionsBuilder            
-</span></span><span style="display:flex;"><span>	        .UseNpgsql(connectionString)  
-</span></span><span style="display:flex;"><span>            .UseSnakeCaseNamingConvention();  
-</span></span><span style="display:flex;"><span>  
-</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> MyDbContextFactory(optionsBuilder.Options);  
-</span></span><span style="display:flex;"><span>    }}
-</span></span></code></pre></div><p>Service registration that gives us access to the factory:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span>builder.Services.AddSingleton&lt;IMyDbContextFactory, MyDbContextFactory&gt;();
-</span></span></code></pre></div><p>To get the migrations rolling we still use <code>dotnet ef</code> tooling locally.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>dotnet ef migrations add MyMigration
-</span></span></code></pre></div><p>With migrations enabled, which work fine locally using the <code>dotnet ef</code> tools, I found that this setup doesn&rsquo;t really work using the <code>dotnet_core_buildpack</code> on Cloud Foundry. After some searching and several attempts of using <code>dotnet ef</code> during the buildpack phases I gave up and went the custom route.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">using</span> Microsoft.EntityFrameworkCore;  
+  
+<span style="color:#66d9ef">namespace</span> MyApp.Secondary;  
+  
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyDbContext</span> : DbContext  
+{  
+    <span style="color:#66d9ef">public</span> MyDbContext(DbContextOptions&lt;MyDbContext&gt; options)  
+        : <span style="color:#66d9ef">base</span>(options)  
+    { }
+    
+    <span style="color:#66d9ef">public</span> DbSet&lt;User&gt; Users { <span style="color:#66d9ef">get</span>; <span style="color:#66d9ef">set</span>; }
+}
+</code></pre></div><p>In the solution that I was working on we had a factory that can create a DbContext when one is needed.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">using</span> Microsoft.EntityFrameworkCore;  
+  
+<span style="color:#66d9ef">namespace</span> MyApp.Secondary;  
+  
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">interface</span> IMyDbContextFactory
+{  
+    MyDbContextFactory Create();  
+}  
+  
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyDbContextFactory</span>(IConfiguration configuration) : IMyDbContextFactory  
+{  
+    <span style="color:#66d9ef">public</span> MyDbContextFactory Create()  
+    {
+	    <span style="color:#66d9ef">var</span> services = <span style="color:#66d9ef">new</span> VcapServices(configuration);  
+        <span style="color:#66d9ef">var</span> connectionString = services.GetPostGresConnectionString(<span style="color:#e6db74">&#34;my-database-service&#34;</span>);  
+        <span style="color:#66d9ef">var</span> optionsBuilder = <span style="color:#66d9ef">new</span> DbContextOptionsBuilder&lt;MyDbContext&gt;();  
+        optionsBuilder            
+	        .UseNpgsql(connectionString)  
+            .UseSnakeCaseNamingConvention();  
+  
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> MyDbContextFactory(optionsBuilder.Options);  
+    }}
+</code></pre></div><p>Service registration that gives us access to the factory:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp">builder.Services.AddSingleton&lt;IMyDbContextFactory, MyDbContextFactory&gt;();
+</code></pre></div><p>To get the migrations rolling we still use <code>dotnet ef</code> tooling locally.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">dotnet ef migrations add MyMigration
+</code></pre></div><p>With migrations enabled, which work fine locally using the <code>dotnet ef</code> tools, I found that this setup doesn&rsquo;t really work using the <code>dotnet_core_buildpack</code> on Cloud Foundry. After some searching and several attempts of using <code>dotnet ef</code> during the buildpack phases I gave up and went the custom route.</p>
 <p>The code (that lives in <code>Program.cs</code>) below will take the startup code down a different branch when the <code>--migrate</code> argument is passed to the application. Because all the services and configuration are registered we can request our factory from the initialized service collection and grab an instance of our <code>DbContext</code> instance. Using this context we can apply all pending migrations using the <code>context.Database.Migrate()</code> method.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-csharp" data-lang="csharp"><span style="display:flex;"><span><span style="color:#75715e">// Service and Configuration registration.</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> app = builder.Build();
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (args.FirstOrDefault(<span style="color:#66d9ef">string</span>.Empty) == <span style="color:#e6db74">&#34;--migrate&#34;</span>)  
-</span></span><span style="display:flex;"><span>{  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> contextFactory = app.Services.GetService&lt;IMyDbContextFactory&gt;();
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (contextFactory == <span style="color:#66d9ef">null</span>)  
-</span></span><span style="display:flex;"><span>    {
-</span></span><span style="display:flex;"><span>	    <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Exception(<span style="color:#e6db74">&#34;ContextFactory could not be located!&#34;</span>);    
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    Console.WriteLine(<span style="color:#e6db74">&#34;Applying database migrations...&#34;</span>);  
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> context = contextFactory.Create();  
-</span></span><span style="display:flex;"><span>    context.Database.Migrate();  
-</span></span><span style="display:flex;"><span>    Console.WriteLine(<span style="color:#e6db74">&#34;Migrations applied successfully!&#34;</span>);
-</span></span><span style="display:flex;"><span>    
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span>;  
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// More bootstrapping</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>app.Run();
-</span></span></code></pre></div><p>During deployment on the platform we want to apply migrations when the app is deployed but not yet started. We can deploy our app with 0 instances and then run a task on the platform that applies the migrations by passing the <code>--migrate</code> argument.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cf push -i <span style="color:#ae81ff">0</span>
-</span></span></code></pre></div><p>After deployment but before startup (there are no instances running yet), run a Cloud Foundry task against the app. The app assembly is the result of a <code>dotnet publish</code> command that we run in our CI system, so this solution assumes you are deploying built applications, not source.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#75715e">// Service and Configuration registration.
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">var</span> app = builder.Build();
+
+<span style="color:#66d9ef">if</span> (args.FirstOrDefault(<span style="color:#66d9ef">string</span>.Empty) == <span style="color:#e6db74">&#34;--migrate&#34;</span>)  
+{  
+    <span style="color:#66d9ef">var</span> contextFactory = app.Services.GetService&lt;IMyDbContextFactory&gt;();
+    <span style="color:#66d9ef">if</span> (contextFactory == <span style="color:#66d9ef">null</span>)  
+    {
+	    <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> Exception(<span style="color:#e6db74">&#34;ContextFactory could not be located!&#34;</span>);    
+    }
+    
+    Console.WriteLine(<span style="color:#e6db74">&#34;Applying database migrations...&#34;</span>);  
+    <span style="color:#66d9ef">var</span> context = contextFactory.Create();  
+    context.Database.Migrate();  
+    Console.WriteLine(<span style="color:#e6db74">&#34;Migrations applied successfully!&#34;</span>);
+    
+    <span style="color:#66d9ef">return</span>;  
+}
+
+<span style="color:#75715e">// More bootstrapping
+</span><span style="color:#75715e"></span>
+app.Run();
+</code></pre></div><p>During deployment on the platform we want to apply migrations when the app is deployed but not yet started. We can deploy our app with 0 instances and then run a task on the platform that applies the migrations by passing the <code>--migrate</code> argument.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cf push -i <span style="color:#ae81ff">0</span>
+</code></pre></div><p>After deployment but before startup (there are no instances running yet), run a Cloud Foundry task against the app. The app assembly is the result of a <code>dotnet publish</code> command that we run in our CI system, so this solution assumes you are deploying built applications, not source.</p>
 <p>If you should take the app completely offline is an interesting topic all on its own. Depending on your migrations and what you are trying to accomplish you might be able to get away without downtime but for the sake of safety, this example accepts a very brief period of downtime as the migrations are being applied to ensure that migrations are applied in a single task, and we don&rsquo;t risk multiple app instances all trying to apply the migrations at the same time as they are starting up.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cf run-task my-app --command <span style="color:#e6db74">&#34;\&#34;./my-app-assembly --migrate\&#34;&#34;</span> --name migrate-database --wait
-</span></span></code></pre></div><p>When the task completes successfully and our database is in its desired state we can scale the app to the desired count.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>cf scale my-app -i <span style="color:#ae81ff">2</span>
-</span></span></code></pre></div><p>Local migrations can be applied using the same setup:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>dotnet run --project my-app-project.csproj -- --migrate
-</span></span></code></pre></div><p>The <code>dotnet_core_buildpack</code> does not seem (I was unable to find anything related to additional <code>dotnet</code> tools) to be able to use tools like <code>dotnet ef</code>. Using the solution outlined in this post you can work around not having the tools and instead let the application apply the migrations.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cf run-task my-app --command <span style="color:#e6db74">&#34;\&#34;./my-app-assembly --migrate\&#34;&#34;</span> --name migrate-database --wait
+</code></pre></div><p>When the task completes successfully and our database is in its desired state we can scale the app to the desired count.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">cf scale my-app -i <span style="color:#ae81ff">2</span>
+</code></pre></div><p>Local migrations can be applied using the same setup:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">dotnet run --project my-app-project.csproj -- --migrate
+</code></pre></div><p>The <code>dotnet_core_buildpack</code> does not seem (I was unable to find anything related to additional <code>dotnet</code> tools) to be able to use tools like <code>dotnet ef</code>. Using the solution outlined in this post you can work around not having the tools and instead let the application apply the migrations.</p>
 <p>You&rsquo;ll want to roll all this into some kind of CI/CD system because these manual steps are easy to mess up. See you in the next one!</p>
 
 

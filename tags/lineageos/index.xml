@@ -4,19 +4,19 @@
     <title>LineageOS on harre.dev</title>
     <link>https://harre.dev/tags/lineageos/</link>
     <description>Recent content in LineageOS on harre.dev</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
-    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
-    <lastBuildDate>Mon, 01 May 2017 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://harre.dev/tags/lineageos/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 01 May 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://harre.dev/tags/lineageos/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Enable tethering on LineageOS using ADB</title>
       <link>https://harre.dev/blog/enable-tethering-on-lineageos-using-adb/</link>
-      <pubDate>Mon, 01 May 2017 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Mon, 01 May 2017 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/enable-tethering-on-lineageos-using-adb/</guid>
-      <description>&lt;h4 id=&#34;update&#34;&gt;Update&lt;/h4&gt;&#xA;&lt;p&gt;After updating to a newer version, I couldn&amp;rsquo;t get the below steps to work any more. Here is some extra stuff to get it to work again. It comes down to &lt;code&gt;build.prop&lt;/code&gt; not accepting the changes you make because it&amp;rsquo;s being loaded as read-only. Remounting the filesystem as read-write and then pushing the updated file will do the trick.&lt;/p&gt;&#xA;&lt;p&gt;Run the following through ADB &lt;strong&gt;with root enabled&lt;/strong&gt; (flash the SuperSU zip found on the lineage OS website and enable root in the developer settings).&lt;/p&gt;</description>
+      <description>Update After updating to a newer version, I couldn&amp;rsquo;t get the below steps to work any more. Here is some extra stuff to get it to work again. It comes down to build.prop not accepting the changes you make because it&amp;rsquo;s being loaded as read-only. Remounting the filesystem as read-write and then pushing the updated file will do the trick.
+Run the following through ADB with root enabled (flash the SuperSU zip found on the lineage OS website and enable root in the developer settings).</description>
     </item>
+    
   </channel>
 </rss>

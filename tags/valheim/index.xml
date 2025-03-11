@@ -4,26 +4,32 @@
     <title>Valheim on harre.dev</title>
     <link>https://harre.dev/tags/valheim/</link>
     <description>Recent content in Valheim on harre.dev</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
-    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
-    <lastBuildDate>Wed, 23 Nov 2022 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://harre.dev/tags/valheim/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 23 Nov 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://harre.dev/tags/valheim/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Valheim public-test server</title>
       <link>https://harre.dev/blog/valheim-public-test-server/</link>
-      <pubDate>Wed, 23 Nov 2022 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Wed, 23 Nov 2022 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/valheim-public-test-server/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;UPDATE&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;The testing appears to be done and is now part of the regular version of the game. This is still a handy guide for any future betas though.&lt;/p&gt;&#xA;&lt;p&gt;Here&amp;rsquo;s a cool update for &lt;a href=&#34;valheim-linux-server.md&#34;&gt;your Valheim linux server&lt;/a&gt; if you&amp;rsquo;re up from some beta testing.&lt;/p&gt;&#xA;&lt;!-- more --&gt;&#xA;&lt;p&gt;The Valheim devs announced the Mistlands update and we can all get in on the action early through a beta branch on Steam (and GamePass). You can find out more about the update &lt;a href=&#34;https://valheim.com/news/mistlands-public-test/&#34;&gt;here&lt;/a&gt; and there&amp;rsquo;s a nice trailer &lt;a href=&#34;https://youtu.be/cZOuBjvETR8&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;</description>
+      <description>UPDATE
+The testing appears to be done and is now part of the regular version of the game. This is still a handy guide for any future betas though.
+Here&amp;rsquo;s a cool update for your Valheim linux server if you&amp;rsquo;re up from some beta testing.
+The Valheim devs announced the Mistlands update and we can all get in on the action early through a beta branch on Steam (and GamePass). You can find out more about the update here and there&amp;rsquo;s a nice trailer here.</description>
     </item>
+    
     <item>
       <title>Valheim server on Linux</title>
       <link>https://harre.dev/blog/valheim-linux-server/</link>
-      <pubDate>Sun, 12 Sep 2021 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Sun, 12 Sep 2021 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/valheim-linux-server/</guid>
-      <description>&lt;p&gt;Here is a step-by-step guide for setting up a &lt;a href=&#34;https://store.steampowered.com/app/892970/Valheim/&#34;&gt;Valheim&lt;/a&gt; server on Linux. Having done it twice now I thought it would be a good idea to capture this somewhere so that next time I don&amp;rsquo;t have to look any of this up again.&lt;/p&gt;&#xA;&lt;p&gt;The only assumptions being made here is that your server is running Ubuntu of some semi-recent version and a basic understanding of Linux.&lt;/p&gt;&#xA;&lt;h2 id=&#34;steamcmd&#34;&gt;SteamCMD&lt;/h2&gt;&#xA;&lt;p&gt;The &lt;a href=&#34;https://developer.valvesoftware.com/wiki/SteamCMD&#34;&gt;SteamCMD&lt;/a&gt; utility from Valve will help us install the gamefiles on the server.&#xA;Follow the instructions on the &lt;a href=&#34;https://developer.valvesoftware.com/wiki/SteamCMD#Linux.2FmacOS&#34;&gt;wiki&lt;/a&gt; to get it up and running.&lt;/p&gt;</description>
+      <description>Here is a step-by-step guide for setting up a Valheim server on Linux. Having done it twice now I thought it would be a good idea to capture this somewhere so that next time I don&amp;rsquo;t have to look any of this up again.
+The only assumptions being made here is that your server is running Ubuntu of some semi-recent version and a basic understanding of Linux.
+SteamCMD The SteamCMD utility from Valve will help us install the gamefiles on the server.</description>
     </item>
+    
   </channel>
 </rss>

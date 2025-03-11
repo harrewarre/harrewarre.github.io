@@ -4,26 +4,30 @@
     <title>Service Fabric on harre.dev</title>
     <link>https://harre.dev/tags/service-fabric/</link>
     <description>Recent content in Service Fabric on harre.dev</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
-    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
-    <lastBuildDate>Sat, 31 Mar 2018 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://harre.dev/tags/service-fabric/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 31 Mar 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://harre.dev/tags/service-fabric/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Multiple listeners for your Service Fabric service</title>
       <link>https://harre.dev/blog/sf-multiple-listeners/</link>
-      <pubDate>Sat, 31 Mar 2018 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Sat, 31 Mar 2018 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/sf-multiple-listeners/</guid>
-      <description>&lt;p&gt;Service Fabric is a great piece of technology on the Azure platform and I&amp;rsquo;ve been using it quite a lot in recent projects. It takes away a lot of the setup and orchestration when dealing with microservices.&lt;/p&gt;&#xA;&lt;p&gt;There comes a point where services need to talk to each other and this is easily achieved using the Remoting bits you can get from NuGet. The general way of doing this is creating an &lt;code&gt;Interfaces&lt;/code&gt; project next to the service that&#xA;contains the service interface and classes used in transport. The interface is implemented on the service entrypoint and a listener is exposed to the Fabric runtime so that it can communicate with the rest of the platform. We&amp;rsquo;re&#xA;going to take it one step further and put the service implementations in their own class instead of on the service entrypoint (keeps things nice and clean) and also enable dependency injection from that point forward.&lt;/p&gt;</description>
+      <description>Service Fabric is a great piece of technology on the Azure platform and I&amp;rsquo;ve been using it quite a lot in recent projects. It takes away a lot of the setup and orchestration when dealing with microservices.
+There comes a point where services need to talk to each other and this is easily achieved using the Remoting bits you can get from NuGet. The general way of doing this is creating an Interfaces project next to the service that contains the service interface and classes used in transport.</description>
     </item>
+    
     <item>
       <title>Openhack Amsterdam 2017</title>
       <link>https://harre.dev/blog/openhack-ams-2017/</link>
-      <pubDate>Sat, 14 Oct 2017 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Sat, 14 Oct 2017 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/openhack-ams-2017/</guid>
-      <description>&lt;p&gt;So this hackathon/training thing popped up on my twitter feed a week before it actually started.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;openhack-banner.jpeg&#34; alt=&#34;Openhack&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;It caught my attention because it mentioned Azure Service Fabric as one of the tech stacks (the other being Kubernetes)&#xA;that would be the focus of the event. The event is Openhack that took place in Amsterdam from 9 to 11 october 2017.&lt;/p&gt;&#xA;&lt;p&gt;So Azure Service Fabric caught my attention because it&amp;rsquo;s a big part of the job I&amp;rsquo;m currently working on. We run a bunch&#xA;of services and actors with great satisfaction, but there&amp;rsquo;s always more to know and learn.&lt;/p&gt;</description>
+      <description>So this hackathon/training thing popped up on my twitter feed a week before it actually started.
+It caught my attention because it mentioned Azure Service Fabric as one of the tech stacks (the other being Kubernetes) that would be the focus of the event. The event is Openhack that took place in Amsterdam from 9 to 11 october 2017.
+So Azure Service Fabric caught my attention because it&amp;rsquo;s a big part of the job I&amp;rsquo;m currently working on.</description>
     </item>
+    
   </channel>
 </rss>

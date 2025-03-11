@@ -4,33 +4,40 @@
     <title>Hardware on harre.dev</title>
     <link>https://harre.dev/tags/hardware/</link>
     <description>Recent content in Hardware on harre.dev</description>
-    <generator>Hugo</generator>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <managingEditor>sharrewijnen@live.com (Sander Harrewijnen)</managingEditor>
-    <webMaster>sharrewijnen@live.com (Sander Harrewijnen)</webMaster>
     <copyright>© harre.dev</copyright>
-    <lastBuildDate>Tue, 19 Jan 2021 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://harre.dev/tags/hardware/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 19 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://harre.dev/tags/hardware/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>It&#39;s new tech!</title>
       <link>https://harre.dev/blog/new-tech-2021/</link>
-      <pubDate>Tue, 19 Jan 2021 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Tue, 19 Jan 2021 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/new-tech-2021/</guid>
-      <description>&lt;p&gt;I finally came up on the best excuse to upgrade my computer. My very generous employer, &lt;a href=&#34;https://www.itq.eu&#34;&gt;ITQ&lt;/a&gt;, gave us the opportunity to upgrade our home office and that brought me the base for a new system.&lt;/p&gt;&#xA;&lt;p&gt;The specs I finally settled on are built around PCI Gen 4 (future-proof a bit 😀) support which comes down to the following list of parts:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Asus TUF Gaming X570-Plus&lt;/li&gt;&#xA;&lt;li&gt;AMD Ryzen 7 5800X&lt;/li&gt;&#xA;&lt;li&gt;Samsung 980 Pro 500GB&lt;/li&gt;&#xA;&lt;li&gt;32GB G.Skill DDR4 3600MHz CL16 RAM&lt;/li&gt;&#xA;&lt;li&gt;Corsair RM750x power supply&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;To hold all the stuff I went with an NZXT H510 ATX case.&lt;/p&gt;</description>
+      <description>I finally came up on the best excuse to upgrade my computer. My very generous employer, ITQ, gave us the opportunity to upgrade our home office and that brought me the base for a new system.
+The specs I finally settled on are built around PCI Gen 4 (future-proof a bit 😀) support which comes down to the following list of parts:
+ Asus TUF Gaming X570-Plus AMD Ryzen 7 5800X Samsung 980 Pro 500GB 32GB G.</description>
     </item>
+    
     <item>
       <title>Going 4K with the Philips BDM4065UC</title>
       <link>https://harre.dev/blog/going-4k/</link>
-      <pubDate>Wed, 06 Jan 2016 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Wed, 06 Jan 2016 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/going-4k/</guid>
-      <description>&lt;p&gt;Dual screen setups are great for work but you can&amp;rsquo;t always have two of the same size/model side by side. In my previous setup I had my laptop display as the primary and a secondary smaller screen. This being sub-optimal I figured it might be a good time to ask for a new display at &lt;a href=&#34;http://www.itq.nl&#34;&gt;work&lt;/a&gt;. New screens are nice, but what to ask for? Research time!&lt;/p&gt;&#xA;&lt;p&gt;I looked at a bunch of 1440p displays but with 4k becoming a more viable solution I started researching really big screens. During my search I came across this &lt;a href=&#34;http://weblog.west-wind.com/posts/2015/Nov/23/Going-Big-40-Glorious-inches-of-4k-with-the-Philips-BDM4065UC&#34;&gt;post&lt;/a&gt; by Rick Strahl and his 4k Philips display. I had seen this display in my search and it certainly looked good on paper but having someone actually use it for development purposes gave me a really good insight. I was sold. 4K should be the way to go.&lt;/p&gt;</description>
+      <description>Dual screen setups are great for work but you can&amp;rsquo;t always have two of the same size/model side by side. In my previous setup I had my laptop display as the primary and a secondary smaller screen. This being sub-optimal I figured it might be a good time to ask for a new display at work. New screens are nice, but what to ask for? Research time!
+I looked at a bunch of 1440p displays but with 4k becoming a more viable solution I started researching really big screens.</description>
     </item>
+    
     <item>
       <title>The new rig</title>
       <link>https://harre.dev/blog/the-new-rig/</link>
-      <pubDate>Wed, 23 Sep 2015 00:00:00 +0000</pubDate><author>sharrewijnen@live.com (Sander Harrewijnen)</author>
+      <pubDate>Wed, 23 Sep 2015 00:00:00 +0000</pubDate>
+      
       <guid>https://harre.dev/blog/the-new-rig/</guid>
-      <description>&lt;p&gt;After saving up money for a while I bought myself a new desktop PC. Its main purpose would be gaming and some development stuff but since gaming has a big influence on the parts, I rolled with that. Here is the part list I ended up ordering.&lt;/p&gt;&#xA;&lt;h2 id=&#34;specs&#34;&gt;Specs!&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Intel Core i5-6600.&lt;/li&gt;&#xA;&lt;li&gt;Asus H170 Pro Gaming.&lt;/li&gt;&#xA;&lt;li&gt;256GB Samsung SM951.&lt;/li&gt;&#xA;&lt;li&gt;2x 8GB Kingston Hyper-X 2133MHz DDR4&lt;/li&gt;&#xA;&lt;li&gt;MSI R9 390 8GB.&lt;/li&gt;&#xA;&lt;li&gt;Seasonic G-Series 650 Watt.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;I re-used my (very) old case, a Cooler Master Centurion to hold all my parts.&lt;/p&gt;</description>
+      <description>After saving up money for a while I bought myself a new desktop PC. Its main purpose would be gaming and some development stuff but since gaming has a big influence on the parts, I rolled with that. Here is the part list I ended up ordering.
+Specs!  Intel Core i5-6600. Asus H170 Pro Gaming. 256GB Samsung SM951. 2x 8GB Kingston Hyper-X 2133MHz DDR4 MSI R9 390 8GB. Seasonic G-Series 650 Watt.</description>
     </item>
+    
   </channel>
 </rss>

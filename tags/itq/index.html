@@ -4,11 +4,11 @@
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 <link rel="shortcut icon" href="/favicon.png" type="image/png">
-<title>Itq | harre.dev</title>
+<title>itq | harre.dev</title>
 <meta property="og:url" content="https://harre.dev/tags/itq/">
 <meta property="og:site_name" content="harre.dev">
-<meta property="og:title" content="Itq">
-<meta property="og:description" content="Itq">
+<meta property="og:title" content="itq">
+<meta property="og:description" content="itq">
 <meta property="og:locale" content="en_us">
 <meta property="og:type" content="website">
 
@@ -39,278 +39,172 @@
     </header>
     <main>
         
-<h1>Itq</h1>
+<h1>itq</h1>
 
 
 <h2><a href="/blog/sp1p-2019/">SpringOne Platform 2019</a></h2>
-<p>Pivotal organized another SpringOne conference this year, and the ITQ Cloud Native team hopped across the large pond into the Texes heat to attend.</p>
-<p><img src="sp1p.jpg" alt="SpringOne Platform by Pivotal"></p>
-<h2 id="spring-for-the-net-dev">Spring for the .net dev</h2>
-<p>While Spring is a Java thing, SteelToe is there for us .net folks. It&rsquo;s getting a big shot of TLC with a new website and new and improved docs!
-Creating microservices using .net got a bit easier than it already was with some new stuff such as actuators and service connectors.
-Go have a look at the <a href="https://www.steeltoe.io">SteelToe website</a> for all the ins and outs. (also, <a href="https://start.steeltoe.io">this</a> exists to quickly start a new service)</p>
+Pivotal organized another SpringOne conference this year, and the ITQ Cloud Native team hopped across the large pond into the Texes heat to attend.
+Spring for the .net dev While Spring is a Java thing, SteelToe is there for us .net folks. It&rsquo;s getting a big shot of TLC with a new website and new and improved docs! Creating microservices using .net got a bit easier than it already was with some new stuff such as actuators and service connectors.
 
 <h2><a href="/blog/netcore-az-container-environment/">Environment variables in an Azure Web App for Containers</a></h2>
-<p>Here&rsquo;s a little gotcha I ran into. A .net core app I wrote needs to run inside a container and the target was a Web App for Containers on the Azure platform. No big deal so far.</p>
-<p>The app also needs a few settings for it to do its work. We provide these via environment variables for maximum flexibility. After setting up some CI/CD stuff and deploying the app it wouldn&rsquo;t start because it wasn&rsquo;t loading the settings.</p>
+Here&rsquo;s a little gotcha I ran into. A .net core app I wrote needs to run inside a container and the target was a Web App for Containers on the Azure platform. No big deal so far.
+The app also needs a few settings for it to do its work. We provide these via environment variables for maximum flexibility. After setting up some CI/CD stuff and deploying the app it wouldn&rsquo;t start because it wasn&rsquo;t loading the settings.
 
 <h2><a href="/blog/lets-talk-containers/">Let&#39;s talk containers</a></h2>
-<p>A recent talk by one of my buddies at ITQ sparked something and I thought I&rsquo;d share that with you. It&rsquo;s about containers and where they sit in a software developer point of view.</p>
-<h2 id="the-platform-stack">The platform stack</h2>
-<p>The thing that caused the spark was this image:</p>
-<p><img src="stack.jpg" alt="The platform stack"></p>
-<p>Here we have a rough outline of the platform abstractions we currently see in the wild. Let&rsquo;s start at the bottom.</p>
+A recent talk by one of my buddies at ITQ sparked something and I thought I&rsquo;d share that with you. It&rsquo;s about containers and where they sit in a software developer point of view.
+The platform stack The thing that caused the spark was this image:
+Here we have a rough outline of the platform abstractions we currently see in the wild. Let&rsquo;s start at the bottom.
+Bare metal Let&rsquo;s be quick about this one.
 
 <h2><a href="/blog/netcore-steeltoe-config-loading/">Cloud Foundry configuration with SteelToe</a></h2>
-<p>I&rsquo;ve been playing around with the <a href="https://steeltoe.io/">SteelToe</a> framework for .net apps on Cloud Foundry a bit and it&rsquo;s been nice overall (I&rsquo;ll probably write a few more posts about it at some point 😊). While playing around with it the configuration part of it I wasn&rsquo;t really liking the way settings can be read from the main configuration.</p>
-<p>Let&rsquo;s start with a really short primer on how the configuration system works. Cloud Foundry apps can be bound to services, doing so adds a reference to the bound service in the environment variables of the app that was bound. You can take a look at what is provided to an applications environment by running</p>
+I&rsquo;ve been playing around with the SteelToe framework for .net apps on Cloud Foundry a bit and it&rsquo;s been nice overall (I&rsquo;ll probably write a few more posts about it at some point 😊). While playing around with it the configuration part of it I wasn&rsquo;t really liking the way settings can be read from the main configuration.
+Let&rsquo;s start with a really short primer on how the configuration system works.
 
 <h2><a href="/blog/cf-netcore-logging/">ASP.NET Core logging on Cloud Foundry</a></h2>
-<p>All apps I&rsquo;ve ever worked on have some sort of logging going on for various reasons, mostly to keep track of whats going on or debugging, but it&rsquo;s all the same. Logs are needed to see what your code is up to.</p>
-<p>Cloud Foundry <a href="https://docs.cloudfoundry.org/devguide/deploy-apps/streaming-logs.html#writing">is very explicit</a> about <em>how</em> an app should write its logs. As you can see in the documentation, apps must write to <code>stdout</code> or <code>stderr</code>.</p>
-<p>For C# that means we can use the static methods on the <code>Console</code> to write our logs. Couldn&rsquo;t be easier. But&hellip; now our code is littered with these <code>Console.Write...</code> lines all over the place!</p>
+All apps I&rsquo;ve ever worked on have some sort of logging going on for various reasons, mostly to keep track of whats going on or debugging, but it&rsquo;s all the same. Logs are needed to see what your code is up to.
+Cloud Foundry is very explicit about how an app should write its logs. As you can see in the documentation, apps must write to stdout or stderr.
+For C# that means we can use the static methods on the Console to write our logs.
 
 <h2><a href="/blog/azure-static-website/">Setting up an Azure Storage static website</a></h2>
-<p>Not very long ago, Microsoft made the <a href="https://azure.microsoft.com/en-us/blog/static-websites-on-azure-storage-now-generally-available/">static website feature generally available</a> on the Azure platform. What this means is that you can now publicly host content with Azure (blob) storage.</p>
-<!-- more -->
-<p>So in a few easy steps you can create a host for your angular/react/vue/(insert-client-side-web-thing-here)/static app. The <a href="https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-static-website-host">docs</a> are great but we&rsquo;ll have a look at what&rsquo;s what.</p>
-<p>Please remember that there is no server-side processing for this hosting option! If you want to do server-side stuff, use an App Service instead.</p>
+Not very long ago, Microsoft made the static website feature generally available on the Azure platform. What this means is that you can now publicly host content with Azure (blob) storage.
+So in a few easy steps you can create a host for your angular/react/vue/(insert-client-side-web-thing-here)/static app. The docs are great but we&rsquo;ll have a look at what&rsquo;s what.
+Please remember that there is no server-side processing for this hosting option! If you want to do server-side stuff, use an App Service instead.
 
 <h2><a href="/blog/pivotalcf-certification/">Pivotal Cloud Foundry Certified Developer</a></h2>
-<p>With all the knowledge built up for my <a href="cfcd-certification.md">CFCD</a> exam I did earlier I took another Cloud Foundry exam. The Pivotal flavor this time.</p>
-<!-- more -->
-<p>Not as involved as the other Cloud Foundry exam I did but still a wide variety of questions. I&rsquo;m not sure if I screwed up all the Metrics questions, or that there was only 1 that I got incorrect.</p>
-<p><img src="pivotalcfresult.png" alt="Exam results"></p>
-<p>Still really happy with the result.</p>
+With all the knowledge built up for my CFCD exam I did earlier I took another Cloud Foundry exam. The Pivotal flavor this time.
+Not as involved as the other Cloud Foundry exam I did but still a wide variety of questions. I&rsquo;m not sure if I screwed up all the Metrics questions, or that there was only 1 that I got incorrect.
+Still really happy with the result.
 
 <h2><a href="/blog/easy-css-grid/">Easy CSS grid</a></h2>
-<p>I&rsquo;ve been working with a lot of forms lately and it required some kind of grid system to make it all lay out nicely. I&rsquo;ve always been a bit hesitant to immediatly pull in another dependency and decided I was going to solve this one myself. How hard could it be?</p>
-<p>By using the CSS flex layout, I ended up with just the right amount of flexibility and extensibility while keeping things very small code wise. Let&rsquo;s have a look!</p>
+I&rsquo;ve been working with a lot of forms lately and it required some kind of grid system to make it all lay out nicely. I&rsquo;ve always been a bit hesitant to immediatly pull in another dependency and decided I was going to solve this one myself. How hard could it be?
+By using the CSS flex layout, I ended up with just the right amount of flexibility and extensibility while keeping things very small code wise.
 
 <h2><a href="/blog/cfcd-certification/">Cloud Foundry Certified Developer</a></h2>
-<p>Hey look, I got certified in something :-)</p>
-<p><img src="cert.png" alt="CFCD Certificate"></p>
-<p>After a good few nights of self-paced training and practice over at <a href="https://run.pivotal.io">Pivotal</a> I felt confident enough and took the CFCD exam. As you can see
-above, I passed!</p>
+Hey look, I got certified in something :-)
+After a good few nights of self-paced training and practice over at Pivotal I felt confident enough and took the CFCD exam. As you can see above, I passed!
 
 <h2><a href="/blog/sf-multiple-listeners/">Multiple listeners for your Service Fabric service</a></h2>
-<p>Service Fabric is a great piece of technology on the Azure platform and I&rsquo;ve been using it quite a lot in recent projects. It takes away a lot of the setup and orchestration when dealing with microservices.</p>
-<p>There comes a point where services need to talk to each other and this is easily achieved using the Remoting bits you can get from NuGet. The general way of doing this is creating an <code>Interfaces</code> project next to the service that
-contains the service interface and classes used in transport. The interface is implemented on the service entrypoint and a listener is exposed to the Fabric runtime so that it can communicate with the rest of the platform. We&rsquo;re
-going to take it one step further and put the service implementations in their own class instead of on the service entrypoint (keeps things nice and clean) and also enable dependency injection from that point forward.</p>
+Service Fabric is a great piece of technology on the Azure platform and I&rsquo;ve been using it quite a lot in recent projects. It takes away a lot of the setup and orchestration when dealing with microservices.
+There comes a point where services need to talk to each other and this is easily achieved using the Remoting bits you can get from NuGet. The general way of doing this is creating an Interfaces project next to the service that contains the service interface and classes used in transport.
 
 <h2><a href="/blog/angularcli-aspnetcore-quickstart/">Angular (5) and aspnet core (2) quickstart</a></h2>
-<p>Here is a get-up-and-go style post to get going with the angular CLI and aspnet core. Before we begin, there is a template you can use to set (most, if not more) of this up, but it&rsquo;s good to know what is going on behind the curtains.</p>
-<!-- more -->
-<h2 id="first-things-first">First things first.</h2>
-<p>You need some tools installed to get the base project set up.</p>
-<ol>
-<li><a href="https://www.microsoft.com/net/learn/get-started">dotnet core SDK</a></li>
-<li><a href="https://nodejs.org/en/">Node</a></li>
-<li><a href="https://cli.angular.io/">angular-cli</a> which we&rsquo;ll install using NPM.</li>
-</ol>
-<p>Open a command prompt and run the following command:</p>
+Here is a get-up-and-go style post to get going with the angular CLI and aspnet core. Before we begin, there is a template you can use to set (most, if not more) of this up, but it&rsquo;s good to know what is going on behind the curtains.
+First things first. You need some tools installed to get the base project set up.
+ dotnet core SDK Node angular-cli which we&rsquo;ll install using NPM.
 
 <h2><a href="/blog/openhack-ams-2017/">Openhack Amsterdam 2017</a></h2>
-<p>So this hackathon/training thing popped up on my twitter feed a week before it actually started.</p>
-<p><img src="openhack-banner.jpeg" alt="Openhack"></p>
-<p>It caught my attention because it mentioned Azure Service Fabric as one of the tech stacks (the other being Kubernetes)
-that would be the focus of the event. The event is Openhack that took place in Amsterdam from 9 to 11 october 2017.</p>
-<p>So Azure Service Fabric caught my attention because it&rsquo;s a big part of the job I&rsquo;m currently working on. We run a bunch
-of services and actors with great satisfaction, but there&rsquo;s always more to know and learn.</p>
+So this hackathon/training thing popped up on my twitter feed a week before it actually started.
+It caught my attention because it mentioned Azure Service Fabric as one of the tech stacks (the other being Kubernetes) that would be the focus of the event. The event is Openhack that took place in Amsterdam from 9 to 11 october 2017.
+So Azure Service Fabric caught my attention because it&rsquo;s a big part of the job I&rsquo;m currently working on.
 
 <h2><a href="/blog/uploading-files-filereader/">Uploading files - a simple approach</a></h2>
-<p>Here&rsquo;s a nice way of getting images to your server using a little bit of Javascript and HTML. We&rsquo;ll be using the <code>FileReader</code> API that comes with
-Javascript and is supported in <a href="http://caniuse.com/#search=filereader">all</a> major browsers.</p>
-<p>For this example we&rsquo;ll need some HTML from which we can select files and show a preview:</p>
-<pre><code>&lt;div&gt;
-    &lt;input id=&quot;fileInput&quot; type=&quot;file&quot; /&gt;
-    &lt;button id=&quot;clearFile&quot;&gt;Clear&lt;/button&gt;
-    &lt;button id=&quot;uploadFile&quot;&gt;Upload&lt;/button&gt;
-&lt;/div&gt;
-&lt;div&gt;
-    &lt;label&gt;Preview&lt;/label&gt;
-    &lt;div&gt;
-        &lt;img id=&quot;preview&quot; /&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
-<p>We have an <code>input</code> element set to <code>type=&quot;file&quot;</code> to select the file(s) we want to upload. Two <code>button</code>s for submitting and clearing our inputs and an <code>img</code> where we can show a preview.
-This demo only depends on jQuery, which is only used to make performing a POST to the webserver so much simpler. Feel free to substitute that with whatever you like best.</p>
+Here&rsquo;s a nice way of getting images to your server using a little bit of Javascript and HTML. We&rsquo;ll be using the FileReader API that comes with Javascript and is supported in all major browsers.
+For this example we&rsquo;ll need some HTML from which we can select files and show a preview:
+&lt;div&gt; &lt;input id=&quot;fileInput&quot; type=&quot;file&quot; /&gt; &lt;button id=&quot;clearFile&quot;&gt;Clear&lt;/button&gt; &lt;button id=&quot;uploadFile&quot;&gt;Upload&lt;/button&gt; &lt;/div&gt; &lt;div&gt; &lt;label&gt;Preview&lt;/label&gt; &lt;div&gt; &lt;img id=&quot;preview&quot; /&gt; &lt;/div&gt; &lt;/div&gt;  We have an input element set to type=&quot;file&quot; to select the file(s) we want to upload.
 
 <h2><a href="/blog/dotnet-core-cli-user-secrets/">Dotnet Core CLI user secrets</a></h2>
-<p>User secrets are what you use for settings in a .NET Core app that you don&rsquo;t want committed to your public repos (think API keys, passwords, anything sensitive). You map out your actual settings and they override them with the values from the secrets, which are stored outside of the tracked source folder.</p>
-<p>On windows the user secrets folder is located here: <code>%APPDATA%\microsoft\UserSecrets</code>. Let&rsquo;s have a look at how use them with the new tooling for .NET Core that came out recently.</p>
+User secrets are what you use for settings in a .NET Core app that you don&rsquo;t want committed to your public repos (think API keys, passwords, anything sensitive). You map out your actual settings and they override them with the values from the secrets, which are stored outside of the tracked source folder.
+On windows the user secrets folder is located here: %APPDATA%\microsoft\UserSecrets. Let&rsquo;s have a look at how use them with the new tooling for .
 
 <h2><a href="/blog/dotnet-core-tooling-quickstart/">Dotnet Core tooling quickstart</a></h2>
-<p>With the .NET Core tools finally showing signs of stabilizing in version 1.0.1 we can have a little look at how you can get started with a new project using just the tools.</p>
-<p>You can download the new stuff <a href="https://www.microsoft.com/net/core#windowscmd">here</a>. I&rsquo;m writing this post using the 1.0.1 version of the tools.</p>
-<p><img src="coreversion.png" alt="dotnet &ndash;version"></p>
-<p>A new very nice thing is that the new tooling comes with some built in templates you can use instead of relying on something like <a href="http://yeoman.io/">Yeoman</a> to create an empty project for you. The <code>dotnet new</code> command is still the way to create a new project (like it was in the older tools) but you can now specify what kind of project you want as a base.</p>
+With the .NET Core tools finally showing signs of stabilizing in version 1.0.1 we can have a little look at how you can get started with a new project using just the tools.
+You can download the new stuff here. I&rsquo;m writing this post using the 1.0.1 version of the tools.
+A new very nice thing is that the new tooling comes with some built in templates you can use instead of relying on something like Yeoman to create an empty project for you.
 
 <h2><a href="/blog/date-validation-in-angularjs/">Date validation in AngularJS</a></h2>
-<p>Another angular post! This time we take a look at how to create a directive that ensures the user enters a valid date (and/or time).</p>
-<p>Let&rsquo;s start with some boilerplate stuff first. I&rsquo;m going to assume that you have something working Angular already, we will only cover the date validation directive in this post.
-Here is some HTML.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span>&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">ng-app</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;validDateApp&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>	&lt;<span style="color:#f92672">div</span> <span style="color:#a6e22e">ng-form</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;myForm&#34;</span> <span style="color:#a6e22e">ng-controller</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;testController&#34;</span>&gt;
-</span></span><span style="display:flex;"><span>		&lt;<span style="color:#f92672">input</span> <span style="color:#a6e22e">ng-model</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;myDate&#34;</span> <span style="color:#a6e22e">my-valid-date</span> <span style="color:#a6e22e">name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;myDateInput&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;text&#34;</span> /&gt;
-</span></span><span style="display:flex;"><span>	&lt;/<span style="color:#f92672">div</span>&gt;
-</span></span><span style="display:flex;"><span>&lt;/<span style="color:#f92672">div</span>&gt;
-</span></span></code></pre></div><p>And it&rsquo;s Angular app to go with it:</p>
+Another angular post! This time we take a look at how to create a directive that ensures the user enters a valid date (and/or time).
+Let&rsquo;s start with some boilerplate stuff first. I&rsquo;m going to assume that you have something working Angular already, we will only cover the date validation directive in this post. Here is some HTML.
+&lt;div ng-app=&#34;validDateApp&#34;&gt; &lt;div ng-form=&#34;myForm&#34; ng-controller=&#34;testController&#34;&gt; &lt;input ng-model=&#34;myDate&#34; my-valid-date name=&#34;myDateInput&#34; type=&#34;text&#34; /&gt; &lt;/div&gt; &lt;/div&gt; And it&rsquo;s Angular app to go with it:
 
 <h2><a href="/blog/simple-dialogs-with-angularjs-and-typescript/">Simple dialogs with AngularJS and TypeScript</a></h2>
-<p>While working an Angular (1) web app I ran into the age-old problem of showing the user notifications when certain conditions are met. Show them a little pop-up, in simple terms.</p>
-<p>So what does it take to show a popup? We know the <a href="http://harrewijnen.net/the-dialog-element/"><code>dialog</code> element exists</a> but cannot be used in this case due to browser requirements. The easiest way I could think of is adding a <code>fixed</code> positioned <code>div</code> the the user on top of all other content. Add some CSS in there to make it look nice and we have dialogs.</p>
+While working an Angular (1) web app I ran into the age-old problem of showing the user notifications when certain conditions are met. Show them a little pop-up, in simple terms.
+So what does it take to show a popup? We know the dialog element exists but cannot be used in this case due to browser requirements. The easiest way I could think of is adding a fixed positioned div the the user on top of all other content.
 
 <h2><a href="/blog/the-dialog-element/">The dialog element</a></h2>
-<p>I was grinding my teeth on a z-index problem today. I needed to cover the entire webpage to show something was happening and nothing else was to interrupt. Some elements (for whatever reasons) were poking through the overlay and nothing seemed to fix my problem with the plain old <code>position: fixed</code> element I was using to cover the page.</p>
-<p>So after getting fed up with looking for possible fixes I spent a bit of time looking for alternatives and came across the <code>&lt;dialog&gt;</code> element.</p>
+I was grinding my teeth on a z-index problem today. I needed to cover the entire webpage to show something was happening and nothing else was to interrupt. Some elements (for whatever reasons) were poking through the overlay and nothing seemed to fix my problem with the plain old position: fixed element I was using to cover the page.
+So after getting fed up with looking for possible fixes I spent a bit of time looking for alternatives and came across the &lt;dialog&gt; element.
 
 <h2><a href="/blog/expressjs-route-management/">Express route management</a></h2>
-<p>Setting up a webserver with Node and <a href="http://expressjs.com/">Express</a> is easy very easy.</p>
-<p>Here is a small example:</p>
-<pre><code>var express = require(&quot;express&quot;);
-var app = express();
-
-app.get(&quot;/&quot;, function (request, response) {
-	response.send(&quot;Hello world!&quot;);
-});
-
-app.listen(3000);
-</code></pre>
-<p>Running this and navigating to <code>http://localhost:3000</code> will give you the following result:</p>
-<p><img src="hw.png" alt="Hello world"></p>
-<p>If you only have a few of those endpoints (<code>app.get</code> etc.) things will be fine living in the same <code>index.js</code> file. But what if this starts growing? You add more and more endpoints to your <code>index.js</code> and before you know it you have a 1500 line Javascript mess. Here is a good way of tackling that problem before it rears its head.</p>
+Setting up a webserver with Node and Express is easy very easy.
+Here is a small example:
+var express = require(&quot;express&quot;); var app = express(); app.get(&quot;/&quot;, function (request, response) { response.send(&quot;Hello world!&quot;); }); app.listen(3000);  Running this and navigating to http://localhost:3000 will give you the following result:
+If you only have a few of those endpoints (app.get etc.) things will be fine living in the same index.js file. But what if this starts growing?
 
 <h2><a href="/blog/rabbitmq-with-nodejs-on-cloud-foundry/">RabbitMQ with NodeJS on Cloud Foundry</a></h2>
-<p>I&rsquo;ve been having some more fun with Cloud Foundry deploying Node apps and wanted the apps to communicate in a more disconnected way. A messaging system is a good fit for such a requirement and lucky for me, (Pivotal) Cloud Foundry has RabbitMQ-as-a-Service for me to use.</p>
-<p>So what are we working with? The code is Javascript running on Node, RabbitMQ for the messages and Cloud Foundry is hosting it all.</p>
+I&rsquo;ve been having some more fun with Cloud Foundry deploying Node apps and wanted the apps to communicate in a more disconnected way. A messaging system is a good fit for such a requirement and lucky for me, (Pivotal) Cloud Foundry has RabbitMQ-as-a-Service for me to use.
+So what are we working with? The code is Javascript running on Node, RabbitMQ for the messages and Cloud Foundry is hosting it all.
 
 <h2><a href="/blog/styling-an-html-checkbox/">Creating a toggle switch with HTML and CSS</a></h2>
-<p>My current project involves an interface that is 100% touch driven (no keyboard and mouse) and I was asked to turn a regular old checkbox into a toggle switch.</p>
-<p>Initially I assumed it would be very easy but as with many things browser related, it was not. Let&rsquo;s take a look at some of the things browsers do to checkboxes using this quick example:</p>
-<pre><code>&lt;html&gt;
-	&lt;head&gt;
-		&lt;title&gt;Test&lt;/title&gt;
-		&lt;style&gt;
-			input {
-				border: 1px solid red;
-				background-color: green;
-				width: 50px;
-				height: 50px;
-			}
-		&lt;/style&gt;
-	&lt;/head&gt;
-&lt;body&gt;
-	&lt;div&gt;
-		&lt;input type=&quot;text&quot; /&gt;
-		&lt;input type=&quot;checkbox&quot; /&gt;
-	&lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-</code></pre>
-<p><img src="browsers.PNG" alt="Browsers pls"></p>
+My current project involves an interface that is 100% touch driven (no keyboard and mouse) and I was asked to turn a regular old checkbox into a toggle switch.
+Initially I assumed it would be very easy but as with many things browser related, it was not. Let&rsquo;s take a look at some of the things browsers do to checkboxes using this quick example:
+&lt;html&gt; &lt;head&gt; &lt;title&gt;Test&lt;/title&gt; &lt;style&gt; input { border: 1px solid red; background-color: green; width: 50px; height: 50px; } &lt;/style&gt; &lt;/head&gt; &lt;body&gt; &lt;div&gt; &lt;input type=&quot;text&quot; /&gt; &lt;input type=&quot;checkbox&quot; /&gt; &lt;/div&gt; &lt;/body&gt; &lt;/html&gt;  Sooooo, not a whole lot it seems&hellip; The text input will do as we ask but the checkbox only listens to the new width and height.
 
 <h2><a href="/blog/my-first-asp-net-core-app-on-cloud-foundry/">My first ASP.NET Core app on Cloud Foundry</a></h2>
-<p>Today I tried to deploy a .NET Core web app to a Pivotal Cloud Foundry platform that my <a href="http://www.itq.nl">ITQ</a> buddy <a href="http://www.ruurdkeizer.com">Ruurd</a> set up for us to tinker with. The app itself is a very basic ASP.NET MVC app built with the new ASP.NET Core framework to make it cross-platform. It being cross platform makes it very easy to deploy on something like Cloud Foundry since there is no dependency on Windows or the full .NET Framework anymore.</p>
+Today I tried to deploy a .NET Core web app to a Pivotal Cloud Foundry platform that my ITQ buddy Ruurd set up for us to tinker with. The app itself is a very basic ASP.NET MVC app built with the new ASP.NET Core framework to make it cross-platform. It being cross platform makes it very easy to deploy on something like Cloud Foundry since there is no dependency on Windows or the full .
 
 <h2><a href="/blog/multiple-dbcontexts-on-a-single-database/">Multiple DbContext&#39;s with migrations on a single database</a></h2>
-<p>Here is a small problem I ran into while working on my current project. This project already has an Entity Framework <a href="https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=vs.113).aspx"><code>DbContext</code></a> class with entities and a database. I&rsquo;m adding a new feature but want to keep the changes as isolated as possible. So I wanted to create a second <code>DbContext</code> that handles the entities specific to my new feature.</p>
-<p>Adding the context to the codebase is no hassle, just create the new class and derive it from <code>DbContext</code>. The problem is in the <a href="https://msdn.microsoft.com/en-us/data/jj591621.aspx">migrations</a>. Entity Framework has a system that can track changes to the model and apply those changes to the actual database. To keep track of these changes, Entity Framework uses a table called <code>__MigrationHistory</code> where it stores all kinds of metadata about the model that it can compare to when you make changes to your entities in code.</p>
+Here is a small problem I ran into while working on my current project. This project already has an Entity Framework DbContext class with entities and a database. I&rsquo;m adding a new feature but want to keep the changes as isolated as possible. So I wanted to create a second DbContext that handles the entities specific to my new feature.
+Adding the context to the codebase is no hassle, just create the new class and derive it from DbContext.
 
 <h2><a href="/blog/going-4k/">Going 4K with the Philips BDM4065UC</a></h2>
-<p>Dual screen setups are great for work but you can&rsquo;t always have two of the same size/model side by side. In my previous setup I had my laptop display as the primary and a secondary smaller screen. This being sub-optimal I figured it might be a good time to ask for a new display at <a href="http://www.itq.nl">work</a>. New screens are nice, but what to ask for? Research time!</p>
-<p>I looked at a bunch of 1440p displays but with 4k becoming a more viable solution I started researching really big screens. During my search I came across this <a href="http://weblog.west-wind.com/posts/2015/Nov/23/Going-Big-40-Glorious-inches-of-4k-with-the-Philips-BDM4065UC">post</a> by Rick Strahl and his 4k Philips display. I had seen this display in my search and it certainly looked good on paper but having someone actually use it for development purposes gave me a really good insight. I was sold. 4K should be the way to go.</p>
+Dual screen setups are great for work but you can&rsquo;t always have two of the same size/model side by side. In my previous setup I had my laptop display as the primary and a secondary smaller screen. This being sub-optimal I figured it might be a good time to ask for a new display at work. New screens are nice, but what to ask for? Research time!
+I looked at a bunch of 1440p displays but with 4k becoming a more viable solution I started researching really big screens.
 
 <h2><a href="/blog/animations-and-transforms/">Animations and transforms</a></h2>
-<p>Every employee at <a href="http://www.itq.nl">ITQ</a> has their own little mini-me in the form of a little character based on your appearance. Here is mine:</p>
-<!-- more -->
-<p><img src="minime-front.png" alt="MiniMe"></p>
-<p>So I have this image sitting in a folder on my Ondrive for whenever I might need it. Queue a boring evening with not much else to do, I figured, lets animate some life into the little guy using CSS. Here is the result.</p>
+Every employee at ITQ has their own little mini-me in the form of a little character based on your appearance. Here is mine:
+So I have this image sitting in a folder on my Ondrive for whenever I might need it. Queue a boring evening with not much else to do, I figured, lets animate some life into the little guy using CSS. Here is the result.
+See the Pen Animated MiniMe by Sander Harrewijnen (@Harrewarre) on CodePen.
 
 <h2><a href="/blog/app-config-xdt-transforms/">App.config xdt transforms</a></h2>
-<p>Here is a little hack you can do to enable transformations in <code>app.config</code> like you can in your <code>web.config</code>.</p>
-<!-- more -->
-<p>A quick intro to transformations, they can make your life a bit easier by storing different configs in different files that, depending on your build configuration, end up in the actual config file. Here is a simple example.</p>
-<p>This is the original <code>web.config</code> file:</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
-&lt;configuration&gt;
-  &lt;appSettings&gt;
-	&lt;add key=&quot;SomeSetting&quot; value=&quot;true&quot; /&gt;
-	&lt;add key=&quot;Title&quot; value=&quot;Debug&quot; /&gt;
-  &lt;/appSettings&gt;
-&lt;/configuration&gt;
-</code></pre>
-<p>And there is also a <code>web.Release.config</code>, that looks like this:</p>
+Here is a little hack you can do to enable transformations in app.config like you can in your web.config.
+A quick intro to transformations, they can make your life a bit easier by storing different configs in different files that, depending on your build configuration, end up in the actual config file. Here is a simple example.
+This is the original web.config file:
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt; &lt;configuration&gt; &lt;appSettings&gt; &lt;add key=&quot;SomeSetting&quot; value=&quot;true&quot; /&gt; &lt;add key=&quot;Title&quot; value=&quot;Debug&quot; /&gt; &lt;/appSettings&gt; &lt;/configuration&gt;  And there is also a web.
 
 <h2><a href="/blog/cloudfoundry-summit-2015-berlin/">Cloud Foundry Summit 2015 Berlin</a></h2>
-<p>On the 2nd and 3rd November in 2015, the <a href="https://www.cloudfoundry.org/foundation/">Cloud Foundry Foundation</a> held the <a href="https://www.cloudfoundry.org/">Cloud Foundry</a> Summit in Berlin. The focus of this conference is on Cloud Foundry itself and the community around it.</p>
-<p><a href="http://itq.nl/">ITQ</a> (my employer) is focussing on <a href="http://itq.nl/expertise/cloud-native-apps/">Cloud Native apps</a> and let a small group including myself attend the conference. After a canceled flight due to fog and a 650km roadtrip with my co-workers <a href="https://twitter.com/rwwilden">Ronald</a> and <a href="https://twitter.com/ruurdkeizer">Ruurd</a> we arrived at the hotel at 2am in morning just in time for the first workshop.</p>
+On the 2nd and 3rd November in 2015, the Cloud Foundry Foundation held the Cloud Foundry Summit in Berlin. The focus of this conference is on Cloud Foundry itself and the community around it.
+ITQ (my employer) is focussing on Cloud Native apps and let a small group including myself attend the conference. After a canceled flight due to fog and a 650km roadtrip with my co-workers Ronald and Ruurd we arrived at the hotel at 2am in morning just in time for the first workshop.
 
 <h2><a href="/blog/basic-string-templating-in-c/">Basic string templating in C#</a></h2>
-<p>Every solution I&rsquo;ve worked on required some form of communication via e-mail or other form of text to the outside world, reporting, notifications or something else. There are a bunch of libraries out there that can make your life easy if you need complex templates. But this is not about complex, this is supporting the basics without including all sorts of unnecessary stuff.</p>
-<p>What do we need to make this happen? The first thing is a template. A template is nothing more than a piece of plain text (or HTML if you want) in which we want to replace parts to create a complete message. Lets use something very simple, a single line, one tag.</p>
+Every solution I&rsquo;ve worked on required some form of communication via e-mail or other form of text to the outside world, reporting, notifications or something else. There are a bunch of libraries out there that can make your life easy if you need complex templates. But this is not about complex, this is supporting the basics without including all sorts of unnecessary stuff.
+What do we need to make this happen?
 
 <h2><a href="/blog/currentcolor-in-css/">CurrentColor in CSS</a></h2>
-<p>If you&rsquo;ve ever used something like LESS or SASS you know what a variable is in CSS. There is also a working draft for native <a href="http://www.w3.org/TR/css-variables-1/">CSS variables</a> but there is something in CSS right now that resembles some variable behavior. Not an actual variable, but interesting nonetheless.</p>
-<p>Meet <a href="http://www.w3.org/wiki/CSS3/Color/currentColor">currentColor</a>. Like the description says on the w3 wiki, its value is whatever the <code>color</code> is set to. So how does that work? Lets look at some examples.</p>
+If you&rsquo;ve ever used something like LESS or SASS you know what a variable is in CSS. There is also a working draft for native CSS variables but there is something in CSS right now that resembles some variable behavior. Not an actual variable, but interesting nonetheless.
+Meet currentColor. Like the description says on the w3 wiki, its value is whatever the color is set to. So how does that work?
 
 <h2><a href="/blog/css-transitions-basics/">CSS Transitions basics</a></h2>
-<p>End-users interact with your applications via the user interface (UI for short). If everything was designed with the user in mind, the UI will make things very easy for the user. Everything is nice and organized and easy to navigate. Actions are communicated to the user in a friendly way and the user is happy.</p>
-<p>The sad thing is, state changes in the UI tend to be very abrupt and cold. Instant flashes, so fast the user might not even notice if it is something small. So what can we do about this? CSS supports something called transitions. Transitions allow us to specify what happens what state changes on an element. For example, a button going from normal, to being hovered on by the user, rows in a grid that the user can select or a signal telling the user something happened.</p>
+End-users interact with your applications via the user interface (UI for short). If everything was designed with the user in mind, the UI will make things very easy for the user. Everything is nice and organized and easy to navigate. Actions are communicated to the user in a friendly way and the user is happy.
+The sad thing is, state changes in the UI tend to be very abrupt and cold.
 
 <h2><a href="/blog/easy-windows-service-debugging/">Easy Windows Service debugging</a></h2>
-<p>Long-running processes in a web application running on IIS is a bad idea. The reason for that is that IIS might unload the AppPool that is running your process due to inactivity. Inactivity? Yep, if IIS does not recieve a requests for a while, it will shut the site down to conserve system resources. (This is all configurable ofcourse, but I&rsquo;ve
-seen it happen)</p>
-<p>To allow for long-running stuff, a Windows Service might be a right fit. Here is what the default startup code for a Windows service looks like:</p>
+Long-running processes in a web application running on IIS is a bad idea. The reason for that is that IIS might unload the AppPool that is running your process due to inactivity. Inactivity? Yep, if IIS does not recieve a requests for a while, it will shut the site down to conserve system resources. (This is all configurable ofcourse, but I&rsquo;ve seen it happen)
+To allow for long-running stuff, a Windows Service might be a right fit.
 
 <h2><a href="/blog/generating-an-rss-feed-in-c/">Generating an RSS feed in C#</a></h2>
-<p>A hobby project of mine needed to generate an RSS feed. I was already doing this by just generating and XML file in the webroot and linking to that on the frontpage. But during this coding session, where all the data is pulled straight from the markdown files I wanted to create a controller action to do the generating for me.</p>
-<p>First things first, there is an assembly available out of the box in the .NET Framework. All you need is to make reference to <strong>System.ServiceModel.Syndication</strong> and you are ready to start writing code. The classes we are using are</p>
+A hobby project of mine needed to generate an RSS feed. I was already doing this by just generating and XML file in the webroot and linking to that on the frontpage. But during this coding session, where all the data is pulled straight from the markdown files I wanted to create a controller action to do the generating for me.
+First things first, there is an assembly available out of the box in the .
 
 <h2><a href="/blog/inversion-of-control-dive/">Getting started with Inversion of Control</a></h2>
-<p>Alright, lets dive straight into the deep end! &hellip; ok, but not drown in the process of doing so. One step at a time. Lets&rsquo;s start with an example.</p>
-<h2 id="the-technical-side">The technical side</h2>
-<p>Here is some code:</p>
-<pre><code>public class Foo
-{
-    private readonly Bar bar;
-
-    public Foo()
-    {
-        this.bar = new Bar();
-    }
-}
-</code></pre>
-<p>To create an instance of Foo we write</p>
-<pre><code>Foo theFoo = new Foo();
-</code></pre>
-<p>In this example we have two classes, Foo and Bar. Foo makes use of a Bar to do some work. When a Foo instance is created the creator of the Foo instance has no control over what kind of Bar the Foo instance is going to use. They are stuck together. This code is completely valid but what if we want to let the creator of Foo <strong>control</strong> the kind of Bar that is used? We have to invert control! Here is the same code with it&rsquo;s control flow inverted:</p>
+Alright, lets dive straight into the deep end! &hellip; ok, but not drown in the process of doing so. One step at a time. Lets&rsquo;s start with an example.
+The technical side Here is some code:
+public class Foo { private readonly Bar bar; public Foo() { this.bar = new Bar(); } }  To create an instance of Foo we write
+Foo theFoo = new Foo();  In this example we have two classes, Foo and Bar.
 
 <h2><a href="/blog/overwriting-a-function-in-javascript/">Overwriting a function in Javascript</a></h2>
-<p>A quick little post about overwriting a function in Javascript.</p>
-<p>Take the following piece of code:</p>
-<pre><code>function Thing() {
-    this.Load = function () {
-        // Do stuff some specific way.
-    };
-};
-</code></pre>
-<p>When we want to creat a new Thing we do:</p>
-<pre><code>var newThing = new Thing();
-</code></pre>
-<p>Easy enough. But what if we have a corner case where the Thing needs to load data in another specific way?</p>
+A quick little post about overwriting a function in Javascript.
+Take the following piece of code:
+function Thing() { this.Load = function () { // Do stuff some specific way. }; };  When we want to creat a new Thing we do:
+var newThing = new Thing();  Easy enough. But what if we have a corner case where the Thing needs to load data in another specific way?
 
 <h2><a href="/blog/signalr-dependency-injection/">SignalR dependency injection</a></h2>
-<p>My go-to container for IoC at the moment is <a href="https://simpleinjector.codeplex.com/">SimpleInjector</a> because you know.. it&rsquo;s simple. I&rsquo;ve used it in a couple of projects and used in a hobby project recently again.</p>
-<p>This hobby project uses <a href="http://www.asp.net/signalr">SignalR</a> for real-time communication between browser and server and after setting that up I wanted to inject dependencies in to the SignalR hubs. It is pretty easy but there was a minor catch. Let&rsquo;s look at some code.</p>
+My go-to container for IoC at the moment is SimpleInjector because you know.. it&rsquo;s simple. I&rsquo;ve used it in a couple of projects and used in a hobby project recently again.
+This hobby project uses SignalR for real-time communication between browser and server and after setting that up I wanted to inject dependencies in to the SignalR hubs. It is pretty easy but there was a minor catch. Let&rsquo;s look at some code.
 
 <h2><a href="/blog/the-simplest-loading-indicator/">The simplest loading indicator</a></h2>
-<p>I had a brainwave and dove into codepen for a little bit to doodle around and when I emerged I had this simple little loading indicator. Very simple in terms of markup and CSS (LESS in this case).</p>
-<p>Have a look see :-)</p>
-<p data-height="268" data-theme-id="14183" data-slug-hash="VYogvX" data-default-tab="result" data-user="Harrewarre" class='codepen'>See the Pen <a href='http://codepen.io/Harrewarre/pen/VYogvX/'>Loading indicator</a> by Sander Harrewijnen (<a href='http://codepen.io/Harrewarre'>@Harrewarre</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+I had a brainwave and dove into codepen for a little bit to doodle around and when I emerged I had this simple little loading indicator. Very simple in terms of markup and CSS (LESS in this case).
+Have a look see :-)
+See the Pen Loading indicator by Sander Harrewijnen (@Harrewarre) on CodePen.
 
 
     </main>

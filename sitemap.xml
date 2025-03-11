@@ -3,24 +3,34 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://harre.dev/</loc>
-    <lastmod>2025-02-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://harre.dev/tags/blog/</loc>
-    <lastmod>2025-02-26T00:00:00+00:00</lastmod>
+    <lastmod>2025-03-11T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url><url>
     <loc>https://harre.dev/blog/</loc>
+    <lastmod>2025-03-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://harre.dev/tags/chronicles/</loc>
+    <lastmod>2025-03-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://harre.dev/tags/cloud-native/</loc>
+    <lastmod>2025-03-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://harre.dev/blog/chronicles-product-mindset/</loc>
+    <lastmod>2025-03-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://harre.dev/tags/podcast/</loc>
+    <lastmod>2025-03-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://harre.dev/tags/</loc>
+    <lastmod>2025-03-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://harre.dev/tags/blog/</loc>
     <lastmod>2025-02-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://harre.dev/tags/cloud-native-chronicles/</loc>
     <lastmod>2025-02-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://harre.dev/blog/cloud-native-chronicles-balanced-teams/</loc>
-    <lastmod>2025-02-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://harre.dev/tags/podcast/</loc>
-    <lastmod>2025-02-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://harre.dev/tags/</loc>
     <lastmod>2025-02-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://harre.dev/blog/futo-self-managed-life/</loc>
@@ -404,7 +414,7 @@
     <loc>https://harre.dev/blog/cfcd-certification/</loc>
     <lastmod>2018-04-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://harre.dev/tags/c%23/</loc>
+    <loc>https://harre.dev/tags/c#/</loc>
     <lastmod>2018-03-31T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://harre.dev/tags/microservices/</loc>

@@ -43,10 +43,8 @@
 
 
 <h2><a href="/blog/sf-multiple-listeners/">Multiple listeners for your Service Fabric service</a></h2>
-<p>Service Fabric is a great piece of technology on the Azure platform and I&rsquo;ve been using it quite a lot in recent projects. It takes away a lot of the setup and orchestration when dealing with microservices.</p>
-<p>There comes a point where services need to talk to each other and this is easily achieved using the Remoting bits you can get from NuGet. The general way of doing this is creating an <code>Interfaces</code> project next to the service that
-contains the service interface and classes used in transport. The interface is implemented on the service entrypoint and a listener is exposed to the Fabric runtime so that it can communicate with the rest of the platform. We&rsquo;re
-going to take it one step further and put the service implementations in their own class instead of on the service entrypoint (keeps things nice and clean) and also enable dependency injection from that point forward.</p>
+Service Fabric is a great piece of technology on the Azure platform and I&rsquo;ve been using it quite a lot in recent projects. It takes away a lot of the setup and orchestration when dealing with microservices.
+There comes a point where services need to talk to each other and this is easily achieved using the Remoting bits you can get from NuGet. The general way of doing this is creating an Interfaces project next to the service that contains the service interface and classes used in transport.
 
 
     </main>
