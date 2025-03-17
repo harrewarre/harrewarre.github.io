@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© harre.dev</copyright>
-    <lastBuildDate>Tue, 11 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://harre.dev/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 17 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://harre.dev/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pivotal Tracker alternatives</title>
+      <link>https://harre.dev/blog/pitoval-tracker-alternatives/</link>
+      <pubDate>Mon, 17 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://harre.dev/blog/pitoval-tracker-alternatives/</guid>
+      <description>Pivotal Tracker is an application designed to help teams manage their projects using agile methodologies. It allows users to create and prioritize stories, tasks, and epics, and collaborate in real-time with other developers.
+Sadly, Pivotal Tracker is being shut down.
+The website Goodbye Tracker - Welcome Trackers! is a successor to Pivotal Tracker, an award-winning agile project management tool. The site indicates that 10 teams are working hard to build the next iteration of this tool to allow teams to collaborate around a shared backlog of stories in real time.</description>
+    </item>
+    
     <item>
       <title>Cloud Native Chronicles - Product Mindset</title>
       <link>https://harre.dev/blog/chronicles-product-mindset/</link>
@@ -103,16 +114,6 @@ Updates did not fix the issue since then, but an observant user on the Fairphone
       <description>The process of creating software, compared to other manufacturing processes, is a little bit special. One unique property of a software product is that it can be changed easily and (relatively) cheaply.
 Over in the physical world, changing a product is not so easy. Supply chains, inventory, machinery, whole factories, who knows what&amp;rsquo;s involved that is either difficult to change quickly and/or prohibitively expensive to change.
 So what about this failing more often?</description>
-    </item>
-    
-    <item>
-      <title>You build it, you run it... but what exactly?</title>
-      <link>https://harre.dev/blog/you-build-it-you-run-it/</link>
-      <pubDate>Fri, 13 Sep 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://harre.dev/blog/you-build-it-you-run-it/</guid>
-      <description>&amp;ldquo;You build it, you run it&amp;rdquo;, easy to say, but, depending on your developer experience and platform capability&amp;hellip; not at all easy. What am I expected to &amp;ldquo;build&amp;rdquo; and what should I &amp;ldquo;run&amp;rdquo;? Let&amp;rsquo;s take a look.
-Let&amp;rsquo;s start with this overview that I show teams I engage with during their onboarding and where their responsibilities begin and what not to worry about (but can still affect them of course).</description>
     </item>
     
   </channel>
