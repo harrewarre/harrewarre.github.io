@@ -22,7 +22,7 @@
 <meta property="og:image" content="/og-img.png">
 
 
-      <link rel="stylesheet" href="/css/main.min.f5466cde32ee58ff8dffa03492338359ae392acc017e48244ea85757160f7e9e.css" integrity="sha256-9UZs3jLuWP&#43;N/6A0kjODWa45KswBfkgkTqhXVxYPfp4=" crossorigin="anonymous">
+      <link rel="stylesheet" href="/css/main.min.61bfa0df110a64e334b07469458481a51afa25b374473c3e34e2e48f154dc10a.css" integrity="sha256-Yb&#43;g3xEKZOM0sHRpRYSBpRr6JbN0Rzw&#43;NOLkjxVNwQo=" crossorigin="anonymous">
 
 
 
@@ -61,6 +61,14 @@
 
   </small>
   <h1>SignalR dependency injection</h1>
+
+  
+  
+  <div class="old-content-banner">
+      <span class="warning-bubble">❗</span>This post is more than 3 years old! Whatever you find here could be outdated.
+  </div>
+  
+
   <p>My go-to container for IoC at the moment is <a href="https://simpleinjector.codeplex.com/">SimpleInjector</a> because you know.. it&rsquo;s simple. I&rsquo;ve used it in a couple of projects and used in a hobby project recently again.</p>
 <p>This hobby project uses <a href="http://www.asp.net/signalr">SignalR</a> for real-time communication between browser and server and after setting that up I wanted to inject dependencies in to the SignalR hubs. It is pretty easy but there was a minor catch. Let&rsquo;s look at some code.</p>
 <p>The first thing that is required is a dependency resolver that works with SignalR, lucky for us, it provides a built-in default one which we can implement:</p>

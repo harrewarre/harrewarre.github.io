@@ -22,7 +22,7 @@
 <meta property="og:image" content="/og-img.png">
 
 
-      <link rel="stylesheet" href="/css/main.min.f5466cde32ee58ff8dffa03492338359ae392acc017e48244ea85757160f7e9e.css" integrity="sha256-9UZs3jLuWP&#43;N/6A0kjODWa45KswBfkgkTqhXVxYPfp4=" crossorigin="anonymous">
+      <link rel="stylesheet" href="/css/main.min.61bfa0df110a64e334b07469458481a51afa25b374473c3e34e2e48f154dc10a.css" integrity="sha256-Yb&#43;g3xEKZOM0sHRpRYSBpRr6JbN0Rzw&#43;NOLkjxVNwQo=" crossorigin="anonymous">
 
 
 
@@ -61,6 +61,14 @@
 
   </small>
   <h1>Multiple DbContext&#39;s with migrations on a single database</h1>
+
+  
+  
+  <div class="old-content-banner">
+      <span class="warning-bubble">❗</span>This post is more than 3 years old! Whatever you find here could be outdated.
+  </div>
+  
+
   <p>Here is a small problem I ran into while working on my current project. This project already has an Entity Framework <a href="https://msdn.microsoft.com/en-us/library/system.data.entity.dbcontext(v=vs.113).aspx"><code>DbContext</code></a> class with entities and a database. I&rsquo;m adding a new feature but want to keep the changes as isolated as possible. So I wanted to create a second <code>DbContext</code> that handles the entities specific to my new feature.</p>
 <p>Adding the context to the codebase is no hassle, just create the new class and derive it from <code>DbContext</code>. The problem is in the <a href="https://msdn.microsoft.com/en-us/data/jj591621.aspx">migrations</a>. Entity Framework has a system that can track changes to the model and apply those changes to the actual database. To keep track of these changes, Entity Framework uses a table called <code>__MigrationHistory</code> where it stores all kinds of metadata about the model that it can compare to when you make changes to your entities in code.</p>
 <p><img src="dbo_MigHist.png" alt="__MigrationHistory table"></p>

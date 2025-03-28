@@ -20,7 +20,7 @@
 <meta property="og:image" content="/og-img.png">
 
 
-      <link rel="stylesheet" href="/css/main.min.f5466cde32ee58ff8dffa03492338359ae392acc017e48244ea85757160f7e9e.css" integrity="sha256-9UZs3jLuWP&#43;N/6A0kjODWa45KswBfkgkTqhXVxYPfp4=" crossorigin="anonymous">
+      <link rel="stylesheet" href="/css/main.min.61bfa0df110a64e334b07469458481a51afa25b374473c3e34e2e48f154dc10a.css" integrity="sha256-Yb&#43;g3xEKZOM0sHRpRYSBpRr6JbN0Rzw&#43;NOLkjxVNwQo=" crossorigin="anonymous">
 
 
 
@@ -57,6 +57,14 @@
 
   </small>
   <h1>Enable tethering on LineageOS using ADB</h1>
+
+  
+  
+  <div class="old-content-banner">
+      <span class="warning-bubble">❗</span>This post is more than 3 years old! Whatever you find here could be outdated.
+  </div>
+  
+
   <h4 id="update">Update</h4>
 <p>After updating to a newer version, I couldn&rsquo;t get the below steps to work any more. Here is some extra stuff to get it to work again. It comes down to <code>build.prop</code> not accepting the changes you make because it&rsquo;s being loaded as read-only. Remounting the filesystem as read-write and then pushing the updated file will do the trick.</p>
 <p>Run the following through ADB <strong>with root enabled</strong> (flash the SuperSU zip found on the lineage OS website and enable root in the developer settings).</p>

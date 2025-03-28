@@ -21,7 +21,7 @@
 <meta property="og:image" content="/og-img.png">
 
 
-      <link rel="stylesheet" href="/css/main.min.f5466cde32ee58ff8dffa03492338359ae392acc017e48244ea85757160f7e9e.css" integrity="sha256-9UZs3jLuWP&#43;N/6A0kjODWa45KswBfkgkTqhXVxYPfp4=" crossorigin="anonymous">
+      <link rel="stylesheet" href="/css/main.min.61bfa0df110a64e334b07469458481a51afa25b374473c3e34e2e48f154dc10a.css" integrity="sha256-Yb&#43;g3xEKZOM0sHRpRYSBpRr6JbN0Rzw&#43;NOLkjxVNwQo=" crossorigin="anonymous">
 
 
 
@@ -59,6 +59,14 @@
 
   </small>
   <h1>Basic string templating in C#</h1>
+
+  
+  
+  <div class="old-content-banner">
+      <span class="warning-bubble">❗</span>This post is more than 3 years old! Whatever you find here could be outdated.
+  </div>
+  
+
   <p>Every solution I&rsquo;ve worked on required some form of communication via e-mail or other form of text to the outside world, reporting, notifications or something else. There are a bunch of libraries out there that can make your life easy if you need complex templates. But this is not about complex, this is supporting the basics without including all sorts of unnecessary stuff.</p>
 <p>What do we need to make this happen? The first thing is a template. A template is nothing more than a piece of plain text (or HTML if you want) in which we want to replace parts to create a complete message. Lets use something very simple, a single line, one tag.</p>
 <pre><code>Reminder: %reminderText%
