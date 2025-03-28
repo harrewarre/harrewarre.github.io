@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© harre.dev</copyright>
-    <lastBuildDate>Mon, 17 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://harre.dev/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 28 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://harre.dev/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cloud Native Chronicles - The 10 minute build</title>
+      <link>https://harre.dev/blog/chronicles-10-minute-build/</link>
+      <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://harre.dev/blog/chronicles-10-minute-build/</guid>
+      <description>In this episode of Cloud Native Chronicles, hosts Johan and I discuss the concept of the 10-minute build, emphasizing its importance in maintaining developer focus and efficiency.
+We explore the technical and cultural aspects of build processes, the significance of team dynamics, and the necessity of standardizing builds across different teams. The conversation also touches on the balance between speed and reliability in software deployment, advocating for a culture of confidence in shipping software quickly while minimizing risks.</description>
+    </item>
+    
     <item>
       <title>Pivotal Tracker alternatives</title>
       <link>https://harre.dev/blog/pitoval-tracker-alternatives/</link>
@@ -103,17 +113,6 @@ Putting this here in case the forum gets cleaned or closes or who knows what. Qu
 A while ago I wrote about my experience with the Fairphone 5 and that it was &amp;ldquo;Meh&amp;rdquo; at best due to some pretty annoying software issues.
 Here is a link to that previous post.
 Updates did not fix the issue since then, but an observant user on the Fairphone forum noticed when his phone started acting up.</description>
-    </item>
-    
-    <item>
-      <title>Are you failing enough?</title>
-      <link>https://harre.dev/blog/are-you-failing-enough/</link>
-      <pubDate>Wed, 02 Oct 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://harre.dev/blog/are-you-failing-enough/</guid>
-      <description>The process of creating software, compared to other manufacturing processes, is a little bit special. One unique property of a software product is that it can be changed easily and (relatively) cheaply.
-Over in the physical world, changing a product is not so easy. Supply chains, inventory, machinery, whole factories, who knows what&amp;rsquo;s involved that is either difficult to change quickly and/or prohibitively expensive to change.
-So what about this failing more often?</description>
     </item>
     
   </channel>

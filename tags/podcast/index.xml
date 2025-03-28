@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© harre.dev</copyright>
-    <lastBuildDate>Tue, 11 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://harre.dev/tags/podcast/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 28 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://harre.dev/tags/podcast/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cloud Native Chronicles - The 10 minute build</title>
+      <link>https://harre.dev/blog/chronicles-10-minute-build/</link>
+      <pubDate>Fri, 28 Mar 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://harre.dev/blog/chronicles-10-minute-build/</guid>
+      <description>In this episode of Cloud Native Chronicles, hosts Johan and I discuss the concept of the 10-minute build, emphasizing its importance in maintaining developer focus and efficiency.
+We explore the technical and cultural aspects of build processes, the significance of team dynamics, and the necessity of standardizing builds across different teams. The conversation also touches on the balance between speed and reliability in software deployment, advocating for a culture of confidence in shipping software quickly while minimizing risks.</description>
+    </item>
+    
     <item>
       <title>Cloud Native Chronicles - Product Mindset</title>
       <link>https://harre.dev/blog/chronicles-product-mindset/</link>
