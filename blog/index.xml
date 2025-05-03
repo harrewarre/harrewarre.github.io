@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© harre.dev</copyright>
-    <lastBuildDate>Fri, 28 Mar 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://harre.dev/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 03 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://harre.dev/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The post about AI</title>
+      <link>https://harre.dev/blog/the-post-about-ai/</link>
+      <pubDate>Sat, 03 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://harre.dev/blog/the-post-about-ai/</guid>
+      <description>But lets clamp that down right away, this is more about LLMs, and even more specificically, code generation using LLMs.
+GitHub CoPilot, Cursor, ChatGPT, you name it, it&amp;rsquo;s everywhere in developer land. I&amp;rsquo;ve been using Github CoPilot (in the browser for now) to have it do some work for a while now and it&amp;rsquo;s been hit-and-miss. It&amp;rsquo;ll do the boilerplate stuff well enough but at the same time it&amp;rsquo;s very easy get served something that makes no sense.</description>
+    </item>
+    
     <item>
       <title>Cloud Native Chronicles - The 10 minute build</title>
       <link>https://harre.dev/blog/chronicles-10-minute-build/</link>
@@ -100,19 +110,6 @@ If work items are prioritized outside your development team, you need to have a 
       <guid>https://harre.dev/blog/cloud-foundry-buildpack-environment-variables/</guid>
       <description>I recently ran into a situation I hadn&amp;rsquo;t dealt with before.
 A Python app I was working on was loading modules from a location outside of Pythons known locations. My first instinct was to update the manifest.yml env section with a PYTHONPATH variable that would add this additional location to the Python path but that would not stick. Using cf set-env to update the variable after the fact also did not work.</description>
-    </item>
-    
-    <item>
-      <title>Fairphone 5 app switcher fix</title>
-      <link>https://harre.dev/blog/fairphone-5-app-switcher-fix/</link>
-      <pubDate>Mon, 14 Oct 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://harre.dev/blog/fairphone-5-app-switcher-fix/</guid>
-      <description>tl;dr: Turn of Desktop mode in Settings -&amp;gt; Display -&amp;gt; Desktop mode
-Putting this here in case the forum gets cleaned or closes or who knows what. Quick one here for you Fairphone 5 users.
-A while ago I wrote about my experience with the Fairphone 5 and that it was &amp;ldquo;Meh&amp;rdquo; at best due to some pretty annoying software issues.
-Here is a link to that previous post.
-Updates did not fix the issue since then, but an observant user on the Fairphone forum noticed when his phone started acting up.</description>
     </item>
     
   </channel>

@@ -3,11 +3,26 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://harre.dev/</loc>
-    <lastmod>2025-03-28T00:00:00+00:00</lastmod>
+    <lastmod>2025-05-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url><url>
+    <loc>https://harre.dev/tags/ai/</loc>
+    <lastmod>2025-05-03T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://harre.dev/blog/</loc>
-    <lastmod>2025-03-28T00:00:00+00:00</lastmod>
+    <lastmod>2025-05-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://harre.dev/tags/llm/</loc>
+    <lastmod>2025-05-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://harre.dev/tags/</loc>
+    <lastmod>2025-05-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://harre.dev/blog/the-post-about-ai/</loc>
+    <lastmod>2025-05-03T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://harre.dev/tags/vibe-coding/</loc>
+    <lastmod>2025-05-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://harre.dev/tags/chronicles/</loc>
     <lastmod>2025-03-28T00:00:00+00:00</lastmod>
@@ -19,9 +34,6 @@
     <lastmod>2025-03-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://harre.dev/tags/podcast/</loc>
-    <lastmod>2025-03-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://harre.dev/tags/</loc>
     <lastmod>2025-03-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://harre.dev/blog/pitoval-tracker-alternatives/</loc>

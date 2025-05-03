@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ai on harre.dev</title>
+    <link>https://harre.dev/tags/ai/</link>
+    <description>Recent content in ai on harre.dev</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© harre.dev</copyright>
+    <lastBuildDate>Sat, 03 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://harre.dev/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The post about AI</title>
+      <link>https://harre.dev/blog/the-post-about-ai/</link>
+      <pubDate>Sat, 03 May 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://harre.dev/blog/the-post-about-ai/</guid>
+      <description>But lets clamp that down right away, this is more about LLMs, and even more specificically, code generation using LLMs.
+GitHub CoPilot, Cursor, ChatGPT, you name it, it&amp;rsquo;s everywhere in developer land. I&amp;rsquo;ve been using Github CoPilot (in the browser for now) to have it do some work for a while now and it&amp;rsquo;s been hit-and-miss. It&amp;rsquo;ll do the boilerplate stuff well enough but at the same time it&amp;rsquo;s very easy get served something that makes no sense.</description>
+    </item>
+    
+  </channel>
+</rss>
