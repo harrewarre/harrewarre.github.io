@@ -48,7 +48,7 @@ $.ajax({ type: &amp;quot;POST&amp;quot;, url: url, data: JSON.stringify(data), d
       <description>Here is a little hack you can do to enable transformations in app.config like you can in your web.config.
 A quick intro to transformations, they can make your life a bit easier by storing different configs in different files that, depending on your build configuration, end up in the actual config file. Here is a simple example.
 This is the original web.config file:
-&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot; ?&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;appSettings&amp;gt; &amp;lt;add key=&amp;quot;SomeSetting&amp;quot; value=&amp;quot;true&amp;quot; /&amp;gt; &amp;lt;add key=&amp;quot;Title&amp;quot; value=&amp;quot;Debug&amp;quot; /&amp;gt; &amp;lt;/appSettings&amp;gt; &amp;lt;/configuration&amp;gt;  And there is also a web.</description>
+&amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;utf-8&amp;#34; ?&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;appSettings&amp;gt; &amp;lt;add key=&amp;#34;SomeSetting&amp;#34; value=&amp;#34;true&amp;#34; /&amp;gt; &amp;lt;add key=&amp;#34;Title&amp;#34; value=&amp;#34;Debug&amp;#34; /&amp;gt; &amp;lt;/appSettings&amp;gt; &amp;lt;/configuration&amp;gt; And there is also a web.</description>
     </item>
     
     <item>

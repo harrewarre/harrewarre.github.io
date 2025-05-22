@@ -71,88 +71,80 @@
 <!-- more -->
 <p>A quick intro to transformations, they can make your life a bit easier by storing different configs in different files that, depending on your build configuration, end up in the actual config file. Here is a simple example.</p>
 <p>This is the original <code>web.config</code> file:</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
-&lt;configuration&gt;
-  &lt;appSettings&gt;
-	&lt;add key=&quot;SomeSetting&quot; value=&quot;true&quot; /&gt;
-	&lt;add key=&quot;Title&quot; value=&quot;Debug&quot; /&gt;
-  &lt;/appSettings&gt;
-&lt;/configuration&gt;
-</code></pre>
-<p>And there is also a <code>web.Release.config</code>, that looks like this:</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
-&lt;configuration xmlns:xdt=&quot;http://schemas.microsoft.com/XML-Document-Transform&quot;&gt;
-  &lt;appSettings&gt;
-	&lt;add key=&quot;Title&quot; value=&quot;Release&quot; xdt:Transform=&quot;Replace&quot; xdt:Locator=&quot;Match(key)&quot; /&gt;
-  &lt;/appSettings&gt;
-&lt;/configuration&gt;
-</code></pre>
-<p>They look the same, but the <code>web.Release.config</code> declares transformations that can act on the original <code>web.config</code> file. So when we switch the configuration to <code>Release</code> to create a different build in Visual Studio, we get a different config file that is transformed based on the transformations in the matching <code>web.Release.config</code> file.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34; ?&gt;</span>
+<span style="color:#f92672">&lt;configuration&gt;</span>
+  <span style="color:#f92672">&lt;appSettings&gt;</span>
+    <span style="color:#f92672">&lt;add</span> <span style="color:#a6e22e">key=</span><span style="color:#e6db74">&#34;SomeSetting&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;add</span> <span style="color:#a6e22e">key=</span><span style="color:#e6db74">&#34;Title&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;Debug&#34;</span> <span style="color:#f92672">/&gt;</span>
+  <span style="color:#f92672">&lt;/appSettings&gt;</span>
+<span style="color:#f92672">&lt;/configuration&gt;</span>
+</code></pre></div><p>And there is also a <code>web.Release.config</code>, that looks like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34; ?&gt;</span>
+<span style="color:#f92672">&lt;configuration</span> <span style="color:#a6e22e">xmlns:xdt=</span><span style="color:#e6db74">&#34;http://schemas.microsoft.com/XML-Document-Transform&#34;</span><span style="color:#f92672">&gt;</span>
+  <span style="color:#f92672">&lt;appSettings&gt;</span>
+    <span style="color:#f92672">&lt;add</span> <span style="color:#a6e22e">key=</span><span style="color:#e6db74">&#34;Title&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;Release&#34;</span> <span style="color:#a6e22e">xdt:Transform=</span><span style="color:#e6db74">&#34;Replace&#34;</span> <span style="color:#a6e22e">xdt:Locator=</span><span style="color:#e6db74">&#34;Match(key)&#34;</span> <span style="color:#f92672">/&gt;</span>
+  <span style="color:#f92672">&lt;/appSettings&gt;</span>
+<span style="color:#f92672">&lt;/configuration&gt;</span>
+</code></pre></div><p>They look the same, but the <code>web.Release.config</code> declares transformations that can act on the original <code>web.config</code> file. So when we switch the configuration to <code>Release</code> to create a different build in Visual Studio, we get a different config file that is transformed based on the transformations in the matching <code>web.Release.config</code> file.</p>
 <p>The resulting <code>web.config</code> will look like this when a <code>Release</code> build is done:</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
-&lt;configuration&gt;
-  &lt;appSettings&gt;
-	&lt;add key=&quot;SomeSetting&quot; value=&quot;true&quot; /&gt;
-	&lt;add key=&quot;Title&quot; value=&quot;Release&quot; /&gt;
-  &lt;/appSettings&gt;
-&lt;/configuration&gt;
-</code></pre>
-<p>And will be left unchanged on a <code>Debug</code> build.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#75715e">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34; ?&gt;</span>
+<span style="color:#f92672">&lt;configuration&gt;</span>
+  <span style="color:#f92672">&lt;appSettings&gt;</span>
+    <span style="color:#f92672">&lt;add</span> <span style="color:#a6e22e">key=</span><span style="color:#e6db74">&#34;SomeSetting&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;true&#34;</span> <span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;add</span> <span style="color:#a6e22e">key=</span><span style="color:#e6db74">&#34;Title&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;Release&#34;</span> <span style="color:#f92672">/&gt;</span>
+  <span style="color:#f92672">&lt;/appSettings&gt;</span>
+<span style="color:#f92672">&lt;/configuration&gt;</span>
+</code></pre></div><p>And will be left unchanged on a <code>Debug</code> build.</p>
 <p>These transforms work for any ASP.NET web application by default. No changes needed, it just works. For other applications types however, they don&rsquo;t work. So why do this yourself? There is Slow Cheetah that solved this problem already. Yes, but sadly&hellip; <a href="https://github.com/sayedihashimi/slow-cheetah/issues/158">Slow Cheetah is no longer updated</a> and will not receive updates to work with Visual Studio 2015. There is a <a href="http://visualstudio.uservoice.com/forums/121579-visual-studio/suggestions/2043217-support-web-config-style-transforms-on-any-file-in">pretty big demand</a> to have the transforms work in any XML file, but until then, we&rsquo;ll have to do it ourselves. So much for the transforms themselves, lets dive in to the subject at hand!</p>
 <p>If you create a new console app, you will get an <code>App.config</code> by default. When you add another config file, it will be created as <code>App1.config</code> and will not be linked to the existing config that is already in the project. Lets fix that first. Rename the <code>App1.config</code> file to <code>App.Release.config</code>.</p>
 <p><img src="web-1.png" alt="Configs!"></p>
 <p>Here is the first hacky part. Unload the project and edit the <code>csproj</code> file manually. Look for an <code>ItemGroup</code> that looks like this:</p>
-<pre><code>&lt;ItemGroup&gt;
-  &lt;None Include=&quot;App.config&quot; /&gt;
-  &lt;None Include=&quot;App.Release.config&quot; /&gt;
-&lt;/ItemGroup&gt;
-</code></pre>
-<p>And change it to this:</p>
-<pre><code>&lt;ItemGroup&gt;
-	&lt;None Include=&quot;App.config&quot; /&gt;
-	&lt;None Include=&quot;App.Release.config&quot;&gt;
-		&lt;DependentUpon&gt;App.config&lt;/DependentUpon&gt;
-	&lt;/None&gt;
-&lt;/ItemGroup&gt;
-</code></pre>
-<p>Save and close the file and reload the project. It should now look like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;ItemGroup&gt;</span>
+  <span style="color:#f92672">&lt;None</span> <span style="color:#a6e22e">Include=</span><span style="color:#e6db74">&#34;App.config&#34;</span> <span style="color:#f92672">/&gt;</span>
+  <span style="color:#f92672">&lt;None</span> <span style="color:#a6e22e">Include=</span><span style="color:#e6db74">&#34;App.Release.config&#34;</span> <span style="color:#f92672">/&gt;</span>
+<span style="color:#f92672">&lt;/ItemGroup&gt;</span>
+</code></pre></div><p>And change it to this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;ItemGroup&gt;</span>
+  <span style="color:#f92672">&lt;None</span> <span style="color:#a6e22e">Include=</span><span style="color:#e6db74">&#34;App.config&#34;</span> <span style="color:#f92672">/&gt;</span>
+  <span style="color:#f92672">&lt;None</span> <span style="color:#a6e22e">Include=</span><span style="color:#e6db74">&#34;App.Release.config&#34;</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;DependentUpon&gt;</span>App.config<span style="color:#f92672">&lt;/DependentUpon&gt;</span>
+  <span style="color:#f92672">&lt;/None&gt;</span>
+<span style="color:#f92672">&lt;/ItemGroup&gt;</span>
+</code></pre></div><p>Save and close the file and reload the project. It should now look like this:</p>
 <p><img src="web1.png" alt="New Config"></p>
 <p>It now looks like its <code>web.config</code> sibling, but we&rsquo;re not quite there yet. We still need to enable transforms. Unload the project again and edit the <code>csproj</code> file.</p>
 <p>Look for this line:</p>
-<pre><code>&lt;Import Project=&quot;$(MSBuildToolsPath)\Microsoft.CSharp.targets&quot; /&gt;
-</code></pre>
-<p>And paste this whole blob under that line:</p>
-<pre><code>&lt;UsingTask TaskName=&quot;TransformXml&quot; AssemblyFile=&quot;$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v14.0\Web\Microsoft.Web.Publishing.Tasks.dll&quot; /&gt;
-  &lt;Target Name=&quot;AfterCompile&quot; Condition=&quot;exists('app.$(Configuration).config')&quot;&gt;
-	&lt;TransformXml Source=&quot;app.config&quot; Destination=&quot;$(IntermediateOutputPath)$(TargetFileName).config&quot; Transform=&quot;app.$(Configuration).config&quot; /&gt;
-	&lt;ItemGroup&gt;
-	  &lt;AppConfigWithTargetPath Remove=&quot;app.config&quot; /&gt;
-	  &lt;AppConfigWithTargetPath Include=&quot;$(IntermediateOutputPath)$(TargetFileName).config&quot;&gt;
-		&lt;TargetPath&gt;$(TargetFileName).config&lt;/TargetPath&gt;
-	  &lt;/AppConfigWithTargetPath&gt;
-	&lt;/ItemGroup&gt;
-  &lt;/Target&gt;
-</code></pre>
-<p>So what does that even mean? Well, it instructs MSBuild to run a task named <code>TransformXml</code> that lives in <code>Microsoft.Web.Publishing.Tasks.dll</code> when compilation of the code completes. It then renames the <code>App.&lt;configuration&gt;.config</code> file to <code>App.config</code> and moves it to the correct folder.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;Import</span> <span style="color:#a6e22e">Project=</span><span style="color:#e6db74">&#34;$(MSBuildToolsPath)\Microsoft.CSharp.targets&#34;</span> <span style="color:#f92672">/&gt;</span>
+</code></pre></div><p>And paste this whole blob under that line:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;UsingTask</span> <span style="color:#a6e22e">TaskName=</span><span style="color:#e6db74">&#34;TransformXml&#34;</span> <span style="color:#a6e22e">AssemblyFile=</span><span style="color:#e6db74">&#34;$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v14.0\Web\Microsoft.Web.Publishing.Tasks.dll&#34;</span> <span style="color:#f92672">/&gt;</span>
+  <span style="color:#f92672">&lt;Target</span> <span style="color:#a6e22e">Name=</span><span style="color:#e6db74">&#34;AfterCompile&#34;</span> <span style="color:#a6e22e">Condition=</span><span style="color:#e6db74">&#34;exists(&#39;app.$(Configuration).config&#39;)&#34;</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#f92672">&lt;TransformXml</span> <span style="color:#a6e22e">Source=</span><span style="color:#e6db74">&#34;app.config&#34;</span> <span style="color:#a6e22e">Destination=</span><span style="color:#e6db74">&#34;$(IntermediateOutputPath)$(TargetFileName).config&#34;</span> <span style="color:#a6e22e">Transform=</span><span style="color:#e6db74">&#34;app.$(Configuration).config&#34;</span> <span style="color:#f92672">/&gt;</span>
+    <span style="color:#f92672">&lt;ItemGroup&gt;</span>
+      <span style="color:#f92672">&lt;AppConfigWithTargetPath</span> <span style="color:#a6e22e">Remove=</span><span style="color:#e6db74">&#34;app.config&#34;</span> <span style="color:#f92672">/&gt;</span>
+      <span style="color:#f92672">&lt;AppConfigWithTargetPath</span> <span style="color:#a6e22e">Include=</span><span style="color:#e6db74">&#34;$(IntermediateOutputPath)$(TargetFileName).config&#34;</span><span style="color:#f92672">&gt;</span>
+        <span style="color:#f92672">&lt;TargetPath&gt;</span>$(TargetFileName).config<span style="color:#f92672">&lt;/TargetPath&gt;</span>
+      <span style="color:#f92672">&lt;/AppConfigWithTargetPath&gt;</span>
+    <span style="color:#f92672">&lt;/ItemGroup&gt;</span>
+  <span style="color:#f92672">&lt;/Target&gt;</span>
+</code></pre></div><p>So what does that even mean? Well, it instructs MSBuild to run a task named <code>TransformXml</code> that lives in <code>Microsoft.Web.Publishing.Tasks.dll</code> when compilation of the code completes. It then renames the <code>App.&lt;configuration&gt;.config</code> file to <code>App.config</code> and moves it to the correct folder.</p>
 <p>One word of caution though, if you run this build through a CI system like Jenkins, you need the <code>Microsoft.Web.Publishing.Tasks.dll</code> available on the machine that builds the code! If its not there, transformations will not be executed. The easiest fix is to install Visual Studio on the target build machine but you could also manually create the right folders and files by hand as long as you can match this path: <code>$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v14.0\Web\Microsoft.Web.Publishing.Tasks.dll</code>. Also note the <code>v14.0</code> in there, this points to an installation of Visual Studio 2015! Other versions of Visual Studio have the DLL in different a folder.</p>
 <p>If you put the transforms from the web.config we started with in the <code>App.config</code> and <code>App.Release.config</code> we can take it for a spin.</p>
 <p>Here is what I&rsquo;m running in the console app: (Don&rsquo;t forget the reference to <code>System.Configuration</code>)</p>
-<pre><code>using System;
-using System.Configuration;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">using</span> System;
+<span style="color:#66d9ef">using</span> System.Configuration;
 
-namespace ConsoleApplication1
+<span style="color:#66d9ef">namespace</span> ConsoleApplication1
 {
-	class Program
-	{
-		static void Main(string[] args)
-		{
-			Console.WriteLine(ConfigurationManager.AppSettings[&quot;Title&quot;]);
-			Console.ReadLine();
-		}
-	}
+    <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Program</span>
+    {
+        <span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main(<span style="color:#66d9ef">string</span>[] args)
+        {
+            Console.WriteLine(ConfigurationManager.AppSettings[<span style="color:#e6db74">&#34;Title&#34;</span>]);
+            Console.ReadLine();
+        }
+    }
 }
-</code></pre>
-<p>Running in the <code>Debug</code> configuration produces this output:</p>
+</code></pre></div><p>Running in the <code>Debug</code> configuration produces this output:</p>
 <p><img src="debug.png" alt="Debug"></p>
 <p>And <code>Release</code> produces this:</p>
 <p><img src="release.png" alt="Release"></p>
