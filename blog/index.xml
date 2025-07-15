@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© harre.dev</copyright>
-    <lastBuildDate>Sat, 03 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://harre.dev/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 15 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://harre.dev/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>New Cloud Native Chronicles episodes</title>
+      <link>https://harre.dev/blog/cloud-native-chronicles-tdd-xp/</link>
+      <pubDate>Tue, 15 Jul 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://harre.dev/blog/cloud-native-chronicles-tdd-xp/</guid>
+      <description>New episodes dropped recently and I totally forgot to post them here! Now I could create a post for each of them but nah, here you go :-)
+Golden paths  Platform as a product  Pair Programming  Test-driven development </description>
+    </item>
+    
     <item>
       <title>The post about AI</title>
       <link>https://harre.dev/blog/the-post-about-ai/</link>
@@ -100,16 +110,6 @@ https://wiki.futo.org/wiki/Introduction_to_a_Self_Managed_Life:_a_13_hour_%26_28
       <guid>https://harre.dev/blog/team-priorities/</guid>
       <description>Not all work is equally important in the stream of stuff that needs to get done when building and shipping software. So how do you make sense of what to work on?
 If work items are prioritized outside your development team, you need to have a discussion about ownership. A team that does not have control over what to work on is not in a position of ownership and (assuming the team is working in good faith) cannot be held responsible for any misaligned outcomes.</description>
-    </item>
-    
-    <item>
-      <title>Cloud Foundry buildpack environment variables</title>
-      <link>https://harre.dev/blog/cloud-foundry-buildpack-environment-variables/</link>
-      <pubDate>Fri, 18 Oct 2024 00:00:00 +0000</pubDate>
-      
-      <guid>https://harre.dev/blog/cloud-foundry-buildpack-environment-variables/</guid>
-      <description>I recently ran into a situation I hadn&amp;rsquo;t dealt with before.
-A Python app I was working on was loading modules from a location outside of Pythons known locations. My first instinct was to update the manifest.yml env section with a PYTHONPATH variable that would add this additional location to the Python path but that would not stick. Using cf set-env to update the variable after the fact also did not work.</description>
     </item>
     
   </channel>

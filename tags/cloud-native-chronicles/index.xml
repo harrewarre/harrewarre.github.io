@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© harre.dev</copyright>
-    <lastBuildDate>Wed, 26 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://harre.dev/tags/cloud-native-chronicles/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 15 Jul 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://harre.dev/tags/cloud-native-chronicles/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>New Cloud Native Chronicles episodes</title>
+      <link>https://harre.dev/blog/cloud-native-chronicles-tdd-xp/</link>
+      <pubDate>Tue, 15 Jul 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://harre.dev/blog/cloud-native-chronicles-tdd-xp/</guid>
+      <description>New episodes dropped recently and I totally forgot to post them here! Now I could create a post for each of them but nah, here you go :-)
+Golden paths  Platform as a product  Pair Programming  Test-driven development </description>
+    </item>
+    
     <item>
       <title>Cloud Native Chronicles - Balanced teams</title>
       <link>https://harre.dev/blog/cloud-native-chronicles-balanced-teams/</link>

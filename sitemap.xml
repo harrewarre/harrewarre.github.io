@@ -3,19 +3,31 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://harre.dev/</loc>
-    <lastmod>2025-05-03T00:00:00+00:00</lastmod>
+    <lastmod>2025-07-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
+  </url><url>
+    <loc>https://harre.dev/tags/blog/</loc>
+    <lastmod>2025-07-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://harre.dev/blog/</loc>
+    <lastmod>2025-07-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://harre.dev/tags/cloud-native-chronicles/</loc>
+    <lastmod>2025-07-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://harre.dev/blog/cloud-native-chronicles-tdd-xp/</loc>
+    <lastmod>2025-07-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://harre.dev/tags/podcast/</loc>
+    <lastmod>2025-07-15T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://harre.dev/tags/</loc>
+    <lastmod>2025-07-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://harre.dev/tags/ai/</loc>
     <lastmod>2025-05-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://harre.dev/blog/</loc>
-    <lastmod>2025-05-03T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://harre.dev/tags/llm/</loc>
-    <lastmod>2025-05-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://harre.dev/tags/</loc>
     <lastmod>2025-05-03T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://harre.dev/blog/the-post-about-ai/</loc>
@@ -33,20 +45,11 @@
     <loc>https://harre.dev/blog/chronicles-10-minute-build/</loc>
     <lastmod>2025-03-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://harre.dev/tags/podcast/</loc>
-    <lastmod>2025-03-28T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://harre.dev/blog/pitoval-tracker-alternatives/</loc>
     <lastmod>2025-03-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://harre.dev/blog/chronicles-product-mindset/</loc>
     <lastmod>2025-03-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://harre.dev/tags/blog/</loc>
-    <lastmod>2025-02-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://harre.dev/tags/cloud-native-chronicles/</loc>
-    <lastmod>2025-02-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://harre.dev/blog/cloud-native-chronicles-balanced-teams/</loc>
     <lastmod>2025-02-26T00:00:00+00:00</lastmod>
