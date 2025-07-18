@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
+
 <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
@@ -22,53 +23,46 @@
 <meta property="og:image" content="/og-img.png">
 
 
-      <link rel="stylesheet" href="/css/main.min.61bfa0df110a64e334b07469458481a51afa25b374473c3e34e2e48f154dc10a.css" integrity="sha256-Yb&#43;g3xEKZOM0sHRpRYSBpRr6JbN0Rzw&#43;NOLkjxVNwQo=" crossorigin="anonymous">
+      <link rel="stylesheet" href="/css/genesis.min.fd12bd806f1de046676f1a4c2162345f1b1ea7c6851bfd59812285c39bf877f8.css" integrity="sha256-/RK9gG8d4EZnbxpMIWI0Xxsep8aFG/1ZgSKFw5v4d/g=" crossorigin="anonymous">
 
 
 
 <script defer src="https://www.fairanalytics.de/pixel/834UxRaqtQBFLx4i"></script>
 
 </head>
+
 <body>
-<div class="site">
-    <header>
-        <div class="site-title">
-    <h1>harre.dev</h1>
+    <div class="site-container">
+        <header>
+            <div class="site-header">
+    <div class="site-title">
+        <h1>harre.dev</h1>
+    </div>
+    <div class="site-title-slant"></div>
 </div>
-<nav>
+        </header>
+        <div class="site-wrapper">
+            <div class="site">
+                <nav>
+                    <div class="menu">
+    <h1>Menu</h1>
     <a href="/">home</a>
     <a href="/blog">blog</a>
     <a href="/blog/index.xml">rss</a>
     <a href="/about">about</a>
-</nav>
-
-
-    </header>
-    <main>
-        
+</div>
+                </nav>
+                <main>
+                    
   
   
-  <small class="blog-meta">
-    <time datetime="2021-09-12T00:00:00&#43;00:00">September 12, 2021</time>
-    
-  <div>
-    Tags:
-        <a href="/tags/gaming/">Gaming</a>
-        <a href="/tags/linux/">linux</a>
-        <a href="/tags/steamcmd/">SteamCMD</a>
-        <a href="/tags/valheim/">Valheim</a>
-  </div>
-
-  </small>
-  <h1>Valheim server on Linux</h1>
-
+  <h1 class="hero-text">Valheim server on Linux</h1>
   
   
   <div class="old-content-banner">
-      <span class="warning-bubble">❗</span>This post is more than 3 years old! Whatever you find here could be outdated.
+    <span class="warning-bubble">❗</span>This post is more than 3 years old! Whatever you find here could be outdated.
   </div>
-  
-
+    
   <p>Here is a step-by-step guide for setting up a <a href="https://store.steampowered.com/app/892970/Valheim/">Valheim</a> server on Linux. Having done it twice now I thought it would be a good idea to capture this somewhere so that next time I don&rsquo;t have to look any of this up again.</p>
 <p>The only assumptions being made here is that your server is running Ubuntu of some semi-recent version and a basic understanding of Linux.</p>
 <h2 id="steamcmd">SteamCMD</h2>
@@ -138,18 +132,28 @@ WantedBy=multi-user.target
 <p>At this point you should be able to use the public IP of your server to start playing! I don&rsquo;t know much about the resources required to keep everthing running smoothly but I&rsquo;ve been running a server on a fairly modest 2-core/8GB RAM Linux (<code>Standard D2as_v4</code> on Azure) VM that can easily host a 4 player game.</p>
 <p>Now go forth and play the viking game with your friends on your very own Valheim server!</p>
 
-
-    </main>
-    <footer>
-        <small>
-    <span>🌱 content written by an actual human.</span>
-    <span>©️ copyright 2015-2025 harre.dev</span>
-</small>
-<div>
-    <a href="/blog/index.xml">rss</a>
+  <div class="blog-meta">
+    <h1>Meta</h1>
+    <time class="meta-element" datetime="2021-09-12T00:00:00&#43;00:00">September 12, 2021</time>
+    <div class="meta-element">
+  <div>
+    Tags:
+        <a href="/tags/gaming/">Gaming</a>
+        <a href="/tags/linux/">linux</a>
+        <a href="/tags/steamcmd/">SteamCMD</a>
+        <a href="/tags/valheim/">Valheim</a>
+  </div>
 </div>
+  </div>
 
-    </footer>
-</div>
+                </main>
+            </div>
+        </div>
+        <footer>
+            <span>🌱 content written by an actual human.</span>
+<span>©️ copyright 2015-2025 harre.dev</span>
+        </footer>
+    </div>
 </body>
+
 </html>

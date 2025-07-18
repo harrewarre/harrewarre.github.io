@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
+
 <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
@@ -21,48 +22,42 @@
 <meta property="og:image" content="/og-img.png">
 
 
-      <link rel="stylesheet" href="/css/main.min.61bfa0df110a64e334b07469458481a51afa25b374473c3e34e2e48f154dc10a.css" integrity="sha256-Yb&#43;g3xEKZOM0sHRpRYSBpRr6JbN0Rzw&#43;NOLkjxVNwQo=" crossorigin="anonymous">
+      <link rel="stylesheet" href="/css/genesis.min.fd12bd806f1de046676f1a4c2162345f1b1ea7c6851bfd59812285c39bf877f8.css" integrity="sha256-/RK9gG8d4EZnbxpMIWI0Xxsep8aFG/1ZgSKFw5v4d/g=" crossorigin="anonymous">
 
 
 
 <script defer src="https://www.fairanalytics.de/pixel/834UxRaqtQBFLx4i"></script>
 
 </head>
+
 <body>
-<div class="site">
-    <header>
-        <div class="site-title">
-    <h1>harre.dev</h1>
+    <div class="site-container">
+        <header>
+            <div class="site-header">
+    <div class="site-title">
+        <h1>harre.dev</h1>
+    </div>
+    <div class="site-title-slant"></div>
 </div>
-<nav>
+        </header>
+        <div class="site-wrapper">
+            <div class="site">
+                <nav>
+                    <div class="menu">
+    <h1>Menu</h1>
     <a href="/">home</a>
     <a href="/blog">blog</a>
     <a href="/blog/index.xml">rss</a>
     <a href="/about">about</a>
-</nav>
-
-
-    </header>
-    <main>
-        
+</div>
+                </nav>
+                <main>
+                    
   
   
-  <small class="blog-meta">
-    <time datetime="2024-06-10T00:00:00&#43;00:00">June 10, 2024</time>
+  <h1 class="hero-text">Dotnet Core Entity Framework Migrations on Cloud Foundry</h1>
+  
     
-  <div>
-    Tags:
-        <a href="/tags/dotnet-core/">dotnet core</a>
-        <a href="/tags/entity-framework/">entity framework</a>
-        <a href="/tags/cloud-foundry/">cloud foundry</a>
-  </div>
-
-  </small>
-  <h1>Dotnet Core Entity Framework Migrations on Cloud Foundry</h1>
-
-  
-  
-
   <p>Run database migrations on Cloud Foundry using a task to ensure that migrations are only done once on deployment (and not during app start up!) for dotnet core applications. This post assumes you are deploying built applications and not raw source code.</p>
 <p>Instead of depending on dotnet tooling (<code>dotnet-ef</code>), leverage the built-in migration capability of the DataContext. Interrupt the startup procedure when a special argument is passed in, instead of starting the web application, run the migrations and then exit.
 So here we go, to start we need a DbContext:</p>
@@ -142,18 +137,27 @@ app.Run();
 </code></pre></div><p>The <code>dotnet_core_buildpack</code> does not seem (I was unable to find anything related to additional <code>dotnet</code> tools) to be able to use tools like <code>dotnet ef</code>. Using the solution outlined in this post you can work around not having the tools and instead let the application apply the migrations.</p>
 <p>You&rsquo;ll want to roll all this into some kind of CI/CD system because these manual steps are easy to mess up. See you in the next one!</p>
 
-
-    </main>
-    <footer>
-        <small>
-    <span>🌱 content written by an actual human.</span>
-    <span>©️ copyright 2015-2025 harre.dev</span>
-</small>
-<div>
-    <a href="/blog/index.xml">rss</a>
+  <div class="blog-meta">
+    <h1>Meta</h1>
+    <time class="meta-element" datetime="2024-06-10T00:00:00&#43;00:00">June 10, 2024</time>
+    <div class="meta-element">
+  <div>
+    Tags:
+        <a href="/tags/dotnet-core/">dotnet core</a>
+        <a href="/tags/entity-framework/">entity framework</a>
+        <a href="/tags/cloud-foundry/">cloud foundry</a>
+  </div>
 </div>
+  </div>
 
-    </footer>
-</div>
+                </main>
+            </div>
+        </div>
+        <footer>
+            <span>🌱 content written by an actual human.</span>
+<span>©️ copyright 2015-2025 harre.dev</span>
+        </footer>
+    </div>
 </body>
+
 </html>

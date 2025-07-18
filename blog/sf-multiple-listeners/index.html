@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
+
 <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
@@ -23,54 +24,46 @@
 <meta property="og:image" content="/og-img.png">
 
 
-      <link rel="stylesheet" href="/css/main.min.61bfa0df110a64e334b07469458481a51afa25b374473c3e34e2e48f154dc10a.css" integrity="sha256-Yb&#43;g3xEKZOM0sHRpRYSBpRr6JbN0Rzw&#43;NOLkjxVNwQo=" crossorigin="anonymous">
+      <link rel="stylesheet" href="/css/genesis.min.fd12bd806f1de046676f1a4c2162345f1b1ea7c6851bfd59812285c39bf877f8.css" integrity="sha256-/RK9gG8d4EZnbxpMIWI0Xxsep8aFG/1ZgSKFw5v4d/g=" crossorigin="anonymous">
 
 
 
 <script defer src="https://www.fairanalytics.de/pixel/834UxRaqtQBFLx4i"></script>
 
 </head>
+
 <body>
-<div class="site">
-    <header>
-        <div class="site-title">
-    <h1>harre.dev</h1>
+    <div class="site-container">
+        <header>
+            <div class="site-header">
+    <div class="site-title">
+        <h1>harre.dev</h1>
+    </div>
+    <div class="site-title-slant"></div>
 </div>
-<nav>
+        </header>
+        <div class="site-wrapper">
+            <div class="site">
+                <nav>
+                    <div class="menu">
+    <h1>Menu</h1>
     <a href="/">home</a>
     <a href="/blog">blog</a>
     <a href="/blog/index.xml">rss</a>
     <a href="/about">about</a>
-</nav>
-
-
-    </header>
-    <main>
-        
+</div>
+                </nav>
+                <main>
+                    
   
   
-  <small class="blog-meta">
-    <time datetime="2018-03-31T00:00:00&#43;00:00">March 31, 2018</time>
-    
-  <div>
-    Tags:
-        <a href="/tags/azure/">azure</a>
-        <a href="/tags/service-fabric/">Service Fabric</a>
-        <a href="/tags/c#/">C#</a>
-        <a href="/tags/microservices/">Microservices</a>
-        <a href="/tags/itq/">itq</a>
-  </div>
-
-  </small>
-  <h1>Multiple listeners for your Service Fabric service</h1>
-
+  <h1 class="hero-text">Multiple listeners for your Service Fabric service</h1>
   
   
   <div class="old-content-banner">
-      <span class="warning-bubble">❗</span>This post is more than 3 years old! Whatever you find here could be outdated.
+    <span class="warning-bubble">❗</span>This post is more than 3 years old! Whatever you find here could be outdated.
   </div>
-  
-
+    
   <p>Service Fabric is a great piece of technology on the Azure platform and I&rsquo;ve been using it quite a lot in recent projects. It takes away a lot of the setup and orchestration when dealing with microservices.</p>
 <p>There comes a point where services need to talk to each other and this is easily achieved using the Remoting bits you can get from NuGet. The general way of doing this is creating an <code>Interfaces</code> project next to the service that
 contains the service interface and classes used in transport. The interface is implemented on the service entrypoint and a listener is exposed to the Fabric runtime so that it can communicate with the rest of the platform. We&rsquo;re
@@ -175,18 +168,29 @@ public async Task&lt;IActionResult&gt; AllNames()
 <p>The demo code be executed on your local cluster and is accessible through and HTTP API in the <code>.Api</code> project using something like Postman or curl (or any other HTTP client).</p>
 <p>You can find <a href="https://github.com/harrewarre/sf-listeners">the source for this demo on Github</a>.</p>
 
-
-    </main>
-    <footer>
-        <small>
-    <span>🌱 content written by an actual human.</span>
-    <span>©️ copyright 2015-2025 harre.dev</span>
-</small>
-<div>
-    <a href="/blog/index.xml">rss</a>
+  <div class="blog-meta">
+    <h1>Meta</h1>
+    <time class="meta-element" datetime="2018-03-31T00:00:00&#43;00:00">March 31, 2018</time>
+    <div class="meta-element">
+  <div>
+    Tags:
+        <a href="/tags/azure/">azure</a>
+        <a href="/tags/service-fabric/">Service Fabric</a>
+        <a href="/tags/c#/">C#</a>
+        <a href="/tags/microservices/">Microservices</a>
+        <a href="/tags/itq/">itq</a>
+  </div>
 </div>
+  </div>
 
-    </footer>
-</div>
+                </main>
+            </div>
+        </div>
+        <footer>
+            <span>🌱 content written by an actual human.</span>
+<span>©️ copyright 2015-2025 harre.dev</span>
+        </footer>
+    </div>
 </body>
+
 </html>

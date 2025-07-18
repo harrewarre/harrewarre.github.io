@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
+
 <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
@@ -20,47 +21,42 @@
 <meta property="og:image" content="/og-img.png">
 
 
-      <link rel="stylesheet" href="/css/main.min.61bfa0df110a64e334b07469458481a51afa25b374473c3e34e2e48f154dc10a.css" integrity="sha256-Yb&#43;g3xEKZOM0sHRpRYSBpRr6JbN0Rzw&#43;NOLkjxVNwQo=" crossorigin="anonymous">
+      <link rel="stylesheet" href="/css/genesis.min.fd12bd806f1de046676f1a4c2162345f1b1ea7c6851bfd59812285c39bf877f8.css" integrity="sha256-/RK9gG8d4EZnbxpMIWI0Xxsep8aFG/1ZgSKFw5v4d/g=" crossorigin="anonymous">
 
 
 
 <script defer src="https://www.fairanalytics.de/pixel/834UxRaqtQBFLx4i"></script>
 
 </head>
+
 <body>
-<div class="site">
-    <header>
-        <div class="site-title">
-    <h1>harre.dev</h1>
+    <div class="site-container">
+        <header>
+            <div class="site-header">
+    <div class="site-title">
+        <h1>harre.dev</h1>
+    </div>
+    <div class="site-title-slant"></div>
 </div>
-<nav>
+        </header>
+        <div class="site-wrapper">
+            <div class="site">
+                <nav>
+                    <div class="menu">
+    <h1>Menu</h1>
     <a href="/">home</a>
     <a href="/blog">blog</a>
     <a href="/blog/index.xml">rss</a>
     <a href="/about">about</a>
-</nav>
-
-
-    </header>
-    <main>
-        
+</div>
+                </nav>
+                <main>
+                    
   
   
-  <small class="blog-meta">
-    <time datetime="2023-08-06T00:00:00&#43;00:00">August 6, 2023</time>
+  <h1 class="hero-text">HVC Trash pickup dates in Home Assistant</h1>
+  
     
-  <div>
-    Tags:
-        <a href="/tags/home-assistant/">Home Assistant</a>
-        <a href="/tags/yaml/">YAML</a>
-  </div>
-
-  </small>
-  <h1>HVC Trash pickup dates in Home Assistant</h1>
-
-  
-  
-
   <p>Maybe something you can use, maybe not, but if you are in an intersection of people who use Home Assistant and live in the Netherlands and in a region where HVC operates, this might be useful.</p>
 <p>The integrations below will let you display a day counter until the next trash pickup takes place. This sensor data can also be used in other automations such as notifications or reminders.</p>
 <p>The payload we want to load into Home Assistant looks like this:</p>
@@ -122,18 +118,26 @@ days_until_waste_green_pickup:
 <p>These custom sensors can go in any YAML file where you&rsquo;ve defined <code>- platform: template</code> sensors. We take the timestamp of the pickup date and subtract the current timestamp. This gives us the number of seconds until the pickup date. We divide this by the number of seconds in a day (86400) and round up to the nearest integer. This gives us the number of days until the pickup date 😊</p>
 <p>From here you can update your UI and include these in your dashboards and automations. Enjoy!</p>
 
-
-    </main>
-    <footer>
-        <small>
-    <span>🌱 content written by an actual human.</span>
-    <span>©️ copyright 2015-2025 harre.dev</span>
-</small>
-<div>
-    <a href="/blog/index.xml">rss</a>
+  <div class="blog-meta">
+    <h1>Meta</h1>
+    <time class="meta-element" datetime="2023-08-06T00:00:00&#43;00:00">August 6, 2023</time>
+    <div class="meta-element">
+  <div>
+    Tags:
+        <a href="/tags/home-assistant/">Home Assistant</a>
+        <a href="/tags/yaml/">YAML</a>
+  </div>
 </div>
+  </div>
 
-    </footer>
-</div>
+                </main>
+            </div>
+        </div>
+        <footer>
+            <span>🌱 content written by an actual human.</span>
+<span>©️ copyright 2015-2025 harre.dev</span>
+        </footer>
+    </div>
 </body>
+
 </html>

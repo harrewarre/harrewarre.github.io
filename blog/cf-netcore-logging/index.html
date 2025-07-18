@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
+
 <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
@@ -23,54 +24,46 @@
 <meta property="og:image" content="/og-img.png">
 
 
-      <link rel="stylesheet" href="/css/main.min.61bfa0df110a64e334b07469458481a51afa25b374473c3e34e2e48f154dc10a.css" integrity="sha256-Yb&#43;g3xEKZOM0sHRpRYSBpRr6JbN0Rzw&#43;NOLkjxVNwQo=" crossorigin="anonymous">
+      <link rel="stylesheet" href="/css/genesis.min.fd12bd806f1de046676f1a4c2162345f1b1ea7c6851bfd59812285c39bf877f8.css" integrity="sha256-/RK9gG8d4EZnbxpMIWI0Xxsep8aFG/1ZgSKFw5v4d/g=" crossorigin="anonymous">
 
 
 
 <script defer src="https://www.fairanalytics.de/pixel/834UxRaqtQBFLx4i"></script>
 
 </head>
+
 <body>
-<div class="site">
-    <header>
-        <div class="site-title">
-    <h1>harre.dev</h1>
+    <div class="site-container">
+        <header>
+            <div class="site-header">
+    <div class="site-title">
+        <h1>harre.dev</h1>
+    </div>
+    <div class="site-title-slant"></div>
 </div>
-<nav>
+        </header>
+        <div class="site-wrapper">
+            <div class="site">
+                <nav>
+                    <div class="menu">
+    <h1>Menu</h1>
     <a href="/">home</a>
     <a href="/blog">blog</a>
     <a href="/blog/index.xml">rss</a>
     <a href="/about">about</a>
-</nav>
-
-
-    </header>
-    <main>
-        
+</div>
+                </nav>
+                <main>
+                    
   
   
-  <small class="blog-meta">
-    <time datetime="2019-01-10T00:00:00&#43;00:00">January 10, 2019</time>
-    
-  <div>
-    Tags:
-        <a href="/tags/cloud-foundry/">cloud foundry</a>
-        <a href="/tags/asp.net-core/">asp.net core</a>
-        <a href="/tags/dotnet-core/">dotnet core</a>
-        <a href="/tags/logging/">logging</a>
-        <a href="/tags/itq/">itq</a>
-  </div>
-
-  </small>
-  <h1>ASP.NET Core logging on Cloud Foundry</h1>
-
+  <h1 class="hero-text">ASP.NET Core logging on Cloud Foundry</h1>
   
   
   <div class="old-content-banner">
-      <span class="warning-bubble">❗</span>This post is more than 3 years old! Whatever you find here could be outdated.
+    <span class="warning-bubble">❗</span>This post is more than 3 years old! Whatever you find here could be outdated.
   </div>
-  
-
+    
   <p>All apps I&rsquo;ve ever worked on have some sort of logging going on for various reasons, mostly to keep track of whats going on or debugging, but it&rsquo;s all the same. Logs are needed to see what your code is up to.</p>
 <p>Cloud Foundry <a href="https://docs.cloudfoundry.org/devguide/deploy-apps/streaming-logs.html#writing">is very explicit</a> about <em>how</em> an app should write its logs. As you can see in the documentation, apps must write to <code>stdout</code> or <code>stderr</code>.</p>
 <p>For C# that means we can use the static methods on the <code>Console</code> to write our logs. Couldn&rsquo;t be easier. But&hellip; now our code is littered with these <code>Console.Write...</code> lines all over the place!</p>
@@ -163,18 +156,29 @@ crit: app.Controllers.ValuesController[0]
 </code></pre>
 <p>So now you are all set up with proper logging in ASP.NET Core (2.2) that complies with the requirements set by the Cloud Foundry platform.</p>
 
-
-    </main>
-    <footer>
-        <small>
-    <span>🌱 content written by an actual human.</span>
-    <span>©️ copyright 2015-2025 harre.dev</span>
-</small>
-<div>
-    <a href="/blog/index.xml">rss</a>
+  <div class="blog-meta">
+    <h1>Meta</h1>
+    <time class="meta-element" datetime="2019-01-10T00:00:00&#43;00:00">January 10, 2019</time>
+    <div class="meta-element">
+  <div>
+    Tags:
+        <a href="/tags/cloud-foundry/">cloud foundry</a>
+        <a href="/tags/asp.net-core/">asp.net core</a>
+        <a href="/tags/dotnet-core/">dotnet core</a>
+        <a href="/tags/logging/">logging</a>
+        <a href="/tags/itq/">itq</a>
+  </div>
 </div>
+  </div>
 
-    </footer>
-</div>
+                </main>
+            </div>
+        </div>
+        <footer>
+            <span>🌱 content written by an actual human.</span>
+<span>©️ copyright 2015-2025 harre.dev</span>
+        </footer>
+    </div>
 </body>
+
 </html>

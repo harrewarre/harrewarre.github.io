@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
+
 <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
@@ -21,52 +22,46 @@
 <meta property="og:image" content="/og-img.png">
 
 
-      <link rel="stylesheet" href="/css/main.min.61bfa0df110a64e334b07469458481a51afa25b374473c3e34e2e48f154dc10a.css" integrity="sha256-Yb&#43;g3xEKZOM0sHRpRYSBpRr6JbN0Rzw&#43;NOLkjxVNwQo=" crossorigin="anonymous">
+      <link rel="stylesheet" href="/css/genesis.min.fd12bd806f1de046676f1a4c2162345f1b1ea7c6851bfd59812285c39bf877f8.css" integrity="sha256-/RK9gG8d4EZnbxpMIWI0Xxsep8aFG/1ZgSKFw5v4d/g=" crossorigin="anonymous">
 
 
 
 <script defer src="https://www.fairanalytics.de/pixel/834UxRaqtQBFLx4i"></script>
 
 </head>
+
 <body>
-<div class="site">
-    <header>
-        <div class="site-title">
-    <h1>harre.dev</h1>
+    <div class="site-container">
+        <header>
+            <div class="site-header">
+    <div class="site-title">
+        <h1>harre.dev</h1>
+    </div>
+    <div class="site-title-slant"></div>
 </div>
-<nav>
+        </header>
+        <div class="site-wrapper">
+            <div class="site">
+                <nav>
+                    <div class="menu">
+    <h1>Menu</h1>
     <a href="/">home</a>
     <a href="/blog">blog</a>
     <a href="/blog/index.xml">rss</a>
     <a href="/about">about</a>
-</nav>
-
-
-    </header>
-    <main>
-        
+</div>
+                </nav>
+                <main>
+                    
   
   
-  <small class="blog-meta">
-    <time datetime="2015-07-07T00:00:00&#43;00:00">July 7, 2015</time>
-    
-  <div>
-    Tags:
-        <a href="/tags/c#/">C#</a>
-        <a href="/tags/string-templating/">String templating</a>
-        <a href="/tags/itq/">itq</a>
-  </div>
-
-  </small>
-  <h1>Basic string templating in C#</h1>
-
+  <h1 class="hero-text">Basic string templating in C#</h1>
   
   
   <div class="old-content-banner">
-      <span class="warning-bubble">❗</span>This post is more than 3 years old! Whatever you find here could be outdated.
+    <span class="warning-bubble">❗</span>This post is more than 3 years old! Whatever you find here could be outdated.
   </div>
-  
-
+    
   <p>Every solution I&rsquo;ve worked on required some form of communication via e-mail or other form of text to the outside world, reporting, notifications or something else. There are a bunch of libraries out there that can make your life easy if you need complex templates. But this is not about complex, this is supporting the basics without including all sorts of unnecessary stuff.</p>
 <p>What do we need to make this happen? The first thing is a template. A template is nothing more than a piece of plain text (or HTML if you want) in which we want to replace parts to create a complete message. Lets use something very simple, a single line, one tag.</p>
 <pre><code>Reminder: %reminderText%
@@ -155,18 +150,27 @@ messenger.Send(message);
 <p>The <code>finalText</code> variable in the Messenger object now reads <code>Reminder: Buy bacon!</code>.</p>
 <p>With some simple constructs we now have a basic string templating system that ensures we supply all the required values to a given template. The message and template are linked together by their key and the constructor of the message enforces that every tag in the template gets a value. You now have a way of defining all sorts of messages such as e-mail, documents and reports based on templates. Do keep in mind that this is all very rudimentary and lacks things such as creating lists of values for a single tag. Anything more complex and you should look for libraries that handle the work for you.</p>
 
-
-    </main>
-    <footer>
-        <small>
-    <span>🌱 content written by an actual human.</span>
-    <span>©️ copyright 2015-2025 harre.dev</span>
-</small>
-<div>
-    <a href="/blog/index.xml">rss</a>
+  <div class="blog-meta">
+    <h1>Meta</h1>
+    <time class="meta-element" datetime="2015-07-07T00:00:00&#43;00:00">July 7, 2015</time>
+    <div class="meta-element">
+  <div>
+    Tags:
+        <a href="/tags/c#/">C#</a>
+        <a href="/tags/string-templating/">String templating</a>
+        <a href="/tags/itq/">itq</a>
+  </div>
 </div>
+  </div>
 
-    </footer>
-</div>
+                </main>
+            </div>
+        </div>
+        <footer>
+            <span>🌱 content written by an actual human.</span>
+<span>©️ copyright 2015-2025 harre.dev</span>
+        </footer>
+    </div>
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
+
 <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
@@ -20,51 +21,46 @@
 <meta property="og:image" content="/og-img.png">
 
 
-      <link rel="stylesheet" href="/css/main.min.61bfa0df110a64e334b07469458481a51afa25b374473c3e34e2e48f154dc10a.css" integrity="sha256-Yb&#43;g3xEKZOM0sHRpRYSBpRr6JbN0Rzw&#43;NOLkjxVNwQo=" crossorigin="anonymous">
+      <link rel="stylesheet" href="/css/genesis.min.fd12bd806f1de046676f1a4c2162345f1b1ea7c6851bfd59812285c39bf877f8.css" integrity="sha256-/RK9gG8d4EZnbxpMIWI0Xxsep8aFG/1ZgSKFw5v4d/g=" crossorigin="anonymous">
 
 
 
 <script defer src="https://www.fairanalytics.de/pixel/834UxRaqtQBFLx4i"></script>
 
 </head>
+
 <body>
-<div class="site">
-    <header>
-        <div class="site-title">
-    <h1>harre.dev</h1>
+    <div class="site-container">
+        <header>
+            <div class="site-header">
+    <div class="site-title">
+        <h1>harre.dev</h1>
+    </div>
+    <div class="site-title-slant"></div>
 </div>
-<nav>
+        </header>
+        <div class="site-wrapper">
+            <div class="site">
+                <nav>
+                    <div class="menu">
+    <h1>Menu</h1>
     <a href="/">home</a>
     <a href="/blog">blog</a>
     <a href="/blog/index.xml">rss</a>
     <a href="/about">about</a>
-</nav>
-
-
-    </header>
-    <main>
-        
+</div>
+                </nav>
+                <main>
+                    
   
   
-  <small class="blog-meta">
-    <time datetime="2016-01-14T00:00:00&#43;00:00">January 14, 2016</time>
-    
-  <div>
-    Tags:
-        <a href="/tags/html/">HTML</a>
-        <a href="/tags/css/">CSS</a>
-  </div>
-
-  </small>
-  <h1>Another simple loading indicator</h1>
-
+  <h1 class="hero-text">Another simple loading indicator</h1>
   
   
   <div class="old-content-banner">
-      <span class="warning-bubble">❗</span>This post is more than 3 years old! Whatever you find here could be outdated.
+    <span class="warning-bubble">❗</span>This post is more than 3 years old! Whatever you find here could be outdated.
   </div>
-  
-
+    
   <p>Here is another loading indicator for when your webpage is busy waiting for a server request to come back with an answer. It&rsquo;s a bar at the very top of the page this time.</p>
 <p>Let&rsquo;s look at a demo before we dive in:</p>
 <p data-height="268" data-theme-id="14183" data-slug-hash="vLJVbo" data-default-tab="result" data-user="Harrewarre" class='codepen'>See the Pen <a href='http://codepen.io/Harrewarre/pen/vLJVbo/'>Another simple loading indicator</a> by Sander Harrewijnen (<a href='http://codepen.io/Harrewarre'>@Harrewarre</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
@@ -77,18 +73,26 @@
 <p>To make the background move, or in this case, create the illusion of a spinning candy cane type thing, we use an <code>animation</code>. To describe the animation we use <code>@keyframes</code> with the name <code>rollaround</code> since that&rsquo;s what we used in the styles for the indicator itself. The <code>to</code> and <code>from</code> states move the background from top to bottom (0 to 100%) by adjusting the <code>background-position</code>. This is what creates the rotation illusion. To control the speed we can set the time 1 cycle of the animation takes, in this case 15 seconds for one whole cycle. Because we start the animation immediately we don&rsquo;t use any easing functions and just set the animation to run at a <code>linear</code> page. We also never want to stop animating so the duration is set to <code>infinite</code>.</p>
 <p>To make use of the indicator you can set the <code>active</code> and <code>hidden</code> classes in functions/callbacks that you know might take a little longer. By showing the indicator, your users will get a visual hint that something is happening and they need to wait just a bit longer.</p>
 
-
-    </main>
-    <footer>
-        <small>
-    <span>🌱 content written by an actual human.</span>
-    <span>©️ copyright 2015-2025 harre.dev</span>
-</small>
-<div>
-    <a href="/blog/index.xml">rss</a>
+  <div class="blog-meta">
+    <h1>Meta</h1>
+    <time class="meta-element" datetime="2016-01-14T00:00:00&#43;00:00">January 14, 2016</time>
+    <div class="meta-element">
+  <div>
+    Tags:
+        <a href="/tags/html/">HTML</a>
+        <a href="/tags/css/">CSS</a>
+  </div>
 </div>
+  </div>
 
-    </footer>
-</div>
+                </main>
+            </div>
+        </div>
+        <footer>
+            <span>🌱 content written by an actual human.</span>
+<span>©️ copyright 2015-2025 harre.dev</span>
+        </footer>
+    </div>
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us" dir="ltr">
+
 <head>
     <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
@@ -21,52 +22,46 @@
 <meta property="og:image" content="/og-img.png">
 
 
-      <link rel="stylesheet" href="/css/main.min.61bfa0df110a64e334b07469458481a51afa25b374473c3e34e2e48f154dc10a.css" integrity="sha256-Yb&#43;g3xEKZOM0sHRpRYSBpRr6JbN0Rzw&#43;NOLkjxVNwQo=" crossorigin="anonymous">
+      <link rel="stylesheet" href="/css/genesis.min.fd12bd806f1de046676f1a4c2162345f1b1ea7c6851bfd59812285c39bf877f8.css" integrity="sha256-/RK9gG8d4EZnbxpMIWI0Xxsep8aFG/1ZgSKFw5v4d/g=" crossorigin="anonymous">
 
 
 
 <script defer src="https://www.fairanalytics.de/pixel/834UxRaqtQBFLx4i"></script>
 
 </head>
+
 <body>
-<div class="site">
-    <header>
-        <div class="site-title">
-    <h1>harre.dev</h1>
+    <div class="site-container">
+        <header>
+            <div class="site-header">
+    <div class="site-title">
+        <h1>harre.dev</h1>
+    </div>
+    <div class="site-title-slant"></div>
 </div>
-<nav>
+        </header>
+        <div class="site-wrapper">
+            <div class="site">
+                <nav>
+                    <div class="menu">
+    <h1>Menu</h1>
     <a href="/">home</a>
     <a href="/blog">blog</a>
     <a href="/blog/index.xml">rss</a>
     <a href="/about">about</a>
-</nav>
-
-
-    </header>
-    <main>
-        
+</div>
+                </nav>
+                <main>
+                    
   
   
-  <small class="blog-meta">
-    <time datetime="2015-05-19T00:00:00&#43;00:00">May 19, 2015</time>
-    
-  <div>
-    Tags:
-        <a href="/tags/css/">CSS</a>
-        <a href="/tags/transitions/">Transitions</a>
-        <a href="/tags/itq/">itq</a>
-  </div>
-
-  </small>
-  <h1>CSS Transitions basics</h1>
-
+  <h1 class="hero-text">CSS Transitions basics</h1>
   
   
   <div class="old-content-banner">
-      <span class="warning-bubble">❗</span>This post is more than 3 years old! Whatever you find here could be outdated.
+    <span class="warning-bubble">❗</span>This post is more than 3 years old! Whatever you find here could be outdated.
   </div>
-  
-
+    
   <p>End-users interact with your applications via the user interface (UI for short). If everything was designed with the user in mind, the UI will make things very easy for the user. Everything is nice and organized and easy to navigate. Actions are communicated to the user in a friendly way and the user is happy.</p>
 <p>The sad thing is, state changes in the UI tend to be very abrupt and cold. Instant flashes, so fast the user might not even notice if it is something small. So what can we do about this? CSS supports something called transitions. Transitions allow us to specify what happens what state changes on an element. For example, a button going from normal, to being hovered on by the user, rows in a grid that the user can select or a signal telling the user something happened.</p>
 <p>So we know CSS can so these things but as always, <a href="http://caniuse.com/#search=transitions">better safe than sorry</a>. Those old browsers are still out there. Lucky for us, transitions degrade very nice since there is no change to the styles that were already used. We&rsquo;re only adding some sugar on top. Lets look at some examples.</p>
@@ -77,18 +72,27 @@
 <p>Before you start adding transitions to ALL the things, be aware that effects such as these can be very intrusive and distracting. Don&rsquo;t overdo it.</p>
 <p>To wrap things up, transitions are defined on the beginning and ending state (such as :checked and normal states), a duration specifies how long the transition runs for and a timing function (easing) allows you to control how fast and/or slow the animation runs in the specified time. Remember, don&rsquo;t overdo it. Turning your UI into a glowing bouncing disco floor might not be the best user experience.</p>
 
-
-    </main>
-    <footer>
-        <small>
-    <span>🌱 content written by an actual human.</span>
-    <span>©️ copyright 2015-2025 harre.dev</span>
-</small>
-<div>
-    <a href="/blog/index.xml">rss</a>
+  <div class="blog-meta">
+    <h1>Meta</h1>
+    <time class="meta-element" datetime="2015-05-19T00:00:00&#43;00:00">May 19, 2015</time>
+    <div class="meta-element">
+  <div>
+    Tags:
+        <a href="/tags/css/">CSS</a>
+        <a href="/tags/transitions/">Transitions</a>
+        <a href="/tags/itq/">itq</a>
+  </div>
 </div>
+  </div>
 
-    </footer>
-</div>
+                </main>
+            </div>
+        </div>
+        <footer>
+            <span>🌱 content written by an actual human.</span>
+<span>©️ copyright 2015-2025 harre.dev</span>
+        </footer>
+    </div>
 </body>
+
 </html>
