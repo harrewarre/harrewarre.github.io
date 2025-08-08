@@ -7,6 +7,10 @@ body {
     line-height: 1.6;
 }
 
+nav {
+    font-size: 1.25rem;
+}
+
 .content-wrapper {
     max-width: 800px;
     margin: 0 auto;

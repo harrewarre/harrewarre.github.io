@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dotnet Core CLI user secrets</title>
+    <title>harre.dev | Dotnet Core CLI user secrets</title>
     <link rel="stylesheet" href="/assets/style/theme.css">
   </head>
   <body>
@@ -17,12 +17,13 @@
           <a href="/">home</a>
           <a href="/blog">blog</a>
           <a href="/about">about</a>
-          <a href="feed.xml">rss</a>
+          <a href="/feed.xml">rss</a>
         </div>
     </nav>
     <main>
       <div class="content-wrapper">
-        <p>User secrets are what you use for settings in a .NET Core app that you don't want committed to your public repos (think API keys, passwords, anything sensitive). You map out your actual settings and they override them with the values from the secrets, which are stored outside of the tracked source folder.</p>
+        <h1>Dotnet Core CLI user secrets</h1>
+<p>User secrets are what you use for settings in a .NET Core app that you don't want committed to your public repos (think API keys, passwords, anything sensitive). You map out your actual settings and they override them with the values from the secrets, which are stored outside of the tracked source folder.</p>
 <p>On windows the user secrets folder is located here: <code>%APPDATA%\microsoft\UserSecrets</code>. Let's have a look at how use them with the new tooling for .NET Core that came out recently.</p>
 <p>Create a little test project to play around, I've used a webapi project for these examples. Create the project in a folder of your choosing with the <code>dotnet new webapi</code> command.</p>
 <p><img src="setup.png" alt="Project setup"></p>

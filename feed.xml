@@ -9,7 +9,8 @@
     <item>
       <title>Easy Windows Service debugging</title>
       <link>https://harre.dev/blog/easy-windows-service-debugging/</link>
-      <description>&lt;p&gt;Long-running processes in a web application running on IIS is a bad idea. The reason for that is that IIS might unload the AppPool that is running your process due to inactivity. Inactivity? Yep, if IIS does not recieve a requests for a while, it will shut the site down to conserve system resources. (This is all configurable ofcourse, but I&#39;ve
+      <description>&lt;h1&gt;Easy Windows Service debugging&lt;/h1&gt;
+&lt;p&gt;Long-running processes in a web application running on IIS is a bad idea. The reason for that is that IIS might unload the AppPool that is running your process due to inactivity. Inactivity? Yep, if IIS does not recieve a requests for a while, it will shut the site down to conserve system resources. (This is all configurable ofcourse, but I&#39;ve
 seen it happen)&lt;/p&gt;
 &lt;p&gt;To allow for long-running stuff, a Windows Service might be a right fit. Here is what the default startup code for a Windows service looks like:&lt;/p&gt;
 &lt;p&gt;static class Program
@@ -98,7 +99,8 @@ ServiceBase.Run(service);
     <item>
       <title>Generating an RSS feed in C#</title>
       <link>https://harre.dev/blog/generating-an-rss-feed-in-c/</link>
-      <description>&lt;p&gt;A hobby project of mine needed to generate an RSS feed. I was already doing this by just generating and XML file in the webroot and linking to that on the frontpage. But during this coding session, where all the data is pulled straight from the markdown files I wanted to create a controller action to do the generating for me.&lt;/p&gt;
+      <description>&lt;h1&gt;Generating an RSS feed in C#&lt;/h1&gt;
+&lt;p&gt;A hobby project of mine needed to generate an RSS feed. I was already doing this by just generating and XML file in the webroot and linking to that on the frontpage. But during this coding session, where all the data is pulled straight from the markdown files I wanted to create a controller action to do the generating for me.&lt;/p&gt;
 &lt;p&gt;First things first, there is an assembly available out of the box in the .NET Framework. All you need is to make reference to &lt;strong&gt;System.ServiceModel.Syndication&lt;/strong&gt; and you are ready to start writing code. The classes we are using are&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;SyndicationItem&lt;/li&gt;
@@ -145,7 +147,8 @@ feed.GetRss20Formatter().WriteTo(writer);
     <item>
       <title>Getting started with Inversion of Control</title>
       <link>https://harre.dev/blog/inversion-of-control-dive/</link>
-      <description>&lt;p&gt;Alright, lets dive straight into the deep end! ... ok, but not drown in the process of doing so. One step at a time. Lets&#39;s start with an example.&lt;/p&gt;
+      <description>&lt;h1&gt;Getting started with Inversion of Control&lt;/h1&gt;
+&lt;p&gt;Alright, lets dive straight into the deep end! ... ok, but not drown in the process of doing so. One step at a time. Lets&#39;s start with an example.&lt;/p&gt;
 &lt;h2&gt;The technical side&lt;/h2&gt;
 &lt;p&gt;Here is some code:&lt;/p&gt;
 &lt;p&gt;public class Foo
@@ -207,7 +210,8 @@ container.Register(typeof(IBar), typeof(Bar));
     <item>
       <title>Overwriting a function in Javascript</title>
       <link>https://harre.dev/blog/overwriting-a-function-in-javascript/</link>
-      <description>&lt;p&gt;A quick little post about overwriting a function in Javascript.&lt;/p&gt;
+      <description>&lt;h1&gt;Overwriting a function in Javascript&lt;/h1&gt;
+&lt;p&gt;A quick little post about overwriting a function in Javascript.&lt;/p&gt;
 &lt;p&gt;Take the following piece of code:&lt;/p&gt;
 &lt;p&gt;function Thing() {
 this.Load = function () {
@@ -240,7 +244,8 @@ Thing.apply(this, arguments);&lt;/p&gt;
     <item>
       <title>SignalR dependency injection</title>
       <link>https://harre.dev/blog/signalr-dependency-injection/</link>
-      <description>&lt;p&gt;My go-to container for IoC at the moment is &lt;a href=&quot;https://simpleinjector.codeplex.com/&quot;&gt;SimpleInjector&lt;/a&gt; because you know.. it&#39;s simple. I&#39;ve used it in a couple of projects and used in a hobby project recently again.&lt;/p&gt;
+      <description>&lt;h1&gt;SignalR dependency injection&lt;/h1&gt;
+&lt;p&gt;My go-to container for IoC at the moment is &lt;a href=&quot;https://simpleinjector.codeplex.com/&quot;&gt;SimpleInjector&lt;/a&gt; because you know.. it&#39;s simple. I&#39;ve used it in a couple of projects and used in a hobby project recently again.&lt;/p&gt;
 &lt;p&gt;This hobby project uses &lt;a href=&quot;http://www.asp.net/signalr&quot;&gt;SignalR&lt;/a&gt; for real-time communication between browser and server and after setting that up I wanted to inject dependencies in to the SignalR hubs. It is pretty easy but there was a minor catch. Let&#39;s look at some code.&lt;/p&gt;
 &lt;p&gt;The first thing that is required is a dependency resolver that works with SignalR, lucky for us, it provides a built-in default one which we can implement:&lt;/p&gt;
 &lt;p&gt;public class SignalrSimpleInjectorDependencyResolver : DefaultDependencyResolver
@@ -278,7 +283,8 @@ Resolver = new SignalrSimpleInjectorDependencyResolver(container)
     <item>
       <title>The simplest loading indicator</title>
       <link>https://harre.dev/blog/the-simplest-loading-indicator/</link>
-      <description>&lt;p&gt;I had a brainwave and dove into codepen for a little bit to doodle around and when I emerged I had this simple little loading indicator. Very simple in terms of markup and CSS (LESS in this case).&lt;/p&gt;
+      <description>&lt;h1&gt;The simplest loading indicator&lt;/h1&gt;
+&lt;p&gt;I had a brainwave and dove into codepen for a little bit to doodle around and when I emerged I had this simple little loading indicator. Very simple in terms of markup and CSS (LESS in this case).&lt;/p&gt;
 &lt;p&gt;Have a look see :-)&lt;/p&gt;
 &lt;p data-height=&quot;268&quot; data-theme-id=&quot;14183&quot; data-slug-hash=&quot;VYogvX&quot; data-default-tab=&quot;result&quot; data-user=&quot;Harrewarre&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/Harrewarre/pen/VYogvX/&quot;&gt;Loading indicator&lt;/a&gt; by Sander Harrewijnen (&lt;a href=&quot;http://codepen.io/Harrewarre&quot;&gt;@Harrewarre&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
 &lt;script async=&quot;&quot; src=&quot;https://assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;</description>
@@ -289,7 +295,8 @@ Resolver = new SignalrSimpleInjectorDependencyResolver(container)
     <item>
       <title>Fluent data access</title>
       <link>https://harre.dev/blog/fluent-data-access/</link>
-      <description>&lt;p&gt;Working in a team of developers, the following might happen:&lt;/p&gt;
+      <description>&lt;h1&gt;Fluent data access&lt;/h1&gt;
+&lt;p&gt;Working in a team of developers, the following might happen:&lt;/p&gt;
 &lt;p&gt;Developer 1 creates a piece of UI and adds a method to load data into said UI. The method he creates is called GetUserInfo(…)&lt;/p&gt;
 &lt;p&gt;Here comes Developer 2 and he also creates a piece of UI that displays user info. Developer 2 however, needs to display more than just the user info, he also needs the requests made by the user. And then GetUserInfoWithRequests(…) is created next to the already existing GetUserInfo method.&lt;/p&gt;
 &lt;p&gt;Developer 3 wants to display some user info as well, but not just the info by itself, and also without the requests but WITH the users team information. Can you guess what happens? … Right. GetUserInfoWithTeamMembers(…) is added to our list.&lt;/p&gt;
@@ -366,7 +373,8 @@ As you can see, we can load the data any way we like and our data-access code is
     <item>
       <title>The bug report</title>
       <link>https://harre.dev/blog/bugs/</link>
-      <description>&lt;p&gt;When you work on software, you will at some point encounter bugs. You think everything is peachy and you covered all the bases. Here comes this one user that finds a way to break your stuff.&lt;/p&gt;
+      <description>&lt;h1&gt;The bug report&lt;/h1&gt;
+&lt;p&gt;When you work on software, you will at some point encounter bugs. You think everything is peachy and you covered all the bases. Here comes this one user that finds a way to break your stuff.&lt;/p&gt;
 &lt;p&gt;So a user found a bug. He/she (hopefully) reports the bug and you can fix the problem. While this is true most of the time, the sad reality is that most bug reports I encounter look something like this:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;When the admin is also a manager, nothing will happen when I click on the Save button.&lt;/p&gt;
@@ -400,7 +408,8 @@ Every software developer ever :-)&lt;/p&gt;
     <item>
       <title>CSS Transitions basics</title>
       <link>https://harre.dev/blog/css-transitions-basics/</link>
-      <description>&lt;p&gt;End-users interact with your applications via the user interface (UI for short). If everything was designed with the user in mind, the UI will make things very easy for the user. Everything is nice and organized and easy to navigate. Actions are communicated to the user in a friendly way and the user is happy.&lt;/p&gt;
+      <description>&lt;h1&gt;CSS Transitions basics&lt;/h1&gt;
+&lt;p&gt;End-users interact with your applications via the user interface (UI for short). If everything was designed with the user in mind, the UI will make things very easy for the user. Everything is nice and organized and easy to navigate. Actions are communicated to the user in a friendly way and the user is happy.&lt;/p&gt;
 &lt;p&gt;The sad thing is, state changes in the UI tend to be very abrupt and cold. Instant flashes, so fast the user might not even notice if it is something small. So what can we do about this? CSS supports something called transitions. Transitions allow us to specify what happens what state changes on an element. For example, a button going from normal, to being hovered on by the user, rows in a grid that the user can select or a signal telling the user something happened.&lt;/p&gt;
 &lt;p&gt;So we know CSS can so these things but as always, &lt;a href=&quot;http://caniuse.com/#search=transitions&quot;&gt;better safe than sorry&lt;/a&gt;. Those old browsers are still out there. Lucky for us, transitions degrade very nice since there is no change to the styles that were already used. We&#39;re only adding some sugar on top. Lets look at some examples.&lt;/p&gt;
 &lt;p data-height=&quot;268&quot; data-theme-id=&quot;14183&quot; data-slug-hash=&quot;LVZvve&quot; data-default-tab=&quot;result&quot; data-user=&quot;Harrewarre&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/Harrewarre/pen/LVZvve/&quot;&gt;Some simple transitions&lt;/a&gt; by Sander Harrewijnen (&lt;a href=&quot;http://codepen.io/Harrewarre&quot;&gt;@Harrewarre&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
@@ -417,7 +426,8 @@ Every software developer ever :-)&lt;/p&gt;
     <item>
       <title>Creating release notes with Visual Studio and TFS</title>
       <link>https://harre.dev/blog/creating-release-notes-with-visual-studio-and-tfs/</link>
-      <description>&lt;p&gt;Here is a scenario for you. You&#39;ve been slaving away at the next big release of your product, fixing reported bugs, adding features and cleaning up code. Lot&#39;s of changes all over your code. Then comes that moment that you want to ship all that delicious code to your customers.&lt;/p&gt;
+      <description>&lt;h1&gt;Creating release notes with Visual Studio and TFS&lt;/h1&gt;
+&lt;p&gt;Here is a scenario for you. You&#39;ve been slaving away at the next big release of your product, fixing reported bugs, adding features and cleaning up code. Lot&#39;s of changes all over your code. Then comes that moment that you want to ship all that delicious code to your customers.&lt;/p&gt;
 &lt;p&gt;You prep a release build, zip it up and are pretty much done. Except for the release notes... What changed since the previous release?&lt;/p&gt;
 &lt;p&gt;Before you can start gathering your changes, I hope you tracked everything somewhere, preferably digitally and searchable. If not, then all you have is your check-ins, which is at least something. No check-in history either? Well then you are out of luck (and you need to upgrade your development process!)&lt;/p&gt;
 &lt;p&gt;So you did track every change properly? Good, lets get that list compiled (This example uses Team Foundation Server and Visual Studio 2013, but I assume other setups will have similar functionality). All you need is the date on which you released the previous version of your software.&lt;/p&gt;
@@ -433,7 +443,8 @@ Every software developer ever :-)&lt;/p&gt;
     <item>
       <title>CurrentColor in CSS</title>
       <link>https://harre.dev/blog/currentcolor-in-css/</link>
-      <description>&lt;p&gt;If you&#39;ve ever used something like LESS or SASS you know what a variable is in CSS. There is also a working draft for native &lt;a href=&quot;http://www.w3.org/TR/css-variables-1/&quot;&gt;CSS variables&lt;/a&gt; but there is something in CSS right now that resembles some variable behavior. Not an actual variable, but interesting nonetheless.&lt;/p&gt;
+      <description>&lt;h1&gt;CurrentColor in CSS&lt;/h1&gt;
+&lt;p&gt;If you&#39;ve ever used something like LESS or SASS you know what a variable is in CSS. There is also a working draft for native &lt;a href=&quot;http://www.w3.org/TR/css-variables-1/&quot;&gt;CSS variables&lt;/a&gt; but there is something in CSS right now that resembles some variable behavior. Not an actual variable, but interesting nonetheless.&lt;/p&gt;
 &lt;p&gt;Meet &lt;a href=&quot;http://www.w3.org/wiki/CSS3/Color/currentColor&quot;&gt;currentColor&lt;/a&gt;. Like the description says on the w3 wiki, its value is whatever the &lt;code&gt;color&lt;/code&gt; is set to. So how does that work? Lets look at some examples.&lt;/p&gt;
 &lt;p data-height=&quot;268&quot; data-theme-id=&quot;14183&quot; data-slug-hash=&quot;gpXOMm&quot; data-default-tab=&quot;result&quot; data-user=&quot;Harrewarre&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/Harrewarre/pen/gpXOMm/&quot;&gt;currentColor samples&lt;/a&gt; by Sander Harrewijnen (&lt;a href=&quot;http://codepen.io/Harrewarre&quot;&gt;@Harrewarre&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
 &lt;script async=&quot;&quot; src=&quot;https://assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
@@ -449,7 +460,8 @@ Every software developer ever :-)&lt;/p&gt;
     <item>
       <title>Basic string templating in C#</title>
       <link>https://harre.dev/blog/basic-string-templating-in-c/</link>
-      <description>&lt;p&gt;Every solution I&#39;ve worked on required some form of communication via e-mail or other form of text to the outside world, reporting, notifications or something else. There are a bunch of libraries out there that can make your life easy if you need complex templates. But this is not about complex, this is supporting the basics without including all sorts of unnecessary stuff.&lt;/p&gt;
+      <description>&lt;h1&gt;Basic string templating in C#&lt;/h1&gt;
+&lt;p&gt;Every solution I&#39;ve worked on required some form of communication via e-mail or other form of text to the outside world, reporting, notifications or something else. There are a bunch of libraries out there that can make your life easy if you need complex templates. But this is not about complex, this is supporting the basics without including all sorts of unnecessary stuff.&lt;/p&gt;
 &lt;p&gt;What do we need to make this happen? The first thing is a template. A template is nothing more than a piece of plain text (or HTML if you want) in which we want to replace parts to create a complete message. Lets use something very simple, a single line, one tag.&lt;/p&gt;
 &lt;p&gt;Reminder: %reminderText%&lt;/p&gt;
 &lt;p&gt;The &lt;code&gt;%reminderText%&lt;/code&gt; is the part we are most interested in, because that is what we want to set ourselves.&lt;/p&gt;
@@ -526,7 +538,8 @@ var messenger = new Messenger();&lt;/p&gt;
     <item>
       <title>The new rig</title>
       <link>https://harre.dev/blog/the-new-rig/</link>
-      <description>&lt;p&gt;After saving up money for a while I bought myself a new desktop PC. Its main purpose would be gaming and some development stuff but since gaming has a big influence on the parts, I rolled with that. Here is the part list I ended up ordering.&lt;/p&gt;
+      <description>&lt;h1&gt;The new rig&lt;/h1&gt;
+&lt;p&gt;After saving up money for a while I bought myself a new desktop PC. Its main purpose would be gaming and some development stuff but since gaming has a big influence on the parts, I rolled with that. Here is the part list I ended up ordering.&lt;/p&gt;
 &lt;h2&gt;Specs!&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Intel Core i5-6600.&lt;/li&gt;
@@ -558,7 +571,8 @@ var messenger = new Messenger();&lt;/p&gt;
     <item>
       <title>Read Spotify track info using C#</title>
       <link>https://harre.dev/blog/reading-spotify-track-info-from-the-desktop-app/</link>
-      <description>&lt;p&gt;Spotify recently updated the desktop app again and it is once again possible to read current track info directly from it. Here is how you to read it using a little C# code.&lt;/p&gt;
+      <description>&lt;h1&gt;Read Spotify track info using C#&lt;/h1&gt;
+&lt;p&gt;Spotify recently updated the desktop app again and it is once again possible to read current track info directly from it. Here is how you to read it using a little C# code.&lt;/p&gt;
 &lt;p&gt;A tiny little disclaimer, Spotify can break this code by updating their desktop app. It&#39;ll work now, but if they remove the track info from the title again, things won&#39;t work anymore.&lt;/p&gt;
 &lt;p&gt;So the current track is hidden somewhere, let&#39;s find out where it is.&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&quot;language-csharp&quot;&gt;class Program
@@ -649,7 +663,8 @@ namespace Harrewarre.Spotify.Demo
     <item>
       <title>Cloud Foundry Summit 2015 Berlin</title>
       <link>https://harre.dev/blog/cloudfoundry-summit-2015-berlin/</link>
-      <description>&lt;p&gt;On the 2nd and 3rd November in 2015, the &lt;a href=&quot;https://www.cloudfoundry.org/foundation/&quot;&gt;Cloud Foundry Foundation&lt;/a&gt; held the &lt;a href=&quot;https://www.cloudfoundry.org/&quot;&gt;Cloud Foundry&lt;/a&gt; Summit in Berlin. The focus of this conference is on Cloud Foundry itself and the community around it.&lt;/p&gt;
+      <description>&lt;h1&gt;Cloud Foundry Summit 2015 Berlin&lt;/h1&gt;
+&lt;p&gt;On the 2nd and 3rd November in 2015, the &lt;a href=&quot;https://www.cloudfoundry.org/foundation/&quot;&gt;Cloud Foundry Foundation&lt;/a&gt; held the &lt;a href=&quot;https://www.cloudfoundry.org/&quot;&gt;Cloud Foundry&lt;/a&gt; Summit in Berlin. The focus of this conference is on Cloud Foundry itself and the community around it.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;http://itq.nl/&quot;&gt;ITQ&lt;/a&gt; (my employer) is focussing on &lt;a href=&quot;http://itq.nl/expertise/cloud-native-apps/&quot;&gt;Cloud Native apps&lt;/a&gt; and let a small group including myself attend the conference. After a canceled flight due to fog and a 650km roadtrip with my co-workers &lt;a href=&quot;https://twitter.com/rwwilden&quot;&gt;Ronald&lt;/a&gt; and &lt;a href=&quot;https://twitter.com/ruurdkeizer&quot;&gt;Ruurd&lt;/a&gt; we arrived at the hotel at 2am in morning just in time for the first workshop.&lt;/p&gt;
 &lt;p&gt;In a nutshell, Cloud Foundry is a (full open source!) platform-as-a-service that enables companies to rapidly evolve their software through simple and fast deployments that take minutes instead of days. This approach does come with some catches, monolithic applications (ie: the really big enterprisey apps) are not well suited for this platform, instead, software systems should be written as a group of stateless &lt;a href=&quot;http://12factor.net/&quot;&gt;12-factor&lt;/a&gt; &lt;a href=&quot;http://martinfowler.com/articles/microservices.html&quot;&gt;micro-services&lt;/a&gt; (Cloud Native apps) that work together to form the system.&lt;/p&gt;
 &lt;p&gt;I participated in one of the workshops on the first conference day that took us through the steps of deploying and managing microservice-based applications on the Cloud Foundry platform. The platform in this case being the &lt;a href=&quot;http://pivotal.io/platform&quot;&gt;Pivotal Cloud Foundry&lt;/a&gt; platform which has a web GUI to manage things as well as a command-line interface. You can play around with the platform yourself using the &lt;a href=&quot;http://run.pivotal.io/&quot;&gt;60-day free trial&lt;/a&gt; Pivotal offers.&lt;/p&gt;

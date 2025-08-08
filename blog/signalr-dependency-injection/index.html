@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SignalR dependency injection</title>
+    <title>harre.dev | SignalR dependency injection</title>
     <link rel="stylesheet" href="/assets/style/theme.css">
   </head>
   <body>
@@ -17,12 +17,13 @@
           <a href="/">home</a>
           <a href="/blog">blog</a>
           <a href="/about">about</a>
-          <a href="feed.xml">rss</a>
+          <a href="/feed.xml">rss</a>
         </div>
     </nav>
     <main>
       <div class="content-wrapper">
-        <p>My go-to container for IoC at the moment is <a href="https://simpleinjector.codeplex.com/">SimpleInjector</a> because you know.. it's simple. I've used it in a couple of projects and used in a hobby project recently again.</p>
+        <h1>SignalR dependency injection</h1>
+<p>My go-to container for IoC at the moment is <a href="https://simpleinjector.codeplex.com/">SimpleInjector</a> because you know.. it's simple. I've used it in a couple of projects and used in a hobby project recently again.</p>
 <p>This hobby project uses <a href="http://www.asp.net/signalr">SignalR</a> for real-time communication between browser and server and after setting that up I wanted to inject dependencies in to the SignalR hubs. It is pretty easy but there was a minor catch. Let's look at some code.</p>
 <p>The first thing that is required is a dependency resolver that works with SignalR, lucky for us, it provides a built-in default one which we can implement:</p>
 <p>public class SignalrSimpleInjectorDependencyResolver : DefaultDependencyResolver

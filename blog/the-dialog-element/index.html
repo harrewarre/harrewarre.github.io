@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The dialog element</title>
+    <title>harre.dev | The dialog element</title>
     <link rel="stylesheet" href="/assets/style/theme.css">
   </head>
   <body>
@@ -17,12 +17,13 @@
           <a href="/">home</a>
           <a href="/blog">blog</a>
           <a href="/about">about</a>
-          <a href="feed.xml">rss</a>
+          <a href="/feed.xml">rss</a>
         </div>
     </nav>
     <main>
       <div class="content-wrapper">
-        <p>I was grinding my teeth on a z-index problem today. I needed to cover the entire webpage to show something was happening and nothing else was to interrupt. Some elements (for whatever reasons) were poking through the overlay and nothing seemed to fix my problem with the plain old <code>position: fixed</code> element I was using to cover the page.</p>
+        <h1>The dialog element</h1>
+<p>I was grinding my teeth on a z-index problem today. I needed to cover the entire webpage to show something was happening and nothing else was to interrupt. Some elements (for whatever reasons) were poking through the overlay and nothing seemed to fix my problem with the plain old <code>position: fixed</code> element I was using to cover the page.</p>
 <p>So after getting fed up with looking for possible fixes I spent a bit of time looking for alternatives and came across the <code>&lt;dialog&gt;</code> element.</p>
 <p>First things first, the <code>&lt;dialog&gt;</code> element isn't all that well supported. At the time or writing, <a href="http://caniuse.com/#search=dialog">support looks like this</a>.</p>
 <p><img src="dialoguse.PNG" alt="Sad dialog is sad"></p>

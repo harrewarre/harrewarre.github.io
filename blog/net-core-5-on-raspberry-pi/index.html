@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dotnet core 5 on a raspberry pi</title>
+    <title>harre.dev | Dotnet core 5 on a raspberry pi</title>
     <link rel="stylesheet" href="/assets/style/theme.css">
   </head>
   <body>
@@ -17,12 +17,13 @@
           <a href="/">home</a>
           <a href="/blog">blog</a>
           <a href="/about">about</a>
-          <a href="feed.xml">rss</a>
+          <a href="/feed.xml">rss</a>
         </div>
     </nav>
     <main>
       <div class="content-wrapper">
-        <p>Here's a quick get-up-and-go style post on how to get dotnet core 5 usable on a Raspberry Pi (a R-Pi 3 Model B in my case).</p>
+        <h1>Dotnet core 5 on a raspberry pi</h1>
+<p>Here's a quick get-up-and-go style post on how to get dotnet core 5 usable on a Raspberry Pi (a R-Pi 3 Model B in my case).</p>
 <p>We're doing all this over SSH because my goal was to run a small webapp on the Pi which is located in a cupboard somewhere in my house without a keyboard and mouse attached to it 😁
 So, after you've connected to the Pi over SSH, the first step is to install the dotnet core SDK.</p>
 <p>You can find all the dotnet binaries <a href="https://dotnet.microsoft.com/download/dotnet/5.0">here</a> and the one we'll need for this is the Linux ARM64 version. Grab the download link you get from the site and run <code>wget</code> to download the file to your downloads directory.</p>

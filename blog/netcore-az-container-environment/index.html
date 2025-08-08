@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Environment variables in an Azure Web App for Containers</title>
+    <title>harre.dev | Environment variables in an Azure Web App for Containers</title>
     <link rel="stylesheet" href="/assets/style/theme.css">
   </head>
   <body>
@@ -17,12 +17,13 @@
           <a href="/">home</a>
           <a href="/blog">blog</a>
           <a href="/about">about</a>
-          <a href="feed.xml">rss</a>
+          <a href="/feed.xml">rss</a>
         </div>
     </nav>
     <main>
       <div class="content-wrapper">
-        <p>Here's a little gotcha I ran into. A .net core app I wrote needs to run inside a container and the target was a Web App for Containers on the Azure platform. No big deal so far.</p>
+        <h1>Environment variables in an Azure Web App for Containers</h1>
+<p>Here's a little gotcha I ran into. A .net core app I wrote needs to run inside a container and the target was a Web App for Containers on the Azure platform. No big deal so far.</p>
 <p>The app also needs a few settings for it to do its work. We provide these via environment variables for maximum flexibility. After setting up some CI/CD stuff and deploying the app it wouldn't start because it wasn't loading the settings.</p>
 <p>But why?? The <a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/?view=aspnetcore-2.2#hierarchical-configuration-data">spec</a> is pretty clear on how to write the keys for the settings in such a way that .net understands them.</p>
 <p><img src="settings.png" alt="Settings"></p>

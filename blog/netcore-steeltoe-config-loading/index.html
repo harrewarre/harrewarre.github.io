@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cloud Foundry configuration with SteelToe</title>
+    <title>harre.dev | Cloud Foundry configuration with SteelToe</title>
     <link rel="stylesheet" href="/assets/style/theme.css">
   </head>
   <body>
@@ -17,12 +17,13 @@
           <a href="/">home</a>
           <a href="/blog">blog</a>
           <a href="/about">about</a>
-          <a href="feed.xml">rss</a>
+          <a href="/feed.xml">rss</a>
         </div>
     </nav>
     <main>
       <div class="content-wrapper">
-        <p>I've been playing around with the <a href="https://steeltoe.io/">SteelToe</a> framework for .net apps on Cloud Foundry a bit and it's been nice overall (I'll probably write a few more posts about it at some point 😊). While playing around with it the configuration part of it I wasn't really liking the way settings can be read from the main configuration.</p>
+        <h1>Cloud Foundry configuration with SteelToe</h1>
+<p>I've been playing around with the <a href="https://steeltoe.io/">SteelToe</a> framework for .net apps on Cloud Foundry a bit and it's been nice overall (I'll probably write a few more posts about it at some point 😊). While playing around with it the configuration part of it I wasn't really liking the way settings can be read from the main configuration.</p>
 <p>Let's start with a really short primer on how the configuration system works. Cloud Foundry apps can be bound to services, doing so adds a reference to the bound service in the environment variables of the app that was bound. You can take a look at what is provided to an applications environment by running</p>
 <p>cf env <app-name></p>
 <p>For this example we're interested in the <code>VCAP_SERVICES</code> section, because it contains a user provided service that I bound to this app:</p>

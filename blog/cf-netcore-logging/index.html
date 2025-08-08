@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASP.NET Core logging on Cloud Foundry</title>
+    <title>harre.dev | ASP.NET Core logging on Cloud Foundry</title>
     <link rel="stylesheet" href="/assets/style/theme.css">
   </head>
   <body>
@@ -17,12 +17,13 @@
           <a href="/">home</a>
           <a href="/blog">blog</a>
           <a href="/about">about</a>
-          <a href="feed.xml">rss</a>
+          <a href="/feed.xml">rss</a>
         </div>
     </nav>
     <main>
       <div class="content-wrapper">
-        <p>All apps I've ever worked on have some sort of logging going on for various reasons, mostly to keep track of whats going on or debugging, but it's all the same. Logs are needed to see what your code is up to.</p>
+        <h1>ASP.NET Core logging on Cloud Foundry</h1>
+<p>All apps I've ever worked on have some sort of logging going on for various reasons, mostly to keep track of whats going on or debugging, but it's all the same. Logs are needed to see what your code is up to.</p>
 <p>Cloud Foundry <a href="https://docs.cloudfoundry.org/devguide/deploy-apps/streaming-logs.html#writing">is very explicit</a> about <em>how</em> an app should write its logs. As you can see in the documentation, apps must write to <code>stdout</code> or <code>stderr</code>.</p>
 <p>For C# that means we can use the static methods on the <code>Console</code> to write our logs. Couldn't be easier. But... now our code is littered with these <code>Console.Write...</code> lines all over the place!</p>
 <p>Ok, easy, wrap it up in a simple class with an interface and inject it. That's a better solution for sure, but .NET provides an easy to use, injectable <code>ILogger</code> we can take advantage of. Let's see how we can set it up for console logging and use it in our apps we want to run on Cloud Foundry.</p>

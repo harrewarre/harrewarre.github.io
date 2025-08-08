@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RabbitMQ with NodeJS on Cloud Foundry</title>
+    <title>harre.dev | RabbitMQ with NodeJS on Cloud Foundry</title>
     <link rel="stylesheet" href="/assets/style/theme.css">
   </head>
   <body>
@@ -17,12 +17,13 @@
           <a href="/">home</a>
           <a href="/blog">blog</a>
           <a href="/about">about</a>
-          <a href="feed.xml">rss</a>
+          <a href="/feed.xml">rss</a>
         </div>
     </nav>
     <main>
       <div class="content-wrapper">
-        <p>I've been having some more fun with Cloud Foundry deploying Node apps and wanted the apps to communicate in a more disconnected way. A messaging system is a good fit for such a requirement and lucky for me, (Pivotal) Cloud Foundry has RabbitMQ-as-a-Service for me to use.</p>
+        <h1>RabbitMQ with NodeJS on Cloud Foundry</h1>
+<p>I've been having some more fun with Cloud Foundry deploying Node apps and wanted the apps to communicate in a more disconnected way. A messaging system is a good fit for such a requirement and lucky for me, (Pivotal) Cloud Foundry has RabbitMQ-as-a-Service for me to use.</p>
 <p>So what are we working with? The code is Javascript running on Node, RabbitMQ for the messages and Cloud Foundry is hosting it all.</p>
 <h2>Installing RabbitMQ</h2>
 <p>If you don't have one yet, installing a RabbitMQ service is the first step. There should be one in the CF marketplace (if not, use the <a href="http://docs.pivotal.io/rabbitmq-cf/index.html">Ops manager to install it first on your platform first</a>).</p>
