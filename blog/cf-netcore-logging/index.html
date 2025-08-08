@@ -1,149 +1,94 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
-
-<head>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
-<link rel="shortcut icon" href="/favicon.png" type="image/png">
-<title>ASP.NET Core logging on Cloud Foundry | harre.dev</title>
-<meta property="og:url" content="https://harre.dev/blog/cf-netcore-logging/">
-<meta property="og:site_name" content="harre.dev">
-<meta property="og:title" content="ASP.NET Core logging on Cloud Foundry">
-<meta property="og:description" content="ASP.NET Core logging on Cloud Foundry">
-<meta property="og:locale" content="en_us">
-<meta property="og:type" content="article">
-<meta property="article:section" content="blog">
-<meta property="article:published_time" content="2019-01-10T00:00:00+00:00">
-<meta property="article:modified_time" content="2019-01-10T00:00:00+00:00">
-<meta property="article:tag" content="cloud foundry">
-<meta property="article:tag" content="asp.net core">
-<meta property="article:tag" content="dotnet core">
-<meta property="article:tag" content="logging">
-<meta property="article:tag" content="itq">
-
-<meta property="og:image" content="/og-img.png">
-
-
-      <link rel="stylesheet" href="/css/fonts.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU=" crossorigin="anonymous">
-      <link rel="stylesheet" href="/css/genesis.min.a1c0ed57b1424f92d7510f72be702d05a385d99ee050b3b5742a14180bf44fcb.css" integrity="sha256-ocDtV7FCT5LXUQ9yvnAtBaOF2Z7gULO1dCoUGAv0T8s=" crossorigin="anonymous">
-
-
-
-<script defer src="https://www.fairanalytics.de/pixel/834UxRaqtQBFLx4i"></script>
-
-</head>
-
-<body>
-    <div class="site-container">
-        <header>
-            <div class="site-header">
-    <div class="site-title">
-        <h1>harre.dev</h1>
-    </div>
-    <div class="site-title-slant"></div>
-</div>
-        </header>
-        <div class="site-wrapper">
-            <div class="site">
-                <nav>
-                    <div class="menu">
-    <h1>Menu</h1>
-    <a href="/">home</a>
-    <a href="/blog">blog</a>
-    <a href="/blog/index.xml">rss</a>
-    <a href="/about">about</a>
-</div>
-                </nav>
-                <main>
-                    
-  
-  
-  <h1 class="hero-text">ASP.NET Core logging on Cloud Foundry</h1>
-  
-  
-  <div class="old-content-banner">
-    <p>This post is more than 3 years old!</p>
-    <p>It might all be outdated.</p>
-  </div>
-    
-  <p>All apps I&rsquo;ve ever worked on have some sort of logging going on for various reasons, mostly to keep track of whats going on or debugging, but it&rsquo;s all the same. Logs are needed to see what your code is up to.</p>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASP.NET Core logging on Cloud Foundry</title>
+    <link rel="stylesheet" href="/assets/style/theme.css">
+  </head>
+  <body>
+    <header>
+        <div class="content-wrapper">
+            <h1><a href="/">harre.dev</a></h1>
+        </div>
+    </header>
+    <nav>
+        <div class="content-wrapper">
+          <a href="/">home</a>
+          <a href="/blog">blog</a>
+          <a href="/about">about</a>
+          <a href="feed.xml">rss</a>
+        </div>
+    </nav>
+    <main>
+      <div class="content-wrapper">
+        <p>All apps I've ever worked on have some sort of logging going on for various reasons, mostly to keep track of whats going on or debugging, but it's all the same. Logs are needed to see what your code is up to.</p>
 <p>Cloud Foundry <a href="https://docs.cloudfoundry.org/devguide/deploy-apps/streaming-logs.html#writing">is very explicit</a> about <em>how</em> an app should write its logs. As you can see in the documentation, apps must write to <code>stdout</code> or <code>stderr</code>.</p>
-<p>For C# that means we can use the static methods on the <code>Console</code> to write our logs. Couldn&rsquo;t be easier. But&hellip; now our code is littered with these <code>Console.Write...</code> lines all over the place!</p>
-<p>Ok, easy, wrap it up in a simple class with an interface and inject it. That&rsquo;s a better solution for sure, but .NET provides an easy to use, injectable <code>ILogger</code> we can take advantage of. Let&rsquo;s see how we can set it up for console logging and use it in our apps we want to run on Cloud Foundry.</p>
+<p>For C# that means we can use the static methods on the <code>Console</code> to write our logs. Couldn't be easier. But... now our code is littered with these <code>Console.Write...</code> lines all over the place!</p>
+<p>Ok, easy, wrap it up in a simple class with an interface and inject it. That's a better solution for sure, but .NET provides an easy to use, injectable <code>ILogger</code> we can take advantage of. Let's see how we can set it up for console logging and use it in our apps we want to run on Cloud Foundry.</p>
 <p>The <code>ILogger</code> mentioned earlier can be configured in the same way the configuration is handled. In the <code>Main</code> method, were the host is built, we can call the <code>.ConfigureLogging(...)</code> method and get access to logging bits.</p>
-<pre><code>public static void Main(string[] args)
+<p>public static void Main(string[] args)
 {
-    CreateWebHostBuilder(args).Build().Run();
-}
-
-public static IWebHostBuilder CreateWebHostBuilder(string[] args) =&gt;
-    WebHost.CreateDefaultBuilder(args)
-        .ConfigureLogging((logging) =&gt; {
-            -- [access logging here! --
-        })
-        .UseStartup&lt;Startup&gt;();
-</code></pre>
+CreateWebHostBuilder(args).Build().Run();
+}</p>
+<p>public static IWebHostBuilder CreateWebHostBuilder(string[] args) =&gt;
+WebHost.CreateDefaultBuilder(args)
+.ConfigureLogging((logging) =&gt; {
+-- [access logging here! --
+})
+.UseStartup<Startup>();</p>
 <p>Because we only want to log to the console, we start with removing any default (Console, Debug and EventSource) that might be present:</p>
-<pre><code>logging.ClearProviders();
-</code></pre>
+<p>logging.ClearProviders();</p>
 <p>And we add the console provider:</p>
-<pre><code>logging.AddConsole();
-</code></pre>
-<p>This setup will make the <code>ILogger</code> instance log only to the console. Using <code>ILogger</code> is just like using a regular service. It&rsquo;s already present in the services collection and can be injected without further configuration. Here&rsquo;s an example with the <code>ValuesController</code> from an untouched .NET Core WebAPI project:</p>
-<pre><code>[Route(&quot;api/[controller]&quot;)]
+<p>logging.AddConsole();</p>
+<p>This setup will make the <code>ILogger</code> instance log only to the console. Using <code>ILogger</code> is just like using a regular service. It's already present in the services collection and can be injected without further configuration. Here's an example with the <code>ValuesController</code> from an untouched .NET Core WebAPI project:</p>
+<p>[Route(&quot;api/[controller]&quot;)]
 [ApiController]
 public class ValuesController : ControllerBase
 {
-    private readonly ILogger&lt;ValuesController&gt; _logger;
-
-    public ValuesController(ILogger&lt;ValuesController&gt; logger)
-    {
-        _logger = logger;
-    }
-
-    // GET api/values
-    [HttpGet]
-    public ActionResult&lt;IEnumerable&lt;string&gt;&gt; Get()
-    {
-        _logger.LogTrace(&quot;--- trace&quot;);
-        _logger.LogDebug(&quot;--- debug&quot;);
-        _logger.LogInformation(&quot;--- info&quot;);
-        _logger.LogWarning(&quot;--- warning&quot;);
-        _logger.LogError(&quot;--- error&quot;);
-        _logger.LogCritical(&quot;--- critical&quot;);
-
-        return new string[] { &quot;value1&quot;, &quot;value2&quot; };
-    }
-
-    ...
-}
-</code></pre>
+private readonly ILogger<ValuesController> _logger;</p>
+<p>public ValuesController(ILogger<ValuesController> logger)
+{
+_logger = logger;
+}</p>
+<p>// GET api/values
+[HttpGet]
+public ActionResult&lt;IEnumerable<string>&gt; Get()
+{
+_logger.LogTrace(&quot;--- trace&quot;);
+_logger.LogDebug(&quot;--- debug&quot;);
+_logger.LogInformation(&quot;--- info&quot;);
+_logger.LogWarning(&quot;--- warning&quot;);
+_logger.LogError(&quot;--- error&quot;);
+_logger.LogCritical(&quot;--- critical&quot;);</p>
+<p>return new string[] { &quot;value1&quot;, &quot;value2&quot; };
+}</p>
+<p>...
+}</p>
 <p>Running this locally and calling the <code>/api/values</code> endpoint will show the following (and a whole lot more) output:</p>
-<pre><code>trce: app.Controllers.ValuesController[0]
-    --- trace
+<p>trce: app.Controllers.ValuesController[0]
+--- trace
 dbug: app.Controllers.ValuesController[0]
-    --- debug
+--- debug
 info: app.Controllers.ValuesController[0]
-    --- info
+--- info
 warn: app.Controllers.ValuesController[0]
-    --- warning
+--- warning
 fail: app.Controllers.ValuesController[0]
-    --- error
+--- error
 crit: app.Controllers.ValuesController[0]
-    --- critical
-</code></pre>
+--- critical</p>
 <p>Keep in mind that to see ALL the output, you need to tell the logger to do so in <code>appsettings.*.json</code> by setting the desired log level! (You might want to keep it at Information, or even Warning)</p>
-<pre><code>{
-    &quot;Logging&quot;: {
-        &quot;LogLevel&quot;: {
-            &quot;Default&quot;: &quot;Trace&quot;
-        }
-    }
+<p>{
+&quot;Logging&quot;: {
+&quot;LogLevel&quot;: {
+&quot;Default&quot;: &quot;Trace&quot;
 }
-</code></pre>
+}
+}</p>
 <p>The built-in logger uses a type (in this case <code>ValuesController</code>) as the category as seen in the output. For more options and features you can check to full documentation to for logging in aspnet core <a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2">here</a>.</p>
-<p>When you <code>cf push</code> this to Cloud Foundry and call the same endpoint you&rsquo;ll see something like this:</p>
-<pre><code>2019-01-10T11:43:19.35+0100 [APP/PROC/WEB/0] OUT trce: app.Controllers.ValuesController[0]
+<p>When you <code>cf push</code> this to Cloud Foundry and call the same endpoint you'll see something like this:</p>
+<p>2019-01-10T11:43:19.35+0100 [APP/PROC/WEB/0] OUT trce: app.Controllers.ValuesController[0]
 2019-01-10T11:43:19.35+0100 [APP/PROC/WEB/0] OUT       --- trace
 2019-01-10T11:43:19.35+0100 [APP/PROC/WEB/0] OUT dbug: app.Controllers.ValuesController[0]
 2019-01-10T11:43:19.35+0100 [APP/PROC/WEB/0] OUT       --- debug
@@ -154,33 +99,15 @@ crit: app.Controllers.ValuesController[0]
 2019-01-10T11:43:19.35+0100 [APP/PROC/WEB/0] OUT fail: app.Controllers.ValuesController[0]
 2019-01-10T11:43:19.35+0100 [APP/PROC/WEB/0] OUT       --- error
 2019-01-10T11:43:19.35+0100 [APP/PROC/WEB/0] OUT crit: app.Controllers.ValuesController[0]
-2019-01-10T11:43:19.35+0100 [APP/PROC/WEB/0] OUT       --- critical
-</code></pre>
+2019-01-10T11:43:19.35+0100 [APP/PROC/WEB/0] OUT       --- critical</p>
 <p>So now you are all set up with proper logging in ASP.NET Core (2.2) that complies with the requirements set by the Cloud Foundry platform.</p>
 
-  <div class="blog-meta">
-    <h1>Meta</h1>
-    <time class="meta-element" datetime="2019-01-10T00:00:00&#43;00:00">January 10, 2019</time>
-    <div class="meta-element">
-  <div>
-    Tags:
-        <a href="/tags/cloud-foundry/">cloud foundry</a>
-        <a href="/tags/asp.net-core/">asp.net core</a>
-        <a href="/tags/dotnet-core/">dotnet core</a>
-        <a href="/tags/logging/">logging</a>
-        <a href="/tags/itq/">itq</a>
-  </div>
-</div>
-  </div>
-
-                </main>
-            </div>
-        </div>
-        <footer>
-            <span>🌱 content written by an actual human.</span>
-<span>©️ copyright 2015-2025 harre.dev</span>
-        </footer>
-    </div>
-</body>
-
+      </div>
+    </main>
+    <footer>
+      <div class="content-wrapper">
+        <p>© 2025 harre.dev</p>
+       </div>
+    </footer>
+  </body>
 </html>

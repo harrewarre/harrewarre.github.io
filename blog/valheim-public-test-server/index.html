@@ -1,117 +1,56 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
-
-<head>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
-<link rel="shortcut icon" href="/favicon.png" type="image/png">
-<title>Valheim public-test server | harre.dev</title>
-<meta property="og:url" content="https://harre.dev/blog/valheim-public-test-server/">
-<meta property="og:site_name" content="harre.dev">
-<meta property="og:title" content="Valheim public-test server">
-<meta property="og:description" content="Valheim public-test server">
-<meta property="og:locale" content="en_us">
-<meta property="og:type" content="article">
-<meta property="article:section" content="blog">
-<meta property="article:published_time" content="2022-11-23T00:00:00+00:00">
-<meta property="article:modified_time" content="2022-11-23T00:00:00+00:00">
-<meta property="article:tag" content="Valheim">
-<meta property="article:tag" content="Gaming">
-<meta property="article:tag" content="SteamCMD">
-<meta property="article:tag" content="linux">
-
-<meta property="og:image" content="/og-img.png">
-
-
-      <link rel="stylesheet" href="/css/fonts.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU=" crossorigin="anonymous">
-      <link rel="stylesheet" href="/css/genesis.min.a1c0ed57b1424f92d7510f72be702d05a385d99ee050b3b5742a14180bf44fcb.css" integrity="sha256-ocDtV7FCT5LXUQ9yvnAtBaOF2Z7gULO1dCoUGAv0T8s=" crossorigin="anonymous">
-
-
-
-<script defer src="https://www.fairanalytics.de/pixel/834UxRaqtQBFLx4i"></script>
-
-</head>
-
-<body>
-    <div class="site-container">
-        <header>
-            <div class="site-header">
-    <div class="site-title">
-        <h1>harre.dev</h1>
-    </div>
-    <div class="site-title-slant"></div>
-</div>
-        </header>
-        <div class="site-wrapper">
-            <div class="site">
-                <nav>
-                    <div class="menu">
-    <h1>Menu</h1>
-    <a href="/">home</a>
-    <a href="/blog">blog</a>
-    <a href="/blog/index.xml">rss</a>
-    <a href="/about">about</a>
-</div>
-                </nav>
-                <main>
-                    
-  
-  
-  <h1 class="hero-text">Valheim public-test server</h1>
-  
-    
-  <p><strong>UPDATE</strong></p>
-<p>The testing appears to be done and is now part of the regular version of the game. This is still a handy guide for any future betas though.</p>
-<p>Here&rsquo;s a cool update for <a href="valheim-linux-server.md">your Valheim linux server</a> if you&rsquo;re up from some beta testing.</p>
-<!-- more -->
-<p>The Valheim devs announced the Mistlands update and we can all get in on the action early through a beta branch on Steam (and GamePass). You can find out more about the update <a href="https://valheim.com/news/mistlands-public-test/">here</a> and there&rsquo;s a nice trailer <a href="https://youtu.be/cZOuBjvETR8">here</a>.</p>
-<p>To update your game to the <code>public-test</code> version you have to opt into the beta version by going to the game&rsquo;s properties in Steam, selecting Betas and then entering <code>yesimadebackups</code> to unlock the public-test version. Once you&rsquo;ve unlocked it you can update to this beta version of the game.</p>
-<p>As with any beta or public-test stuff, there&rsquo;s going to be bugs and you can lose your world and/or your character. The game also warns about this. With that out of the way, let&rsquo;s update the server.</p>
-<p>Before doing anything, make sure you stop your game server.</p>
-<pre><code>sudo systemctl stop valheim
-</code></pre>
-<p>Once stopped we need to make a backup of the world, just in case anything goes bad. The world files are stored at <code>~/.config/unity3d/Irongate/Valheim/worlds_local/</code> so we just copy everything in there to a different folder.</p>
-<pre><code>cp ~/.config/unity3d/IronGate/Valheim/worlds_local/*.* ~/valheim-backup/
-</code></pre>
-<p>Next up, updating the game. Let&rsquo;s have a quick look at the command we used to installed the stable version before we do anything.</p>
-<pre><code>steamcmd +login anonymous +force_install_dir /home/harre/.steam/steamapps/common/valheim +app_update 896660 validate +exit
-</code></pre>
-<p>To get into the public-test version we need to specify which branch we want to download and also specify the beta password. Having a quick look in the <a href="https://developer.valvesoftware.com/wiki/SteamCMD">docs</a> and searching for the word <code>branch</code> gives us the things we need to supply to the <code>app_update</code> command.</p>
-<pre><code>-beta &lt;branch name&gt; -betapassword &lt;password&gt;
-</code></pre>
-<p>Which for Valheim <code>public-test</code> becomes</p>
-<pre><code>-beta public-test -betapassword yesimadebackups
-</code></pre>
-<p>Then added to the existing command we already have:</p>
-<pre><code>steamcmd +login anonymous +force_install_dir /home/harre/.steam/steamapps/common/valheim +app_update 896660 -beta public-test -betapassword yesimadebackups validate +exit
-</code></pre>
-<p>Run the command and wait for the game to download and install. Once completed you can start the server back up. Everthing we configured during the setup <a href="valheim-linux-server.md">in this post</a> should still work.</p>
-<pre><code>sudo systemctl start valheim
-</code></pre>
-<p>Now you&rsquo;re all set up to connect the game to your server and start exploring those Mistlands. Have fun out there!</p>
-
-  <div class="blog-meta">
-    <h1>Meta</h1>
-    <time class="meta-element" datetime="2022-11-23T00:00:00&#43;00:00">November 23, 2022</time>
-    <div class="meta-element">
-  <div>
-    Tags:
-        <a href="/tags/valheim/">Valheim</a>
-        <a href="/tags/gaming/">Gaming</a>
-        <a href="/tags/steamcmd/">SteamCMD</a>
-        <a href="/tags/linux/">linux</a>
-  </div>
-</div>
-  </div>
-
-                </main>
-            </div>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valheim public-test server</title>
+    <link rel="stylesheet" href="/assets/style/theme.css">
+  </head>
+  <body>
+    <header>
+        <div class="content-wrapper">
+            <h1><a href="/">harre.dev</a></h1>
         </div>
-        <footer>
-            <span>🌱 content written by an actual human.</span>
-<span>©️ copyright 2015-2025 harre.dev</span>
-        </footer>
-    </div>
-</body>
+    </header>
+    <nav>
+        <div class="content-wrapper">
+          <a href="/">home</a>
+          <a href="/blog">blog</a>
+          <a href="/about">about</a>
+          <a href="feed.xml">rss</a>
+        </div>
+    </nav>
+    <main>
+      <div class="content-wrapper">
+        <p><strong>UPDATE</strong></p>
+<p>The testing appears to be done and is now part of the regular version of the game. This is still a handy guide for any future betas though.</p>
+<p>Here's a cool update for <a href="valheim-linux-server.md">your Valheim linux server</a> if you're up from some beta testing.</p>
+<!-- more -->
+<p>The Valheim devs announced the Mistlands update and we can all get in on the action early through a beta branch on Steam (and GamePass). You can find out more about the update <a href="https://valheim.com/news/mistlands-public-test/">here</a> and there's a nice trailer <a href="https://youtu.be/cZOuBjvETR8">here</a>.</p>
+<p>To update your game to the <code>public-test</code> version you have to opt into the beta version by going to the game's properties in Steam, selecting Betas and then entering <code>yesimadebackups</code> to unlock the public-test version. Once you've unlocked it you can update to this beta version of the game.</p>
+<p>As with any beta or public-test stuff, there's going to be bugs and you can lose your world and/or your character. The game also warns about this. With that out of the way, let's update the server.</p>
+<p>Before doing anything, make sure you stop your game server.</p>
+<p>sudo systemctl stop valheim</p>
+<p>Once stopped we need to make a backup of the world, just in case anything goes bad. The world files are stored at <code>~/.config/unity3d/Irongate/Valheim/worlds_local/</code> so we just copy everything in there to a different folder.</p>
+<p>cp ~/.config/unity3d/IronGate/Valheim/worlds_local/<em>.</em> ~/valheim-backup/</p>
+<p>Next up, updating the game. Let's have a quick look at the command we used to installed the stable version before we do anything.</p>
+<p>steamcmd +login anonymous +force_install_dir /home/harre/.steam/steamapps/common/valheim +app_update 896660 validate +exit</p>
+<p>To get into the public-test version we need to specify which branch we want to download and also specify the beta password. Having a quick look in the <a href="https://developer.valvesoftware.com/wiki/SteamCMD">docs</a> and searching for the word <code>branch</code> gives us the things we need to supply to the <code>app_update</code> command.</p>
+<p>-beta <branch name> -betapassword <password></p>
+<p>Which for Valheim <code>public-test</code> becomes</p>
+<p>-beta public-test -betapassword yesimadebackups</p>
+<p>Then added to the existing command we already have:</p>
+<p>steamcmd +login anonymous +force_install_dir /home/harre/.steam/steamapps/common/valheim +app_update 896660 -beta public-test -betapassword yesimadebackups validate +exit</p>
+<p>Run the command and wait for the game to download and install. Once completed you can start the server back up. Everthing we configured during the setup <a href="valheim-linux-server.md">in this post</a> should still work.</p>
+<p>sudo systemctl start valheim</p>
+<p>Now you're all set up to connect the game to your server and start exploring those Mistlands. Have fun out there!</p>
 
+      </div>
+    </main>
+    <footer>
+      <div class="content-wrapper">
+        <p>© 2025 harre.dev</p>
+       </div>
+    </footer>
+  </body>
 </html>

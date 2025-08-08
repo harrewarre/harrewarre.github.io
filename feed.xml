@@ -1,0 +1,669 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xml:base="https://harre.dev/" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>harre.dev</title>
+    <link>https://harre.dev/</link>
+    <atom:link href="https://harre.dev/feed.xml" rel="self" type="application/rss+xml" />
+    <description>Ramblings from a guy writing code and other stuff.</description>
+    <language>en</language>
+    <item>
+      <title>Easy Windows Service debugging</title>
+      <link>https://harre.dev/blog/easy-windows-service-debugging/</link>
+      <description>&lt;p&gt;Long-running processes in a web application running on IIS is a bad idea. The reason for that is that IIS might unload the AppPool that is running your process due to inactivity. Inactivity? Yep, if IIS does not recieve a requests for a while, it will shut the site down to conserve system resources. (This is all configurable ofcourse, but I&#39;ve
+seen it happen)&lt;/p&gt;
+&lt;p&gt;To allow for long-running stuff, a Windows Service might be a right fit. Here is what the default startup code for a Windows service looks like:&lt;/p&gt;
+&lt;p&gt;static class Program
+{
+/// &lt;summary&gt;
+/// The main entry point for the application.
+/// &lt;/summary&gt;
+static void Main()
+{
+ServiceBase[] ServicesToRun;
+ServicesToRun = new ServiceBase[]
+{
+new Service1()
+};
+ServiceBase.Run(ServicesToRun);
+}
+}&lt;/p&gt;
+&lt;p&gt;If you run this as your start-up project in Visual Studio, it fails to launch with the following message:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Cannot start service from the command line or a debugger. A Windows Service must first be installed (using installutil.exe) and then started with the ServerExplorer, Windows Services Administrative tool or the NET START command.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;You can&#39;t start a service by just running it. Not as a real service at least. Here is a neat trick you can implement to make this run inside the debugger.&lt;/p&gt;
+&lt;p&gt;First thing is this method that we need:&lt;/p&gt;
+&lt;p&gt;public void StartDebug()
+{
+Debugger.Launch();
+OnStart(new string[] { });
+Thread.Sleep(Timeout.Infinite);
+}&lt;/p&gt;
+&lt;p&gt;It instructs the debugger to attach, calls the OnStart method and then blocks the current thread (more about this in second). So where do we put this code?&lt;/p&gt;
+&lt;p&gt;When you created your service, a file (in this example) was added called Service1, when you select the file in the Solution Explorer and hit F7 you can access the code that runs the service. Add the method seen above to Service1 class and you end up with this:&lt;/p&gt;
+&lt;p&gt;public partial class Service1 : ServiceBase
+{
+public Service1()
+{
+InitializeComponent();
+}&lt;/p&gt;
+&lt;p&gt;protected override void OnStart(string[] args)
+{
+}&lt;/p&gt;
+&lt;p&gt;protected override void OnStop()
+{
+}&lt;/p&gt;
+&lt;p&gt;public void StartDebug()
+{
+Debugger.Launch();
+OnStart(new string[] { });
+Thread.Sleep(Timeout.Infinite);
+}
+}&lt;/p&gt;
+&lt;p&gt;Don&#39;t forget these using statements:&lt;/p&gt;
+&lt;p&gt;using System.Diagnostics;
+using System.Threading;&lt;/p&gt;
+&lt;p&gt;When all that is in place, we can modify the start-up code to call this method instead of running the default Run method.&lt;/p&gt;
+&lt;p&gt;static class Program
+{
+/// &lt;summary&gt;
+/// The main entry point for the application.
+/// &lt;/summary&gt;
+static void Main()
+{
+var service = new Service1();&lt;/p&gt;
+&lt;p&gt;#if DEBUG
+service.StartDebug();
+#else
+ServiceBase.Run(service);
+#endif
+}
+}&lt;/p&gt;
+&lt;p&gt;This new code runs our new StartDebug() method when Visual Studio is set to the &lt;strong&gt;Debug&lt;/strong&gt; Solution Configuration (which is available by default). If any other configuration is selected, the normal ServiceBase.Run(...) method is used instead. So what does all this accomplish?&lt;/p&gt;
+&lt;p&gt;Our StartDebug() method does the following things:&lt;/p&gt;
+&lt;p&gt;Debugger.Launch();&lt;/p&gt;
+&lt;p&gt;Attaches a debugger to the process (see &lt;a href=&quot;https://msdn.microsoft.com/en-s/library/system.diagnostics.debugger.launch(v=vs.110).aspx&quot;&gt;here&lt;/a&gt; for some more info),
+&lt;em&gt;the process&lt;/em&gt; in this case, is our Windows Service code launching.&lt;/p&gt;
+&lt;p&gt;OnStart(new string[] { });&lt;/p&gt;
+&lt;p&gt;We call the OnStart(...) method the same way the actual Windows service would be started.&lt;/p&gt;
+&lt;p&gt;Thread.Sleep(Timeout.Infinite);&lt;/p&gt;
+&lt;p&gt;By blocking the thread that starts the service code, the debugger will only detach when we stop our process (by hitting &lt;strong&gt;stop&lt;/strong&gt; in Visual Studio).&lt;/p&gt;
+&lt;p&gt;If we don&#39;t block the thread, the program immediately exits and we won&#39;t be able to debug. This all assumes that you run all your heavy work on a new thread inside the service. Locking the start-up thread like this in a real service will cause it to never start (thats what the #if DEBUG is for). The Service Control manager in Windows waits for the OnStart(...) method to complete. Never completing it will cause a time-out and your service will never start.&lt;/p&gt;
+&lt;p&gt;So, use with a little care but this should make your life a little easier.&lt;/p&gt;
+</description>
+      <pubDate>Sun, 26 Apr 2015 02:00:00 GMT</pubDate>
+      <dc:creator>Sander Harrewijnen</dc:creator>
+      <guid>https://harre.dev/blog/easy-windows-service-debugging/</guid>
+    </item>
+    <item>
+      <title>Generating an RSS feed in C#</title>
+      <link>https://harre.dev/blog/generating-an-rss-feed-in-c/</link>
+      <description>&lt;p&gt;A hobby project of mine needed to generate an RSS feed. I was already doing this by just generating and XML file in the webroot and linking to that on the frontpage. But during this coding session, where all the data is pulled straight from the markdown files I wanted to create a controller action to do the generating for me.&lt;/p&gt;
+&lt;p&gt;First things first, there is an assembly available out of the box in the .NET Framework. All you need is to make reference to &lt;strong&gt;System.ServiceModel.Syndication&lt;/strong&gt; and you are ready to start writing code. The classes we are using are&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;SyndicationItem&lt;/li&gt;
+&lt;li&gt;SyndicationFeed&lt;/li&gt;
+&lt;li&gt;TextSyndicationContent&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We want to write the result straight into the response, so a FileResult will serve as a baseclass for our RssResult class. First you&#39;ll want to create a new constructor that takes in the items that you want to display in the feed. Don&#39;t forget to call the base constructor with the right content type (&lt;strong&gt;application/rss+xml&lt;/strong&gt; in our case) to tell the requesting client that we are serving an RSS feed.&lt;/p&gt;
+&lt;p&gt;By overriding the WriteFile method, we take control of writing to the response stream. To make my code independent of site location I first resolve the domain from the request URL. Next we convert the items we want in the feed to SyndicationItems. A quick LINQ select statement makes short work of the conversion.&lt;/p&gt;
+&lt;p&gt;To create a feed, we need to put the SyndicationItems in a SyndicationFeed. Set the title and description of the feed and you are ready to write to the response stream. Create a new XmlWriter object and point it into the outputstream of the response we are going to send to the client. All that is left then is to put the writer to work using the WriteTo method on the SyndicationFeed&#39;s Rss20Formatter.&lt;/p&gt;
+&lt;p&gt;Pretty easy right? :-) Copy-Pasta ready code below! Enjoy.&lt;/p&gt;
+&lt;p&gt;public class RssResult : FileResult
+{
+private readonly IEnumerable&lt;BlogPost&gt; FeedItems;
+private readonly Uri Url;&lt;/BlogPost&gt;&lt;/p&gt;
+&lt;p&gt;public RssResult(IEnumerable&lt;BlogPost&gt; items)
+: base(&amp;quot;application/rss+xml&amp;quot;)
+{
+this.FeedItems = items;
+this.Url = HttpContext.Current.Request.Url;
+}&lt;/BlogPost&gt;&lt;/p&gt;
+&lt;p&gt;protected override void WriteFile(HttpResponseBase response)
+{
+var sourceUrl = this.Url.GetLeftPart(UriPartial.Authority);&lt;/p&gt;
+&lt;p&gt;var feedItems = this.FeedItems.Select(p =&amp;gt; new SyndicationItem(p.Title, p.Body, new Uri(string.Format(&amp;quot;{0}/post/{1}&amp;quot;, sourceUrl, p.Slug)))
+{
+PublishDate = new DateTimeOffset(p.CreateDate)
+});&lt;/p&gt;
+&lt;p&gt;var feed = new SyndicationFeed(feedItems)
+{
+Title = new TextSyndicationContent(&amp;quot;Harrewijnen.net&amp;quot;, TextSyndicationContentKind.Html),
+Description = new TextSyndicationContent(&amp;quot;From the mind of a coder/gamer&amp;quot;)
+};&lt;/p&gt;
+&lt;p&gt;using (XmlWriter writer = XmlWriter.Create(response.OutputStream))
+{
+feed.GetRss20Formatter().WriteTo(writer);
+}
+}
+}&lt;/p&gt;
+</description>
+      <pubDate>Sun, 26 Apr 2015 02:00:00 GMT</pubDate>
+      <dc:creator>Sander Harrewijnen</dc:creator>
+      <guid>https://harre.dev/blog/generating-an-rss-feed-in-c/</guid>
+    </item>
+    <item>
+      <title>Getting started with Inversion of Control</title>
+      <link>https://harre.dev/blog/inversion-of-control-dive/</link>
+      <description>&lt;p&gt;Alright, lets dive straight into the deep end! ... ok, but not drown in the process of doing so. One step at a time. Lets&#39;s start with an example.&lt;/p&gt;
+&lt;h2&gt;The technical side&lt;/h2&gt;
+&lt;p&gt;Here is some code:&lt;/p&gt;
+&lt;p&gt;public class Foo
+{
+private readonly Bar bar;&lt;/p&gt;
+&lt;p&gt;public Foo()
+{
+this.bar = new Bar();
+}
+}&lt;/p&gt;
+&lt;p&gt;To create an instance of Foo we write&lt;/p&gt;
+&lt;p&gt;Foo theFoo = new Foo();&lt;/p&gt;
+&lt;p&gt;In this example we have two classes, Foo and Bar. Foo makes use of a Bar to do some work. When a Foo instance is created the creator of the Foo instance has no control over what kind of Bar the Foo instance is going to use. They are stuck together. This code is completely valid but what if we want to let the creator of Foo &lt;strong&gt;control&lt;/strong&gt; the kind of Bar that is used? We have to invert control! Here is the same code with it&#39;s control flow inverted:&lt;/p&gt;
+&lt;p&gt;public class Foo : IFoo
+{
+private readonly IBar bar;&lt;/p&gt;
+&lt;p&gt;public Foo(IBar bar)
+{
+this.bar = bar;
+}
+}&lt;/p&gt;
+&lt;p&gt;First change is that Bar is now implementing an interface, IBar. This way, we lose the dependency on the concrete Bar implementation inside Foo. To give control to the creator of Foo, we let the constructor accept an object of type IBar and use this instead of creating it by itself. Foo now accepts any kind of Bar, as long as it implements IBar. Foo does not have to worry about the kind of Bar anymore. Foo itself is now also based on an interface (IFoo), we&#39;ll get to that later.&lt;/p&gt;
+&lt;p&gt;If we now want to create a new Foo, we write it like this:&lt;/p&gt;
+&lt;p&gt;IFoo theFoo = new Foo(new Bar());&lt;/p&gt;
+&lt;p&gt;So the creator of the Foo object now gets to decide what kind of Bar is used in the Foo instance - &lt;strong&gt;Foo is in control of the Bar it will be using&lt;/strong&gt;. But we still create a concrete Foo and Bar. This is where Dependency Injection comes in to play. What if we could have single place where we define what kind of Foo and Bar are used when our program starts? We could rig up an entire graph of objects that &lt;strong&gt;depend&lt;/strong&gt; on each other to form a working program.&lt;/p&gt;
+&lt;p&gt;The following examples make use of &lt;a href=&quot;http://simpleinjector.codeplex.com/&quot;&gt;SimpleInjector&lt;/a&gt; for the IoC container and uses constructor injection to inject dependencies.&lt;/p&gt;
+&lt;p&gt;The &#39;single place&#39; mentioned earlier is where the IoC container is created. We tell the container which objects it can create for us and it will manage the dependencies for us automatically. The container is created at the start of the application so that it can manage any type of object we feed it and is available anywhere in the application. Here is some code that starts a console application and sets up a container to handle our Foo and Bar:&lt;/p&gt;
+&lt;p&gt;using SimpleInjector;&lt;/p&gt;
+&lt;p&gt;class Program
+{
+static void Main(string[] args)
+{
+var container = new Container();&lt;/p&gt;
+&lt;p&gt;container.Register(typeof(IFoo), typeof(Foo));
+container.Register(typeof(IBar), typeof(Bar));
+}
+}&lt;/p&gt;
+&lt;p&gt;The container is now aware of Foo and Bar and when we pull an instance from the container it will automatically &lt;strong&gt;inject&lt;/strong&gt; the &lt;strong&gt;dependecies&lt;/strong&gt; in the constructors of the objects its creating.&lt;/p&gt;
+&lt;p&gt;var someFoo = container.GetInstance(typeof(IFoo));&lt;/p&gt;
+&lt;p&gt;SomeFoo is now created by the container and Bar is injected on the fly into its constructor.&lt;/p&gt;
+&lt;p&gt;A little caution here. You &lt;strong&gt;DO NOT&lt;/strong&gt; want to pass around the container object and use GetInstance all over your application. Doing so will make the container a dependency in your application! My reason for not passing around the container is simply to avoid having a dependency on the container itself. It also hides other dependencies the class might have since the constructors only take a container instead of the actual dependencies.&lt;/p&gt;
+&lt;h2&gt;But why?&lt;/h2&gt;
+&lt;p&gt;Now that you know all this, why should you use it? The code is now loose coupled, meaning that they do not depend on concrete dependencies and only depend on interfaces. Because of this it is now very easy to swap out Bar for another Bar with different logic. The container will take care of injecting IBar objects so after writing a new OtherBar class that implements IBar we only need to change one line of code to make our application use the new OtherBar implementation.&lt;/p&gt;
+&lt;p&gt;Change this&lt;/p&gt;
+&lt;p&gt;container.Register(typeof(IBar), typeof(Bar));&lt;/p&gt;
+&lt;p&gt;To this&lt;/p&gt;
+&lt;p&gt;container.Register(typeof(IBar), typeof(OtherBar));&lt;/p&gt;
+&lt;p&gt;And every object that depends on IBar will now use an OtherBar instance without requiring changes to their own logic. This greatly improves the maintainability of your code because no object depends directly on another. The concrete types know about the dependencies through interfaces, not their implementations. Another bonus is testability. Because its interfaces all around, its is very easy to create a mock for a dependency and have it injected into the code that is being tested.&lt;/p&gt;
+&lt;p&gt;So in a nutshell, this is Inversion of Control and Dependency Injection.&lt;/p&gt;
+&lt;h2&gt;But there is more!&lt;/h2&gt;
+&lt;p&gt;Some great principles in software development are at the base of these patterns. Take a look at the &lt;a href=&quot;https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)---&quot;&gt;SOLID&lt;/a&gt; principles which are good no matter how you design your application.&lt;/p&gt;
+&lt;p&gt;My examples use SimpleInjector as a container, but there are many more. Search around and find out more about them.&lt;/p&gt;
+&lt;p&gt;To try all this for yourself and see the benefits from it very quickly you can write up a sample ASP.NET MVC app and inject dependencies into the controllers. (Simple Injector has ASP.NET MVC support that you can get straight from NuGet!)&lt;/p&gt;
+</description>
+      <pubDate>Sun, 26 Apr 2015 02:00:00 GMT</pubDate>
+      <dc:creator>Sander Harrewijnen</dc:creator>
+      <guid>https://harre.dev/blog/inversion-of-control-dive/</guid>
+    </item>
+    <item>
+      <title>Overwriting a function in Javascript</title>
+      <link>https://harre.dev/blog/overwriting-a-function-in-javascript/</link>
+      <description>&lt;p&gt;A quick little post about overwriting a function in Javascript.&lt;/p&gt;
+&lt;p&gt;Take the following piece of code:&lt;/p&gt;
+&lt;p&gt;function Thing() {
+this.Load = function () {
+// Do stuff some specific way.
+};
+};&lt;/p&gt;
+&lt;p&gt;When we want to creat a new Thing we do:&lt;/p&gt;
+&lt;p&gt;var newThing = new Thing();&lt;/p&gt;
+&lt;p&gt;Easy enough. But what if we have a corner case where the Thing needs to load data in another specific way?&lt;/p&gt;
+&lt;p&gt;var newThing = new Thing();&lt;/p&gt;
+&lt;p&gt;newThing.Load = function () {
+// Other specific doingstuff code.
+};&lt;/p&gt;
+&lt;p&gt;At first this might seem to be the right way to do it. There is a catch though, this code will not change a thing to the Thing object! The constructor of the Thing object adds the original Load function &lt;strong&gt;after&lt;/strong&gt; we added our new Load funtion on the Thing. The constructor is overwriting our new function that was supposed to overwrite the original function.&lt;/p&gt;
+&lt;p&gt;So now what? Well, to get around this we need to redefine the constructor. Here is the code:&lt;/p&gt;
+&lt;p&gt;var OtherKindOfThing = function() {
+Thing.apply(this, arguments);&lt;/p&gt;
+&lt;p&gt;this.Load = function () {
+// Other specific doingstuff code.
+};
+};&lt;/p&gt;
+&lt;p&gt;var newThing = new OtherKindOfThing();&lt;/p&gt;
+&lt;p&gt;This is what is going on. First we create a new constructor function (the example has no arguments, but don&#39;t forget those when you apply this pattern!). Inside our new constructor we run the old constructor against our current context (this) with our existing arguments (you could replace the arguments object with actual arguments if you wanted to pass in other arguments or whatever).&lt;/p&gt;
+&lt;p&gt;Now that we are scoped to the constructor of our alternative Thing, we can safely overwrite the Load function. Create the Thing using the new constructor function and you&#39;re all set!&lt;/p&gt;
+</description>
+      <pubDate>Sun, 26 Apr 2015 02:00:00 GMT</pubDate>
+      <dc:creator>Sander Harrewijnen</dc:creator>
+      <guid>https://harre.dev/blog/overwriting-a-function-in-javascript/</guid>
+    </item>
+    <item>
+      <title>SignalR dependency injection</title>
+      <link>https://harre.dev/blog/signalr-dependency-injection/</link>
+      <description>&lt;p&gt;My go-to container for IoC at the moment is &lt;a href=&quot;https://simpleinjector.codeplex.com/&quot;&gt;SimpleInjector&lt;/a&gt; because you know.. it&#39;s simple. I&#39;ve used it in a couple of projects and used in a hobby project recently again.&lt;/p&gt;
+&lt;p&gt;This hobby project uses &lt;a href=&quot;http://www.asp.net/signalr&quot;&gt;SignalR&lt;/a&gt; for real-time communication between browser and server and after setting that up I wanted to inject dependencies in to the SignalR hubs. It is pretty easy but there was a minor catch. Let&#39;s look at some code.&lt;/p&gt;
+&lt;p&gt;The first thing that is required is a dependency resolver that works with SignalR, lucky for us, it provides a built-in default one which we can implement:&lt;/p&gt;
+&lt;p&gt;public class SignalrSimpleInjectorDependencyResolver : DefaultDependencyResolver
+{
+private readonly Container container;&lt;/p&gt;
+&lt;p&gt;public SignalrSimpleInjectorDependencyResolver(Container container)
+{
+this.container = container;
+}&lt;/p&gt;
+&lt;p&gt;public override object GetService(Type serviceType)
+{
+var serviceProvider = this.container as IServiceProvider;
+return serviceProvider.GetService(serviceType) ?? base.GetService(serviceType);
+}&lt;/p&gt;
+&lt;p&gt;public override IEnumerable&lt;object&gt; GetServices(Type serviceType)
+{
+return this.container.GetAllInstances(serviceType).Concat(base.GetServices(serviceType));
+}
+}&lt;/object&gt;&lt;/p&gt;
+&lt;p&gt;This is also the place where I ran into that catch I mentioned earlier. Take a look a the GetService method, see that cast there. SimpleInjector is playing it safe by throwing an exception when it cannot find a registration for a type. Since we implement the default resolver we need to be able to also check the built-in container for registrations so that SignalR can do it&#39;s work like it used to. The container is an IServiceProvider and it exposes a method called GetService which will return null if it cannot find the requested type in the container. Just what we need :-) Now we first check the SimpleInjector container, if that turns up null, we check the built-in container.&lt;/p&gt;
+&lt;p&gt;You can see the code break at runtime by replacing the GetService call with a GetInstance call directly on the container and then running your application. SignalR has all sorts of dependencies of its own for which SimpleInjector will throw an exception when requested, making the &lt;strong&gt;?? base.GetService(serviceType)&lt;/strong&gt; part useless.&lt;/p&gt;
+&lt;p&gt;Now that the resolver is done, we still need to register it.&lt;/p&gt;
+&lt;p&gt;var hubConfiguration = new HubConfiguration
+{
+Resolver = new SignalrSimpleInjectorDependencyResolver(container)
+};&lt;/p&gt;
+&lt;p&gt;The code above is placed in the Application_Start method of the application where the container is created. The configuration is then passed on to SignalR via the MapHubs method that sets up SignalR.&lt;/p&gt;
+&lt;p&gt;RouteTable.Routes.MapHubs(hubConfiguration);&lt;/p&gt;
+&lt;p&gt;You can now create interfaces for your hubs and register them in the SimpleInjector container which in turn will inject the dependencies into the hub constructors.&lt;/p&gt;
+</description>
+      <pubDate>Sun, 26 Apr 2015 02:00:00 GMT</pubDate>
+      <dc:creator>Sander Harrewijnen</dc:creator>
+      <guid>https://harre.dev/blog/signalr-dependency-injection/</guid>
+    </item>
+    <item>
+      <title>The simplest loading indicator</title>
+      <link>https://harre.dev/blog/the-simplest-loading-indicator/</link>
+      <description>&lt;p&gt;I had a brainwave and dove into codepen for a little bit to doodle around and when I emerged I had this simple little loading indicator. Very simple in terms of markup and CSS (LESS in this case).&lt;/p&gt;
+&lt;p&gt;Have a look see :-)&lt;/p&gt;
+&lt;p data-height=&quot;268&quot; data-theme-id=&quot;14183&quot; data-slug-hash=&quot;VYogvX&quot; data-default-tab=&quot;result&quot; data-user=&quot;Harrewarre&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/Harrewarre/pen/VYogvX/&quot;&gt;Loading indicator&lt;/a&gt; by Sander Harrewijnen (&lt;a href=&quot;http://codepen.io/Harrewarre&quot;&gt;@Harrewarre&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;https://assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;</description>
+      <pubDate>Sun, 26 Apr 2015 02:00:00 GMT</pubDate>
+      <dc:creator>Sander Harrewijnen</dc:creator>
+      <guid>https://harre.dev/blog/the-simplest-loading-indicator/</guid>
+    </item>
+    <item>
+      <title>Fluent data access</title>
+      <link>https://harre.dev/blog/fluent-data-access/</link>
+      <description>&lt;p&gt;Working in a team of developers, the following might happen:&lt;/p&gt;
+&lt;p&gt;Developer 1 creates a piece of UI and adds a method to load data into said UI. The method he creates is called GetUserInfo(…)&lt;/p&gt;
+&lt;p&gt;Here comes Developer 2 and he also creates a piece of UI that displays user info. Developer 2 however, needs to display more than just the user info, he also needs the requests made by the user. And then GetUserInfoWithRequests(…) is created next to the already existing GetUserInfo method.&lt;/p&gt;
+&lt;p&gt;Developer 3 wants to display some user info as well, but not just the info by itself, and also without the requests but WITH the users team information. Can you guess what happens? … Right. GetUserInfoWithTeamMembers(…) is added to our list.&lt;/p&gt;
+&lt;p&gt;So we now have three methods that do something similar, but not quite the same:&lt;/p&gt;
+&lt;p&gt;GetUserInfo(…)
+GetUserInfoWithRequests(…)
+GetUserInfoWithTeamMembers(…)&lt;/p&gt;
+&lt;p&gt;If you let this run uncontrolled it will turn in to a maintenance nightmare! We could simply end the discussion and say it’s a lack of discipline within the team, but there is a nice way to help prevent this through code!&lt;/p&gt;
+&lt;p&gt;What is needed is a query-building object that will handle the loading of all this data for us. Without resorting to separate methods that all touch the database.&lt;/p&gt;
+&lt;p&gt;This query-building object has at least one method: Fetch(). The fetch method is the only method that will touch the database. The constructor of our object will take in the key on which to filter. In our example, this would probably be the primary key for the user in our database. Lets call it a UserInfoRetriever to match the example.&lt;/p&gt;
+&lt;p&gt;public class UserInfoRetriever
+{
+readonly int _userId;&lt;/p&gt;
+&lt;p&gt;public UserInfoRetriever(int userId)
+{
+_userId = userId;
+}&lt;/p&gt;
+&lt;p&gt;public User Fetch()
+{
+using (var context = new DbContext())
+{
+return context.Users.Where(u =&amp;gt; u.UserId == _userId).SingleOrDefault();
+}
+}
+}&lt;/p&gt;
+&lt;p&gt;The code above is what this might look like for the first method in our set of three. But we have more! Lets expand the class a bit further to support the other scenarios.&lt;/p&gt;
+&lt;p&gt;public class UserInfoRetriever
+{
+readonly int _userId;&lt;/p&gt;
+&lt;p&gt;bool _withRequests;
+bool _withTeamMembers;&lt;/p&gt;
+&lt;p&gt;public UserInfoRetriever(int userId)
+{
+_userId = userId;
+}&lt;/p&gt;
+&lt;p&gt;public UserInfoRetriever WithRequests()
+{
+_withRequests = true;
+return this;
+}&lt;/p&gt;
+&lt;p&gt;public UserInfoRetriever WithTeamMembers()
+{
+_withTeamMembers = true;
+return this;
+}&lt;/p&gt;
+&lt;p&gt;public User Fetch()
+{
+using (var context = new DbContext())
+{
+var users = context.Users;&lt;/p&gt;
+&lt;p&gt;if (_withRequests)
+{
+users.Include(&amp;quot;Requests&amp;quot;);
+}&lt;/p&gt;
+&lt;p&gt;if (_withTeamMembers)
+{
+users.Include(&amp;quot;TeamMembers&amp;quot;);
+}&lt;/p&gt;
+&lt;p&gt;return context.Users.Where(u =&amp;gt; u.UserId == _userId).SingleOrDefault();
+}
+}
+}&lt;/p&gt;
+&lt;p&gt;This version of the class implements two extra methods. They only change the bools on our class and then returns itself. This is where the cool stuff is at. Because we return to ourselves in the methods, we can chain them together to form queries as we see fit like this:&lt;/p&gt;
+&lt;p&gt;var userInfo = new UserInfoRetriever(10).Fetch();&lt;/p&gt;
+&lt;p&gt;var userInfo = new UserInfoRetriever(10).WithTeamMembers().WithRequests().Fetch();&lt;/p&gt;
+&lt;p&gt;var userInfo = new UserInfoRetriever(10).WithRequests().Fetch();&lt;/p&gt;
+&lt;p&gt;var userInfo = new UserInfoRetriever(10).WithTeamMembers().Fetch();
+As you can see, we can load the data any way we like and our data-access code is still all in one place (in the Fetch() method). Adding new scenarios is very easy and it prevents (with a little discipline of course :-)) willy-nilly methods that all handle their own data-access.&lt;/p&gt;
+</description>
+      <pubDate>Wed, 06 May 2015 02:00:00 GMT</pubDate>
+      <dc:creator>Sander Harrewijnen</dc:creator>
+      <guid>https://harre.dev/blog/fluent-data-access/</guid>
+    </item>
+    <item>
+      <title>The bug report</title>
+      <link>https://harre.dev/blog/bugs/</link>
+      <description>&lt;p&gt;When you work on software, you will at some point encounter bugs. You think everything is peachy and you covered all the bases. Here comes this one user that finds a way to break your stuff.&lt;/p&gt;
+&lt;p&gt;So a user found a bug. He/she (hopefully) reports the bug and you can fix the problem. While this is true most of the time, the sad reality is that most bug reports I encounter look something like this:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;When the admin is also a manager, nothing will happen when I click on the Save button.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;small&gt;This might be an oversimplification, but serves as a good example :-)&lt;/small&gt;&lt;/p&gt;
+&lt;p&gt;If you are reading this and think &amp;quot;Hey, that&#39;s how I report bugs!&amp;quot; please keep reading.&lt;/p&gt;
+&lt;p&gt;Let&#39;s dismantle what the report says.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The user is an admin.&lt;/li&gt;
+&lt;li&gt;The user is also a manager.&lt;/li&gt;
+&lt;li&gt;The user wants to save this work.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Well that is something, but there is no context anywhere. What was being saved? What was typed in? User is a manager, but what kind of manager? It might be trivial if the application is small, but in large enterprise type software it can mean anything.&lt;/p&gt;
+&lt;p&gt;The amount of time it takes to gather all the pieces of evidence to reproduce a bug can be huge and isn&#39;t used to actually fix the underlying problem. Communicating back and forth with the customer and user, trying to get more information about what was happening when the bug showed itself. Its not a direct waste of time though, sometimes a bug is hard to reproduce, but anything that saves both parties time is a good thing.&lt;/p&gt;
+&lt;p&gt;If you find a bug in a piece of software, you can save everyone a good amount of time by taking note of what you were doing when the software messed up. Saying &amp;quot;so-and-so doesn&#39;t work&amp;quot; will waste time for everyone involved.&lt;/p&gt;
+&lt;p&gt;So what would a simple bug report look like? You can still describe what was going on when the bug appeared but expand a little bit. Here are some things you can include to make it a little easier (and faster!) for the developer to start fixing things:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Error messages.&lt;/strong&gt; This is the easiest one, if the app gave you some description of what went wrong, include it. Any error messages, no matter how cryptic or ugly. Take a screenshot if you can, anything that captures the broken state of the software.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Where the bug popped up.&lt;/strong&gt; This can be a URL or a series of clicks (for example: Home -&amp;gt; Users -&amp;gt; Detail -&amp;gt; Edit), anything that describes the path you took to get work done.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;What actions were taken.&lt;/strong&gt; Did you click on certain things to load some other data first? Did you enter values into a form of some kind? Whatever you entered, include that as well.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Log files.&lt;/strong&gt; End users don&#39;t have access to these most of the time, but if there is a way to include any logs of the software, please do.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Contact information.&lt;/strong&gt; It doesn&#39;t have to be the user that reported the bug. Having a way to quickly get in touch with someone who can provide a little bit more detail or insight is enough.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Version number.&lt;/strong&gt; This will tell the developer if the bug might already be fixed if it was reported on an older version of the software.&lt;/p&gt;
+&lt;p&gt;There will always be bugs that are extra tricky, or require a very unique set of conditions to trigger so these can be hard to reproduce or even describe. Try to capture as much as you can before sending a report to the developer.&lt;/p&gt;
+&lt;p&gt;Thank you so much if you do this,
+Every software developer ever :-)&lt;/p&gt;
+</description>
+      <pubDate>Tue, 12 May 2015 02:00:00 GMT</pubDate>
+      <dc:creator>Sander Harrewijnen</dc:creator>
+      <guid>https://harre.dev/blog/bugs/</guid>
+    </item>
+    <item>
+      <title>CSS Transitions basics</title>
+      <link>https://harre.dev/blog/css-transitions-basics/</link>
+      <description>&lt;p&gt;End-users interact with your applications via the user interface (UI for short). If everything was designed with the user in mind, the UI will make things very easy for the user. Everything is nice and organized and easy to navigate. Actions are communicated to the user in a friendly way and the user is happy.&lt;/p&gt;
+&lt;p&gt;The sad thing is, state changes in the UI tend to be very abrupt and cold. Instant flashes, so fast the user might not even notice if it is something small. So what can we do about this? CSS supports something called transitions. Transitions allow us to specify what happens what state changes on an element. For example, a button going from normal, to being hovered on by the user, rows in a grid that the user can select or a signal telling the user something happened.&lt;/p&gt;
+&lt;p&gt;So we know CSS can so these things but as always, &lt;a href=&quot;http://caniuse.com/#search=transitions&quot;&gt;better safe than sorry&lt;/a&gt;. Those old browsers are still out there. Lucky for us, transitions degrade very nice since there is no change to the styles that were already used. We&#39;re only adding some sugar on top. Lets look at some examples.&lt;/p&gt;
+&lt;p data-height=&quot;268&quot; data-theme-id=&quot;14183&quot; data-slug-hash=&quot;LVZvve&quot; data-default-tab=&quot;result&quot; data-user=&quot;Harrewarre&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/Harrewarre/pen/LVZvve/&quot;&gt;Some simple transitions&lt;/a&gt; by Sander Harrewijnen (&lt;a href=&quot;http://codepen.io/Harrewarre&quot;&gt;@Harrewarre&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;https://assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+&lt;p&gt;The button example is very straight forward, so lets have a look at what is going on. The first button has no transitions defined, the change in background is instant (and not very subtle). The other button does have transitions defined. The background color will transition when the &lt;strong&gt;:hover&lt;/strong&gt; state changes. So when the user hovers over the second button, the browser will create a smooth animation between the normal and hovered states that lasts for as long as the transition dictates (half a second in this case). &lt;strong&gt;Ease&lt;/strong&gt; tells the browser to slowly start and end the transition, varying the speed of the transition. Various options are available such as ease-in and ease-out.&lt;/p&gt;
+&lt;p&gt;The second example works in a similar way, except the transition acts on the &lt;strong&gt;:checked&lt;/strong&gt; state to highlight the label that belongs to the checkbox. As you can see in the example, you can define more than one transition by separating them by a &lt;strong&gt;,&lt;/strong&gt; (comma). If you want to transition every property of a class you can use the &lt;strong&gt;transition: all (duration) (easing)&lt;/strong&gt; shortcut.&lt;/p&gt;
+&lt;p&gt;Before you start adding transitions to ALL the things, be aware that effects such as these can be very intrusive and distracting. Don&#39;t overdo it.&lt;/p&gt;
+&lt;p&gt;To wrap things up, transitions are defined on the beginning and ending state (such as :checked and normal states), a duration specifies how long the transition runs for and a timing function (easing) allows you to control how fast and/or slow the animation runs in the specified time. Remember, don&#39;t overdo it. Turning your UI into a glowing bouncing disco floor might not be the best user experience.&lt;/p&gt;
+</description>
+      <pubDate>Tue, 19 May 2015 02:00:00 GMT</pubDate>
+      <dc:creator>Sander Harrewijnen</dc:creator>
+      <guid>https://harre.dev/blog/css-transitions-basics/</guid>
+    </item>
+    <item>
+      <title>Creating release notes with Visual Studio and TFS</title>
+      <link>https://harre.dev/blog/creating-release-notes-with-visual-studio-and-tfs/</link>
+      <description>&lt;p&gt;Here is a scenario for you. You&#39;ve been slaving away at the next big release of your product, fixing reported bugs, adding features and cleaning up code. Lot&#39;s of changes all over your code. Then comes that moment that you want to ship all that delicious code to your customers.&lt;/p&gt;
+&lt;p&gt;You prep a release build, zip it up and are pretty much done. Except for the release notes... What changed since the previous release?&lt;/p&gt;
+&lt;p&gt;Before you can start gathering your changes, I hope you tracked everything somewhere, preferably digitally and searchable. If not, then all you have is your check-ins, which is at least something. No check-in history either? Well then you are out of luck (and you need to upgrade your development process!)&lt;/p&gt;
+&lt;p&gt;So you did track every change properly? Good, lets get that list compiled (This example uses Team Foundation Server and Visual Studio 2013, but I assume other setups will have similar functionality). All you need is the date on which you released the previous version of your software.&lt;/p&gt;
+&lt;p&gt;At the time of writing it is the 21st of May, 2015. Lets say we released a month ago (30 days, to make this an easy example). Go to the Work Items section of the Team Explorer in Visual Studio and create a new query. In my example I query for Tasks, Bugs, and Features. To get only the items that we changed after the previous release, we set the Change Date to &lt;strong&gt;@Today - 30&lt;/strong&gt;, this will give us all bugs, tasks, and features that were changed after we last released a new version our software.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://harre.dev/blog/creating-release-notes-with-visual-studio-and-tfs/query.png&quot; alt=&quot;The TFS Work Item query&quot;&gt;&lt;/p&gt;
+&lt;p&gt;You can of course create any query that matches your preference for this, but I found this way working very nicely. You can export the list to Excel and clean it up a bit before sticking it in a PDF and bundling it with your software.&lt;/p&gt;
+&lt;p&gt;Now that you have your release notes, hurry up and ship it! ;-)&lt;/p&gt;
+</description>
+      <pubDate>Thu, 21 May 2015 02:00:00 GMT</pubDate>
+      <dc:creator>Sander Harrewijnen</dc:creator>
+      <guid>https://harre.dev/blog/creating-release-notes-with-visual-studio-and-tfs/</guid>
+    </item>
+    <item>
+      <title>CurrentColor in CSS</title>
+      <link>https://harre.dev/blog/currentcolor-in-css/</link>
+      <description>&lt;p&gt;If you&#39;ve ever used something like LESS or SASS you know what a variable is in CSS. There is also a working draft for native &lt;a href=&quot;http://www.w3.org/TR/css-variables-1/&quot;&gt;CSS variables&lt;/a&gt; but there is something in CSS right now that resembles some variable behavior. Not an actual variable, but interesting nonetheless.&lt;/p&gt;
+&lt;p&gt;Meet &lt;a href=&quot;http://www.w3.org/wiki/CSS3/Color/currentColor&quot;&gt;currentColor&lt;/a&gt;. Like the description says on the w3 wiki, its value is whatever the &lt;code&gt;color&lt;/code&gt; is set to. So how does that work? Lets look at some examples.&lt;/p&gt;
+&lt;p data-height=&quot;268&quot; data-theme-id=&quot;14183&quot; data-slug-hash=&quot;gpXOMm&quot; data-default-tab=&quot;result&quot; data-user=&quot;Harrewarre&quot; class=&quot;codepen&quot;&gt;See the Pen &lt;a href=&quot;http://codepen.io/Harrewarre/pen/gpXOMm/&quot;&gt;currentColor samples&lt;/a&gt; by Sander Harrewijnen (&lt;a href=&quot;http://codepen.io/Harrewarre&quot;&gt;@Harrewarre&lt;/a&gt;) on &lt;a href=&quot;http://codepen.io&quot;&gt;CodePen&lt;/a&gt;.&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;https://assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+&lt;p&gt;Sample one shows &lt;code&gt;currentColor&lt;/code&gt; in its simplest form. It takes on the color Red which controls the border color.&lt;/p&gt;
+&lt;p&gt;Sample two is a tiny bit more complex. Here you can see the &lt;code&gt;currentColor&lt;/code&gt; cascading down (Blue in this case) which sets a blue box-shadow on the &lt;code&gt;inner-div&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Sample three is where we see that &lt;code&gt;currentColor&lt;/code&gt; isn&#39;t a variable like the variables we know from things like Javascript or C#. We start by setting the &lt;code&gt;color&lt;/code&gt; to Green and using &lt;code&gt;currentColor&lt;/code&gt; to set the border color. Then we set the &lt;code&gt;color&lt;/code&gt; to Yellow to change the background color. You can see it go wrong immediately, the text and border isn&#39;t green! This is because you can&#39;t re-assign &lt;code&gt;currentColor&lt;/code&gt;. It can only be set once for every style and takes the value of the last time the &lt;code&gt;color&lt;/code&gt; was set so in the sample it turns everything Yellow. When &lt;code&gt;color&lt;/code&gt; is reset, &lt;code&gt;currentColor&lt;/code&gt; is also reset as you can see, but cannot be set multiple times for the same set of styles. The inner div has black text and box-shadow because this has a different scope.&lt;/p&gt;
+&lt;p&gt;So in short, kind of like a variable but not actually a variable. I don&#39;t see &lt;a href=&quot;http://caniuse.com/#search=currentColor&quot;&gt;currentColor&lt;/a&gt; used very often in projects I get to work on, though its pretty safe to use (unless you support IE8). It can be used to save yourself some problems in dealing with consistent colors but you might be better off using &lt;a href=&quot;http://lesscss.org/&quot;&gt;LESS&lt;/a&gt; or &lt;a href=&quot;http://sass-lang.com/&quot;&gt;SASS&lt;/a&gt; if you want to use variables :-)&lt;/p&gt;
+</description>
+      <pubDate>Mon, 22 Jun 2015 02:00:00 GMT</pubDate>
+      <dc:creator>Sander Harrewijnen</dc:creator>
+      <guid>https://harre.dev/blog/currentcolor-in-css/</guid>
+    </item>
+    <item>
+      <title>Basic string templating in C#</title>
+      <link>https://harre.dev/blog/basic-string-templating-in-c/</link>
+      <description>&lt;p&gt;Every solution I&#39;ve worked on required some form of communication via e-mail or other form of text to the outside world, reporting, notifications or something else. There are a bunch of libraries out there that can make your life easy if you need complex templates. But this is not about complex, this is supporting the basics without including all sorts of unnecessary stuff.&lt;/p&gt;
+&lt;p&gt;What do we need to make this happen? The first thing is a template. A template is nothing more than a piece of plain text (or HTML if you want) in which we want to replace parts to create a complete message. Lets use something very simple, a single line, one tag.&lt;/p&gt;
+&lt;p&gt;Reminder: %reminderText%&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;%reminderText%&lt;/code&gt; is the part we are most interested in, because that is what we want to set ourselves.&lt;/p&gt;
+&lt;p&gt;To bring the template into the world of C#, we create a Template class.&lt;/p&gt;
+&lt;p&gt;public class Template
+{
+private string TemplateText;&lt;/p&gt;
+&lt;p&gt;public Template(string template)
+{
+TemplateText = template;
+}&lt;/p&gt;
+&lt;p&gt;public void Fill(Dictionary&amp;lt;string,string&amp;gt; tags)
+{
+foreach(var t in tags)
+{
+TemplateText = TemplateText.Replace(string.Format(&amp;quot;%{0}%&amp;quot;, t.Key), t.Value);
+}
+}&lt;/p&gt;
+&lt;p&gt;public string GetText()
+{
+return TemplateText;
+}
+}&lt;/p&gt;
+&lt;p&gt;The constructor takes in the untouched template. The &lt;code&gt;Fill&lt;/code&gt; method will take care of replacing the tags inside the template with actual text and the &lt;code&gt;GetText&lt;/code&gt; method will give us the resulting filled template.&lt;/p&gt;
+&lt;p&gt;We also want something that represents the message we want to send. Lets use an interface for that, we want to create different kinds of messages that should all behave the same.&lt;/p&gt;
+&lt;p&gt;public interface IMessage
+{
+Dictionary&amp;lt;string,string&amp;gt; GetParameters();&lt;/p&gt;
+&lt;p&gt;string TemplateKey { get; }
+}&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;GetParameters&lt;/code&gt; method will return the tags we want to use in our message and the &lt;code&gt;TemplateKey&lt;/code&gt; stores the name of the template to use for the message (more on that later).&lt;/p&gt;
+&lt;p&gt;The third thing we need is some code that will consume both of these and use it to create an actual message.&lt;/p&gt;
+&lt;p&gt;public class Messenger
+{
+// Code to get the thing that loads the template from somewhere by its key (database, file, etc)&lt;/p&gt;
+&lt;p&gt;public void Send(IMessage message)
+{
+var templateText = Something.GetTemplate(message.TemplateKey); // The Something is out of scope here. Where the template comes from is up to you.
+var template = new Template(templateText);&lt;/p&gt;
+&lt;p&gt;template.Fill(message.GetParameters());&lt;/p&gt;
+&lt;p&gt;var finalText = template.GetText();&lt;/p&gt;
+&lt;p&gt;// Code to send the message here.
+}
+}&lt;/p&gt;
+&lt;p&gt;All the parts are there except for one, we don&#39;t have a message to send. We only have the &lt;code&gt;IMessage&lt;/code&gt; interface. Lets make an implementation that works with the template we have.&lt;/p&gt;
+&lt;p&gt;public class SingleLineMessage : IMessage
+{
+private readonly Dictionary&amp;lt;string, string&amp;gt; Tags;&lt;/p&gt;
+&lt;p&gt;public SingleLineMessage(string reminderText)
+{
+Tags = new Dictionary&amp;lt;string,string&amp;gt;();
+Tags.Add(&amp;quot;reminderText&amp;quot;, reminderText);
+}&lt;/p&gt;
+&lt;p&gt;public Dictionary&amp;lt;string,string&amp;gt; GetParameters()
+{
+return Tags;
+}&lt;/p&gt;
+&lt;p&gt;public string TemplateKey
+{
+get { return &amp;quot;SingleLineMessage&amp;quot;; }
+}
+}&lt;/p&gt;
+&lt;p&gt;We&#39;ve implemented the &lt;code&gt;IMessage&lt;/code&gt; interface and the constructor takes in the one value for the single tag we have in the template. The key is there and can be used to locate a template by this key in another system (which is outside of the scope of this post). Time to wire everything together!&lt;/p&gt;
+&lt;p&gt;var message = new SingleLineMessage(&amp;quot;Buy bacon!&amp;quot;);
+var messenger = new Messenger();&lt;/p&gt;
+&lt;p&gt;messenger.Send(message);&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;finalText&lt;/code&gt; variable in the Messenger object now reads &lt;code&gt;Reminder: Buy bacon!&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;With some simple constructs we now have a basic string templating system that ensures we supply all the required values to a given template. The message and template are linked together by their key and the constructor of the message enforces that every tag in the template gets a value. You now have a way of defining all sorts of messages such as e-mail, documents and reports based on templates. Do keep in mind that this is all very rudimentary and lacks things such as creating lists of values for a single tag. Anything more complex and you should look for libraries that handle the work for you.&lt;/p&gt;
+</description>
+      <pubDate>Tue, 07 Jul 2015 02:00:00 GMT</pubDate>
+      <dc:creator>Sander Harrewijnen</dc:creator>
+      <guid>https://harre.dev/blog/basic-string-templating-in-c/</guid>
+    </item>
+    <item>
+      <title>The new rig</title>
+      <link>https://harre.dev/blog/the-new-rig/</link>
+      <description>&lt;p&gt;After saving up money for a while I bought myself a new desktop PC. Its main purpose would be gaming and some development stuff but since gaming has a big influence on the parts, I rolled with that. Here is the part list I ended up ordering.&lt;/p&gt;
+&lt;h2&gt;Specs!&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Intel Core i5-6600.&lt;/li&gt;
+&lt;li&gt;Asus H170 Pro Gaming.&lt;/li&gt;
+&lt;li&gt;256GB Samsung SM951.&lt;/li&gt;
+&lt;li&gt;2x 8GB Kingston Hyper-X 2133MHz DDR4&lt;/li&gt;
+&lt;li&gt;MSI R9 390 8GB.&lt;/li&gt;
+&lt;li&gt;Seasonic G-Series 650 Watt.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I re-used my (very) old case, a Cooler Master Centurion to hold all my parts.&lt;/p&gt;
+&lt;h2&gt;But why?&lt;/h2&gt;
+&lt;p&gt;I picked the i5 over the i7 because I really have no use for all those Hyper threading cores. Games generally don&#39;t (not yet at least) utilize all the cores on a CPU so 4 is plenty. There is a K version of the same model but I have no interest in overclocking. The i7 might be a good choice for programming tasks, but since that took a back-seat to gaming the i5 was the way to go.&lt;/p&gt;
+&lt;p&gt;The mainboard had to be a socket 1151 due to the Skylake CPU. I chose the H170 board because of its M.2 SATA Express capability. That bit is important because it allows me to install the SM951 SSD, holy crap is that thing fast!&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://harre.dev/blog/the-new-rig/download.jpg&quot; alt=&quot;Samsung SM951&quot;&gt;&lt;/p&gt;
+&lt;p&gt;The SM951 is a solid state drive, but instead of using regular SATA, it runs directly on PCI Express (3.0 4x). That gives it super low latency and very high throughput. An in-depth review can be found &lt;a href=&quot;http://www.tomshardware.com/reviews/samsung-sm951-m.2-pcie-ssd,4045.html&quot;&gt;here at Tom&#39;s Hardware&lt;/a&gt;. You could argue the necessity of a disk that fast in a gaming rig, but my games load SUPER fast now!&lt;/p&gt;
+&lt;p&gt;I didn&#39;t spend a lot of time researching memory. It had to be DDR4 (Skylake/mainboard requirement) and the board supports 2133Mhz. There is still the option of XMP, but I haven&#39;t checked if I can boost the speed of the memory and the benefits of doing so.&lt;/p&gt;
+&lt;p&gt;The bulk of the budget went into this thing, the graphics card. I wanted a card that would last me a good while, but also not break the bank entirely and I think this is a good middle-ground. I picked the R9 390 over its direct adversary: the Nvidia GTX970. It has twice the amount of memory which could come in handy for games that use very large textures and games like GTA-V that take full advantage of the memory to make the game world a more diverse place.&lt;/p&gt;
+&lt;p&gt;To power the whole thing I picked up a Seasonic PSU with enough oomph to support everything. The only criteria was 80+ Gold from a reputable brand.&lt;/p&gt;
+&lt;h2&gt;Build and installation&lt;/h2&gt;
+&lt;p&gt;The 390 was a very tight fit but it went flawless right up to the point where I forgot that the BIOS on the mainboard required an update for the CPU I installed in it. Some anxiety ensued when I tried to install Windows and it started puking &lt;code&gt;MACHINE_CHECK_EXCEPTION&lt;/code&gt; blue screens (which indicate hardware failure) but everything turned out fine after updating the BIOS to the latest version.&lt;/p&gt;
+&lt;p&gt;Windows did not detect all the hardware out of the box, probably because its pretty new stuff as far as drivers go. Some manual downloading and installation was necessary but that&#39;s no problem.&lt;/p&gt;
+&lt;p&gt;The system is much quieter than I expected. Not that it matters, I use headphones. There is some noise when the system is under heavy load but nothing annoying.&lt;/p&gt;
+&lt;p&gt;If anyone needs me, I&#39;ll be playing videogames :-P&lt;/p&gt;
+</description>
+      <pubDate>Wed, 23 Sep 2015 02:00:00 GMT</pubDate>
+      <dc:creator>Sander Harrewijnen</dc:creator>
+      <guid>https://harre.dev/blog/the-new-rig/</guid>
+    </item>
+    <item>
+      <title>Read Spotify track info using C#</title>
+      <link>https://harre.dev/blog/reading-spotify-track-info-from-the-desktop-app/</link>
+      <description>&lt;p&gt;Spotify recently updated the desktop app again and it is once again possible to read current track info directly from it. Here is how you to read it using a little C# code.&lt;/p&gt;
+&lt;p&gt;A tiny little disclaimer, Spotify can break this code by updating their desktop app. It&#39;ll work now, but if they remove the track info from the title again, things won&#39;t work anymore.&lt;/p&gt;
+&lt;p&gt;So the current track is hidden somewhere, let&#39;s find out where it is.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-csharp&quot;&gt;class Program
+{
+	static void Main(string[] args)
+	{
+		var procs = Process.GetProcessesByName(&amp;quot;Spotify&amp;quot;);
+
+		foreach (var p in procs)
+		{
+			Console.WriteLine(p.MainWindowTitle);
+		}
+
+		Console.ReadLine();
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;As you can see, the track title is in the window name of a Spotify process:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://harre.dev/blog/reading-spotify-track-info-from-the-desktop-app/demo1.PNG&quot; alt=&quot;Spotify track info in the process&quot;&gt;&lt;/p&gt;
+&lt;p&gt;While a bit limited (no track times or anything) it&#39;s at least something to work with. Older versions of Spotify showed the title as well until it got removed at some point but it has returned once again. Now that we know where it is we need to make it usable somehow.&lt;/p&gt;
+&lt;p&gt;We want the track info to be up to date so we have to keep reading it over and over again. A timer will let us do exactly that.&lt;/p&gt;
+&lt;p&gt;A timer lets us poll for the track info every x milliseconds by whatever way we want but we still need to read the track info in simple way. A scraper will do the trick, we find the Spotify process that has a title on its window and read it if we find something.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-csharp&quot;&gt;using System;
+using System.Diagnostics;
+using System.Linq;
+
+namespace Harrewarre.Spotify.Demo
+{
+	public class Scraper
+	{
+		public string GetSpotifyTrackInfo()
+		{
+			var proc = Process.GetProcessesByName(&amp;quot;Spotify&amp;quot;).FirstOrDefault(p =&amp;gt; !string.IsNullOrWhiteSpace(p.MainWindowTitle));
+
+			if(proc == null)
+			{
+				return &amp;quot;Spotify is not running!&amp;quot;;
+			}
+
+			if(string.Equals(proc.MainWindowTitle, &amp;quot;Spotify&amp;quot;, StringComparison.InvariantCultureIgnoreCase))
+			{
+				return &amp;quot;No track is playing&amp;quot;;
+			}
+
+			return proc.MainWindowTitle;
+		}
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We look for a process named &lt;code&gt;Spotify&lt;/code&gt; that as some text set as its &lt;code&gt;MainWindowTitle&lt;/code&gt;, if we find it, then Spotify is running. When it comes up &lt;code&gt;null&lt;/code&gt;, Spotify is not running. If the title is set to &lt;code&gt;&amp;quot;Spotify&amp;quot;&lt;/code&gt; there is no track playing. If we don&#39;t return before we reach the last &lt;code&gt;return&lt;/code&gt; statement, we have found the currently playing track.&lt;/p&gt;
+&lt;p&gt;Here is the final console app code for a quick demo:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-csharp&quot;&gt;using System;
+using System.Timers;
+
+namespace Harrewarre.Spotify.Demo
+{
+	class Program
+	{
+		static void Main(string[] args)
+		{
+			var timer = new Timer(1000);
+			var scraper = new Scraper();
+
+			timer.Elapsed += (sender, elapsedArgs) =&amp;gt;
+			{
+				var title = scraper.GetSpotifyTrackInfo();
+
+				Console.WriteLine(title);
+			};
+
+			timer.Start();
+			Console.ReadLine();
+		}
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;We create a new timer that is set to raise an event every 1000 milliseconds (or 1 second). An instance of our &lt;code&gt;Scraper&lt;/code&gt; is created to read the track info for us. The &lt;code&gt;TimerElapsed&lt;/code&gt; event we created for our timer is wired up so that the code can do something every second. When the timer elapses, we read the track info using the scraper and write it to the console.&lt;/p&gt;
+&lt;p&gt;Finally we start the timer and leave the console open by waiting for the enter key using the &lt;code&gt;Console.ReadLine&lt;/code&gt; method. Here is what you might see if you run the code, start Spotify and let it play a track:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://harre.dev/blog/reading-spotify-track-info-from-the-desktop-app/demo2.PNG&quot; alt=&quot;Result&quot;&gt;&lt;/p&gt;
+&lt;p&gt;This code lets you access the current track title and do whatever you want with it. Write it to a file, post it to some server somewhere or, like I do, display it on the front of your PC:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://harre.dev/blog/reading-spotify-track-info-from-the-desktop-app/WP_20151019_22_48_06_Pro.jpg&quot; alt=&quot;LCD&quot;&gt; &lt;sub&gt;&lt;em&gt;Sorry about the blurry pic, the LCD&#39;s refresh rate and odd viewing angles makes it hard to capture&lt;/em&gt;&lt;/sub&gt;&lt;/p&gt;
+&lt;p&gt;Have fun!&lt;/p&gt;
+</description>
+      <pubDate>Fri, 09 Oct 2015 02:00:00 GMT</pubDate>
+      <dc:creator>Sander Harrewijnen</dc:creator>
+      <guid>https://harre.dev/blog/reading-spotify-track-info-from-the-desktop-app/</guid>
+    </item>
+    <item>
+      <title>Cloud Foundry Summit 2015 Berlin</title>
+      <link>https://harre.dev/blog/cloudfoundry-summit-2015-berlin/</link>
+      <description>&lt;p&gt;On the 2nd and 3rd November in 2015, the &lt;a href=&quot;https://www.cloudfoundry.org/foundation/&quot;&gt;Cloud Foundry Foundation&lt;/a&gt; held the &lt;a href=&quot;https://www.cloudfoundry.org/&quot;&gt;Cloud Foundry&lt;/a&gt; Summit in Berlin. The focus of this conference is on Cloud Foundry itself and the community around it.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://itq.nl/&quot;&gt;ITQ&lt;/a&gt; (my employer) is focussing on &lt;a href=&quot;http://itq.nl/expertise/cloud-native-apps/&quot;&gt;Cloud Native apps&lt;/a&gt; and let a small group including myself attend the conference. After a canceled flight due to fog and a 650km roadtrip with my co-workers &lt;a href=&quot;https://twitter.com/rwwilden&quot;&gt;Ronald&lt;/a&gt; and &lt;a href=&quot;https://twitter.com/ruurdkeizer&quot;&gt;Ruurd&lt;/a&gt; we arrived at the hotel at 2am in morning just in time for the first workshop.&lt;/p&gt;
+&lt;p&gt;In a nutshell, Cloud Foundry is a (full open source!) platform-as-a-service that enables companies to rapidly evolve their software through simple and fast deployments that take minutes instead of days. This approach does come with some catches, monolithic applications (ie: the really big enterprisey apps) are not well suited for this platform, instead, software systems should be written as a group of stateless &lt;a href=&quot;http://12factor.net/&quot;&gt;12-factor&lt;/a&gt; &lt;a href=&quot;http://martinfowler.com/articles/microservices.html&quot;&gt;micro-services&lt;/a&gt; (Cloud Native apps) that work together to form the system.&lt;/p&gt;
+&lt;p&gt;I participated in one of the workshops on the first conference day that took us through the steps of deploying and managing microservice-based applications on the Cloud Foundry platform. The platform in this case being the &lt;a href=&quot;http://pivotal.io/platform&quot;&gt;Pivotal Cloud Foundry&lt;/a&gt; platform which has a web GUI to manage things as well as a command-line interface. You can play around with the platform yourself using the &lt;a href=&quot;http://run.pivotal.io/&quot;&gt;60-day free trial&lt;/a&gt; Pivotal offers.&lt;/p&gt;
+&lt;p&gt;The second conference day was filled with talks about all things Cloud Foundry. &lt;a href=&quot;http://bosh.cloudfoundry.org/&quot;&gt;BOSH&lt;/a&gt;, continuous integration and containers. Even Windows Azure was part of the fun.&lt;/p&gt;
+&lt;p&gt;As a software developer I found that most of the talks we&#39;re a bit more on the Ops side of the DevOps philosophy focusing on how the platform itself handles things and how to manage it.  I hoped there would be a few talks that zoomed in on how micro-service apps run on the platform. How you write proper cloud native apps using stuff like &lt;a href=&quot;http://projects.spring.io/spring-cloud/&quot;&gt;Spring Cloud&lt;/a&gt; and why 12 factor matters so much if you want to become a cloud native organisation. It was still a very valuable experience and I&#39;m very happy I was there to enjoy everything.&lt;/p&gt;
+&lt;p&gt;One thing stood out above the rest to my developer brain. Continuous &lt;a href=&quot;https://en.wikipedia.org/wiki/Continuous_integration&quot;&gt;integration&lt;/a&gt;/&lt;a href=&quot;https://en.wikipedia.org/wiki/Continuous_delivery&quot;&gt;delivery&lt;/a&gt;. Automating your tests/deployments is a very good thing to have, but Cloud Foundry will let you really take it to the next level. As mentioned above, the platform and software methodology will let you deploy &lt;em&gt;REALLY&lt;/em&gt; fast en &lt;em&gt;VERY&lt;/em&gt; often, so often in fact, that could deploy straight into production if you wanted to. This is made possible because of speed and ease of deploying new things, but also because the platform can do all this without downtime! Something turned out not so great? No problem, just deploy a new fixed version of the misbehaving app and you&#39;re good to go again.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://harre.dev/blog/cloudfoundry-summit-2015-berlin/cf.png&quot; alt=&quot;Cloud Foundry&quot;&gt;&lt;/p&gt;
+&lt;p&gt;I think Cloud Foundry is a very cool product that can have a very positive effect on how a company develops and delivers their software and services. On the flip side there is a very big hurdle, companies that are building monoliths right now might not be so eager to abandon their current strategy and switch to micro-services and Cloud Foundry. The reason for this is that it is not just a technical change. Cloud Foundry has impact on a broader scale. Changing the way teams are set up and work together, getting rid of waterfall (or even worse, waterscrumfall) and becoming truly agile. That can seem daunting and would take quite some convincing to make an entire company switch.&lt;/p&gt;
+&lt;p&gt;I&#39;d say the right path is to start very small. Build some non-critical things on the platform and show others inside the company how great it is. With enough interest and directly seeing the benefits, a company can gradually grow into this new way of building and delivering software.&lt;/p&gt;
+&lt;p&gt;I had a very good time a the summit, despite the lack of focus on micro-service development and look forward to playing around with the platform some more and hopefully an actual project that involves Cloud Foundry!&lt;/p&gt;
+</description>
+      <pubDate>Wed, 04 Nov 2015 01:00:00 GMT</pubDate>
+      <dc:creator>Sander Harrewijnen</dc:creator>
+      <guid>https://harre.dev/blog/cloudfoundry-summit-2015-berlin/</guid>
+    </item>
+  </channel>
+</rss>

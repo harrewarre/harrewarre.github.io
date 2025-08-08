@@ -1,100 +1,45 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
-
-<head>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
-<link rel="shortcut icon" href="/favicon.png" type="image/png">
-<title>Another simple loading indicator | harre.dev</title>
-<meta property="og:url" content="https://harre.dev/blog/another-simple-loading-indicator/">
-<meta property="og:site_name" content="harre.dev">
-<meta property="og:title" content="Another simple loading indicator">
-<meta property="og:description" content="Another simple loading indicator">
-<meta property="og:locale" content="en_us">
-<meta property="og:type" content="article">
-<meta property="article:section" content="blog">
-<meta property="article:published_time" content="2016-01-14T00:00:00+00:00">
-<meta property="article:modified_time" content="2016-01-14T00:00:00+00:00">
-<meta property="article:tag" content="HTML">
-<meta property="article:tag" content="CSS">
-
-<meta property="og:image" content="/og-img.png">
-
-
-      <link rel="stylesheet" href="/css/fonts.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU=" crossorigin="anonymous">
-      <link rel="stylesheet" href="/css/genesis.min.a1c0ed57b1424f92d7510f72be702d05a385d99ee050b3b5742a14180bf44fcb.css" integrity="sha256-ocDtV7FCT5LXUQ9yvnAtBaOF2Z7gULO1dCoUGAv0T8s=" crossorigin="anonymous">
-
-
-
-<script defer src="https://www.fairanalytics.de/pixel/834UxRaqtQBFLx4i"></script>
-
-</head>
-
-<body>
-    <div class="site-container">
-        <header>
-            <div class="site-header">
-    <div class="site-title">
-        <h1>harre.dev</h1>
-    </div>
-    <div class="site-title-slant"></div>
-</div>
-        </header>
-        <div class="site-wrapper">
-            <div class="site">
-                <nav>
-                    <div class="menu">
-    <h1>Menu</h1>
-    <a href="/">home</a>
-    <a href="/blog">blog</a>
-    <a href="/blog/index.xml">rss</a>
-    <a href="/about">about</a>
-</div>
-                </nav>
-                <main>
-                    
-  
-  
-  <h1 class="hero-text">Another simple loading indicator</h1>
-  
-  
-  <div class="old-content-banner">
-    <p>This post is more than 3 years old!</p>
-    <p>It might all be outdated.</p>
-  </div>
-    
-  <p>Here is another loading indicator for when your webpage is busy waiting for a server request to come back with an answer. It&rsquo;s a bar at the very top of the page this time.</p>
-<p>Let&rsquo;s look at a demo before we dive in:</p>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Another simple loading indicator</title>
+    <link rel="stylesheet" href="/assets/style/theme.css">
+  </head>
+  <body>
+    <header>
+        <div class="content-wrapper">
+            <h1><a href="/">harre.dev</a></h1>
+        </div>
+    </header>
+    <nav>
+        <div class="content-wrapper">
+          <a href="/">home</a>
+          <a href="/blog">blog</a>
+          <a href="/about">about</a>
+          <a href="feed.xml">rss</a>
+        </div>
+    </nav>
+    <main>
+      <div class="content-wrapper">
+        <p>Here is another loading indicator for when your webpage is busy waiting for a server request to come back with an answer. It's a bar at the very top of the page this time.</p>
+<p>Let's look at a demo before we dive in:</p>
 <p data-height="268" data-theme-id="14183" data-slug-hash="vLJVbo" data-default-tab="result" data-user="Harrewarre" class='codepen'>See the Pen <a href='http://codepen.io/Harrewarre/pen/vLJVbo/'>Another simple loading indicator</a> by Sander Harrewijnen (<a href='http://codepen.io/Harrewarre'>@Harrewarre</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
 <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
 <p>Press the button to do some imaginary tasks that simulates a workload. A rolling bar will appear at the top of the demo to show that something is happening in the background. So how does it work?</p>
-<p>Let&rsquo;s get the Javascript out of the way first. All it does is add/remove CSS classes to and from the <code>busyBar</code> element. It simulates waiting for something using a <code>setTimeout</code>.</p>
+<p>Let's get the Javascript out of the way first. All it does is add/remove CSS classes to and from the <code>busyBar</code> element. It simulates waiting for something using a <code>setTimeout</code>.</p>
 <p>The HTML is very simple as well, 2 divs and a button. The first <code>div</code> represents the loading indicator, named <code>busyBar</code> and the second is a little container where our button lives. When you click the button, a Javascript functin is called that does all the work.</p>
 <p>Now for the CSS part. The indicator is locked to the top of the window with <code>position: fixed</code> and <code>top, right and left</code> set to 0. That way, the bar will be visible even when the page is scrolled down but still be out of the way against the top of the document. We add some eye candy to it in the form of a background image and some shading using <code>box-shadow</code>.</p>
-<p>Next we have the <code>active</code> and <code>hidden</code> classes for the indicator. These describe the states of the indicator (either in view, or not). We control it&rsquo;s visibility using the <code>height</code> of the div, which also allows us to add a nice little transition to it when it shows or hides itself.</p>
-<p>To make the background move, or in this case, create the illusion of a spinning candy cane type thing, we use an <code>animation</code>. To describe the animation we use <code>@keyframes</code> with the name <code>rollaround</code> since that&rsquo;s what we used in the styles for the indicator itself. The <code>to</code> and <code>from</code> states move the background from top to bottom (0 to 100%) by adjusting the <code>background-position</code>. This is what creates the rotation illusion. To control the speed we can set the time 1 cycle of the animation takes, in this case 15 seconds for one whole cycle. Because we start the animation immediately we don&rsquo;t use any easing functions and just set the animation to run at a <code>linear</code> page. We also never want to stop animating so the duration is set to <code>infinite</code>.</p>
+<p>Next we have the <code>active</code> and <code>hidden</code> classes for the indicator. These describe the states of the indicator (either in view, or not). We control it's visibility using the <code>height</code> of the div, which also allows us to add a nice little transition to it when it shows or hides itself.</p>
+<p>To make the background move, or in this case, create the illusion of a spinning candy cane type thing, we use an <code>animation</code>. To describe the animation we use <code>@keyframes</code> with the name <code>rollaround</code> since that's what we used in the styles for the indicator itself. The <code>to</code> and <code>from</code> states move the background from top to bottom (0 to 100%) by adjusting the <code>background-position</code>. This is what creates the rotation illusion. To control the speed we can set the time 1 cycle of the animation takes, in this case 15 seconds for one whole cycle. Because we start the animation immediately we don't use any easing functions and just set the animation to run at a <code>linear</code> page. We also never want to stop animating so the duration is set to <code>infinite</code>.</p>
 <p>To make use of the indicator you can set the <code>active</code> and <code>hidden</code> classes in functions/callbacks that you know might take a little longer. By showing the indicator, your users will get a visual hint that something is happening and they need to wait just a bit longer.</p>
 
-  <div class="blog-meta">
-    <h1>Meta</h1>
-    <time class="meta-element" datetime="2016-01-14T00:00:00&#43;00:00">January 14, 2016</time>
-    <div class="meta-element">
-  <div>
-    Tags:
-        <a href="/tags/html/">HTML</a>
-        <a href="/tags/css/">CSS</a>
-  </div>
-</div>
-  </div>
-
-                </main>
-            </div>
-        </div>
-        <footer>
-            <span>🌱 content written by an actual human.</span>
-<span>©️ copyright 2015-2025 harre.dev</span>
-        </footer>
-    </div>
-</body>
-
+      </div>
+    </main>
+    <footer>
+      <div class="content-wrapper">
+        <p>© 2025 harre.dev</p>
+       </div>
+    </footer>
+  </body>
 </html>

@@ -1,198 +1,123 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
-
-<head>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
-<link rel="shortcut icon" href="/favicon.png" type="image/png">
-<title>Multiple listeners for your Service Fabric service | harre.dev</title>
-<meta property="og:url" content="https://harre.dev/blog/sf-multiple-listeners/">
-<meta property="og:site_name" content="harre.dev">
-<meta property="og:title" content="Multiple listeners for your Service Fabric service">
-<meta property="og:description" content="Multiple listeners for your Service Fabric service">
-<meta property="og:locale" content="en_us">
-<meta property="og:type" content="article">
-<meta property="article:section" content="blog">
-<meta property="article:published_time" content="2018-03-31T00:00:00+00:00">
-<meta property="article:modified_time" content="2018-03-31T00:00:00+00:00">
-<meta property="article:tag" content="azure">
-<meta property="article:tag" content="Service Fabric">
-<meta property="article:tag" content="C#">
-<meta property="article:tag" content="Microservices">
-<meta property="article:tag" content="itq">
-
-<meta property="og:image" content="/og-img.png">
-
-
-      <link rel="stylesheet" href="/css/fonts.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU=" crossorigin="anonymous">
-      <link rel="stylesheet" href="/css/genesis.min.a1c0ed57b1424f92d7510f72be702d05a385d99ee050b3b5742a14180bf44fcb.css" integrity="sha256-ocDtV7FCT5LXUQ9yvnAtBaOF2Z7gULO1dCoUGAv0T8s=" crossorigin="anonymous">
-
-
-
-<script defer src="https://www.fairanalytics.de/pixel/834UxRaqtQBFLx4i"></script>
-
-</head>
-
-<body>
-    <div class="site-container">
-        <header>
-            <div class="site-header">
-    <div class="site-title">
-        <h1>harre.dev</h1>
-    </div>
-    <div class="site-title-slant"></div>
-</div>
-        </header>
-        <div class="site-wrapper">
-            <div class="site">
-                <nav>
-                    <div class="menu">
-    <h1>Menu</h1>
-    <a href="/">home</a>
-    <a href="/blog">blog</a>
-    <a href="/blog/index.xml">rss</a>
-    <a href="/about">about</a>
-</div>
-                </nav>
-                <main>
-                    
-  
-  
-  <h1 class="hero-text">Multiple listeners for your Service Fabric service</h1>
-  
-  
-  <div class="old-content-banner">
-    <p>This post is more than 3 years old!</p>
-    <p>It might all be outdated.</p>
-  </div>
-    
-  <p>Service Fabric is a great piece of technology on the Azure platform and I&rsquo;ve been using it quite a lot in recent projects. It takes away a lot of the setup and orchestration when dealing with microservices.</p>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple listeners for your Service Fabric service</title>
+    <link rel="stylesheet" href="/assets/style/theme.css">
+  </head>
+  <body>
+    <header>
+        <div class="content-wrapper">
+            <h1><a href="/">harre.dev</a></h1>
+        </div>
+    </header>
+    <nav>
+        <div class="content-wrapper">
+          <a href="/">home</a>
+          <a href="/blog">blog</a>
+          <a href="/about">about</a>
+          <a href="feed.xml">rss</a>
+        </div>
+    </nav>
+    <main>
+      <div class="content-wrapper">
+        <p>Service Fabric is a great piece of technology on the Azure platform and I've been using it quite a lot in recent projects. It takes away a lot of the setup and orchestration when dealing with microservices.</p>
 <p>There comes a point where services need to talk to each other and this is easily achieved using the Remoting bits you can get from NuGet. The general way of doing this is creating an <code>Interfaces</code> project next to the service that
-contains the service interface and classes used in transport. The interface is implemented on the service entrypoint and a listener is exposed to the Fabric runtime so that it can communicate with the rest of the platform. We&rsquo;re
+contains the service interface and classes used in transport. The interface is implemented on the service entrypoint and a listener is exposed to the Fabric runtime so that it can communicate with the rest of the platform. We're
 going to take it one step further and put the service implementations in their own class instead of on the service entrypoint (keeps things nice and clean) and also enable dependency injection from that point forward.</p>
-<p>This new way lets us define as many service endpoints as we want without cluttering the service entrypoint, each with their own listener. Let&rsquo;s dive in!</p>
+<p>This new way lets us define as many service endpoints as we want without cluttering the service entrypoint, each with their own listener. Let's dive in!</p>
 <p>Before we can start creating endpoints, we need to set up an interface that forces any new service to expose a listener.</p>
-<pre><code>public interface IServiceEndpoint
+<p>public interface IServiceEndpoint
 {
-    ServiceInstanceListener Init&lt;T&gt;(T service) where T : StatelessService;
-}
-</code></pre>
-<p>We&rsquo;re working inside a <code>Stateless</code> service so that&rsquo;s what we&rsquo;ll enforce on the generic part of the interface. Implementors of this interface now must be able to give us back a listener that exposes the methods it will offer.</p>
+ServiceInstanceListener Init<T>(T service) where T : StatelessService;
+}</p>
+<p>We're working inside a <code>Stateless</code> service so that's what we'll enforce on the generic part of the interface. Implementors of this interface now must be able to give us back a listener that exposes the methods it will offer.</p>
 <p>Inside the <code>.Interfaces</code> project for the service contracts, we setup the actual service interface:</p>
-<pre><code>public interface IAgeService : IService
+<p>public interface IAgeService : IService
 {
-    Task&lt;int&gt; GetAverageAge();
-}
-</code></pre>
+Task<int> GetAverageAge();
+}</p>
 <p>This interface defines the methods we want to expose.</p>
 <p>Now that we have this all set up, we can go ahead and create the service implementation inside the stateless service:</p>
-<pre><code>public class AgeService : IServiceEndpoint, IAgeService
+<p>public class AgeService : IServiceEndpoint, IAgeService
 {
-    private readonly Random _randomAgeMaker;
-
-    public AgeService()
-    {
-        ...
-    }
-
-    public Task&lt;int&gt; GetAverageAge()
-    {
-        ...
-    }
-
-    public ServiceInstanceListener Init&lt;T&gt;(T service) where T : StatelessService
-    {
-        return new ServiceInstanceListener(context =&gt;
-        {
-            return new FabricTransportServiceRemotingListener(context, this, new FabricTransportRemotingListenerSettings
-            {
-                EndpointResourceName = $&quot;{nameof(AgeService)}&quot;
-            });
-        }, $&quot;{nameof(AgeService)}&quot;);
-    }
+private readonly Random _randomAgeMaker;</p>
+<p>public AgeService()
+{
+...
+}</p>
+<p>public Task<int> GetAverageAge()
+{
+...
+}</p>
+<p>public ServiceInstanceListener Init<T>(T service) where T : StatelessService
+{
+return new ServiceInstanceListener(context =&gt;
+{
+return new FabricTransportServiceRemotingListener(context, this, new FabricTransportRemotingListenerSettings
+{
+EndpointResourceName = $&quot;{nameof(AgeService)}&quot;
+});
+}, $&quot;{nameof(AgeService)}&quot;);
 }
-</code></pre>
+}</p>
 <p>We apply two things here. First we implement the endpoint interface that forces us to make a listener for this service, the second is the interface that defines the services methods. Listeners require a unique name, so when
 we create the new <code>FabricTransportServiceRemotingListener</code> we give it a <code>FabricTransportRemotingListenerSettings</code> instance containing a name we can easily recognize in the form of the service name.</p>
 <p>This service is now ready to be made accessible to other services in our Fabric Application but we have a few more things to take care of. To keep it all nice and clean we want to use dependency injection for the composition of our services. In this
-demo I&rsquo;m using SimpleInjector but any other framework should also work.</p>
+demo I'm using SimpleInjector but any other framework should also work.</p>
 <p>The dependencies need to be registered in the root of the application, which in our case is <code>Program.cs</code>. At the very top of the <code>Main(...)</code> method, a container is created that will manage our dependecy graph for us:</p>
-<pre><code>var assemblies = AppDomain.CurrentDomain.GetAssemblies();
-var container = new Container();
-
-container.RegisterCollection(typeof(IServiceEndpoint), assemblies);
-container.Register(typeof(IDiagnosticsTracer), typeof(DiagnosticsTracer));
-
-container.Verify();
-</code></pre>
-<p>I&rsquo;ve included a very basic logging facility to demonstrate the injection in practice, you can replace it with any dependencies you might have for your services.</p>
-<p>The container is passed into the service itself through its constructor, where we&rsquo;ll ask for all the <code>IServiceEndpoints</code> it knows about. When the platform starts asking for listeners we point it to our list of services and call their <code>Init(...)</code> methods to grab the listeners.</p>
-<pre><code>internal sealed class People : StatelessService
+<p>var assemblies = AppDomain.CurrentDomain.GetAssemblies();
+var container = new Container();</p>
+<p>container.RegisterCollection(typeof(IServiceEndpoint), assemblies);
+container.Register(typeof(IDiagnosticsTracer), typeof(DiagnosticsTracer));</p>
+<p>container.Verify();</p>
+<p>I've included a very basic logging facility to demonstrate the injection in practice, you can replace it with any dependencies you might have for your services.</p>
+<p>The container is passed into the service itself through its constructor, where we'll ask for all the <code>IServiceEndpoints</code> it knows about. When the platform starts asking for listeners we point it to our list of services and call their <code>Init(...)</code> methods to grab the listeners.</p>
+<p>internal sealed class People : StatelessService
 {
-    private readonly IEnumerable&lt;IServiceEndpoint&gt; _services;
-
-    public People(StatelessServiceContext context, Container container)
-        : base(context)
-    {
-        _services = container.GetAllInstances&lt;IServiceEndpoint&gt;();
-    }
-
-    protected override IEnumerable&lt;ServiceInstanceListener&gt; CreateServiceInstanceListeners()
-    {
-        return _services.Select(s =&gt; s.Init(this));
-    }
+private readonly IEnumerable<IServiceEndpoint> _services;</p>
+<p>public People(StatelessServiceContext context, Container container)
+: base(context)
+{
+_services = container.GetAllInstances<IServiceEndpoint>();
+}</p>
+<p>protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
+{
+return _services.Select(s =&gt; s.Init(this));
 }
-</code></pre>
+}</p>
 <p>Now that the container is in charge of dependecies at the very root of our application, we can start injecting things into services like we would in any constructor injection scenario.
 You can check out the other service in the demo project for a little preview where I use the <code>IDiagnosticsTracer</code> inside the NameService to report any activity.</p>
 <p><img src="sf-listeners.png" alt="Listeners"></p>
-<p>The service is now complete but we don&rsquo;t have a way to access it yet from the Api project. We can remote into the service using a <code>Proxy</code> that is created based on the service interface in the <code>Interfaces</code> project.
-It&rsquo;s almost the same as setting up a normal project with one notable exception, we have to pass in the name of the listener we want to talk to:</p>
-<pre><code>_namesProxy = ServiceProxy.Create&lt;INameService&gt;(new Uri(&quot;fabric:/SF.Listeners/SF.Listeners.People&quot;), listenerName: &quot;NameService&quot;);
-_ageProxy = ServiceProxy.Create&lt;IAgeService&gt;(new Uri(&quot;fabric:/SF.Listeners/SF.Listeners.People&quot;), listenerName: &quot;AgeService&quot;);
-</code></pre>
-<p>The proxy is then used like every other proxy you&rsquo;ve ever created for remoting on Service Fabric:</p>
-<pre><code>[HttpGet]
+<p>The service is now complete but we don't have a way to access it yet from the Api project. We can remote into the service using a <code>Proxy</code> that is created based on the service interface in the <code>Interfaces</code> project.
+It's almost the same as setting up a normal project with one notable exception, we have to pass in the name of the listener we want to talk to:</p>
+<p>_namesProxy = ServiceProxy.Create<INameService>(new Uri(&quot;fabric:/SF.Listeners/SF.Listeners.People&quot;), listenerName: &quot;NameService&quot;);
+_ageProxy = ServiceProxy.Create<IAgeService>(new Uri(&quot;fabric:/SF.Listeners/SF.Listeners.People&quot;), listenerName: &quot;AgeService&quot;);</p>
+<p>The proxy is then used like every other proxy you've ever created for remoting on Service Fabric:</p>
+<p>[HttpGet]
 [Route(&quot;all&quot;)]
-public async Task&lt;IActionResult&gt; AllNames()
+public async Task<IActionResult> AllNames()
 {
-    try
-    {
-        return Ok(await _namesProxy.GetAllNames());
-    }
-    catch (Exception ex)
-    {
-        throw;
-    }
+try
+{
+return Ok(await _namesProxy.GetAllNames());
 }
-</code></pre>
+catch (Exception ex)
+{
+throw;
+}
+}</p>
 <p>Running a <code>GET</code> request against the HTTP endpoint above will remote into our <code>NameService</code> in the Stateless <code>People</code> service and retrieve all the names.</p>
 <p>The demo code be executed on your local cluster and is accessible through and HTTP API in the <code>.Api</code> project using something like Postman or curl (or any other HTTP client).</p>
 <p>You can find <a href="https://github.com/harrewarre/sf-listeners">the source for this demo on Github</a>.</p>
 
-  <div class="blog-meta">
-    <h1>Meta</h1>
-    <time class="meta-element" datetime="2018-03-31T00:00:00&#43;00:00">March 31, 2018</time>
-    <div class="meta-element">
-  <div>
-    Tags:
-        <a href="/tags/azure/">azure</a>
-        <a href="/tags/service-fabric/">Service Fabric</a>
-        <a href="/tags/c#/">C#</a>
-        <a href="/tags/microservices/">Microservices</a>
-        <a href="/tags/itq/">itq</a>
-  </div>
-</div>
-  </div>
-
-                </main>
-            </div>
-        </div>
-        <footer>
-            <span>🌱 content written by an actual human.</span>
-<span>©️ copyright 2015-2025 harre.dev</span>
-        </footer>
-    </div>
-</body>
-
+      </div>
+    </main>
+    <footer>
+      <div class="content-wrapper">
+        <p>© 2025 harre.dev</p>
+       </div>
+    </footer>
+  </body>
 </html>

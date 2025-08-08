@@ -1,102 +1,45 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
-
-<head>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
-<link rel="shortcut icon" href="/favicon.png" type="image/png">
-<title>Cloud Foundry Summit 2015 Berlin | harre.dev</title>
-<meta property="og:url" content="https://harre.dev/blog/cloudfoundry-summit-2015-berlin/">
-<meta property="og:site_name" content="harre.dev">
-<meta property="og:title" content="Cloud Foundry Summit 2015 Berlin">
-<meta property="og:description" content="Cloud Foundry Summit 2015 Berlin">
-<meta property="og:locale" content="en_us">
-<meta property="og:type" content="article">
-<meta property="article:section" content="blog">
-<meta property="article:published_time" content="2015-11-04T00:00:00+00:00">
-<meta property="article:modified_time" content="2015-11-04T00:00:00+00:00">
-<meta property="article:tag" content="cloud foundry">
-<meta property="article:tag" content="Conventions">
-<meta property="article:tag" content="itq">
-
-<meta property="og:image" content="/og-img.png">
-
-
-      <link rel="stylesheet" href="/css/fonts.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU=" crossorigin="anonymous">
-      <link rel="stylesheet" href="/css/genesis.min.a1c0ed57b1424f92d7510f72be702d05a385d99ee050b3b5742a14180bf44fcb.css" integrity="sha256-ocDtV7FCT5LXUQ9yvnAtBaOF2Z7gULO1dCoUGAv0T8s=" crossorigin="anonymous">
-
-
-
-<script defer src="https://www.fairanalytics.de/pixel/834UxRaqtQBFLx4i"></script>
-
-</head>
-
-<body>
-    <div class="site-container">
-        <header>
-            <div class="site-header">
-    <div class="site-title">
-        <h1>harre.dev</h1>
-    </div>
-    <div class="site-title-slant"></div>
-</div>
-        </header>
-        <div class="site-wrapper">
-            <div class="site">
-                <nav>
-                    <div class="menu">
-    <h1>Menu</h1>
-    <a href="/">home</a>
-    <a href="/blog">blog</a>
-    <a href="/blog/index.xml">rss</a>
-    <a href="/about">about</a>
-</div>
-                </nav>
-                <main>
-                    
-  
-  
-  <h1 class="hero-text">Cloud Foundry Summit 2015 Berlin</h1>
-  
-  
-  <div class="old-content-banner">
-    <p>This post is more than 3 years old!</p>
-    <p>It might all be outdated.</p>
-  </div>
-    
-  <p>On the 2nd and 3rd November in 2015, the <a href="https://www.cloudfoundry.org/foundation/">Cloud Foundry Foundation</a> held the <a href="https://www.cloudfoundry.org/">Cloud Foundry</a> Summit in Berlin. The focus of this conference is on Cloud Foundry itself and the community around it.</p>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Foundry Summit 2015 Berlin</title>
+    <link rel="stylesheet" href="/assets/style/theme.css">
+  </head>
+  <body>
+    <header>
+        <div class="content-wrapper">
+            <h1><a href="/">harre.dev</a></h1>
+        </div>
+    </header>
+    <nav>
+        <div class="content-wrapper">
+          <a href="/">home</a>
+          <a href="/blog">blog</a>
+          <a href="/about">about</a>
+          <a href="feed.xml">rss</a>
+        </div>
+    </nav>
+    <main>
+      <div class="content-wrapper">
+        <p>On the 2nd and 3rd November in 2015, the <a href="https://www.cloudfoundry.org/foundation/">Cloud Foundry Foundation</a> held the <a href="https://www.cloudfoundry.org/">Cloud Foundry</a> Summit in Berlin. The focus of this conference is on Cloud Foundry itself and the community around it.</p>
 <p><a href="http://itq.nl/">ITQ</a> (my employer) is focussing on <a href="http://itq.nl/expertise/cloud-native-apps/">Cloud Native apps</a> and let a small group including myself attend the conference. After a canceled flight due to fog and a 650km roadtrip with my co-workers <a href="https://twitter.com/rwwilden">Ronald</a> and <a href="https://twitter.com/ruurdkeizer">Ruurd</a> we arrived at the hotel at 2am in morning just in time for the first workshop.</p>
 <p>In a nutshell, Cloud Foundry is a (full open source!) platform-as-a-service that enables companies to rapidly evolve their software through simple and fast deployments that take minutes instead of days. This approach does come with some catches, monolithic applications (ie: the really big enterprisey apps) are not well suited for this platform, instead, software systems should be written as a group of stateless <a href="http://12factor.net/">12-factor</a> <a href="http://martinfowler.com/articles/microservices.html">micro-services</a> (Cloud Native apps) that work together to form the system.</p>
 <p>I participated in one of the workshops on the first conference day that took us through the steps of deploying and managing microservice-based applications on the Cloud Foundry platform. The platform in this case being the <a href="http://pivotal.io/platform">Pivotal Cloud Foundry</a> platform which has a web GUI to manage things as well as a command-line interface. You can play around with the platform yourself using the <a href="http://run.pivotal.io/">60-day free trial</a> Pivotal offers.</p>
 <p>The second conference day was filled with talks about all things Cloud Foundry. <a href="http://bosh.cloudfoundry.org/">BOSH</a>, continuous integration and containers. Even Windows Azure was part of the fun.</p>
-<p>As a software developer I found that most of the talks we&rsquo;re a bit more on the Ops side of the DevOps philosophy focusing on how the platform itself handles things and how to manage it.  I hoped there would be a few talks that zoomed in on how micro-service apps run on the platform. How you write proper cloud native apps using stuff like <a href="http://projects.spring.io/spring-cloud/">Spring Cloud</a> and why 12 factor matters so much if you want to become a cloud native organisation. It was still a very valuable experience and I&rsquo;m very happy I was there to enjoy everything.</p>
-<p>One thing stood out above the rest to my developer brain. Continuous <a href="https://en.wikipedia.org/wiki/Continuous_integration">integration</a>/<a href="https://en.wikipedia.org/wiki/Continuous_delivery">delivery</a>. Automating your tests/deployments is a very good thing to have, but Cloud Foundry will let you really take it to the next level. As mentioned above, the platform and software methodology will let you deploy <em>REALLY</em> fast en <em>VERY</em> often, so often in fact, that could deploy straight into production if you wanted to. This is made possible because of speed and ease of deploying new things, but also because the platform can do all this without downtime! Something turned out not so great? No problem, just deploy a new fixed version of the misbehaving app and you&rsquo;re good to go again.</p>
+<p>As a software developer I found that most of the talks we're a bit more on the Ops side of the DevOps philosophy focusing on how the platform itself handles things and how to manage it.  I hoped there would be a few talks that zoomed in on how micro-service apps run on the platform. How you write proper cloud native apps using stuff like <a href="http://projects.spring.io/spring-cloud/">Spring Cloud</a> and why 12 factor matters so much if you want to become a cloud native organisation. It was still a very valuable experience and I'm very happy I was there to enjoy everything.</p>
+<p>One thing stood out above the rest to my developer brain. Continuous <a href="https://en.wikipedia.org/wiki/Continuous_integration">integration</a>/<a href="https://en.wikipedia.org/wiki/Continuous_delivery">delivery</a>. Automating your tests/deployments is a very good thing to have, but Cloud Foundry will let you really take it to the next level. As mentioned above, the platform and software methodology will let you deploy <em>REALLY</em> fast en <em>VERY</em> often, so often in fact, that could deploy straight into production if you wanted to. This is made possible because of speed and ease of deploying new things, but also because the platform can do all this without downtime! Something turned out not so great? No problem, just deploy a new fixed version of the misbehaving app and you're good to go again.</p>
 <p><img src="cf.png" alt="Cloud Foundry"></p>
 <p>I think Cloud Foundry is a very cool product that can have a very positive effect on how a company develops and delivers their software and services. On the flip side there is a very big hurdle, companies that are building monoliths right now might not be so eager to abandon their current strategy and switch to micro-services and Cloud Foundry. The reason for this is that it is not just a technical change. Cloud Foundry has impact on a broader scale. Changing the way teams are set up and work together, getting rid of waterfall (or even worse, waterscrumfall) and becoming truly agile. That can seem daunting and would take quite some convincing to make an entire company switch.</p>
-<p>I&rsquo;d say the right path is to start very small. Build some non-critical things on the platform and show others inside the company how great it is. With enough interest and directly seeing the benefits, a company can gradually grow into this new way of building and delivering software.</p>
+<p>I'd say the right path is to start very small. Build some non-critical things on the platform and show others inside the company how great it is. With enough interest and directly seeing the benefits, a company can gradually grow into this new way of building and delivering software.</p>
 <p>I had a very good time a the summit, despite the lack of focus on micro-service development and look forward to playing around with the platform some more and hopefully an actual project that involves Cloud Foundry!</p>
 
-  <div class="blog-meta">
-    <h1>Meta</h1>
-    <time class="meta-element" datetime="2015-11-04T00:00:00&#43;00:00">November 4, 2015</time>
-    <div class="meta-element">
-  <div>
-    Tags:
-        <a href="/tags/cloud-foundry/">cloud foundry</a>
-        <a href="/tags/conventions/">Conventions</a>
-        <a href="/tags/itq/">itq</a>
-  </div>
-</div>
-  </div>
-
-                </main>
-            </div>
-        </div>
-        <footer>
-            <span>🌱 content written by an actual human.</span>
-<span>©️ copyright 2015-2025 harre.dev</span>
-        </footer>
-    </div>
-</body>
-
+      </div>
+    </main>
+    <footer>
+      <div class="content-wrapper">
+        <p>© 2025 harre.dev</p>
+       </div>
+    </footer>
+  </body>
 </html>

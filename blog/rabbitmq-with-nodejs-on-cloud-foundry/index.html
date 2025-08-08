@@ -1,197 +1,129 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
-
-<head>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
-<link rel="shortcut icon" href="/favicon.png" type="image/png">
-<title>RabbitMQ with NodeJS on Cloud Foundry | harre.dev</title>
-<meta property="og:url" content="https://harre.dev/blog/rabbitmq-with-nodejs-on-cloud-foundry/">
-<meta property="og:site_name" content="harre.dev">
-<meta property="og:title" content="RabbitMQ with NodeJS on Cloud Foundry">
-<meta property="og:description" content="RabbitMQ with NodeJS on Cloud Foundry">
-<meta property="og:locale" content="en_us">
-<meta property="og:type" content="article">
-<meta property="article:section" content="blog">
-<meta property="article:published_time" content="2016-05-27T00:00:00+00:00">
-<meta property="article:modified_time" content="2016-05-27T00:00:00+00:00">
-<meta property="article:tag" content="Javascript">
-<meta property="article:tag" content="cloud foundry">
-<meta property="article:tag" content="RabbitMQ">
-<meta property="article:tag" content="itq">
-
-<meta property="og:image" content="/og-img.png">
-
-
-      <link rel="stylesheet" href="/css/fonts.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU=" crossorigin="anonymous">
-      <link rel="stylesheet" href="/css/genesis.min.a1c0ed57b1424f92d7510f72be702d05a385d99ee050b3b5742a14180bf44fcb.css" integrity="sha256-ocDtV7FCT5LXUQ9yvnAtBaOF2Z7gULO1dCoUGAv0T8s=" crossorigin="anonymous">
-
-
-
-<script defer src="https://www.fairanalytics.de/pixel/834UxRaqtQBFLx4i"></script>
-
-</head>
-
-<body>
-    <div class="site-container">
-        <header>
-            <div class="site-header">
-    <div class="site-title">
-        <h1>harre.dev</h1>
-    </div>
-    <div class="site-title-slant"></div>
-</div>
-        </header>
-        <div class="site-wrapper">
-            <div class="site">
-                <nav>
-                    <div class="menu">
-    <h1>Menu</h1>
-    <a href="/">home</a>
-    <a href="/blog">blog</a>
-    <a href="/blog/index.xml">rss</a>
-    <a href="/about">about</a>
-</div>
-                </nav>
-                <main>
-                    
-  
-  
-  <h1 class="hero-text">RabbitMQ with NodeJS on Cloud Foundry</h1>
-  
-  
-  <div class="old-content-banner">
-    <p>This post is more than 3 years old!</p>
-    <p>It might all be outdated.</p>
-  </div>
-    
-  <p>I&rsquo;ve been having some more fun with Cloud Foundry deploying Node apps and wanted the apps to communicate in a more disconnected way. A messaging system is a good fit for such a requirement and lucky for me, (Pivotal) Cloud Foundry has RabbitMQ-as-a-Service for me to use.</p>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RabbitMQ with NodeJS on Cloud Foundry</title>
+    <link rel="stylesheet" href="/assets/style/theme.css">
+  </head>
+  <body>
+    <header>
+        <div class="content-wrapper">
+            <h1><a href="/">harre.dev</a></h1>
+        </div>
+    </header>
+    <nav>
+        <div class="content-wrapper">
+          <a href="/">home</a>
+          <a href="/blog">blog</a>
+          <a href="/about">about</a>
+          <a href="feed.xml">rss</a>
+        </div>
+    </nav>
+    <main>
+      <div class="content-wrapper">
+        <p>I've been having some more fun with Cloud Foundry deploying Node apps and wanted the apps to communicate in a more disconnected way. A messaging system is a good fit for such a requirement and lucky for me, (Pivotal) Cloud Foundry has RabbitMQ-as-a-Service for me to use.</p>
 <p>So what are we working with? The code is Javascript running on Node, RabbitMQ for the messages and Cloud Foundry is hosting it all.</p>
-<h2 id="installing-rabbitmq">Installing RabbitMQ</h2>
-<p>If you don&rsquo;t have one yet, installing a RabbitMQ service is the first step. There should be one in the CF marketplace (if not, use the <a href="http://docs.pivotal.io/rabbitmq-cf/index.html">Ops manager to install it first on your platform first</a>).</p>
+<h2>Installing RabbitMQ</h2>
+<p>If you don't have one yet, installing a RabbitMQ service is the first step. There should be one in the CF marketplace (if not, use the <a href="http://docs.pivotal.io/rabbitmq-cf/index.html">Ops manager to install it first on your platform first</a>).</p>
 <p><img src="cf-market.png" alt="CF Marketplace"></p>
 <p>or use the command <code>cf create-service p-rabbitmq standard &lt;your rabbitmq servicename&gt;</code> to install it from the CLI.</p>
-<h2 id="apps">Apps</h2>
+<h2>Apps</h2>
 <p>Now that we have a service instance that can process messages, we need an app to use that service. To make things extra simple, we can use a package that handles all the guts of talking to rabbitMQ from Node for us.</p>
-<p>Create an empty folder and run <code>npm init</code> to start using packages. Next, install a package called <a href="https://github.com/squaremo/rabbit.js">rabbit.js</a> (<code>npm install rabbit.js --save</code>). Because rabbit.js has some good demo code we&rsquo;ll use that to test the RabbitMQ service.</p>
-<pre><code>var context = require('rabbit.js').createContext();
+<p>Create an empty folder and run <code>npm init</code> to start using packages. Next, install a package called <a href="https://github.com/squaremo/rabbit.js">rabbit.js</a> (<code>npm install rabbit.js --save</code>). Because rabbit.js has some good demo code we'll use that to test the RabbitMQ service.</p>
+<p>var context = require('rabbit.js').createContext();
 context.on('ready', function() {
-  var pub = context.socket('PUB'), sub = context.socket('SUB');
-  sub.pipe(process.stdout);
-  sub.connect('events', function() {
-	pub.connect('events', function() {
-	  pub.write(JSON.stringify({welcome: 'rabbit.js'}), 'utf8');
-	});
-  });
+var pub = context.socket('PUB'), sub = context.socket('SUB');
+sub.pipe(process.stdout);
+sub.connect('events', function() {
+pub.connect('events', function() {
+pub.write(JSON.stringify({welcome: 'rabbit.js'}), 'utf8');
 });
-</code></pre>
+});
+});</p>
 <p><small>Code from the rabbit.js readme page, see link above.</small></p>
 <p>But there is a crucial part missing! The <code>.createContext()</code> needs a URL to connect to the correct instance of rabbitMQ. Before we get to finding that URL, we need to bind a few things together. Put the demo code into a new file called <code>app.js</code> and save it for later.</p>
-<h2 id="binding-services">Binding services</h2>
+<h2>Binding services</h2>
 <p>Before we can do anything at all with the apps and the RabbitMQ service, we need to bind them together so that the apps get access to the service. This can be done manually with the CLI or you can put it in your <code>manifest.yml</code> that instructs Cloud Foundry how to install and run your app.</p>
 <p>Use the <a href="http://cli.cloudfoundry.org/en-US/cf/bind-service.html"><code>bind-service</code></a> command if you use the CLI. If you have a manifest you can set it up like this:</p>
-<pre><code>applications:
+<p>applications:
 - name: app-name
-  &lt;snip&gt;
-  services:
-	- &lt;your rabbitMQ servicename&gt;
-</code></pre>
-<p>A helpful tip for deploying using the manifest. If you are not going to use the port that is assinged to your app, disable the health-check feature. Cloud Foundry will monitor your app on the port that is assigned to it but if you aren&rsquo;t using the port in your app (ie, the port remains closed), Cloud Foundry will think your app is dead and start failing the health-checks. You can disable the checks in your manifest by adding the line <code>health-check-type: none</code>.</p>
-<p>If you intend to push this demo app, don&rsquo;t forget to add a <code>.cfignore</code> file to exclude the <code>node_modules</code> folder.</p>
-<h2 id="rabbitmq-url-location">RabbitMQ URL location</h2>
+<snip>
+services:
+- <your rabbitMQ servicename></p>
+<p>A helpful tip for deploying using the manifest. If you are not going to use the port that is assinged to your app, disable the health-check feature. Cloud Foundry will monitor your app on the port that is assigned to it but if you aren't using the port in your app (ie, the port remains closed), Cloud Foundry will think your app is dead and start failing the health-checks. You can disable the checks in your manifest by adding the line <code>health-check-type: none</code>.</p>
+<p>If you intend to push this demo app, don't forget to add a <code>.cfignore</code> file to exclude the <code>node_modules</code> folder.</p>
+<h2>RabbitMQ URL location</h2>
 <p>Before we can push the app and start sending messages, we need to tell the app where to send the messages. RabbitMS has a URL that we must pass to the <code>.createContext</code> function in the code in our app.</p>
-<p>Because the app and service are bound together, Cloud Foundry will add extra environment variables to the app in which it can find the thing we are looking for: the RabbitMQ URL. The variable itself is called <code>VCAP_SERVICES</code> and you can find it&rsquo;s contents in the CLI using the command <code>cf env &lt;app-name&gt;</code> or the web interface by opening the app and selecting the environment variables tab.</p>
+<p>Because the app and service are bound together, Cloud Foundry will add extra environment variables to the app in which it can find the thing we are looking for: the RabbitMQ URL. The variable itself is called <code>VCAP_SERVICES</code> and you can find it's contents in the CLI using the command <code>cf env &lt;app-name&gt;</code> or the web interface by opening the app and selecting the environment variables tab.</p>
 <p><img src="env-var.png" alt="Environment variables"></p>
 <p>So with the knowledge that the URL is hidden somewhere in the <code>VCAP_SERVICES</code> variable, we can start digging it out. Here is a handy Node module that does the heavy lifting.</p>
-<pre><code>module.exports.getRabbitUrl = function () {
-	var uri = &quot;&quot;;
-
-	if (process.env.VCAP_SERVICES) {
-		var conf = JSON.parse(process.env.VCAP_SERVICES);
-		uri = conf['p-rabbitmq'][0].credentials.uri;
-	}
-	else {
-		uri =&quot;amqp://localhost&quot;;
-	}
-
-	return uri;
+<p>module.exports.getRabbitUrl = function () {
+var uri = &quot;&quot;;</p>
+<p>if (process.env.VCAP_SERVICES) {
+var conf = JSON.parse(process.env.VCAP_SERVICES);
+uri = conf['p-rabbitmq'][0].credentials.uri;
 }
-</code></pre>
+else {
+uri =&quot;amqp://localhost&quot;;
+}</p>
+<p>return uri;
+}</p>
 <p>So what does this do? First we check if there is an environment variable that we are looking for. If that exists we load the contents and, because it is stored as a JSON string, parse it into an object that we can use in Javascript.</p>
 <p>Here is an example JSON string of the <code>VCAP_SERVICES</code> variable, I removed a whole bunch of it to condense it to something readable.</p>
-<pre><code>&quot;VCAP_SERVICES&quot;: {
-  &quot;p-rabbitmq&quot;: [
-    {
-      &quot;name&quot;: &quot;&lt;name&gt;&quot;,
-      &quot;label&quot;: &quot;p-rabbitmq&quot;,
-      &quot;tags&quot;: [&lt;snip&gt;],
-      &quot;plan&quot;: &quot;standard&quot;,
-      &quot;credentials&quot;: {
-        &lt;snip&gt;},
-        &quot;amqp&quot;: {&lt;snip&gt;},
-        &quot;username&quot;: &quot;&lt;snip&gt;&quot;,
-        &quot;hostname&quot;: &quot;&lt;snip&gt;&quot;,
-        &quot;hostnames&quot;: [&lt;snip&gt;],
-        &quot;vhost&quot;: &quot;&lt;snip&gt;&quot;,
-        &quot;http_api_uri&quot;: &quot;&lt;snip&gt;&quot;,
-        &quot;uri&quot;: &quot;&lt;BINGO&gt;&quot;,
-        &quot;uris&quot;: [
-          &quot;&lt;ALSO BINGO&gt;&quot;
-          ]
-        }
-      }
-    }
-  ]
-</code></pre>
+<p>&quot;VCAP_SERVICES&quot;: {
+&quot;p-rabbitmq&quot;: [
+{
+&quot;name&quot;: &quot;<name>&quot;,
+&quot;label&quot;: &quot;p-rabbitmq&quot;,
+&quot;tags&quot;: [<snip>],
+&quot;plan&quot;: &quot;standard&quot;,
+&quot;credentials&quot;: {
+<snip>},
+&quot;amqp&quot;: {<snip>},
+&quot;username&quot;: &quot;<snip>&quot;,
+&quot;hostname&quot;: &quot;<snip>&quot;,
+&quot;hostnames&quot;: [<snip>],
+&quot;vhost&quot;: &quot;<snip>&quot;,
+&quot;http_api_uri&quot;: &quot;<snip>&quot;,
+&quot;uri&quot;: &quot;<BINGO>&quot;,
+&quot;uris&quot;: [
+&quot;<ALSO BINGO>&quot;
+]
+}
+}
+}
+]</p>
 <p>Looking back at the code above the example we can see the traversal to the <code>uri</code> value: <code>uri = conf['p-rabbitmq'][0].credentials.uri;</code>. The first element of the <code>p-rabbitmq</code> element, then <code>credentials</code> -&gt; <code>uri</code>.</p>
 <p>We found the URL! If no variable was found we return the default localhost URL which is can come in handy if you run RabbitMQ locally to test things out before pushing it up to Cloud Foundry.</p>
 <p>Now to pass it into the demo code and you are ready to push it (I put the code to resolve the URL in a file called <code>environment.js</code>).</p>
-<pre><code>var environment = require(&quot;./environment&quot;);
-
-var rabbitUrl = environment.getRabbitUrl();
-console.log(&quot;Connecting to rabbitMQ at &quot; + rabbitUrl);
-
-var context = require('rabbit.js').createContext(rabbitUrl);
+<p>var environment = require(&quot;./environment&quot;);</p>
+<p>var rabbitUrl = environment.getRabbitUrl();
+console.log(&quot;Connecting to rabbitMQ at &quot; + rabbitUrl);</p>
+<p>var context = require('rabbit.js').createContext(rabbitUrl);
 context.on('ready', function() {
-  var pub = context.socket('PUB'), sub = context.socket('SUB');
-  sub.pipe(process.stdout);
-  sub.connect('events', function() {
-	pub.connect('events', function() {
-	  pub.write(JSON.stringify({welcome: 'rabbit.js'}), 'utf8');
-	});
-  });
+var pub = context.socket('PUB'), sub = context.socket('SUB');
+sub.pipe(process.stdout);
+sub.connect('events', function() {
+pub.connect('events', function() {
+pub.write(JSON.stringify({welcome: 'rabbit.js'}), 'utf8');
 });
-</code></pre>
+});
+});</p>
 <p>Push the app to Cloud Foundry and check the logs (<code>cf logs &lt;app-name&gt; --recent</code>) for the output, which should show the <code>welcome: rabbit.js</code> message that was published.</p>
-<h2 id="wrapping-up">Wrapping up</h2>
+<h2>Wrapping up</h2>
 <p>Using the basics learned here, you can set up multiple services that exchange messages to perform tasks in a fully disconnected infrastructure making it very easy to expand/change the system with more (micro!)services because no single service directly depends on the existence of another service.</p>
 <p>When binding apps and services you can easily gather details about the bound services in the <code>VCAP_SERVICES</code> environment variable. As we saw in this case, we resolved the URL for RabbitMQ but the process for other services is similar.</p>
 <p>Rabbit.js can do quite a bit more than just PUB/SUB, you can find out more on <a href="http://www.squaremobius.net/rabbit.js/">doc</a> page for it.</p>
-<p>The code from this post can be found here: <a href="https://github.com/harrewarre/cf-rabbit-demo">https://github.com/harrewarre/cf-rabbit-demo</a></p>
+<p>The code from this post can be found here: https://github.com/harrewarre/cf-rabbit-demo</p>
 <p>Have fun!</p>
 
-  <div class="blog-meta">
-    <h1>Meta</h1>
-    <time class="meta-element" datetime="2016-05-27T00:00:00&#43;00:00">May 27, 2016</time>
-    <div class="meta-element">
-  <div>
-    Tags:
-        <a href="/tags/javascript/">Javascript</a>
-        <a href="/tags/cloud-foundry/">cloud foundry</a>
-        <a href="/tags/rabbitmq/">RabbitMQ</a>
-        <a href="/tags/itq/">itq</a>
-  </div>
-</div>
-  </div>
-
-                </main>
-            </div>
-        </div>
-        <footer>
-            <span>🌱 content written by an actual human.</span>
-<span>©️ copyright 2015-2025 harre.dev</span>
-        </footer>
-    </div>
-</body>
-
+      </div>
+    </main>
+    <footer>
+      <div class="content-wrapper">
+        <p>© 2025 harre.dev</p>
+       </div>
+    </footer>
+  </body>
 </html>

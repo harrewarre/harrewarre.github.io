@@ -1,194 +1,121 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
-
-<head>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
-<link rel="shortcut icon" href="/favicon.png" type="image/png">
-<title>Uploading files - a simple approach | harre.dev</title>
-<meta property="og:url" content="https://harre.dev/blog/uploading-files-filereader/">
-<meta property="og:site_name" content="harre.dev">
-<meta property="og:title" content="Uploading files - a simple approach">
-<meta property="og:description" content="Uploading files - a simple approach">
-<meta property="og:locale" content="en_us">
-<meta property="og:type" content="article">
-<meta property="article:section" content="blog">
-<meta property="article:published_time" content="2017-07-31T00:00:00+00:00">
-<meta property="article:modified_time" content="2017-07-31T00:00:00+00:00">
-<meta property="article:tag" content="HTML">
-<meta property="article:tag" content="Javascript">
-<meta property="article:tag" content="itq">
-
-<meta property="og:image" content="/og-img.png">
-
-
-      <link rel="stylesheet" href="/css/fonts.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU=" crossorigin="anonymous">
-      <link rel="stylesheet" href="/css/genesis.min.a1c0ed57b1424f92d7510f72be702d05a385d99ee050b3b5742a14180bf44fcb.css" integrity="sha256-ocDtV7FCT5LXUQ9yvnAtBaOF2Z7gULO1dCoUGAv0T8s=" crossorigin="anonymous">
-
-
-
-<script defer src="https://www.fairanalytics.de/pixel/834UxRaqtQBFLx4i"></script>
-
-</head>
-
-<body>
-    <div class="site-container">
-        <header>
-            <div class="site-header">
-    <div class="site-title">
-        <h1>harre.dev</h1>
-    </div>
-    <div class="site-title-slant"></div>
-</div>
-        </header>
-        <div class="site-wrapper">
-            <div class="site">
-                <nav>
-                    <div class="menu">
-    <h1>Menu</h1>
-    <a href="/">home</a>
-    <a href="/blog">blog</a>
-    <a href="/blog/index.xml">rss</a>
-    <a href="/about">about</a>
-</div>
-                </nav>
-                <main>
-                    
-  
-  
-  <h1 class="hero-text">Uploading files - a simple approach</h1>
-  
-  
-  <div class="old-content-banner">
-    <p>This post is more than 3 years old!</p>
-    <p>It might all be outdated.</p>
-  </div>
-    
-  <p>Here&rsquo;s a nice way of getting images to your server using a little bit of Javascript and HTML. We&rsquo;ll be using the <code>FileReader</code> API that comes with
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uploading files - a simple approach</title>
+    <link rel="stylesheet" href="/assets/style/theme.css">
+  </head>
+  <body>
+    <header>
+        <div class="content-wrapper">
+            <h1><a href="/">harre.dev</a></h1>
+        </div>
+    </header>
+    <nav>
+        <div class="content-wrapper">
+          <a href="/">home</a>
+          <a href="/blog">blog</a>
+          <a href="/about">about</a>
+          <a href="feed.xml">rss</a>
+        </div>
+    </nav>
+    <main>
+      <div class="content-wrapper">
+        <p>Here's a nice way of getting images to your server using a little bit of Javascript and HTML. We'll be using the <code>FileReader</code> API that comes with
 Javascript and is supported in <a href="http://caniuse.com/#search=filereader">all</a> major browsers.</p>
-<p>For this example we&rsquo;ll need some HTML from which we can select files and show a preview:</p>
-<pre><code>&lt;div&gt;
-    &lt;input id=&quot;fileInput&quot; type=&quot;file&quot; /&gt;
-    &lt;button id=&quot;clearFile&quot;&gt;Clear&lt;/button&gt;
-    &lt;button id=&quot;uploadFile&quot;&gt;Upload&lt;/button&gt;
-&lt;/div&gt;
-&lt;div&gt;
-    &lt;label&gt;Preview&lt;/label&gt;
-    &lt;div&gt;
-        &lt;img id=&quot;preview&quot; /&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
+<p>For this example we'll need some HTML from which we can select files and show a preview:</p>
+<p><div>
+<input id="fileInput" type="file" />
+<button id="clearFile">Clear</button>
+<button id="uploadFile">Upload</button>
+</div>
+<div>
+<label>Preview</label>
+<div>
+<img id="preview" />
+</div>
+</div></p>
 <p>We have an <code>input</code> element set to <code>type=&quot;file&quot;</code> to select the file(s) we want to upload. Two <code>button</code>s for submitting and clearing our inputs and an <code>img</code> where we can show a preview.
 This demo only depends on jQuery, which is only used to make performing a POST to the webserver so much simpler. Feel free to substitute that with whatever you like best.</p>
 <p>The webserver that will receive the image is ASP.NET but it should work on any other platform/server you want to use.</p>
-<p>I&rsquo;ve created a file called <code>app.js</code> and referenced it just before the closing <code>body</code> tag on my page. It contains a self-executing piece of code that wires up our HTML.</p>
-<pre><code>(function ($) {
-	var self = this;
-
-	// Code will go here.
-})($);
-</code></pre>
+<p>I've created a file called <code>app.js</code> and referenced it just before the closing <code>body</code> tag on my page. It contains a self-executing piece of code that wires up our HTML.</p>
+<p>(function ($) {
+var self = this;</p>
+<p>// Code will go here.
+})($);</p>
 <p>It takes in jQuery (<code>$</code>), but as mentioned, feel free to substitute that with something else, it is only used for a POST to the server.</p>
-<p>Let&rsquo;s get some of the boilerplate stuff out of the way first.</p>
-<pre><code>self.fileInput = document.getElementById(&quot;fileInput&quot;);
+<p>Let's get some of the boilerplate stuff out of the way first.</p>
+<p>self.fileInput = document.getElementById(&quot;fileInput&quot;);
 self.upload = document.getElementById(&quot;uploadFile&quot;);
 self.clear = document.getElementById(&quot;clearFile&quot;);
-self.preview = document.getElementById(&quot;preview&quot;);
-</code></pre>
+self.preview = document.getElementById(&quot;preview&quot;);</p>
 <p>Grab the elements that we need for any functionality and wire them up.</p>
-<pre><code>self.upload.addEventListener(&quot;click&quot;, function () {
-    if (self.fileInput.length === 0) {
-        alert(&quot;No file to preview!&quot;);
-        return;
-    }
-
-    var selectedFile = self.fileInput.files[0];
-    self.getFile(selectedFile, function (fileData) {
-        var uplReq = $.post(&quot;/api/upload&quot;, { name: fileData.name, base64String: self.getBase64String(fileData.dataUrl) });
-        uplReq.done(function () {
-            alert(&quot;File uploaded&quot;);
-        });
-    });
+<p>self.upload.addEventListener(&quot;click&quot;, function () {
+if (self.fileInput.length === 0) {
+alert(&quot;No file to preview!&quot;);
+return;
+}</p>
+<p>var selectedFile = self.fileInput.files[0];
+self.getFile(selectedFile, function (fileData) {
+var uplReq = $.post(&quot;/api/upload&quot;, { name: fileData.name, base64String: self.getBase64String(fileData.dataUrl) });
+uplReq.done(function () {
+alert(&quot;File uploaded&quot;);
 });
-
-self.fileInput.addEventListener(&quot;change&quot;, (event) =&gt; {
-
-    if (self.fileInput.length === 0) {
-        alert(&quot;No file to preview!&quot;);
-        return;
-    }
-
-    var selectedFile = self.fileInput.files[0];
-
-    self.getFile(selectedFile, function (fileData) {
-        self.preview.src = fileData.dataUrl;
-    });
 });
-</code></pre>
+});</p>
+<p>self.fileInput.addEventListener(&quot;change&quot;, (event) =&gt; {</p>
+<p>if (self.fileInput.length === 0) {
+alert(&quot;No file to preview!&quot;);
+return;
+}</p>
+<p>var selectedFile = self.fileInput.files[0];</p>
+<p>self.getFile(selectedFile, function (fileData) {
+self.preview.src = fileData.dataUrl;
+});
+});</p>
 <p>Wire up the Clear and Submit buttons.</p>
-<p>Here&rsquo;s the first little piece of utility we need:</p>
-<pre><code>self.getBase64String = function (dataUrl) {
-    return dataUrl.substr(dataUrl.indexOf(&quot;,&quot;) + 1);
-};
-</code></pre>
-<p>This little function reads a data URL and returns only the data part of it. To get a better understanding of it, here&rsquo;s an example. Here is the data URL for a PNG image (I&rsquo;ve snipped of really long and boring part of the URL). The browser can read these URLs and, in the case of images even display them in an <code>img</code> element.</p>
-<pre><code>&lt;img id=&quot;preview&quot; src=&quot;data:image/png;base64,iVBORw0KGgogbPG ... snip ... 5pTJUORK5CYII=&quot;&gt;
-</code></pre>
+<p>Here's the first little piece of utility we need:</p>
+<p>self.getBase64String = function (dataUrl) {
+return dataUrl.substr(dataUrl.indexOf(&quot;,&quot;) + 1);
+};</p>
+<p>This little function reads a data URL and returns only the data part of it. To get a better understanding of it, here's an example. Here is the data URL for a PNG image (I've snipped of really long and boring part of the URL). The browser can read these URLs and, in the case of images even display them in an <code>img</code> element.</p>
+<p><img id="preview" src="data:image/png;base64,iVBORw0KGgogbPG ... snip ... 5pTJUORK5CYII="></p>
 <p>We only want to send the data part of the URL to the server so we find the <code>,</code> in the data URL that seperates the metadata and the actual data and are left with the long string representation of the image. In the code above, we also wired up the <code>change</code> event on the file input
 to respond the a file being selected. When the user selects a file we want to show a preview, to do so, we need the a <code>FileReader</code> to grab the file contents and give them to us for further processing.</p>
 <p>In the piece of code that wires up the <code>change</code> event on the file input, we call a function <code>getFile</code>, here, the meat of it:</p>
-<pre><code>self.getFile = function (file, onFileLoaded) {
-    var result = {
-        name: file.name,
-        dataUrl: &quot;&quot;
-    };
-
-    var reader = new FileReader();
-    reader.onload = function (event) {
-        var url = event.target.result;
-        result.dataUrl = url;
-
-        onFileLoaded(result);
-    };
-
-    reader.readAsDataURL(file);
-};
-</code></pre>
-<p>It&rsquo;s the piece of code we&rsquo;re after to grab a preview and the data we want to send to the server. So when the user selects a file, the <code>change</code> event will fire and when everthing checks out, we end up in the <code>getFile</code> function.
-Frist we prepare the return value that will contain the name of the uploaded file and it&rsquo;s data URL. Because the <code>FileReader</code> is event driven, we have to wait for the <code>onload</code> event to fire and call back into our code.</p>
+<p>self.getFile = function (file, onFileLoaded) {
+var result = {
+name: file.name,
+dataUrl: &quot;&quot;
+};</p>
+<p>var reader = new FileReader();
+reader.onload = function (event) {
+var url = event.target.result;
+result.dataUrl = url;</p>
+<p>onFileLoaded(result);
+};</p>
+<p>reader.readAsDataURL(file);
+};</p>
+<p>It's the piece of code we're after to grab a preview and the data we want to send to the server. So when the user selects a file, the <code>change</code> event will fire and when everthing checks out, we end up in the <code>getFile</code> function.
+Frist we prepare the return value that will contain the name of the uploaded file and it's data URL. Because the <code>FileReader</code> is event driven, we have to wait for the <code>onload</code> event to fire and call back into our code.</p>
 <p>After the <code>onload</code> is hooked up we can tell the <code>FileReader</code> to get to work by calling the <code>readAsDataURL</code> function on it, passing in the file from the fileinput. When the browser finishes loading the file,
-the <code>onload</code> will be triggered and we can check the contents of the result for our data. We set the resulting URL (which is what we asked for by calling <code>readAsDataURL</code>) on the return value we&rsquo;ve prepared and pass that into the <code>onFileLoaded</code> callback function we passed in with the file.</p>
+the <code>onload</code> will be triggered and we can check the contents of the result for our data. We set the resulting URL (which is what we asked for by calling <code>readAsDataURL</code>) on the return value we've prepared and pass that into the <code>onFileLoaded</code> callback function we passed in with the file.</p>
 <p>In the <code>change</code> event on the file input, the <code>onFileLoaded</code> callback is fired which sets the <code>src</code> property of the preview image to the data URL we got from the <code>FileReader</code>. We do the same thing when the submit button is clicked.
 We grab the file using the <code>getFile</code> function and pass the result to an HTTP request to the server.</p>
 <p>So why is this usefull? Well, we get a preview for the image (this obviously works for images only) and the data is now available in the same form as any other data that needs to be submitted. You can create a single form
 that submits an entire user profile in one go, picture and all. The only catch is that large files result in really large base64 strings which can be a bit unwieldy and could bog things down on both the client and server. You can do some early file extension validation to ensure users are only uploading files that you support in the <code>FileReader</code> <code>onload</code> event, make sure you also check if the file is valid on the
 server where you process it, never trust user input.</p>
 <p>For smallish images, this is a nice trick to let the user preview what he/she is about to submit together with some over data you want to gather with your form.</p>
-<p>Here&rsquo;s a working demo without the posting to a server part:</p>
+<p>Here's a working demo without the posting to a server part:</p>
 <p data-height="300" data-theme-id="14183" data-slug-hash="JyKePQ" data-default-tab="js,result" data-user="Harrewarre" data-embed-version="2" data-pen-title="A simple FileReader demo" class="codepen">See the Pen <a href="https://codepen.io/Harrewarre/pen/JyKePQ/">A simple FileReader demo</a> by Sander Harrewijnen (<a href="https://codepen.io/Harrewarre">@Harrewarre</a>) on <a href="https://codepen.io">CodePen</a>.</p>
 <script async src="https://production-assets.codepen.io/assets/embed/ei.js"></script>
-  <div class="blog-meta">
-    <h1>Meta</h1>
-    <time class="meta-element" datetime="2017-07-31T00:00:00&#43;00:00">July 31, 2017</time>
-    <div class="meta-element">
-  <div>
-    Tags:
-        <a href="/tags/html/">HTML</a>
-        <a href="/tags/javascript/">Javascript</a>
-        <a href="/tags/itq/">itq</a>
-  </div>
-</div>
-  </div>
-
-                </main>
-            </div>
-        </div>
-        <footer>
-            <span>🌱 content written by an actual human.</span>
-<span>©️ copyright 2015-2025 harre.dev</span>
-        </footer>
-    </div>
-</body>
-
+      </div>
+    </main>
+    <footer>
+      <div class="content-wrapper">
+        <p>© 2025 harre.dev</p>
+       </div>
+    </footer>
+  </body>
 </html>

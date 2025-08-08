@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Foundry buildpack environment variables</title>
+    <link rel="stylesheet" href="/assets/style/theme.css">
+  </head>
+  <body>
+    <header>
+        <div class="content-wrapper">
+            <h1><a href="/">harre.dev</a></h1>
+        </div>
+    </header>
+    <nav>
+        <div class="content-wrapper">
+          <a href="/">home</a>
+          <a href="/blog">blog</a>
+          <a href="/about">about</a>
+          <a href="feed.xml">rss</a>
+        </div>
+    </nav>
+    <main>
+      <div class="content-wrapper">
+        <p>I recently ran into a situation I hadn't dealt with before.</p>
+<p>A Python app I was working on was loading modules from a location outside of Pythons known locations.
+My first instinct was to update the <code>manifest.yml</code> <code>env</code> section with a <code>PYTHONPATH</code> variable that would add this additional location to the Python path but that would not stick.
+Using <code>cf set-env</code> to update the variable after the fact also did not work.</p>
+<p>The environment variable was already set and consumed before we could apply our changes! The cause for this is the buildpack. The <code>python_buildpack</code> I was using was explicitly setting the <code>PYTHONPATH</code> and by the time we applied our changes it was already to late for our changes to take effect.</p>
+<p>Thankfully, Cloud Foundry buildpacks have a solution for this.
+You can add a <code>.profile</code> file to the root of your project (from where <code>cf push</code> runs) and use that to run scripts during the release stage of the buildpack.</p>
+<p>The contents of the <code>.profile</code> ended up looking like this:</p>
+<pre><code class="language-shell">export PYTHONPATH=$PYTHONPATH:$HOME/submodules/my-module
+</code></pre>
+<p>When the app is now deployed the buildpack will ensure that the <code>PYTHONPATH</code> is set correctly and the rest of the app can load the additional submodules.</p>
+<h2>Resources</h2>
+<ul>
+<li><a href="https://docs.cloudfoundry.org/buildpacks/understand-buildpacks.html">Working with buildpacks in Cloud Foundry</a></li>
+</ul>
+
+      </div>
+    </main>
+    <footer>
+      <div class="content-wrapper">
+        <p>© 2025 harre.dev</p>
+       </div>
+    </footer>
+  </body>
+</html>

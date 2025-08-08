@@ -1,78 +1,37 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
-
-<head>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
-<link rel="shortcut icon" href="/favicon.png" type="image/png">
-<title>Read Spotify track info using C# | harre.dev</title>
-<meta property="og:url" content="https://harre.dev/blog/reading-spotify-track-info-from-the-desktop-app/">
-<meta property="og:site_name" content="harre.dev">
-<meta property="og:title" content="Read Spotify track info using C#">
-<meta property="og:description" content="Read Spotify track info using C#">
-<meta property="og:locale" content="en_us">
-<meta property="og:type" content="article">
-<meta property="article:section" content="blog">
-<meta property="article:published_time" content="2015-10-09T00:00:00+00:00">
-<meta property="article:modified_time" content="2015-10-09T00:00:00+00:00">
-<meta property="article:tag" content="C#">
-<meta property="article:tag" content="Spotify">
-
-<meta property="og:image" content="/og-img.png">
-
-
-      <link rel="stylesheet" href="/css/fonts.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU=" crossorigin="anonymous">
-      <link rel="stylesheet" href="/css/genesis.min.a1c0ed57b1424f92d7510f72be702d05a385d99ee050b3b5742a14180bf44fcb.css" integrity="sha256-ocDtV7FCT5LXUQ9yvnAtBaOF2Z7gULO1dCoUGAv0T8s=" crossorigin="anonymous">
-
-
-
-<script defer src="https://www.fairanalytics.de/pixel/834UxRaqtQBFLx4i"></script>
-
-</head>
-
-<body>
-    <div class="site-container">
-        <header>
-            <div class="site-header">
-    <div class="site-title">
-        <h1>harre.dev</h1>
-    </div>
-    <div class="site-title-slant"></div>
-</div>
-        </header>
-        <div class="site-wrapper">
-            <div class="site">
-                <nav>
-                    <div class="menu">
-    <h1>Menu</h1>
-    <a href="/">home</a>
-    <a href="/blog">blog</a>
-    <a href="/blog/index.xml">rss</a>
-    <a href="/about">about</a>
-</div>
-                </nav>
-                <main>
-                    
-  
-  
-  <h1 class="hero-text">Read Spotify track info using C#</h1>
-  
-  
-  <div class="old-content-banner">
-    <p>This post is more than 3 years old!</p>
-    <p>It might all be outdated.</p>
-  </div>
-    
-  <p>Spotify recently updated the desktop app again and it is once again possible to read current track info directly from it. Here is how you to read it using a little C# code.</p>
-<p>A tiny little disclaimer, Spotify can break this code by updating their desktop app. It&rsquo;ll work now, but if they remove the track info from the title again, things won&rsquo;t work anymore.</p>
-<p>So the current track is hidden somewhere, let&rsquo;s find out where it is.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Program</span>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read Spotify track info using C#</title>
+    <link rel="stylesheet" href="/assets/style/theme.css">
+  </head>
+  <body>
+    <header>
+        <div class="content-wrapper">
+            <h1><a href="/">harre.dev</a></h1>
+        </div>
+    </header>
+    <nav>
+        <div class="content-wrapper">
+          <a href="/">home</a>
+          <a href="/blog">blog</a>
+          <a href="/about">about</a>
+          <a href="feed.xml">rss</a>
+        </div>
+    </nav>
+    <main>
+      <div class="content-wrapper">
+        <p>Spotify recently updated the desktop app again and it is once again possible to read current track info directly from it. Here is how you to read it using a little C# code.</p>
+<p>A tiny little disclaimer, Spotify can break this code by updating their desktop app. It'll work now, but if they remove the track info from the title again, things won't work anymore.</p>
+<p>So the current track is hidden somewhere, let's find out where it is.</p>
+<pre><code class="language-csharp">class Program
 {
-	<span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main(<span style="color:#66d9ef">string</span>[] args)
+	static void Main(string[] args)
 	{
-		<span style="color:#66d9ef">var</span> procs = Process.GetProcessesByName(<span style="color:#e6db74">&#34;Spotify&#34;</span>);
+		var procs = Process.GetProcessesByName(&quot;Spotify&quot;);
 
-		<span style="color:#66d9ef">foreach</span> (<span style="color:#66d9ef">var</span> p <span style="color:#66d9ef">in</span> procs)
+		foreach (var p in procs)
 		{
 			Console.WriteLine(p.MainWindowTitle);
 		}
@@ -80,54 +39,56 @@
 		Console.ReadLine();
 	}
 }
-</code></pre></div><p>As you can see, the track title is in the window name of a Spotify process:</p>
+</code></pre>
+<p>As you can see, the track title is in the window name of a Spotify process:</p>
 <p><img src="demo1.PNG" alt="Spotify track info in the process"></p>
-<p>While a bit limited (no track times or anything) it&rsquo;s at least something to work with. Older versions of Spotify showed the title as well until it got removed at some point but it has returned once again. Now that we know where it is we need to make it usable somehow.</p>
+<p>While a bit limited (no track times or anything) it's at least something to work with. Older versions of Spotify showed the title as well until it got removed at some point but it has returned once again. Now that we know where it is we need to make it usable somehow.</p>
 <p>We want the track info to be up to date so we have to keep reading it over and over again. A timer will let us do exactly that.</p>
 <p>A timer lets us poll for the track info every x milliseconds by whatever way we want but we still need to read the track info in simple way. A scraper will do the trick, we find the Spotify process that has a title on its window and read it if we find something.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">using</span> System;
-<span style="color:#66d9ef">using</span> System.Diagnostics;
-<span style="color:#66d9ef">using</span> System.Linq;
+<pre><code class="language-csharp">using System;
+using System.Diagnostics;
+using System.Linq;
 
-<span style="color:#66d9ef">namespace</span> Harrewarre.Spotify.Demo
+namespace Harrewarre.Spotify.Demo
 {
-	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Scraper</span>
+	public class Scraper
 	{
-		<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">string</span> GetSpotifyTrackInfo()
+		public string GetSpotifyTrackInfo()
 		{
-			<span style="color:#66d9ef">var</span> proc = Process.GetProcessesByName(<span style="color:#e6db74">&#34;Spotify&#34;</span>).FirstOrDefault(p =&gt; !<span style="color:#66d9ef">string</span>.IsNullOrWhiteSpace(p.MainWindowTitle));
+			var proc = Process.GetProcessesByName(&quot;Spotify&quot;).FirstOrDefault(p =&gt; !string.IsNullOrWhiteSpace(p.MainWindowTitle));
 
-			<span style="color:#66d9ef">if</span>(proc == <span style="color:#66d9ef">null</span>)
+			if(proc == null)
 			{
-				<span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Spotify is not running!&#34;</span>;
+				return &quot;Spotify is not running!&quot;;
 			}
 
-			<span style="color:#66d9ef">if</span>(<span style="color:#66d9ef">string</span>.Equals(proc.MainWindowTitle, <span style="color:#e6db74">&#34;Spotify&#34;</span>, StringComparison.InvariantCultureIgnoreCase))
+			if(string.Equals(proc.MainWindowTitle, &quot;Spotify&quot;, StringComparison.InvariantCultureIgnoreCase))
 			{
-				<span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;No track is playing&#34;</span>;
+				return &quot;No track is playing&quot;;
 			}
 
-			<span style="color:#66d9ef">return</span> proc.MainWindowTitle;
+			return proc.MainWindowTitle;
 		}
 	}
 }
-</code></pre></div><p>We look for a process named <code>Spotify</code> that as some text set as its <code>MainWindowTitle</code>, if we find it, then Spotify is running. When it comes up <code>null</code>, Spotify is not running. If the title is set to <code>&quot;Spotify&quot;</code> there is no track playing. If we don&rsquo;t return before we reach the last <code>return</code> statement, we have found the currently playing track.</p>
+</code></pre>
+<p>We look for a process named <code>Spotify</code> that as some text set as its <code>MainWindowTitle</code>, if we find it, then Spotify is running. When it comes up <code>null</code>, Spotify is not running. If the title is set to <code>&quot;Spotify&quot;</code> there is no track playing. If we don't return before we reach the last <code>return</code> statement, we have found the currently playing track.</p>
 <p>Here is the final console app code for a quick demo:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-csharp" data-lang="csharp"><span style="color:#66d9ef">using</span> System;
-<span style="color:#66d9ef">using</span> System.Timers;
+<pre><code class="language-csharp">using System;
+using System.Timers;
 
-<span style="color:#66d9ef">namespace</span> Harrewarre.Spotify.Demo
+namespace Harrewarre.Spotify.Demo
 {
-	<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Program</span>
+	class Program
 	{
-		<span style="color:#66d9ef">static</span> <span style="color:#66d9ef">void</span> Main(<span style="color:#66d9ef">string</span>[] args)
+		static void Main(string[] args)
 		{
-			<span style="color:#66d9ef">var</span> timer = <span style="color:#66d9ef">new</span> Timer(<span style="color:#ae81ff">1000</span>);
-			<span style="color:#66d9ef">var</span> scraper = <span style="color:#66d9ef">new</span> Scraper();
+			var timer = new Timer(1000);
+			var scraper = new Scraper();
 
 			timer.Elapsed += (sender, elapsedArgs) =&gt;
 			{
-				<span style="color:#66d9ef">var</span> title = scraper.GetSpotifyTrackInfo();
+				var title = scraper.GetSpotifyTrackInfo();
 
 				Console.WriteLine(title);
 			};
@@ -137,33 +98,20 @@
 		}
 	}
 }
-</code></pre></div><p>We create a new timer that is set to raise an event every 1000 milliseconds (or 1 second). An instance of our <code>Scraper</code> is created to read the track info for us. The <code>TimerElapsed</code> event we created for our timer is wired up so that the code can do something every second. When the timer elapses, we read the track info using the scraper and write it to the console.</p>
+</code></pre>
+<p>We create a new timer that is set to raise an event every 1000 milliseconds (or 1 second). An instance of our <code>Scraper</code> is created to read the track info for us. The <code>TimerElapsed</code> event we created for our timer is wired up so that the code can do something every second. When the timer elapses, we read the track info using the scraper and write it to the console.</p>
 <p>Finally we start the timer and leave the console open by waiting for the enter key using the <code>Console.ReadLine</code> method. Here is what you might see if you run the code, start Spotify and let it play a track:</p>
 <p><img src="demo2.PNG" alt="Result"></p>
 <p>This code lets you access the current track title and do whatever you want with it. Write it to a file, post it to some server somewhere or, like I do, display it on the front of your PC:</p>
-<p><img src="WP_20151019_22_48_06_Pro.jpg" alt="LCD"> <sub><em>Sorry about the blurry pic, the LCD&rsquo;s refresh rate and odd viewing angles makes it hard to capture</em></sub></p>
+<p><img src="WP_20151019_22_48_06_Pro.jpg" alt="LCD"> <sub><em>Sorry about the blurry pic, the LCD's refresh rate and odd viewing angles makes it hard to capture</em></sub></p>
 <p>Have fun!</p>
 
-  <div class="blog-meta">
-    <h1>Meta</h1>
-    <time class="meta-element" datetime="2015-10-09T00:00:00&#43;00:00">October 9, 2015</time>
-    <div class="meta-element">
-  <div>
-    Tags:
-        <a href="/tags/c#/">C#</a>
-        <a href="/tags/spotify/">Spotify</a>
-  </div>
-</div>
-  </div>
-
-                </main>
-            </div>
-        </div>
-        <footer>
-            <span>🌱 content written by an actual human.</span>
-<span>©️ copyright 2015-2025 harre.dev</span>
-        </footer>
-    </div>
-</body>
-
+      </div>
+    </main>
+    <footer>
+      <div class="content-wrapper">
+        <p>© 2025 harre.dev</p>
+       </div>
+    </footer>
+  </body>
 </html>

@@ -1,114 +1,55 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
-
-<head>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
-<link rel="shortcut icon" href="/favicon.png" type="image/png">
-<title>SpringOne Platform 2019 | harre.dev</title>
-<meta property="og:url" content="https://harre.dev/blog/sp1p-2019/">
-<meta property="og:site_name" content="harre.dev">
-<meta property="og:title" content="SpringOne Platform 2019">
-<meta property="og:description" content="SpringOne Platform 2019">
-<meta property="og:locale" content="en_us">
-<meta property="og:type" content="article">
-<meta property="article:section" content="blog">
-<meta property="article:published_time" content="2019-10-12T00:00:00+00:00">
-<meta property="article:modified_time" content="2019-10-12T00:00:00+00:00">
-<meta property="article:tag" content="Pivotal">
-<meta property="article:tag" content="spring">
-<meta property="article:tag" content="conference">
-<meta property="article:tag" content="itq">
-
-<meta property="og:image" content="/og-img.png">
-
-
-      <link rel="stylesheet" href="/css/fonts.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU=" crossorigin="anonymous">
-      <link rel="stylesheet" href="/css/genesis.min.a1c0ed57b1424f92d7510f72be702d05a385d99ee050b3b5742a14180bf44fcb.css" integrity="sha256-ocDtV7FCT5LXUQ9yvnAtBaOF2Z7gULO1dCoUGAv0T8s=" crossorigin="anonymous">
-
-
-
-<script defer src="https://www.fairanalytics.de/pixel/834UxRaqtQBFLx4i"></script>
-
-</head>
-
-<body>
-    <div class="site-container">
-        <header>
-            <div class="site-header">
-    <div class="site-title">
-        <h1>harre.dev</h1>
-    </div>
-    <div class="site-title-slant"></div>
-</div>
-        </header>
-        <div class="site-wrapper">
-            <div class="site">
-                <nav>
-                    <div class="menu">
-    <h1>Menu</h1>
-    <a href="/">home</a>
-    <a href="/blog">blog</a>
-    <a href="/blog/index.xml">rss</a>
-    <a href="/about">about</a>
-</div>
-                </nav>
-                <main>
-                    
-  
-  
-  <h1 class="hero-text">SpringOne Platform 2019</h1>
-  
-  
-  <div class="old-content-banner">
-    <p>This post is more than 3 years old!</p>
-    <p>It might all be outdated.</p>
-  </div>
-    
-  <p>Pivotal organized another SpringOne conference this year, and the ITQ Cloud Native team hopped across the large pond into the Texes heat to attend.</p>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpringOne Platform 2019</title>
+    <link rel="stylesheet" href="/assets/style/theme.css">
+  </head>
+  <body>
+    <header>
+        <div class="content-wrapper">
+            <h1><a href="/">harre.dev</a></h1>
+        </div>
+    </header>
+    <nav>
+        <div class="content-wrapper">
+          <a href="/">home</a>
+          <a href="/blog">blog</a>
+          <a href="/about">about</a>
+          <a href="feed.xml">rss</a>
+        </div>
+    </nav>
+    <main>
+      <div class="content-wrapper">
+        <p>Pivotal organized another SpringOne conference this year, and the ITQ Cloud Native team hopped across the large pond into the Texes heat to attend.</p>
 <p><img src="sp1p.jpg" alt="SpringOne Platform by Pivotal"></p>
-<h2 id="spring-for-the-net-dev">Spring for the .net dev</h2>
-<p>While Spring is a Java thing, SteelToe is there for us .net folks. It&rsquo;s getting a big shot of TLC with a new website and new and improved docs!
+<h2>Spring for the .net dev</h2>
+<p>While Spring is a Java thing, SteelToe is there for us .net folks. It's getting a big shot of TLC with a new website and new and improved docs!
 Creating microservices using .net got a bit easier than it already was with some new stuff such as actuators and service connectors.
 Go have a look at the <a href="https://www.steeltoe.io">SteelToe website</a> for all the ins and outs. (also, <a href="https://start.steeltoe.io">this</a> exists to quickly start a new service)</p>
-<h2 id="azure-spring-cloud">Azure Spring Cloud</h2>
-<p>A very nice surprise is the a fully managed Spring Cloud option over on Microsoft Azure. It&rsquo;s still very much a preview but you can already use it to host your Spring microservices.
+<h2>Azure Spring Cloud</h2>
+<p>A very nice surprise is the a fully managed Spring Cloud option over on Microsoft Azure. It's still very much a preview but you can already use it to host your Spring microservices.
 It being a fully managed setup means that things like service discovery and configuration server and the cluster itself are all taken care of.</p>
 <p><img src="azure-spring-cloud.png" alt="Austin capitol"></p>
-<p>I requested access to the preview and was allowed in to play around a bit. My one wish currently is the ability to upload a .net core <code>.dll</code> in there instead of <code>.jar</code> files. There&rsquo;s no word out there but given the work being done on SteelToe, I don&rsquo;t see any reason why that feature should not exist.</p>
+<p>I requested access to the preview and was allowed in to play around a bit. My one wish currently is the ability to upload a .net core <code>.dll</code> in there instead of <code>.jar</code> files. There's no word out there but given the work being done on SteelToe, I don't see any reason why that feature should not exist.</p>
 <p>More info on Azure Spring cloud can be found <a href="https://azure.microsoft.com/en-us/services/spring-cloud/">here</a> (You can request preview access there as well).</p>
-<h2 id="the-cf-push-experience-and-kubernetes">The <code>cf push</code> experience and kubernetes</h2>
-<p>Given my experience with Cloud Foundry and Kubernetes, it still saddens me you can&rsquo;t &ldquo;just push&rdquo; something onto k8s. That might be over soon though because with the rise of <a href="https://github.com/buildpack/pack">pack</a> and <a href="https://content.pivotal.io/blog/introducing-kpack-a-kubernetes-native-container-build-service">kpack</a> we might see something similar soon! (k)pack make use of <a href="https://buildpacks.io/">cloud native buildpacks</a> to create runnable images from source.</p>
+<h2>The <code>cf push</code> experience and kubernetes</h2>
+<p>Given my experience with Cloud Foundry and Kubernetes, it still saddens me you can't &quot;just push&quot; something onto k8s. That might be over soon though because with the rise of <a href="https://github.com/buildpack/pack">pack</a> and <a href="https://content.pivotal.io/blog/introducing-kpack-a-kubernetes-native-container-build-service">kpack</a> we might see something similar soon! (k)pack make use of <a href="https://buildpacks.io/">cloud native buildpacks</a> to create runnable images from source.</p>
 <p>We got to see some pretty cool demos from both a dev and SRE perspective. It takes away all the dockerfile nonsense but also allows for managing the layers in the image.</p>
-<h2 id="wrapping-up">Wrapping up</h2>
+<h2>Wrapping up</h2>
 <p><img src="austin.png" alt="Austin capitol"></p>
-<p>We had a bit of time off so we went on a tour the most Dutch way possible, on bicycles. Enjoyed the local food and beer. And a visit to Texas wouldn&rsquo;t be complete without a visit to the gun range.</p>
+<p>We had a bit of time off so we went on a tour the most Dutch way possible, on bicycles. Enjoyed the local food and beer. And a visit to Texas wouldn't be complete without a visit to the gun range.</p>
 <p>Like my previous experiences in the US, the city is very nice mostly, but the social issues in the US clearly show when you walk/ride around town.</p>
 <p>Hot, it was extremely hot. Maybe not crazy hot by Texan standards, but compared to our rainy little Netherlands, extremely hot 😄.</p>
 <p>Still not a fan of the long flights but all in all it was great.</p>
 
-  <div class="blog-meta">
-    <h1>Meta</h1>
-    <time class="meta-element" datetime="2019-10-12T00:00:00&#43;00:00">October 12, 2019</time>
-    <div class="meta-element">
-  <div>
-    Tags:
-        <a href="/tags/pivotal/">Pivotal</a>
-        <a href="/tags/spring/">spring</a>
-        <a href="/tags/conference/">conference</a>
-        <a href="/tags/itq/">itq</a>
-  </div>
-</div>
-  </div>
-
-                </main>
-            </div>
-        </div>
-        <footer>
-            <span>🌱 content written by an actual human.</span>
-<span>©️ copyright 2015-2025 harre.dev</span>
-        </footer>
-    </div>
-</body>
-
+      </div>
+    </main>
+    <footer>
+      <div class="content-wrapper">
+        <p>© 2025 harre.dev</p>
+       </div>
+    </footer>
+  </body>
 </html>

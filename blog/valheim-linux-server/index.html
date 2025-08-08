@@ -1,106 +1,65 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
-
-<head>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
-<link rel="shortcut icon" href="/favicon.png" type="image/png">
-<title>Valheim server on Linux | harre.dev</title>
-<meta property="og:url" content="https://harre.dev/blog/valheim-linux-server/">
-<meta property="og:site_name" content="harre.dev">
-<meta property="og:title" content="Valheim server on Linux">
-<meta property="og:description" content="Valheim server on Linux">
-<meta property="og:locale" content="en_us">
-<meta property="og:type" content="article">
-<meta property="article:section" content="blog">
-<meta property="article:published_time" content="2021-09-12T00:00:00+00:00">
-<meta property="article:modified_time" content="2021-09-12T00:00:00+00:00">
-<meta property="article:tag" content="Gaming">
-<meta property="article:tag" content="linux">
-<meta property="article:tag" content="SteamCMD">
-<meta property="article:tag" content="Valheim">
-
-<meta property="og:image" content="/og-img.png">
-
-
-      <link rel="stylesheet" href="/css/fonts.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU=" crossorigin="anonymous">
-      <link rel="stylesheet" href="/css/genesis.min.a1c0ed57b1424f92d7510f72be702d05a385d99ee050b3b5742a14180bf44fcb.css" integrity="sha256-ocDtV7FCT5LXUQ9yvnAtBaOF2Z7gULO1dCoUGAv0T8s=" crossorigin="anonymous">
-
-
-
-<script defer src="https://www.fairanalytics.de/pixel/834UxRaqtQBFLx4i"></script>
-
-</head>
-
-<body>
-    <div class="site-container">
-        <header>
-            <div class="site-header">
-    <div class="site-title">
-        <h1>harre.dev</h1>
-    </div>
-    <div class="site-title-slant"></div>
-</div>
-        </header>
-        <div class="site-wrapper">
-            <div class="site">
-                <nav>
-                    <div class="menu">
-    <h1>Menu</h1>
-    <a href="/">home</a>
-    <a href="/blog">blog</a>
-    <a href="/blog/index.xml">rss</a>
-    <a href="/about">about</a>
-</div>
-                </nav>
-                <main>
-                    
-  
-  
-  <h1 class="hero-text">Valheim server on Linux</h1>
-  
-  
-  <div class="old-content-banner">
-    <p>This post is more than 3 years old!</p>
-    <p>It might all be outdated.</p>
-  </div>
-    
-  <p>Here is a step-by-step guide for setting up a <a href="https://store.steampowered.com/app/892970/Valheim/">Valheim</a> server on Linux. Having done it twice now I thought it would be a good idea to capture this somewhere so that next time I don&rsquo;t have to look any of this up again.</p>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valheim server on Linux</title>
+    <link rel="stylesheet" href="/assets/style/theme.css">
+  </head>
+  <body>
+    <header>
+        <div class="content-wrapper">
+            <h1><a href="/">harre.dev</a></h1>
+        </div>
+    </header>
+    <nav>
+        <div class="content-wrapper">
+          <a href="/">home</a>
+          <a href="/blog">blog</a>
+          <a href="/about">about</a>
+          <a href="feed.xml">rss</a>
+        </div>
+    </nav>
+    <main>
+      <div class="content-wrapper">
+        <p>Here is a step-by-step guide for setting up a <a href="https://store.steampowered.com/app/892970/Valheim/">Valheim</a> server on Linux. Having done it twice now I thought it would be a good idea to capture this somewhere so that next time I don't have to look any of this up again.</p>
 <p>The only assumptions being made here is that your server is running Ubuntu of some semi-recent version and a basic understanding of Linux.</p>
-<h2 id="steamcmd">SteamCMD</h2>
+<h2>SteamCMD</h2>
 <p>The <a href="https://developer.valvesoftware.com/wiki/SteamCMD">SteamCMD</a> utility from Valve will help us install the gamefiles on the server.
 Follow the instructions on the <a href="https://developer.valvesoftware.com/wiki/SteamCMD#Linux.2FmacOS">wiki</a> to get it up and running.</p>
-<h2 id="valheim">Valheim</h2>
+<h2>Valheim</h2>
 <p>Now that SteamCMD is available, we can use it to download the gamefiles to the server.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">steamcmd +login anonymous +force_install_dir /home/steam/.steam/steamapps/common/valheim +app_update <span style="color:#ae81ff">896660</span> validate +exit
-</code></pre></div><p>Some things to note here:</p>
+<pre><code class="language-shell">steamcmd +login anonymous +force_install_dir /home/steam/.steam/steamapps/common/valheim +app_update 896660 validate +exit
+</code></pre>
+<p>Some things to note here:</p>
 <ul>
-<li>I&rsquo;ve forced the install directory to something without spaces or other special crap in the name. This will make setting up systemd easier later.</li>
+<li>I've forced the install directory to something without spaces or other special crap in the name. This will make setting up systemd easier later.</li>
 <li>896660 is the steam identifier for Valheim.</li>
 <li>You can re-use this command later when you need to update the gamefiles when the devs release an update.</li>
 </ul>
-<p>For quick re-use, create an <code>sh</code> file and put the command in there. I&rsquo;ve named my <code>update_game.sh</code>, mark the file as executable and you&rsquo;re all set.</p>
+<p>For quick re-use, create an <code>sh</code> file and put the command in there. I've named my <code>update_game.sh</code>, mark the file as executable and you're all set.</p>
 <p>There are some last changes before we can run the server.</p>
-<h2 id="valheim-server-configuration">Valheim server configuration</h2>
-<p>There is not a lot to change but it&rsquo;s a requirement if you want to set up things correctly. Browse to the folder where you installed the game and look for a file called <code>start_server.sh</code>. As instructed in the file, make a copy of it (for simplicity I&rsquo;ve named mine <code>start_valheim.sh</code>). Here&rsquo;s what mine looks like:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">export TERM<span style="color:#f92672">=</span>xterm
-export templdpath<span style="color:#f92672">=</span>$LD_LIBRARY_PATH
-export LD_LIBRARY_PATH<span style="color:#f92672">=</span>./linux64:$LD_LIBRARY_PATH
-export SteamAppId<span style="color:#f92672">=</span><span style="color:#ae81ff">892970</span>
+<h2>Valheim server configuration</h2>
+<p>There is not a lot to change but it's a requirement if you want to set up things correctly. Browse to the folder where you installed the game and look for a file called <code>start_server.sh</code>. As instructed in the file, make a copy of it (for simplicity I've named mine <code>start_valheim.sh</code>). Here's what mine looks like:</p>
+<pre><code class="language-shell">export TERM=xterm
+export templdpath=$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=./linux64:$LD_LIBRARY_PATH
+export SteamAppId=892970
 
-echo <span style="color:#e6db74">&#34;Starting server PRESS CTRL-C to exit&#34;</span>
+echo &quot;Starting server PRESS CTRL-C to exit&quot;
 
-./valheim_server.x86_64 -name <span style="color:#e6db74">&#34;Helheim&#34;</span> -port <span style="color:#ae81ff">2456</span> -world <span style="color:#e6db74">&#34;Dedicated&#34;</span> -password <span style="color:#e6db74">&#34;...&#34;</span>
+./valheim_server.x86_64 -name &quot;Helheim&quot; -port 2456 -world &quot;Dedicated&quot; -password &quot;...&quot;
 
-export LD_LIBRARY_PATH<span style="color:#f92672">=</span>$templdpath
-</code></pre></div><p>I&rsquo;ve added an additional export at the top (found after a bunch of searching for specific problems) to prevent some warnings and errors while the game starts. You could maybe get by without it, it&rsquo;ll depend on the rest of your system. If you see weird stuff in the game output, it&rsquo;s worth a shot.</p>
+export LD_LIBRARY_PATH=$templdpath
+</code></pre>
+<p>I've added an additional export at the top (found after a bunch of searching for specific problems) to prevent some warnings and errors while the game starts. You could maybe get by without it, it'll depend on the rest of your system. If you see weird stuff in the game output, it's worth a shot.</p>
 <p>Update the value for the <code>-name</code> argument to something you like and of course set the <code>-password</code> value. <strong>Make sure it is longer than 5 characters and is not your server name.</strong></p>
-<h2 id="port-configuration">Port configuration</h2>
-<p>This step will depend on your network infrastructure, I&rsquo;m running my server on the Azure cloud platform which has its own way of configuring ports for VMs. Your setup is probably different but the gist of all of it is that you need to open the port range <strong><code>2456-2458</code></strong> for incoming traffic.</p>
-<h2 id="running-the-server">Running the server</h2>
-<p>It&rsquo;s tempting now to just run the <code>start_valheim.sh</code> file and start gaming but that comes with a drawback. When you close your SSH session, your server will stop. To fix that we&rsquo;ll use systemd to run the gameserver for us (and even try to restart it should it for some reason crash or shut down).</p>
-<p>Here is the config file I&rsquo;m using:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">[Unit]
+<h2>Port configuration</h2>
+<p>This step will depend on your network infrastructure, I'm running my server on the Azure cloud platform which has its own way of configuring ports for VMs. Your setup is probably different but the gist of all of it is that you need to open the port range <strong><code>2456-2458</code></strong> for incoming traffic.</p>
+<h2>Running the server</h2>
+<p>It's tempting now to just run the <code>start_valheim.sh</code> file and start gaming but that comes with a drawback. When you close your SSH session, your server will stop. To fix that we'll use systemd to run the gameserver for us (and even try to restart it should it for some reason crash or shut down).</p>
+<p>Here is the config file I'm using:</p>
+<pre><code class="language-text">[Unit]
 Description=Valheim service
 Wants=network.target
 After=syslog.target network-online.target
@@ -115,47 +74,34 @@ ExecStart=/bin/sh /home/steam/.steam/steamapps/common/valheim/start_valheim.sh
 
 [Install]
 WantedBy=multi-user.target
-</code></pre></div><p>If you&rsquo;ve stuck with the same names for files and directories you can copy-paste this into a file called <code>valheim.service</code> and roll with that, or change it, if needed.</p>
+</code></pre>
+<p>If you've stuck with the same names for files and directories you can copy-paste this into a file called <code>valheim.service</code> and roll with that, or change it, if needed.</p>
 <p>Given the systemd config file above, we can now hand this over to systemd to hand off the running and monitoring of the server. First step is to install the service file.</p>
 <ol>
 <li>Copy the file to <code>/etc/systemd/system</code>.</li>
-<li>Activate the service so that systemd can start the service: <code>sudo systemctl enable valheim</code> (don&rsquo;t include the <code>.service</code> part here).</li>
+<li>Activate the service so that systemd can start the service: <code>sudo systemctl enable valheim</code> (don't include the <code>.service</code> part here).</li>
 <li>Start the service: <code>sudo systemctl start valheim</code>.</li>
-<li>Check the server status and see if it&rsquo;s actually running: <code>sudo systemctl status valheim</code>.</li>
+<li>Check the server status and see if it's actually running: <code>sudo systemctl status valheim</code>.</li>
 </ol>
 <p>If everything was set up correctly, the output of step 4 will show a line that looks something like this (truncated for brevity):</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">● valheim.service - Valheim service
-    Loaded: loaded <span style="color:#f92672">(</span>/etc/systemd/system/valheim.service; enabled; vendor preset: enabled<span style="color:#f92672">)</span>
-    Active: active <span style="color:#f92672">(</span>running<span style="color:#f92672">)</span>
-</code></pre></div><p>Should the server fail to start, use <a href="https://www.commandlinux.com/man-page/man1/journalctl.1.html">journalctl</a> to have a look a the logs. To get the last 20 lines for the valheim server, run the following:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">journalctl -u valheim -n <span style="color:#ae81ff">20</span>
-</code></pre></div><p>This should give you enough insight to troubleshoot what&rsquo;s going wrong.</p>
-<h2 id="wrapping-up">Wrapping up</h2>
-<p>At this point you should be able to use the public IP of your server to start playing! I don&rsquo;t know much about the resources required to keep everthing running smoothly but I&rsquo;ve been running a server on a fairly modest 2-core/8GB RAM Linux (<code>Standard D2as_v4</code> on Azure) VM that can easily host a 4 player game.</p>
+<pre><code class="language-shell">● valheim.service - Valheim service
+    Loaded: loaded (/etc/systemd/system/valheim.service; enabled; vendor preset: enabled)
+    Active: active (running)
+</code></pre>
+<p>Should the server fail to start, use <a href="https://www.commandlinux.com/man-page/man1/journalctl.1.html">journalctl</a> to have a look a the logs. To get the last 20 lines for the valheim server, run the following:</p>
+<pre><code class="language-shell">journalctl -u valheim -n 20
+</code></pre>
+<p>This should give you enough insight to troubleshoot what's going wrong.</p>
+<h2>Wrapping up</h2>
+<p>At this point you should be able to use the public IP of your server to start playing! I don't know much about the resources required to keep everthing running smoothly but I've been running a server on a fairly modest 2-core/8GB RAM Linux (<code>Standard D2as_v4</code> on Azure) VM that can easily host a 4 player game.</p>
 <p>Now go forth and play the viking game with your friends on your very own Valheim server!</p>
 
-  <div class="blog-meta">
-    <h1>Meta</h1>
-    <time class="meta-element" datetime="2021-09-12T00:00:00&#43;00:00">September 12, 2021</time>
-    <div class="meta-element">
-  <div>
-    Tags:
-        <a href="/tags/gaming/">Gaming</a>
-        <a href="/tags/linux/">linux</a>
-        <a href="/tags/steamcmd/">SteamCMD</a>
-        <a href="/tags/valheim/">Valheim</a>
-  </div>
-</div>
-  </div>
-
-                </main>
-            </div>
-        </div>
-        <footer>
-            <span>🌱 content written by an actual human.</span>
-<span>©️ copyright 2015-2025 harre.dev</span>
-        </footer>
-    </div>
-</body>
-
+      </div>
+    </main>
+    <footer>
+      <div class="content-wrapper">
+        <p>© 2025 harre.dev</p>
+       </div>
+    </footer>
+  </body>
 </html>

@@ -1,74 +1,33 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
-
-<head>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
-<link rel="shortcut icon" href="/favicon.png" type="image/png">
-<title>Dotnet Core tooling quickstart | harre.dev</title>
-<meta property="og:url" content="https://harre.dev/blog/dotnet-core-tooling-quickstart/">
-<meta property="og:site_name" content="harre.dev">
-<meta property="og:title" content="Dotnet Core tooling quickstart">
-<meta property="og:description" content="Dotnet Core tooling quickstart">
-<meta property="og:locale" content="en_us">
-<meta property="og:type" content="article">
-<meta property="article:section" content="blog">
-<meta property="article:published_time" content="2017-04-09T00:00:00+00:00">
-<meta property="article:modified_time" content="2017-04-09T00:00:00+00:00">
-<meta property="article:tag" content="dotnet core">
-<meta property="article:tag" content="itq">
-
-<meta property="og:image" content="/og-img.png">
-
-
-      <link rel="stylesheet" href="/css/fonts.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU=" crossorigin="anonymous">
-      <link rel="stylesheet" href="/css/genesis.min.a1c0ed57b1424f92d7510f72be702d05a385d99ee050b3b5742a14180bf44fcb.css" integrity="sha256-ocDtV7FCT5LXUQ9yvnAtBaOF2Z7gULO1dCoUGAv0T8s=" crossorigin="anonymous">
-
-
-
-<script defer src="https://www.fairanalytics.de/pixel/834UxRaqtQBFLx4i"></script>
-
-</head>
-
-<body>
-    <div class="site-container">
-        <header>
-            <div class="site-header">
-    <div class="site-title">
-        <h1>harre.dev</h1>
-    </div>
-    <div class="site-title-slant"></div>
-</div>
-        </header>
-        <div class="site-wrapper">
-            <div class="site">
-                <nav>
-                    <div class="menu">
-    <h1>Menu</h1>
-    <a href="/">home</a>
-    <a href="/blog">blog</a>
-    <a href="/blog/index.xml">rss</a>
-    <a href="/about">about</a>
-</div>
-                </nav>
-                <main>
-                    
-  
-  
-  <h1 class="hero-text">Dotnet Core tooling quickstart</h1>
-  
-  
-  <div class="old-content-banner">
-    <p>This post is more than 3 years old!</p>
-    <p>It might all be outdated.</p>
-  </div>
-    
-  <p>With the .NET Core tools finally showing signs of stabilizing in version 1.0.1 we can have a little look at how you can get started with a new project using just the tools.</p>
-<p>You can download the new stuff <a href="https://www.microsoft.com/net/core#windowscmd">here</a>. I&rsquo;m writing this post using the 1.0.1 version of the tools.</p>
-<p><img src="coreversion.png" alt="dotnet &ndash;version"></p>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dotnet Core tooling quickstart</title>
+    <link rel="stylesheet" href="/assets/style/theme.css">
+  </head>
+  <body>
+    <header>
+        <div class="content-wrapper">
+            <h1><a href="/">harre.dev</a></h1>
+        </div>
+    </header>
+    <nav>
+        <div class="content-wrapper">
+          <a href="/">home</a>
+          <a href="/blog">blog</a>
+          <a href="/about">about</a>
+          <a href="feed.xml">rss</a>
+        </div>
+    </nav>
+    <main>
+      <div class="content-wrapper">
+        <p>With the .NET Core tools finally showing signs of stabilizing in version 1.0.1 we can have a little look at how you can get started with a new project using just the tools.</p>
+<p>You can download the new stuff <a href="https://www.microsoft.com/net/core#windowscmd">here</a>. I'm writing this post using the 1.0.1 version of the tools.</p>
+<p><img src="coreversion.png" alt="dotnet --version"></p>
 <p>A new very nice thing is that the new tooling comes with some built in templates you can use instead of relying on something like <a href="http://yeoman.io/">Yeoman</a> to create an empty project for you. The <code>dotnet new</code> command is still the way to create a new project (like it was in the older tools) but you can now specify what kind of project you want as a base.</p>
 <p><img src="coretools.png" alt="dotnet new"></p>
-<p>Console, web, api and even test, the most important things are covered. With all these new things we also get <code>sln</code> as an option, this will let us create and manage solutions! Let&rsquo;s give these new bits a little test drive and setup a basic project with few class libraries.</p>
+<p>Console, web, api and even test, the most important things are covered. With all these new things we also get <code>sln</code> as an option, this will let us create and manage solutions! Let's give these new bits a little test drive and setup a basic project with few class libraries.</p>
 <p>Start with making a folder for the project using <code>mkdir CoreProject</code> and move into the new folder. This folder will serve as the root for the rest of the projects.</p>
 <p>Create another new folder using <code>mkdir CoreProject.Api</code> and move into it. Now create a new WebApi project using <code>dotnet new webapi</code>. This should leave you with the following stuff in the folder:</p>
 <p><img src="coreapi-1.png" alt="Api"></p>
@@ -76,7 +35,7 @@
 <p><img src="coreclasslib.png" alt="ClassLib"></p>
 <p>Now that we have two projects ready to go, we need to put the pieces together and create a solution for our newly created things. Go up a directory to our root folder and create a new solution using <code>dotnet new sln</code>.</p>
 <p><img src="coresln-1.png" alt="Solution"></p>
-<p>Notice how the commands we&rsquo;ve executed so far take the folder name as the project names by default.</p>
+<p>Notice how the commands we've executed so far take the folder name as the project names by default.</p>
 <p>Time to add the projects to the solution!</p>
 <p><img src="coresolution.png" alt="Core solution"></p>
 <p>Using <code>dotnet sln add &lt;.csproj file path here&gt;</code> we can add projects to the solution. As you can see in the screenshot, the command <code>dotnet sln add CoreProject.Api\CoreProject.Api.csproj</code> added our WebApi project to the solution file.</p>
@@ -85,28 +44,14 @@
 <p>Using the <code>dotnet add reference</code> command you can add references to your projects by pointing it to the <code>.csproj</code> file of the project you want to reference. You have to execute this command from the folder with the <code>.csproj</code> file you want the reference to be added to.</p>
 <p>To make sure we have everything in order, fire up visual studio and check it out.</p>
 <p><img src="coreresult.PNG" alt="VS Result"></p>
-<p>You could do all this right from within Visual Studio but as we&rsquo;ve seen above, you can do it from the command line in just a few commands. Great for when you are using VS Code or other smaller editor instead of the big Visual Studio.</p>
+<p>You could do all this right from within Visual Studio but as we've seen above, you can do it from the command line in just a few commands. Great for when you are using VS Code or other smaller editor instead of the big Visual Studio.</p>
 
-  <div class="blog-meta">
-    <h1>Meta</h1>
-    <time class="meta-element" datetime="2017-04-09T00:00:00&#43;00:00">April 9, 2017</time>
-    <div class="meta-element">
-  <div>
-    Tags:
-        <a href="/tags/dotnet-core/">dotnet core</a>
-        <a href="/tags/itq/">itq</a>
-  </div>
-</div>
-  </div>
-
-                </main>
-            </div>
-        </div>
-        <footer>
-            <span>🌱 content written by an actual human.</span>
-<span>©️ copyright 2015-2025 harre.dev</span>
-        </footer>
-    </div>
-</body>
-
+      </div>
+    </main>
+    <footer>
+      <div class="content-wrapper">
+        <p>© 2025 harre.dev</p>
+       </div>
+    </footer>
+  </body>
 </html>

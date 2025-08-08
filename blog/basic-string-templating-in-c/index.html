@@ -1,178 +1,103 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
-
-<head>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
-<link rel="shortcut icon" href="/favicon.png" type="image/png">
-<title>Basic string templating in C# | harre.dev</title>
-<meta property="og:url" content="https://harre.dev/blog/basic-string-templating-in-c/">
-<meta property="og:site_name" content="harre.dev">
-<meta property="og:title" content="Basic string templating in C#">
-<meta property="og:description" content="Basic string templating in C#">
-<meta property="og:locale" content="en_us">
-<meta property="og:type" content="article">
-<meta property="article:section" content="blog">
-<meta property="article:published_time" content="2015-07-07T00:00:00+00:00">
-<meta property="article:modified_time" content="2015-07-07T00:00:00+00:00">
-<meta property="article:tag" content="C#">
-<meta property="article:tag" content="String templating">
-<meta property="article:tag" content="itq">
-
-<meta property="og:image" content="/og-img.png">
-
-
-      <link rel="stylesheet" href="/css/fonts.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU=" crossorigin="anonymous">
-      <link rel="stylesheet" href="/css/genesis.min.a1c0ed57b1424f92d7510f72be702d05a385d99ee050b3b5742a14180bf44fcb.css" integrity="sha256-ocDtV7FCT5LXUQ9yvnAtBaOF2Z7gULO1dCoUGAv0T8s=" crossorigin="anonymous">
-
-
-
-<script defer src="https://www.fairanalytics.de/pixel/834UxRaqtQBFLx4i"></script>
-
-</head>
-
-<body>
-    <div class="site-container">
-        <header>
-            <div class="site-header">
-    <div class="site-title">
-        <h1>harre.dev</h1>
-    </div>
-    <div class="site-title-slant"></div>
-</div>
-        </header>
-        <div class="site-wrapper">
-            <div class="site">
-                <nav>
-                    <div class="menu">
-    <h1>Menu</h1>
-    <a href="/">home</a>
-    <a href="/blog">blog</a>
-    <a href="/blog/index.xml">rss</a>
-    <a href="/about">about</a>
-</div>
-                </nav>
-                <main>
-                    
-  
-  
-  <h1 class="hero-text">Basic string templating in C#</h1>
-  
-  
-  <div class="old-content-banner">
-    <p>This post is more than 3 years old!</p>
-    <p>It might all be outdated.</p>
-  </div>
-    
-  <p>Every solution I&rsquo;ve worked on required some form of communication via e-mail or other form of text to the outside world, reporting, notifications or something else. There are a bunch of libraries out there that can make your life easy if you need complex templates. But this is not about complex, this is supporting the basics without including all sorts of unnecessary stuff.</p>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic string templating in C#</title>
+    <link rel="stylesheet" href="/assets/style/theme.css">
+  </head>
+  <body>
+    <header>
+        <div class="content-wrapper">
+            <h1><a href="/">harre.dev</a></h1>
+        </div>
+    </header>
+    <nav>
+        <div class="content-wrapper">
+          <a href="/">home</a>
+          <a href="/blog">blog</a>
+          <a href="/about">about</a>
+          <a href="feed.xml">rss</a>
+        </div>
+    </nav>
+    <main>
+      <div class="content-wrapper">
+        <p>Every solution I've worked on required some form of communication via e-mail or other form of text to the outside world, reporting, notifications or something else. There are a bunch of libraries out there that can make your life easy if you need complex templates. But this is not about complex, this is supporting the basics without including all sorts of unnecessary stuff.</p>
 <p>What do we need to make this happen? The first thing is a template. A template is nothing more than a piece of plain text (or HTML if you want) in which we want to replace parts to create a complete message. Lets use something very simple, a single line, one tag.</p>
-<pre><code>Reminder: %reminderText%
-</code></pre>
+<p>Reminder: %reminderText%</p>
 <p>The <code>%reminderText%</code> is the part we are most interested in, because that is what we want to set ourselves.</p>
 <p>To bring the template into the world of C#, we create a Template class.</p>
-<pre><code>public class Template
+<p>public class Template
 {
-	private string TemplateText;
-
-	public Template(string template)
-	{
-		TemplateText = template;
-	}
-	
-	public void Fill(Dictionary&lt;string,string&gt; tags)
-	{
-		foreach(var t in tags)
-		{
-			TemplateText = TemplateText.Replace(string.Format(&quot;%{0}%&quot;, t.Key), t.Value);
-		}
-	}
-	
-	public string GetText()
-	{
-		return TemplateText;
-	}
+private string TemplateText;</p>
+<p>public Template(string template)
+{
+TemplateText = template;
+}</p>
+<p>public void Fill(Dictionary&lt;string,string&gt; tags)
+{
+foreach(var t in tags)
+{
+TemplateText = TemplateText.Replace(string.Format(&quot;%{0}%&quot;, t.Key), t.Value);
 }
-</code></pre>
+}</p>
+<p>public string GetText()
+{
+return TemplateText;
+}
+}</p>
 <p>The constructor takes in the untouched template. The <code>Fill</code> method will take care of replacing the tags inside the template with actual text and the <code>GetText</code> method will give us the resulting filled template.</p>
 <p>We also want something that represents the message we want to send. Lets use an interface for that, we want to create different kinds of messages that should all behave the same.</p>
-<pre><code>public interface IMessage
+<p>public interface IMessage
 {
-	Dictionary&lt;string,string&gt; GetParameters();
-
-	string TemplateKey { get; }
-}
-</code></pre>
+Dictionary&lt;string,string&gt; GetParameters();</p>
+<p>string TemplateKey { get; }
+}</p>
 <p>The <code>GetParameters</code> method will return the tags we want to use in our message and the <code>TemplateKey</code> stores the name of the template to use for the message (more on that later).</p>
 <p>The third thing we need is some code that will consume both of these and use it to create an actual message.</p>
-<pre><code>public class Messenger
+<p>public class Messenger
 {
-	// Code to get the thing that loads the template from somewhere by its key (database, file, etc)
-
-	public void Send(IMessage message)
-	{
-		var templateText = Something.GetTemplate(message.TemplateKey); // The Something is out of scope here. Where the template comes from is up to you.
-		var template = new Template(templateText);
-		
-		template.Fill(message.GetParameters());
-		
-		var finalText = template.GetText();
-		
-		// Code to send the message here.
-	}
-}
-</code></pre>
-<p>All the parts are there except for one, we don&rsquo;t have a message to send. We only have the <code>IMessage</code> interface. Lets make an implementation that works with the template we have.</p>
-<pre><code>public class SingleLineMessage : IMessage
+// Code to get the thing that loads the template from somewhere by its key (database, file, etc)</p>
+<p>public void Send(IMessage message)
 {
-	private readonly Dictionary&lt;string, string&gt; Tags;
-
-	public SingleLineMessage(string reminderText)
-	{
-		Tags = new Dictionary&lt;string,string&gt;();
-		Tags.Add(&quot;reminderText&quot;, reminderText);
-	}
-	
-	public Dictionary&lt;string,string&gt; GetParameters()
-	{
-		return Tags;
-	}
-	
-	public string TemplateKey
-	{
-		get { return &quot;SingleLineMessage&quot;; }
-	}
+var templateText = Something.GetTemplate(message.TemplateKey); // The Something is out of scope here. Where the template comes from is up to you.
+var template = new Template(templateText);</p>
+<p>template.Fill(message.GetParameters());</p>
+<p>var finalText = template.GetText();</p>
+<p>// Code to send the message here.
 }
-</code></pre>
-<p>We&rsquo;ve implemented the <code>IMessage</code> interface and the constructor takes in the one value for the single tag we have in the template. The key is there and can be used to locate a template by this key in another system (which is outside of the scope of this post). Time to wire everything together!</p>
-<pre><code>var message = new SingleLineMessage(&quot;Buy bacon!&quot;);
-var messenger = new Messenger();
-
-messenger.Send(message);
-</code></pre>
+}</p>
+<p>All the parts are there except for one, we don't have a message to send. We only have the <code>IMessage</code> interface. Lets make an implementation that works with the template we have.</p>
+<p>public class SingleLineMessage : IMessage
+{
+private readonly Dictionary&lt;string, string&gt; Tags;</p>
+<p>public SingleLineMessage(string reminderText)
+{
+Tags = new Dictionary&lt;string,string&gt;();
+Tags.Add(&quot;reminderText&quot;, reminderText);
+}</p>
+<p>public Dictionary&lt;string,string&gt; GetParameters()
+{
+return Tags;
+}</p>
+<p>public string TemplateKey
+{
+get { return &quot;SingleLineMessage&quot;; }
+}
+}</p>
+<p>We've implemented the <code>IMessage</code> interface and the constructor takes in the one value for the single tag we have in the template. The key is there and can be used to locate a template by this key in another system (which is outside of the scope of this post). Time to wire everything together!</p>
+<p>var message = new SingleLineMessage(&quot;Buy bacon!&quot;);
+var messenger = new Messenger();</p>
+<p>messenger.Send(message);</p>
 <p>The <code>finalText</code> variable in the Messenger object now reads <code>Reminder: Buy bacon!</code>.</p>
 <p>With some simple constructs we now have a basic string templating system that ensures we supply all the required values to a given template. The message and template are linked together by their key and the constructor of the message enforces that every tag in the template gets a value. You now have a way of defining all sorts of messages such as e-mail, documents and reports based on templates. Do keep in mind that this is all very rudimentary and lacks things such as creating lists of values for a single tag. Anything more complex and you should look for libraries that handle the work for you.</p>
 
-  <div class="blog-meta">
-    <h1>Meta</h1>
-    <time class="meta-element" datetime="2015-07-07T00:00:00&#43;00:00">July 7, 2015</time>
-    <div class="meta-element">
-  <div>
-    Tags:
-        <a href="/tags/c#/">C#</a>
-        <a href="/tags/string-templating/">String templating</a>
-        <a href="/tags/itq/">itq</a>
-  </div>
-</div>
-  </div>
-
-                </main>
-            </div>
-        </div>
-        <footer>
-            <span>🌱 content written by an actual human.</span>
-<span>©️ copyright 2015-2025 harre.dev</span>
-        </footer>
-    </div>
-</body>
-
+      </div>
+    </main>
+    <footer>
+      <div class="content-wrapper">
+        <p>© 2025 harre.dev</p>
+       </div>
+    </footer>
+  </body>
 </html>

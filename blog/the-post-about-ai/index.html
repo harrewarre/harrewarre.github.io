@@ -1,117 +1,65 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
-
-<head>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
-<link rel="shortcut icon" href="/favicon.png" type="image/png">
-<title>The post about AI | harre.dev</title>
-<meta property="og:url" content="https://harre.dev/blog/the-post-about-ai/">
-<meta property="og:site_name" content="harre.dev">
-<meta property="og:title" content="The post about AI">
-<meta property="og:description" content="The post about AI">
-<meta property="og:locale" content="en_us">
-<meta property="og:type" content="article">
-<meta property="article:section" content="blog">
-<meta property="article:published_time" content="2025-05-03T00:00:00+00:00">
-<meta property="article:modified_time" content="2025-05-03T00:00:00+00:00">
-<meta property="article:tag" content="ai">
-<meta property="article:tag" content="LLM">
-<meta property="article:tag" content="vibe coding">
-
-<meta property="og:image" content="/og-img.png">
-
-
-      <link rel="stylesheet" href="/css/fonts.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU=" crossorigin="anonymous">
-      <link rel="stylesheet" href="/css/genesis.min.a1c0ed57b1424f92d7510f72be702d05a385d99ee050b3b5742a14180bf44fcb.css" integrity="sha256-ocDtV7FCT5LXUQ9yvnAtBaOF2Z7gULO1dCoUGAv0T8s=" crossorigin="anonymous">
-
-
-
-<script defer src="https://www.fairanalytics.de/pixel/834UxRaqtQBFLx4i"></script>
-
-</head>
-
-<body>
-    <div class="site-container">
-        <header>
-            <div class="site-header">
-    <div class="site-title">
-        <h1>harre.dev</h1>
-    </div>
-    <div class="site-title-slant"></div>
-</div>
-        </header>
-        <div class="site-wrapper">
-            <div class="site">
-                <nav>
-                    <div class="menu">
-    <h1>Menu</h1>
-    <a href="/">home</a>
-    <a href="/blog">blog</a>
-    <a href="/blog/index.xml">rss</a>
-    <a href="/about">about</a>
-</div>
-                </nav>
-                <main>
-                    
-  
-  
-  <h1 class="hero-text">The post about AI</h1>
-  
-    
-  <p>But lets clamp that down right away, this is more about LLMs, and even more specificically, code generation using LLMs.</p>
-<p>GitHub CoPilot, Cursor, ChatGPT, you name it, it&rsquo;s everywhere in developer land. I&rsquo;ve been using Github CoPilot (in the browser for now) to have it do some work for a while now and it&rsquo;s been hit-and-miss. It&rsquo;ll do the boilerplate stuff well enough but at the same time it&rsquo;s very easy get served something that makes no sense.</p>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The post about AI</title>
+    <link rel="stylesheet" href="/assets/style/theme.css">
+  </head>
+  <body>
+    <header>
+        <div class="content-wrapper">
+            <h1><a href="/">harre.dev</a></h1>
+        </div>
+    </header>
+    <nav>
+        <div class="content-wrapper">
+          <a href="/">home</a>
+          <a href="/blog">blog</a>
+          <a href="/about">about</a>
+          <a href="feed.xml">rss</a>
+        </div>
+    </nav>
+    <main>
+      <div class="content-wrapper">
+        <p>But lets clamp that down right away, this is more about LLMs, and even more specificically, code generation using LLMs.</p>
+<p>GitHub CoPilot, Cursor, ChatGPT, you name it, it's everywhere in developer land. I've been using Github CoPilot (in the browser for now) to have it do some work for a while now and it's been hit-and-miss. It'll do the boilerplate stuff well enough but at the same time it's very easy get served something that makes no sense.</p>
 <p>My current workflow is roughly like this:</p>
 <ul>
 <li>Be <strong>very</strong> specific and explicit in what you want done.</li>
 <li>Read through the generated thing at least once fully and make sure I understand what the code will do.</li>
-<li>Work on refinements/improvements (this is almost a given for every attempt) and changes for things I don&rsquo;t need or are just plain wrong.</li>
+<li>Work on refinements/improvements (this is almost a given for every attempt) and changes for things I don't need or are just plain wrong.</li>
 <li>Ask for verification by means of tests that go with the previously generated thing.</li>
 </ul>
-<p>At this point I&rsquo;m usually happy with whatever was created and will integrate the generated code by hand into the final product, validating once more that whatever I&rsquo;m integrating is actually the thing I want. I&rsquo;m not yet convinced that whatever was generated can right go into the product I&rsquo;m working on.</p>
+<p>At this point I'm usually happy with whatever was created and will integrate the generated code by hand into the final product, validating once more that whatever I'm integrating is actually the thing I want. I'm not yet convinced that whatever was generated can right go into the product I'm working on.</p>
 <p>For hobby stuff and exploratory coding for ideas I generally let the LLM go wild and use whatever it brings. Speed and discovery at the cost of validation!</p>
-<p>There&rsquo;s more to explore here though, but I am no authority to make any calls on where this LLM trend will go. It might still improve a lot, or maybe we&rsquo;re stalling out&hellip; I have no idea, but here goes!</p>
-<h2 id="software-reviewer">Software&hellip; reviewer?</h2>
-<p>So I&rsquo;ve been seeing articles from folks letting the LLM do all the work of fixing the bugs and writing the features. It sounds like living on the edge to me, but if it works it works. With enough validation, why not.</p>
-<p>But what about the developer prompting their way to a working product? Are they still a &ldquo;software developer&rdquo;? Or is that what a &ldquo;prompt engineer&rdquo; (LMAO) is? It sounds more like &ldquo;software reviewer&rdquo; when the AI is doing all the work and the human in the loop is just there as a safeguard, only reviewing the outputs. That does not sound like a fun job to me.</p>
-<h2 id="vibe-coding">Vibe coding</h2>
-<p>I guess an extension of &ldquo;the AI does all the work&rdquo;, is just going with whatever is given by the LLM and trying to make it work.</p>
-<p>As mentioned already, I do this a lot for exploration, experimentation and hobby stuff. It&rsquo;s for me only and I&rsquo;m the only user. Vibe coding my way into any substantial production grade product sounds irresponsible to me. Maybe when we see more improvments in the models that are used for code generation but I feel this is flying way to close to the sun.</p>
+<p>There's more to explore here though, but I am no authority to make any calls on where this LLM trend will go. It might still improve a lot, or maybe we're stalling out... I have no idea, but here goes!</p>
+<h2>Software... reviewer?</h2>
+<p>So I've been seeing articles from folks letting the LLM do all the work of fixing the bugs and writing the features. It sounds like living on the edge to me, but if it works it works. With enough validation, why not.</p>
+<p>But what about the developer prompting their way to a working product? Are they still a &quot;software developer&quot;? Or is that what a &quot;prompt engineer&quot; (LMAO) is? It sounds more like &quot;software reviewer&quot; when the AI is doing all the work and the human in the loop is just there as a safeguard, only reviewing the outputs. That does not sound like a fun job to me.</p>
+<h2>Vibe coding</h2>
+<p>I guess an extension of &quot;the AI does all the work&quot;, is just going with whatever is given by the LLM and trying to make it work.</p>
+<p>As mentioned already, I do this a lot for exploration, experimentation and hobby stuff. It's for me only and I'm the only user. Vibe coding my way into any substantial production grade product sounds irresponsible to me. Maybe when we see more improvments in the models that are used for code generation but I feel this is flying way to close to the sun.</p>
 <p>Another aspect to this is that if you do find a bug or problem in the code and fix it, how do you prevent the LLM from making the same mistake again? If this was a human at work there would be the possibility for learning and experience but the LLM is static. Can you prompt the problem away for the next run? Update (or change) the model? Sounds a bit problematic.</p>
-<h2 id="the-ai-native-developer">The AI-native developer??</h2>
-<p>I&rsquo;ve seen this one come by a few times as well recently and I really don&rsquo;t know where to go with this. One explanation says that this type of role (?) is using AI throughout the whole development lifecycle, but then we&rsquo;re still generating code, docs, a pipeline, that&rsquo;s not much different from what most LLM use looks like I think.</p>
-<p>Another take I&rsquo;ve seen is that the prompts used to create the product are the source of truth and not the code. This sounds a lot like vibe coding on steroids. I would love to see this in practice for anything substantial.</p>
-<h2 id="the-ladder">The ladder</h2>
-<p>One concern I see is that while we can ramp up the productivity by generating more code, being able to review code will become more important, but the ability to review code requires experience. If there&rsquo;s no path to gain that experience through actual hands-on coding (because the LLM is doing all that work), how is a junior going to pick up the skills and experience to judge the output of an LLM? Where do seniors come from when there is no good way to gain practical experience and skills as a junior?</p>
-<h2 id="security">Security</h2>
-<p>Running code you didn&rsquo;t write and might not fully understand from a source that can confidently make mistakes and/or make stuff up&hellip; I guess you can see where this is going. Dependencies you didn&rsquo;t vet that are suggested by that same source? Nah&hellip;</p>
-<h2 id="anyway">Anyway&hellip;</h2>
-<p>This whole LLM thing is another (pretty great) tool in the toolbox. I still use regular web search for stuff but when it&rsquo;s something code related I generally go straight for the LLM and write out the question and ask for a sample to look at.</p>
-<p>A web search will sometimes follow up a piece of generated code when there&rsquo;s some halucinated non-existing crap in the sample.</p>
-<p>I don&rsquo;t expect the use of these tools to go away, in their current state they&rsquo;re great for boilerplate stuff and cranking out an idea in a very short time. If LLMs have peaked or not, I don&rsquo;t know but it&rsquo;s here to stay. Getting familiar with them and how to best use them will only add to your available tools.</p>
-<p>Just some thoughts and questions that came to me when I was off on vacation for two weeks. No real answers, more questions, thank you for reading 😄</p>
+<h2>The AI-native developer??</h2>
+<p>I've seen this one come by a few times as well recently and I really don't know where to go with this. One explanation says that this type of role (?) is using AI throughout the whole development lifecycle, but then we're still generating code, docs, a pipeline, that's not much different from what most LLM use looks like I think.</p>
+<p>Another take I've seen is that the prompts used to create the product are the source of truth and not the code. This sounds a lot like vibe coding on steroids. I would love to see this in practice for anything substantial.</p>
+<h2>The ladder</h2>
+<p>One concern I see is that while we can ramp up the productivity by generating more code, being able to review code will become more important, but the ability to review code requires experience. If there's no path to gain that experience through actual hands-on coding (because the LLM is doing all that work), how is a junior going to pick up the skills and experience to judge the output of an LLM? Where do seniors come from when there is no good way to gain practical experience and skills as a junior?</p>
+<h2>Security</h2>
+<p>Running code you didn't write and might not fully understand from a source that can confidently make mistakes and/or make stuff up... I guess you can see where this is going. Dependencies you didn't vet that are suggested by that same source? Nah...</p>
+<h2>Anyway...</h2>
+<p>This whole LLM thing is another (pretty great) tool in the toolbox. I still use regular web search for stuff but when it's something code related I generally go straight for the LLM and write out the question and ask for a sample to look at.</p>
+<p>A web search will sometimes follow up a piece of generated code when there's some halucinated non-existing crap in the sample.</p>
+<p>I don't expect the use of these tools to go away, in their current state they're great for boilerplate stuff and cranking out an idea in a very short time. If LLMs have peaked or not, I don't know but it's here to stay. Getting familiar with them and how to best use them will only add to your available tools.</p>
+<p>Just some thoughts and questions that came to me when I was off on vacation for two weeks. No real answers, more questions, thank you for reading :smile:</p>
 
-  <div class="blog-meta">
-    <h1>Meta</h1>
-    <time class="meta-element" datetime="2025-05-03T00:00:00&#43;00:00">May 3, 2025</time>
-    <div class="meta-element">
-  <div>
-    Tags:
-        <a href="/tags/ai/">ai</a>
-        <a href="/tags/llm/">LLM</a>
-        <a href="/tags/vibe-coding/">vibe coding</a>
-  </div>
-</div>
-  </div>
-
-                </main>
-            </div>
-        </div>
-        <footer>
-            <span>🌱 content written by an actual human.</span>
-<span>©️ copyright 2015-2025 harre.dev</span>
-        </footer>
-    </div>
-</body>
-
+      </div>
+    </main>
+    <footer>
+      <div class="content-wrapper">
+        <p>© 2025 harre.dev</p>
+       </div>
+    </footer>
+  </body>
 </html>

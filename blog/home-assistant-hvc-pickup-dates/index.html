@@ -1,104 +1,67 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
-
-<head>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
-<link rel="shortcut icon" href="/favicon.png" type="image/png">
-<title>HVC Trash pickup dates in Home Assistant | harre.dev</title>
-<meta property="og:url" content="https://harre.dev/blog/home-assistant-hvc-pickup-dates/">
-<meta property="og:site_name" content="harre.dev">
-<meta property="og:title" content="HVC Trash pickup dates in Home Assistant">
-<meta property="og:description" content="HVC Trash pickup dates in Home Assistant">
-<meta property="og:locale" content="en_us">
-<meta property="og:type" content="article">
-<meta property="article:section" content="blog">
-<meta property="article:published_time" content="2023-08-06T00:00:00+00:00">
-<meta property="article:modified_time" content="2023-08-06T00:00:00+00:00">
-<meta property="article:tag" content="Home Assistant">
-<meta property="article:tag" content="YAML">
-
-<meta property="og:image" content="/og-img.png">
-
-
-      <link rel="stylesheet" href="/css/fonts.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU=" crossorigin="anonymous">
-      <link rel="stylesheet" href="/css/genesis.min.a1c0ed57b1424f92d7510f72be702d05a385d99ee050b3b5742a14180bf44fcb.css" integrity="sha256-ocDtV7FCT5LXUQ9yvnAtBaOF2Z7gULO1dCoUGAv0T8s=" crossorigin="anonymous">
-
-
-
-<script defer src="https://www.fairanalytics.de/pixel/834UxRaqtQBFLx4i"></script>
-
-</head>
-
-<body>
-    <div class="site-container">
-        <header>
-            <div class="site-header">
-    <div class="site-title">
-        <h1>harre.dev</h1>
-    </div>
-    <div class="site-title-slant"></div>
-</div>
-        </header>
-        <div class="site-wrapper">
-            <div class="site">
-                <nav>
-                    <div class="menu">
-    <h1>Menu</h1>
-    <a href="/">home</a>
-    <a href="/blog">blog</a>
-    <a href="/blog/index.xml">rss</a>
-    <a href="/about">about</a>
-</div>
-                </nav>
-                <main>
-                    
-  
-  
-  <h1 class="hero-text">HVC Trash pickup dates in Home Assistant</h1>
-  
-    
-  <p>Maybe something you can use, maybe not, but if you are in an intersection of people who use Home Assistant and live in the Netherlands and in a region where HVC operates, this might be useful.</p>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HVC Trash pickup dates in Home Assistant</title>
+    <link rel="stylesheet" href="/assets/style/theme.css">
+  </head>
+  <body>
+    <header>
+        <div class="content-wrapper">
+            <h1><a href="/">harre.dev</a></h1>
+        </div>
+    </header>
+    <nav>
+        <div class="content-wrapper">
+          <a href="/">home</a>
+          <a href="/blog">blog</a>
+          <a href="/about">about</a>
+          <a href="feed.xml">rss</a>
+        </div>
+    </nav>
+    <main>
+      <div class="content-wrapper">
+        <p>Maybe something you can use, maybe not, but if you are in an intersection of people who use Home Assistant and live in the Netherlands and in a region where HVC operates, this might be useful.</p>
 <p>The integrations below will let you display a day counter until the next trash pickup takes place. This sensor data can also be used in other automations such as notifications or reminders.</p>
 <p>The payload we want to load into Home Assistant looks like this:</p>
-<pre><code>[{&quot;afvalstroom_id&quot;:5,&quot;ophaaldatum&quot;:&quot;2023-08-08&quot;},{&quot;afvalstroom_id&quot;:3,&quot;ophaaldatum&quot;:&quot;2023-08-10&quot;},{&quot;afvalstroom_id&quot;:6,&quot;ophaaldatum&quot;:&quot;2023-08-31&quot;}]
-</code></pre>
+<p>[{&quot;afvalstroom_id&quot;:5,&quot;ophaaldatum&quot;:&quot;2023-08-08&quot;},{&quot;afvalstroom_id&quot;:3,&quot;ophaaldatum&quot;:&quot;2023-08-10&quot;},{&quot;afvalstroom_id&quot;:6,&quot;ophaaldatum&quot;:&quot;2023-08-31&quot;}]</p>
 <p>Each element contains an ID and a date. The ID is the type of waste and the date is the next pickup date for that type of waste. We want to extract the date for each type of waste and then calculate the number of days until that date.</p>
-<p>The <code>afvalstroom_id</code> determines which waste stream we are looking at. We don&rsquo;t want to depend on the order in which the streams are listed so we need to check for each ID and get the correct date for each type of waste. The IDs are as follows:</p>
+<p>The <code>afvalstroom_id</code> determines which waste stream we are looking at. We don't want to depend on the order in which the streams are listed so we need to check for each ID and get the correct date for each type of waste. The IDs are as follows:</p>
 <ul>
 <li>3: Paper</li>
 <li>5: Bio (greens)</li>
 <li>6: Plastics and metal</li>
 </ul>
-<h2 id="rest-integration">Rest integration</h2>
+<h2>Rest integration</h2>
 <p>First, we need a <code>rest</code> integration that fetches the JSON that contains the dates we need, checks the ID and then extracts the date for each type of waste. This is the configuration I use:</p>
-<pre><code>rest:
-  resource: &quot;https://inzamelkalender.hvcgroep.nl/rest/adressen/0479200000035232/ophaaldata&quot;
-  scan_interval: 7200
-  sensor:
-    - name: &quot;Plastic ophaaldatum&quot;
-      unique_id: &quot;waste_plastic_next_pickup&quot;
-      value_template: &gt;
-        {% set item = value_json | selectattr('afvalstroom_id','eq', 6) | list | first %}
-        {{ item.ophaaldatum  }}
-    - name: &quot;GFT Ophaaldatum&quot;
-      unique_id: &quot;waste_green_next_pickup&quot;
-      value_template: &gt;
-        {% set item = value_json | selectattr('afvalstroom_id','eq', 5) | list | first %}
-        {{ item.ophaaldatum  }}
-    - name: &quot;Papier ophaaldatum&quot;
-      unique_id: &quot;waste_papier_next_pickup&quot;
-      value_template: &gt;
-        {% set item = value_json | selectattr('afvalstroom_id','eq', 3) | list | first %}
-        {{ item.ophaaldatum  }}
+<pre><code class="language-yaml">  rest:
+    resource: &quot;https://inzamelkalender.hvcgroep.nl/rest/adressen/0479200000035232/ophaaldata&quot;
+    scan_interval: 7200
+    sensor:
+      - name: &quot;Plastic ophaaldatum&quot;
+        unique_id: &quot;waste_plastic_next_pickup&quot;
+        value_template: &gt;
+          {% set item = value_json | selectattr('afvalstroom_id','eq', 6) | list | first %}
+          {{ item.ophaaldatum  }}
+      - name: &quot;GFT Ophaaldatum&quot;
+        unique_id: &quot;waste_green_next_pickup&quot;
+        value_template: &gt;
+          {% set item = value_json | selectattr('afvalstroom_id','eq', 5) | list | first %}
+          {{ item.ophaaldatum  }}
+      - name: &quot;Papier ophaaldatum&quot;
+        unique_id: &quot;waste_papier_next_pickup&quot;
+        value_template: &gt;
+          {% set item = value_json | selectattr('afvalstroom_id','eq', 3) | list | first %}
+          {{ item.ophaaldatum  }}
 </code></pre>
-<p>I&rsquo;ve set the URL to something NOT my address so you&rsquo;ll have to use the HVC website to figure out what your address ID is. The URL is in the format <code>https://inzamelkalender.hvcgroep.nl/rest/adressen/&lt;address ID&gt;/ophaaldata</code>. Use the developer tools in your browser to find the address ID.</p>
-<p>Be mindfull of the <code>scan_interval</code> setting. This is the number of seconds between each API call. I&rsquo;ve set it to 7200 seconds (2 hours) because the pickup dates don&rsquo;t change that often. You can set it to whatever you want, but there could be rate-limiting on the API side which will cause errors in the sensors.</p>
+<p>I've set the URL to something NOT my address so you'll have to use the HVC website to figure out what your address ID is. The URL is in the format <code>https://inzamelkalender.hvcgroep.nl/rest/adressen/&lt;address ID&gt;/ophaaldata</code>. Use the developer tools in your browser to find the address ID.</p>
+<p>Be mindfull of the <code>scan_interval</code> setting. This is the number of seconds between each API call. I've set it to 7200 seconds (2 hours) because the pickup dates don't change that often. You can set it to whatever you want, but there could be rate-limiting on the API side which will cause errors in the sensors.</p>
 <p>You can put rest sensor in <code>configuration.yml</code> or any other spot where YAML is loaded from through the main configuration.</p>
-<h2 id="template-sensors">Template sensors</h2>
+<h2>Template sensors</h2>
 <p>The above sensors expose the date of the next pickup for the three waste streams we have here in a single API call, so no unnecessary calls are made to the API.
 To get day counters we can create some template sensors that work with the dates we gathered from the API:</p>
-<pre><code>days_until_waste_plastic_pickup:
+<pre><code class="language-yaml">days_until_waste_plastic_pickup:
   unique_id: &quot;days_until_waste_plastic_pickup&quot;
   friendly_name: &quot;Days until waste plastic pickup&quot;
   value_template: &gt;
@@ -116,29 +79,15 @@ days_until_waste_green_pickup:
   value_template: &gt;
     {{ ((as_timestamp(states('sensor.gft_ophaaldatum')) - as_timestamp(now())) / 86400) | round(0, &quot;ceil&quot;) }}
 </code></pre>
-<p>These custom sensors can go in any YAML file where you&rsquo;ve defined <code>- platform: template</code> sensors. We take the timestamp of the pickup date and subtract the current timestamp. This gives us the number of seconds until the pickup date. We divide this by the number of seconds in a day (86400) and round up to the nearest integer. This gives us the number of days until the pickup date 😊</p>
+<p>These custom sensors can go in any YAML file where you've defined <code>- platform: template</code> sensors. We take the timestamp of the pickup date and subtract the current timestamp. This gives us the number of seconds until the pickup date. We divide this by the number of seconds in a day (86400) and round up to the nearest integer. This gives us the number of days until the pickup date 😊</p>
 <p>From here you can update your UI and include these in your dashboards and automations. Enjoy!</p>
 
-  <div class="blog-meta">
-    <h1>Meta</h1>
-    <time class="meta-element" datetime="2023-08-06T00:00:00&#43;00:00">August 6, 2023</time>
-    <div class="meta-element">
-  <div>
-    Tags:
-        <a href="/tags/home-assistant/">Home Assistant</a>
-        <a href="/tags/yaml/">YAML</a>
-  </div>
-</div>
-  </div>
-
-                </main>
-            </div>
-        </div>
-        <footer>
-            <span>🌱 content written by an actual human.</span>
-<span>©️ copyright 2015-2025 harre.dev</span>
-        </footer>
-    </div>
-</body>
-
+      </div>
+    </main>
+    <footer>
+      <div class="content-wrapper">
+        <p>© 2025 harre.dev</p>
+       </div>
+    </footer>
+  </body>
 </html>

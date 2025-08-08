@@ -1,163 +1,97 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
-
-<head>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
-<link rel="shortcut icon" href="/favicon.png" type="image/png">
-<title>Easy CSS grid | harre.dev</title>
-<meta property="og:url" content="https://harre.dev/blog/easy-css-grid/">
-<meta property="og:site_name" content="harre.dev">
-<meta property="og:title" content="Easy CSS grid">
-<meta property="og:description" content="Easy CSS grid">
-<meta property="og:locale" content="en_us">
-<meta property="og:type" content="article">
-<meta property="article:section" content="blog">
-<meta property="article:published_time" content="2018-05-11T00:00:00+00:00">
-<meta property="article:modified_time" content="2018-05-11T00:00:00+00:00">
-<meta property="article:tag" content="CSS">
-<meta property="article:tag" content="flex">
-<meta property="article:tag" content="itq">
-
-<meta property="og:image" content="/og-img.png">
-
-
-      <link rel="stylesheet" href="/css/fonts.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU=" crossorigin="anonymous">
-      <link rel="stylesheet" href="/css/genesis.min.a1c0ed57b1424f92d7510f72be702d05a385d99ee050b3b5742a14180bf44fcb.css" integrity="sha256-ocDtV7FCT5LXUQ9yvnAtBaOF2Z7gULO1dCoUGAv0T8s=" crossorigin="anonymous">
-
-
-
-<script defer src="https://www.fairanalytics.de/pixel/834UxRaqtQBFLx4i"></script>
-
-</head>
-
-<body>
-    <div class="site-container">
-        <header>
-            <div class="site-header">
-    <div class="site-title">
-        <h1>harre.dev</h1>
-    </div>
-    <div class="site-title-slant"></div>
-</div>
-        </header>
-        <div class="site-wrapper">
-            <div class="site">
-                <nav>
-                    <div class="menu">
-    <h1>Menu</h1>
-    <a href="/">home</a>
-    <a href="/blog">blog</a>
-    <a href="/blog/index.xml">rss</a>
-    <a href="/about">about</a>
-</div>
-                </nav>
-                <main>
-                    
-  
-  
-  <h1 class="hero-text">Easy CSS grid</h1>
-  
-  
-  <div class="old-content-banner">
-    <p>This post is more than 3 years old!</p>
-    <p>It might all be outdated.</p>
-  </div>
-    
-  <p>I&rsquo;ve been working with a lot of forms lately and it required some kind of grid system to make it all lay out nicely. I&rsquo;ve always been a bit hesitant to immediatly pull in another dependency and decided I was going to solve this one myself. How hard could it be?</p>
-<p>By using the CSS flex layout, I ended up with just the right amount of flexibility and extensibility while keeping things very small code wise. Let&rsquo;s have a look!</p>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy CSS grid</title>
+    <link rel="stylesheet" href="/assets/style/theme.css">
+  </head>
+  <body>
+    <header>
+        <div class="content-wrapper">
+            <h1><a href="/">harre.dev</a></h1>
+        </div>
+    </header>
+    <nav>
+        <div class="content-wrapper">
+          <a href="/">home</a>
+          <a href="/blog">blog</a>
+          <a href="/about">about</a>
+          <a href="feed.xml">rss</a>
+        </div>
+    </nav>
+    <main>
+      <div class="content-wrapper">
+        <p>I've been working with a lot of forms lately and it required some kind of grid system to make it all lay out nicely. I've always been a bit hesitant to immediatly pull in another dependency and decided I was going to solve this one myself. How hard could it be?</p>
+<p>By using the CSS flex layout, I ended up with just the right amount of flexibility and extensibility while keeping things very small code wise. Let's have a look!</p>
 <p>Every line on the form is treated as a row in the grid, easy. These rows are divided up into columns, which can have variable widths and have to be elastic.</p>
-<h2 id="rows">Rows</h2>
+<h2>Rows</h2>
 <p>This element will contain our columns and is very straight forward.</p>
-<pre><code>.row {
-    display: flex;
-}
-</code></pre>
-<p>That&rsquo;s all we need for rows.</p>
-<h2 id="columns">Columns</h2>
+<p>.row {
+display: flex;
+}</p>
+<p>That's all we need for rows.</p>
+<h2>Columns</h2>
 <p>These are a tiny bit more involved, but not much. Since the element that contains these uses <code>flex</code>, we can flex these elements as well!</p>
-<pre><code>.row .col {
-    flex: 1;
-}
-</code></pre>
+<p>.row .col {
+flex: 1;
+}</p>
 <p>This requires a bit of explaining. The <code>1</code> in <code>flex: 1;</code> is called the flex factor. It tells the box model how much space an element will receive within its parent. Setting the flex factor on an element to <code>2</code> will cause that element to take twice as much space as an element that has a flex factor of <code>1</code>.</p>
-<p>It&rsquo;s the same as setting <code>flex: 1 1 0;</code> which sets the grow and shrink factors to <code>1</code> and the basis to <code>0</code>. If you want to read more on what those values mean and do, <a href="https://www.w3.org/TR/css-flexbox-1/#flex-common">here&rsquo;s the official spec</a>. It&rsquo;s quite expansive but also a bit beyond the scope of this post :-)</p>
-<h2 id="the-grid">The grid</h2>
+<p>It's the same as setting <code>flex: 1 1 0;</code> which sets the grow and shrink factors to <code>1</code> and the basis to <code>0</code>. If you want to read more on what those values mean and do, <a href="https://www.w3.org/TR/css-flexbox-1/#flex-common">here's the official spec</a>. It's quite expansive but also a bit beyond the scope of this post :-)</p>
+<h2>The grid</h2>
 <p>So at this point we have the most basic setup we can get, we can create rows and slice them up into evenly spaced columns.</p>
 <p><img src="simple-columns.png" alt="Simple columns"></p>
-<p>This gets us quite a long way already, but I also need columns that are constrained in some way. For this example, I&rsquo;ll add columns that always take 1/4th of the available space.</p>
-<pre><code>.row .col-1-4 {
-    flex: 1 1 25%;
-    max-width: 25%;
-}
-</code></pre>
+<p>This gets us quite a long way already, but I also need columns that are constrained in some way. For this example, I'll add columns that always take 1/4th of the available space.</p>
+<p>.row .col-1-4 {
+flex: 1 1 25%;
+max-width: 25%;
+}</p>
 <p>Time for a little bit of an explanation. Instead of just <code>flex: 1;</code> we are now setting all the flex properties in one go. We still allow growing and shrinking but we also define a basis (in this case 25%) from which the element will start resizing. To make sure the element never goes beyond the width we want it to be, we set a <code>max-width</code> to keep it from growing past a certain point (also 25% in the example).</p>
 <p>With this column definition we can create columns that are still flexible but never grow beyond a certain size.</p>
 <p><img src="fixed-width-columns.png" alt="Fixed width columns"></p>
 <p>With this example in hand, we can now create all sorts of layouts any way we like.</p>
 <p><img src="mixed-columns.png" alt="Mixing it up"></p>
 <p>Creating new sizes is very easy, just add more rules for any size you want.</p>
-<pre><code>.row .col-1-2 {
-    flex: 1 1 50%;
-    max-width: 50%;
-}
-</code></pre>
+<p>.row .col-1-2 {
+flex: 1 1 50%;
+max-width: 50%;
+}</p>
 <p>The CSS above will create a column that will take up half the space of a row. Any width, even fixed width is possible, just replace the percentage with a value in <code>px</code>.</p>
 <p>The flex layout can help you build amazing things, even when it all seems so simple.</p>
-<h2 id="full-source-for-this-post">Full source for this post</h2>
+<h2>Full source for this post</h2>
 <p>I could have put everything into a github repo, but this is short enough to include right here:</p>
-<h3 id="css">CSS</h3>
-<pre><code>.row {
-    display: flex;
-}
+<h3>CSS</h3>
+<p>.row {
+display: flex;
+}</p>
+<p>.row .col {
+flex: 1;
+}</p>
+<p>.row .col-1-4 {
+flex: 1 1 25%;
+max-width: 25%;
+}</p>
+<h3>Demo HTML</h3>
+<p><div class="row">
+<div class="col col-1-4">Col 1/4</div>
+<div class="col">Col</div>
+</div></p>
+<p><div class="row">
+<div class="col">Col</div>
+<div class="col col-1-4">Col 1/4</div>
+</div></p>
+<p><div class="row">
+<div class="col col-1-4">Col 1/4</div>
+<div class="col">Col</div>
+<div class="col col-1-4">Col 1/4</div>
+</div>---</p>
 
-.row .col {
-    flex: 1;
-}
-
-.row .col-1-4 {
-    flex: 1 1 25%;
-    max-width: 25%;
-}
-</code></pre>
-<h3 id="demo-html">Demo HTML</h3>
-<pre><code>&lt;div class=&quot;row&quot;&gt;
-    &lt;div class=&quot;col col-1-4&quot;&gt;Col 1/4&lt;/div&gt;
-    &lt;div class=&quot;col&quot;&gt;Col&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;row&quot;&gt;
-    &lt;div class=&quot;col&quot;&gt;Col&lt;/div&gt;
-    &lt;div class=&quot;col col-1-4&quot;&gt;Col 1/4&lt;/div&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;row&quot;&gt;
-    &lt;div class=&quot;col col-1-4&quot;&gt;Col 1/4&lt;/div&gt;
-    &lt;div class=&quot;col&quot;&gt;Col&lt;/div&gt;
-    &lt;div class=&quot;col col-1-4&quot;&gt;Col 1/4&lt;/div&gt;
-&lt;/div&gt;---</code></pre>
-
-  <div class="blog-meta">
-    <h1>Meta</h1>
-    <time class="meta-element" datetime="2018-05-11T00:00:00&#43;00:00">May 11, 2018</time>
-    <div class="meta-element">
-  <div>
-    Tags:
-        <a href="/tags/css/">CSS</a>
-        <a href="/tags/flex/">flex</a>
-        <a href="/tags/itq/">itq</a>
-  </div>
-</div>
-  </div>
-
-                </main>
-            </div>
-        </div>
-        <footer>
-            <span>🌱 content written by an actual human.</span>
-<span>©️ copyright 2015-2025 harre.dev</span>
-        </footer>
-    </div>
-</body>
-
+      </div>
+    </main>
+    <footer>
+      <div class="content-wrapper">
+        <p>© 2025 harre.dev</p>
+       </div>
+    </footer>
+  </body>
 </html>

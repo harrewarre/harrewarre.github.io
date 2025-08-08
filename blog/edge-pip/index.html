@@ -1,86 +1,44 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
-
-<head>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
-<link rel="shortcut icon" href="/favicon.png" type="image/png">
-<title>Microsoft Edge Picture-in-Picture | harre.dev</title>
-<meta property="og:url" content="https://harre.dev/blog/edge-pip/">
-<meta property="og:site_name" content="harre.dev">
-<meta property="og:title" content="Microsoft Edge Picture-in-Picture">
-<meta property="og:description" content="Microsoft Edge Picture-in-Picture">
-<meta property="og:locale" content="en_us">
-<meta property="og:type" content="article">
-<meta property="article:section" content="blog">
-<meta property="article:published_time" content="2021-02-19T00:00:00+00:00">
-<meta property="article:modified_time" content="2021-02-19T00:00:00+00:00">
-<meta property="article:tag" content="Microsoft Edge">
-<meta property="article:tag" content="Javascript">
-
-<meta property="og:image" content="/og-img.png">
-
-
-      <link rel="stylesheet" href="/css/fonts.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU=" crossorigin="anonymous">
-      <link rel="stylesheet" href="/css/genesis.min.a1c0ed57b1424f92d7510f72be702d05a385d99ee050b3b5742a14180bf44fcb.css" integrity="sha256-ocDtV7FCT5LXUQ9yvnAtBaOF2Z7gULO1dCoUGAv0T8s=" crossorigin="anonymous">
-
-
-
-<script defer src="https://www.fairanalytics.de/pixel/834UxRaqtQBFLx4i"></script>
-
-</head>
-
-<body>
-    <div class="site-container">
-        <header>
-            <div class="site-header">
-    <div class="site-title">
-        <h1>harre.dev</h1>
-    </div>
-    <div class="site-title-slant"></div>
-</div>
-        </header>
-        <div class="site-wrapper">
-            <div class="site">
-                <nav>
-                    <div class="menu">
-    <h1>Menu</h1>
-    <a href="/">home</a>
-    <a href="/blog">blog</a>
-    <a href="/blog/index.xml">rss</a>
-    <a href="/about">about</a>
-</div>
-                </nav>
-                <main>
-                    
-  
-  
-  <h1 class="hero-text">Microsoft Edge Picture-in-Picture</h1>
-  
-  
-  <div class="old-content-banner">
-    <p>This post is more than 3 years old!</p>
-    <p>It might all be outdated.</p>
-  </div>
-    
-  <hr>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microsoft Edge Picture-in-Picture</title>
+    <link rel="stylesheet" href="/assets/style/theme.css">
+  </head>
+  <body>
+    <header>
+        <div class="content-wrapper">
+            <h1><a href="/">harre.dev</a></h1>
+        </div>
+    </header>
+    <nav>
+        <div class="content-wrapper">
+          <a href="/">home</a>
+          <a href="/blog">blog</a>
+          <a href="/about">about</a>
+          <a href="feed.xml">rss</a>
+        </div>
+    </nav>
+    <main>
+      <div class="content-wrapper">
+        <hr>
 <p><strong>Small update</strong>: Edge now supports picture-in-picture with a little button out of the box! So you no longer need the code snippet.</p>
 <hr>
-<p>Here&rsquo;s a quick little helper to pop out video players in Microsoft Edge.</p>
-<h2 id="requestpictureinpicture">requestPictureInPicture</h2>
-<p>Edge (like Chrome these days) supports <a href="https://caniuse.com/?search=requestPictureInPicture">picture in picture mode</a> for videos but it&rsquo;s not always apparent how to actually pop out a videoplayer. Here&rsquo;s a quick one-liner that you can try in the browser console:</p>
-<pre><code>document.getElementsByTagName('video')[0].requestPictureInPicture();
-</code></pre>
+<p>Here's a quick little helper to pop out video players in Microsoft Edge.</p>
+<h2>requestPictureInPicture</h2>
+<p>Edge (like Chrome these days) supports <a href="https://caniuse.com/?search=requestPictureInPicture">picture in picture mode</a> for videos but it's not always apparent how to actually pop out a videoplayer. Here's a quick one-liner that you can try in the browser console:</p>
+<p>document.getElementsByTagName('video')[0].requestPictureInPicture();</p>
 <p>Run this in a page where a video element is present and it will unlock the actual video element from the browser for you to place wherever you want, right on top of all your other windows.</p>
 <p>Before</p>
 <p><img src="edge-video.png" alt="Before running the code"></p>
 <p>After</p>
 <p><img src="edge-pip.png" alt="Before running the code"></p>
-<h2 id="automate-that">Automate that</h2>
-<p>Because I want this to easy-access and don&rsquo;t want to type this into the console every time, we can create a bookmarklet that will do this for us. Here&rsquo;s how you do it:</p>
+<h2>Automate that</h2>
+<p>Because I want this to easy-access and don't want to type this into the console every time, we can create a bookmarklet that will do this for us. Here's how you do it:</p>
 <p><img src="favorite.png" alt="Create favorite"></p>
 <ol>
-<li>Create a new bookmark (from any page, we&rsquo;ll replace the url later)</li>
+<li>Create a new bookmark (from any page, we'll replace the url later)</li>
 <li>Edit the bookmark and give it a nice title</li>
 <li>In the URL part put <code>javascript:document.getElementsByTagName('video')[0].requestPictureInPicture();</code></li>
 <li>Save the bookmark.</li>
@@ -88,26 +46,12 @@
 <p>Now when you are on a page that plays video (Youtube, Twitch, as shown - Prime Video, etc) you can click the bookmark and the video will continue in picture-in-picture mode. It is of course a quick little hack and will only pop out the very first (if any!) <code>&lt;video&gt;</code> element.</p>
 <p>Enjoy a resizeable always-on-top chromeless video player 📺</p>
 
-  <div class="blog-meta">
-    <h1>Meta</h1>
-    <time class="meta-element" datetime="2021-02-19T00:00:00&#43;00:00">February 19, 2021</time>
-    <div class="meta-element">
-  <div>
-    Tags:
-        <a href="/tags/microsoft-edge/">Microsoft Edge</a>
-        <a href="/tags/javascript/">Javascript</a>
-  </div>
-</div>
-  </div>
-
-                </main>
-            </div>
-        </div>
-        <footer>
-            <span>🌱 content written by an actual human.</span>
-<span>©️ copyright 2015-2025 harre.dev</span>
-        </footer>
-    </div>
-</body>
-
+      </div>
+    </main>
+    <footer>
+      <div class="content-wrapper">
+        <p>© 2025 harre.dev</p>
+       </div>
+    </footer>
+  </body>
 </html>

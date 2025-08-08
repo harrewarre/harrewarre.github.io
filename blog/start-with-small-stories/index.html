@@ -1,105 +1,51 @@
 <!DOCTYPE html>
-<html lang="en-us" dir="ltr">
-
-<head>
-    <meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
-<link rel="shortcut icon" href="/favicon.png" type="image/png">
-<title>It all starts with smaller stories | harre.dev</title>
-<meta property="og:url" content="https://harre.dev/blog/start-with-small-stories/">
-<meta property="og:site_name" content="harre.dev">
-<meta property="og:title" content="It all starts with smaller stories">
-<meta property="og:description" content="It all starts with smaller stories">
-<meta property="og:locale" content="en_us">
-<meta property="og:type" content="article">
-<meta property="article:section" content="blog">
-<meta property="article:published_time" content="2022-10-18T00:00:00+00:00">
-<meta property="article:modified_time" content="2022-10-18T00:00:00+00:00">
-<meta property="article:tag" content="agility">
-<meta property="article:tag" content="Developer Experience">
-<meta property="article:tag" content="devex">
-<meta property="article:tag" content="developer practices">
-
-<meta property="og:image" content="/og-img.png">
-
-
-      <link rel="stylesheet" href="/css/fonts.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU=" crossorigin="anonymous">
-      <link rel="stylesheet" href="/css/genesis.min.a1c0ed57b1424f92d7510f72be702d05a385d99ee050b3b5742a14180bf44fcb.css" integrity="sha256-ocDtV7FCT5LXUQ9yvnAtBaOF2Z7gULO1dCoUGAv0T8s=" crossorigin="anonymous">
-
-
-
-<script defer src="https://www.fairanalytics.de/pixel/834UxRaqtQBFLx4i"></script>
-
-</head>
-
-<body>
-    <div class="site-container">
-        <header>
-            <div class="site-header">
-    <div class="site-title">
-        <h1>harre.dev</h1>
-    </div>
-    <div class="site-title-slant"></div>
-</div>
-        </header>
-        <div class="site-wrapper">
-            <div class="site">
-                <nav>
-                    <div class="menu">
-    <h1>Menu</h1>
-    <a href="/">home</a>
-    <a href="/blog">blog</a>
-    <a href="/blog/index.xml">rss</a>
-    <a href="/about">about</a>
-</div>
-                </nav>
-                <main>
-                    
-  
-  
-  <h1 class="hero-text">It all starts with smaller stories</h1>
-  
-    
-  <p>I think most developers have experienced a taks sitting in progress for days or even weeks (or&hellip; months!) on end. This long running work eventually gets merged and released but it turns out it&rsquo;s the wrong thing and a large part needs rework.</p>
-<p>The solution to this struggle is two-fold. The first half is getting invested in your customers. Talk to them, establish a good relation with the people that actually use the product you are building. Find out what they really need. This practice is known as User Centered Design and while I find it very interesting, it&rsquo;s not the topic of this post. We&rsquo;re looking at the other half, breaking down work into smaller pieces and the result of doing so.</p>
-<h2 id="smaller-pieces-of-work">Smaller pieces of work</h2>
-<p>So, doing smaller pieces of work at a time sounds pretty simple, but I&rsquo;ve had some serious push-back when trying to do this with some of the teams I&rsquo;ve worked with. The big one is always &ldquo;we don&rsquo;t need to make things this dumb, we&rsquo;re smart people, we know what to do!&rdquo;. It might seem like that when a story only explains the existence of a single button and its behavior instead of &ldquo;add shopping cart functionality&rdquo;.</p>
-<p>Let&rsquo;s take the shopping cart example a bit further. How could we break that down? There&rsquo;s adding an item, removing an item, changing the quantity of an item, calculation of price (sub)totals and probably a bunch more stuff involved. That&rsquo;s already a breakdown into more stories. But we can take it even further. If we use the adding of items as an example, it&rsquo;s going to need a button on each product. That button has the effect of adding something to the cart. Adding the same thing once more has a different outcome than the first addition to the cart. Adding something that is out of stock has yet another outcome. See where this is going? You can keep cutting up the work into smaller chunks.</p>
-<h2 id="but-what-about-the-estimates">But what about the estimates?</h2>
-<p>Now this is an interesting subject. I think the general consensus is that estimates are evil. They&rsquo;re always somewhat off the mark or even worse, quickly set in stone by the person asking for them and made into deadlines.</p>
-<p>If you&rsquo;ve broken down your work into tiny pieces, estimation becomes a lot easier. Instead of having this entire shopping cart as the scope of estimation, you can now estimate things on a much smaller scope. As a general rule each little story should fit into about a half day worth of time. If it can&rsquo;t be done in roughly 4 hours, it&rsquo;s probably bigger than it should be.</p>
-<h2 id="dont-cross-the-streams">Don&rsquo;t cross the streams!</h2>
-<p>While these little stories can be knocked of the board quickly due to their size, there is one pitfall to watch out for. Streams of work. With these little stories it&rsquo;s very easy to cross into a part of the system that is also actively worked on. This can lead to conflicts that need resolving down the line using up time you shouldn&rsquo;t be wasting.</p>
-<p>So in our shopping cart example, all those little stories belong together as a stream of work. Though you might be able to create multiple streams by letting some team members start in the back-end and work forward and others work from the front towards the back-end. It&rsquo;ll depend on the chosen architecture and technical implementation. Just be mindful of streams of work.</p>
-<p>The number of streams should be matched to your team size. Let&rsquo;s say a team with 6 developers, consisting of 3 pairs can work on 3 streams simultaneously. Pairs working in the same stream should be avoided or they should be in close contact to avoid the above-mentioned merge conflicts or overwriting each other&rsquo;s work.</p>
-<h2 id="agility">Agility</h2>
-<p>Something these small stories also provide is agility. Technically you should be able to produce a working release for every finished story. This means that every completed story could be validated with your end-users. If something is not up to spec or needs adjusting, you only need to backtrack a tiny bit instead of running into a pile of rework because you didn&rsquo;t validate anything for 3 weeks.</p>
-<h2 id="in-practice">In practice</h2>
-<p>So we&rsquo;ve made estimating work easier and more accurate. Flow of work is increased because we can release more often in smaller chunks. We&rsquo;ve also made it possible to respond to changing requirements faster because we can validate more often. The thing we need to watch out for is crossing streams of work, which is easily addressed with clear communication and a little up front planning.</p>
-<p>If there is one thing you should try if you want to increase your dev teams agility, it is writing smaller stories. It does take some practice, and will require some change in the way you work. To get even more juice from smaller stories, combine it with pair-programming and trunk-based development but that&rsquo;s going to take some additional technical maturity and we&rsquo;ve also kind of glossed over testing practices.</p>
-
-  <div class="blog-meta">
-    <h1>Meta</h1>
-    <time class="meta-element" datetime="2022-10-18T00:00:00&#43;00:00">October 18, 2022</time>
-    <div class="meta-element">
-  <div>
-    Tags:
-        <a href="/tags/agility/">agility</a>
-        <a href="/tags/developer-experience/">Developer Experience</a>
-        <a href="/tags/devex/">devex</a>
-        <a href="/tags/developer-practices/">developer practices</a>
-  </div>
-</div>
-  </div>
-
-                </main>
-            </div>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>It all starts with smaller stories</title>
+    <link rel="stylesheet" href="/assets/style/theme.css">
+  </head>
+  <body>
+    <header>
+        <div class="content-wrapper">
+            <h1><a href="/">harre.dev</a></h1>
         </div>
-        <footer>
-            <span>🌱 content written by an actual human.</span>
-<span>©️ copyright 2015-2025 harre.dev</span>
-        </footer>
-    </div>
-</body>
+    </header>
+    <nav>
+        <div class="content-wrapper">
+          <a href="/">home</a>
+          <a href="/blog">blog</a>
+          <a href="/about">about</a>
+          <a href="feed.xml">rss</a>
+        </div>
+    </nav>
+    <main>
+      <div class="content-wrapper">
+        <p>I think most developers have experienced a taks sitting in progress for days or even weeks (or... months!) on end. This long running work eventually gets merged and released but it turns out it's the wrong thing and a large part needs rework.</p>
+<p>The solution to this struggle is two-fold. The first half is getting invested in your customers. Talk to them, establish a good relation with the people that actually use the product you are building. Find out what they really need. This practice is known as User Centered Design and while I find it very interesting, it's not the topic of this post. We're looking at the other half, breaking down work into smaller pieces and the result of doing so.</p>
+<h2>Smaller pieces of work</h2>
+<p>So, doing smaller pieces of work at a time sounds pretty simple, but I've had some serious push-back when trying to do this with some of the teams I've worked with. The big one is always &quot;we don't need to make things this dumb, we're smart people, we know what to do!&quot;. It might seem like that when a story only explains the existence of a single button and its behavior instead of &quot;add shopping cart functionality&quot;.</p>
+<p>Let's take the shopping cart example a bit further. How could we break that down? There's adding an item, removing an item, changing the quantity of an item, calculation of price (sub)totals and probably a bunch more stuff involved. That's already a breakdown into more stories. But we can take it even further. If we use the adding of items as an example, it's going to need a button on each product. That button has the effect of adding something to the cart. Adding the same thing once more has a different outcome than the first addition to the cart. Adding something that is out of stock has yet another outcome. See where this is going? You can keep cutting up the work into smaller chunks.</p>
+<h2>But what about the estimates?</h2>
+<p>Now this is an interesting subject. I think the general consensus is that estimates are evil. They're always somewhat off the mark or even worse, quickly set in stone by the person asking for them and made into deadlines.</p>
+<p>If you've broken down your work into tiny pieces, estimation becomes a lot easier. Instead of having this entire shopping cart as the scope of estimation, you can now estimate things on a much smaller scope. As a general rule each little story should fit into about a half day worth of time. If it can't be done in roughly 4 hours, it's probably bigger than it should be.</p>
+<h2>Don't cross the streams!</h2>
+<p>While these little stories can be knocked of the board quickly due to their size, there is one pitfall to watch out for. Streams of work. With these little stories it's very easy to cross into a part of the system that is also actively worked on. This can lead to conflicts that need resolving down the line using up time you shouldn't be wasting.</p>
+<p>So in our shopping cart example, all those little stories belong together as a stream of work. Though you might be able to create multiple streams by letting some team members start in the back-end and work forward and others work from the front towards the back-end. It'll depend on the chosen architecture and technical implementation. Just be mindful of streams of work.</p>
+<p>The number of streams should be matched to your team size. Let's say a team with 6 developers, consisting of 3 pairs can work on 3 streams simultaneously. Pairs working in the same stream should be avoided or they should be in close contact to avoid the above-mentioned merge conflicts or overwriting each other's work.</p>
+<h2>Agility</h2>
+<p>Something these small stories also provide is agility. Technically you should be able to produce a working release for every finished story. This means that every completed story could be validated with your end-users. If something is not up to spec or needs adjusting, you only need to backtrack a tiny bit instead of running into a pile of rework because you didn't validate anything for 3 weeks.</p>
+<h2>In practice</h2>
+<p>So we've made estimating work easier and more accurate. Flow of work is increased because we can release more often in smaller chunks. We've also made it possible to respond to changing requirements faster because we can validate more often. The thing we need to watch out for is crossing streams of work, which is easily addressed with clear communication and a little up front planning.</p>
+<p>If there is one thing you should try if you want to increase your dev teams agility, it is writing smaller stories. It does take some practice, and will require some change in the way you work. To get even more juice from smaller stories, combine it with pair-programming and trunk-based development but that's going to take some additional technical maturity and we've also kind of glossed over testing practices.</p>
 
+      </div>
+    </main>
+    <footer>
+      <div class="content-wrapper">
+        <p>© 2025 harre.dev</p>
+       </div>
+    </footer>
+  </body>
 </html>
