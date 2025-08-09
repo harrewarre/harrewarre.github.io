@@ -5,14 +5,19 @@
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
+    background-color: ghostwhite;
 }
 
 nav {
     font-size: 1.25rem;
 }
 
+a {
+    color: midnightblue;
+}
+
 .content-wrapper {
-    max-width: 800px;
+    max-width: 750px;
     margin: 0 auto;
     padding: 1rem;
 }
@@ -23,17 +28,6 @@ img {
     max-width: 100%;
 }
 
-/* Code blocks */
-pre {
-    overflow-x: auto;
-    background-color: gainsboro;
-    padding: 1rem 1.5rem;
-}
-
-code {
-    font-size: 1rem;
-}
-
 blockquote {
     border-left: 5px solid var(--color-border-dark);
     padding: 1rem;
@@ -42,4 +36,9 @@ blockquote {
 
 blockquote p {
     margin: 0;
+}
+
+.tags {
+    color: lightslategrey;
+    font-size: 0.9rem;
 }

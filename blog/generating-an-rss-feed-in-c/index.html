@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>harre.dev | Generating an RSS feed in C#</title>
     <link rel="stylesheet" href="/assets/style/theme.css">
+    <link rel="stylesheet" href="/assets/style/prism-okaidia.css">
   </head>
   <body>
     <header>
@@ -22,7 +23,10 @@
     </nav>
     <main>
       <div class="content-wrapper">
-        <h1>Generating an RSS feed in C#</h1>
+        
+<div>Sun Apr 26 2015 02:00:00 GMT+0200 (Central European Summer Time)</div>
+
+<h1>Generating an RSS feed in C#</h1>
 <p>A hobby project of mine needed to generate an RSS feed. I was already doing this by just generating and XML file in the webroot and linking to that on the frontpage. But during this coding session, where all the data is pulled straight from the markdown files I wanted to create a controller action to do the generating for me.</p>
 <p>First things first, there is an assembly available out of the box in the .NET Framework. All you need is to make reference to <strong>System.ServiceModel.Syndication</strong> and you are ready to start writing code. The classes we are using are</p>
 <ul>
@@ -62,6 +66,21 @@ feed.GetRss20Formatter().WriteTo(writer);
 }
 }
 }</p>
+
+
+<div class="tags">
+    
+        c#
+    
+        rss
+    
+        asp.net
+    
+        system.servicemodel
+    
+        itq
+    
+</div>
 
       </div>
     </main>

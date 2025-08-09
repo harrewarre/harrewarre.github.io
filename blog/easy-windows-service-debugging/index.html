@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>harre.dev | Easy Windows Service debugging</title>
     <link rel="stylesheet" href="/assets/style/theme.css">
+    <link rel="stylesheet" href="/assets/style/prism-okaidia.css">
   </head>
   <body>
     <header>
@@ -22,7 +23,10 @@
     </nav>
     <main>
       <div class="content-wrapper">
-        <h1>Easy Windows Service debugging</h1>
+        
+<div>Sun Apr 26 2015 02:00:00 GMT+0200 (Central European Summer Time)</div>
+
+<h1>Easy Windows Service debugging</h1>
 <p>Long-running processes in a web application running on IIS is a bad idea. The reason for that is that IIS might unload the AppPool that is running your process due to inactivity. Inactivity? Yep, if IIS does not recieve a requests for a while, it will shut the site down to conserve system resources. (This is all configurable ofcourse, but I've
 seen it happen)</p>
 <p>To allow for long-running stuff, a Windows Service might be a right fit. Here is what the default startup code for a Windows service looks like:</p>
@@ -104,6 +108,19 @@ ServiceBase.Run(service);
 <p>By blocking the thread that starts the service code, the debugger will only detach when we stop our process (by hitting <strong>stop</strong> in Visual Studio).</p>
 <p>If we don't block the thread, the program immediately exits and we won't be able to debug. This all assumes that you run all your heavy work on a new thread inside the service. Locking the start-up thread like this in a real service will cause it to never start (thats what the #if DEBUG is for). The Service Control manager in Windows waits for the OnStart(...) method to complete. Never completing it will cause a time-out and your service will never start.</p>
 <p>So, use with a little care but this should make your life a little easier.</p>
+
+
+<div class="tags">
+    
+        c#
+    
+        windows service
+    
+        debugging
+    
+        itq
+    
+</div>
 
       </div>
     </main>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>harre.dev | Polestar 2 battery state API</title>
     <link rel="stylesheet" href="/assets/style/theme.css">
+    <link rel="stylesheet" href="/assets/style/prism-okaidia.css">
   </head>
   <body>
     <header>
@@ -22,7 +23,10 @@
     </nav>
     <main>
       <div class="content-wrapper">
-        <h1>Polestar 2 battery state API</h1>
+        
+<div>Mon Oct 16 2023 02:00:00 GMT+0200 (Central European Summer Time)</div>
+
+<h1>Polestar 2 battery state API</h1>
 <p><strong>Update in 2024</strong>:</p>
 <p>It appears that Polestar is working on a proper API and folks have been figuring out how to get to the data used by the mobile app. See <a href="https://github.com/loebse/polestar_api/tree/main">here</a> for an example of a custom Home Assistant integration that surfaces quite a bit more than just the state of charge. This code will still work even with the existence of a polestar API but be aware that an official API might at some point appear.</p>
 <p>Polestar (the car manufaturer) offers an app to control (a very limited) set of features of their cars remoteley (locks, and climate) and can display the state of the battery in % remaining. It's nice to have but the app isn't all that great and sometimes takes very long to show up-to-date information.</p>
@@ -37,39 +41,37 @@
 <h2>Getting the battery state</h2>
 <p>The very first thing you need to do is configure the Polestar &quot;Power-up&quot; in the Tibber app. It can be done right in the app and requires you sign into your Polestar account to configure it. Once that is done, we can start calling the Tibber API to get the battery state.</p>
 <p>After you sign into the <a href="https://app.tibber.com/">app API</a>, you can run this query (still works at the time of writing - The ID fields in the query will depend on your account and car so you'll have to play around a bit with the API explorer to obtain them):</p>
-<pre><code class="language-json">{
-  me {
-    home(id:&quot;[your-home-id]&quot;) {
-      electricVehicle(id:&quot;[your-vehicle-id]&quot;) {
-        shortName,
-        lastSeen,
-        battery {
-          percent,
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  me <span class="token punctuation">{</span>
+    home(id<span class="token operator">:</span><span class="token string">"[your-home-id]"</span>) <span class="token punctuation">{</span>
+      electricVehicle(id<span class="token operator">:</span><span class="token string">"[your-vehicle-id]"</span>) <span class="token punctuation">{</span>
+        shortName<span class="token punctuation">,</span>
+        lastSeen<span class="token punctuation">,</span>
+        battery <span class="token punctuation">{</span>
+          percent<span class="token punctuation">,</span>
           isCharging
-        }
-      }
-    }
-  }
-}
-</code></pre>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <p>You can use the API explorer to figure out your home and vehicle ID. If everything went according to plan you should get a response like this:</p>
-<pre><code class="language-json">{
-  &quot;data&quot;: {
-    &quot;me&quot;: {
-      &quot;home&quot;: {
-        &quot;electricVehicle&quot;: {
-          &quot;shortName&quot;: &quot;Polestar 2&quot;,
-          &quot;lastSeen&quot;: &quot;2023-10-16T06:39:47.000+00:00&quot;,
-          &quot;battery&quot;: {
-            &quot;percent&quot;: 85,
-            &quot;isCharging&quot;: false
-          }
-        }
-      }
-    }
-  }
-}
-</code></pre>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"data"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"me"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"home"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">"electricVehicle"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token property">"shortName"</span><span class="token operator">:</span> <span class="token string">"Polestar 2"</span><span class="token punctuation">,</span>
+          <span class="token property">"lastSeen"</span><span class="token operator">:</span> <span class="token string">"2023-10-16T06:39:47.000+00:00"</span><span class="token punctuation">,</span>
+          <span class="token property">"battery"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+            <span class="token property">"percent"</span><span class="token operator">:</span> <span class="token number">85</span><span class="token punctuation">,</span>
+            <span class="token property">"isCharging"</span><span class="token operator">:</span> <span class="token boolean">false</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <p>Given all the above, we can set up something that does all that work programmatically for us. Below you'll find some <code>dotnet core</code> C# code you can reference to get started.</p>
 <p>Knowing all this opens up many more options for us. We can now build our own app that can display the battery state, or we can integrate it into our home automation system. The possibilities are endless! I do hope that this functionality will be exposed through the back-end API at some point where we can supply a token generated for our account and not expose a username/password combo.</p>
 <h3>A quick-and-dirty sample implementation</h3>
@@ -82,106 +84,116 @@
 </ul>
 <p>Create a new <code>dotnet core webapi</code> app and paste the following stuff in the right places.</p>
 <p><strong><code>Program.cs</code></strong></p>
-<pre><code class="language-csharp">var builder = WebApplication.CreateBuilder(args);
-builder.Configuration.AddEnvironmentVariables(prefix: &quot;TIBBER_&quot;);
-builder.Services.AddHttpClient();
-builder.Services.AddSingleton&lt;IStateOfChargeApi, TibberStateOfChargeApi&gt;();
+<pre class="language-csharp"><code class="language-csharp"><span class="token class-name"><span class="token keyword">var</span></span> builder <span class="token operator">=</span> WebApplication<span class="token punctuation">.</span><span class="token function">CreateBuilder</span><span class="token punctuation">(</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+builder<span class="token punctuation">.</span>Configuration<span class="token punctuation">.</span><span class="token function">AddEnvironmentVariables</span><span class="token punctuation">(</span><span class="token named-parameter punctuation">prefix</span><span class="token punctuation">:</span> <span class="token string">"TIBBER_"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+builder<span class="token punctuation">.</span>Services<span class="token punctuation">.</span><span class="token function">AddHttpClient</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+builder<span class="token punctuation">.</span>Services<span class="token punctuation">.</span><span class="token generic-method"><span class="token function">AddSingleton</span><span class="token generic class-name"><span class="token punctuation">&lt;</span>IStateOfChargeApi<span class="token punctuation">,</span> TibberStateOfChargeApi<span class="token punctuation">></span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-var app = builder.Build();
+<span class="token class-name"><span class="token keyword">var</span></span> app <span class="token operator">=</span> builder<span class="token punctuation">.</span><span class="token function">Build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-app.MapGet(&quot;/soc&quot;, async (IStateOfChargeApi api) =&gt;
-{
-    return await api.GetStateOfCharge();
-});
+app<span class="token punctuation">.</span><span class="token function">MapGet</span><span class="token punctuation">(</span><span class="token string">"/soc"</span><span class="token punctuation">,</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token class-name">IStateOfChargeApi</span> api<span class="token punctuation">)</span> <span class="token operator">=></span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">await</span> api<span class="token punctuation">.</span><span class="token function">GetStateOfCharge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-app.Run();
-</code></pre>
+app<span class="token punctuation">.</span><span class="token function">Run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p><strong><code>TibberApi.cs</code></strong></p>
-<pre><code class="language-csharp">using System.Text.Json.Nodes;
-using System.Text.Json.Serialization;
+<pre class="language-csharp"><code class="language-csharp"><span class="token keyword">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Text<span class="token punctuation">.</span>Json<span class="token punctuation">.</span>Nodes</span><span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Text<span class="token punctuation">.</span>Json<span class="token punctuation">.</span>Serialization</span><span class="token punctuation">;</span>
 
-public interface IStateOfChargeApi
-{
-    Task&lt;StateOfCharge&gt; GetStateOfCharge();
-}
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">IStateOfChargeApi</span>
+<span class="token punctuation">{</span>
+    <span class="token return-type class-name">Task<span class="token punctuation">&lt;</span>StateOfCharge<span class="token punctuation">></span></span> <span class="token function">GetStateOfCharge</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-public class TibberStateOfChargeApi : IStateOfChargeApi
-{
-    private readonly IConfiguration _configuration;
-    private readonly IHttpClientFactory _httpClientFactory;
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TibberStateOfChargeApi</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">IStateOfChargeApi</span></span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">private</span> <span class="token keyword">readonly</span> <span class="token class-name">IConfiguration</span> _configuration<span class="token punctuation">;</span>
+    <span class="token keyword">private</span> <span class="token keyword">readonly</span> <span class="token class-name">IHttpClientFactory</span> _httpClientFactory<span class="token punctuation">;</span>
 
-    public TibberStateOfChargeApi(IConfiguration configuration, IHttpClientFactory httpClientFactory)
-    {
-        _configuration = configuration;
-        _httpClientFactory = httpClientFactory;
-    }
+    <span class="token keyword">public</span> <span class="token function">TibberStateOfChargeApi</span><span class="token punctuation">(</span><span class="token class-name">IConfiguration</span> configuration<span class="token punctuation">,</span> <span class="token class-name">IHttpClientFactory</span> httpClientFactory<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        _configuration <span class="token operator">=</span> configuration<span class="token punctuation">;</span>
+        _httpClientFactory <span class="token operator">=</span> httpClientFactory<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    public async Task&lt;StateOfCharge&gt; GetStateOfCharge()
-    {
-        var user = _configuration.GetValue&lt;string&gt;(&quot;USER&quot;);
-        var password = _configuration.GetValue&lt;string&gt;(&quot;PASSWORD&quot;);
+    <span class="token keyword">public</span> <span class="token keyword">async</span> <span class="token return-type class-name">Task<span class="token punctuation">&lt;</span>StateOfCharge<span class="token punctuation">></span></span> <span class="token function">GetStateOfCharge</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token class-name"><span class="token keyword">var</span></span> user <span class="token operator">=</span> _configuration<span class="token punctuation">.</span><span class="token generic-method"><span class="token function">GetValue</span><span class="token generic class-name"><span class="token punctuation">&lt;</span><span class="token keyword">string</span><span class="token punctuation">></span></span></span><span class="token punctuation">(</span><span class="token string">"USER"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name"><span class="token keyword">var</span></span> password <span class="token operator">=</span> _configuration<span class="token punctuation">.</span><span class="token generic-method"><span class="token function">GetValue</span><span class="token generic class-name"><span class="token punctuation">&lt;</span><span class="token keyword">string</span><span class="token punctuation">></span></span></span><span class="token punctuation">(</span><span class="token string">"PASSWORD"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        var homeId = _configuration.GetValue&lt;string&gt;(&quot;HOME_ID&quot;);
-        var vehicleId = _configuration.GetValue&lt;string&gt;(&quot;VEHICLE_ID&quot;);
+        <span class="token class-name"><span class="token keyword">var</span></span> homeId <span class="token operator">=</span> _configuration<span class="token punctuation">.</span><span class="token generic-method"><span class="token function">GetValue</span><span class="token generic class-name"><span class="token punctuation">&lt;</span><span class="token keyword">string</span><span class="token punctuation">></span></span></span><span class="token punctuation">(</span><span class="token string">"HOME_ID"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name"><span class="token keyword">var</span></span> vehicleId <span class="token operator">=</span> _configuration<span class="token punctuation">.</span><span class="token generic-method"><span class="token function">GetValue</span><span class="token generic class-name"><span class="token punctuation">&lt;</span><span class="token keyword">string</span><span class="token punctuation">></span></span></span><span class="token punctuation">(</span><span class="token string">"VEHICLE_ID"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        var token = await GetToken(user!, password!);
-        var query = GetQuery(homeId, vehicleId);
+        <span class="token class-name"><span class="token keyword">var</span></span> token <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">GetToken</span><span class="token punctuation">(</span>user<span class="token operator">!</span><span class="token punctuation">,</span> password<span class="token operator">!</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name"><span class="token keyword">var</span></span> query <span class="token operator">=</span> <span class="token function">GetQuery</span><span class="token punctuation">(</span>homeId<span class="token punctuation">,</span> vehicleId<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        using HttpClient client = _httpClientFactory.CreateClient();
+        <span class="token keyword">using</span> <span class="token class-name">HttpClient</span> client <span class="token operator">=</span> _httpClientFactory<span class="token punctuation">.</span><span class="token function">CreateClient</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        client.DefaultRequestHeaders.Add(&quot;Cookie&quot;, $&quot;token={token}&quot;);
-        var response = await client.PostAsJsonAsync(&quot;https://app.tibber.com/v4/gql&quot;, new { query });
+        client<span class="token punctuation">.</span>DefaultRequestHeaders<span class="token punctuation">.</span><span class="token function">Add</span><span class="token punctuation">(</span><span class="token string">"Cookie"</span><span class="token punctuation">,</span> <span class="token interpolation-string"><span class="token string">$"token=</span><span class="token interpolation"><span class="token punctuation">{</span><span class="token expression language-csharp">token</span><span class="token punctuation">}</span></span><span class="token string">"</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name"><span class="token keyword">var</span></span> response <span class="token operator">=</span> <span class="token keyword">await</span> client<span class="token punctuation">.</span><span class="token function">PostAsJsonAsync</span><span class="token punctuation">(</span><span class="token string">"https://app.tibber.com/v4/gql"</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token punctuation">{</span> query <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        if (!response.IsSuccessStatusCode)
-        {
-            throw new Exception(&quot;Failed to run query!&quot;);
-        }
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>response<span class="token punctuation">.</span>IsSuccessStatusCode<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">Exception</span><span class="token punctuation">(</span><span class="token string">"Failed to run query!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
-        var content = await response.Content.ReadFromJsonAsync&lt;JsonNode&gt;();
+        <span class="token class-name"><span class="token keyword">var</span></span> content <span class="token operator">=</span> <span class="token keyword">await</span> response<span class="token punctuation">.</span>Content<span class="token punctuation">.</span><span class="token generic-method"><span class="token function">ReadFromJsonAsync</span><span class="token generic class-name"><span class="token punctuation">&lt;</span>JsonNode<span class="token punctuation">></span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        var percent = content![&quot;data&quot;]![&quot;me&quot;]![&quot;home&quot;]![&quot;electricVehicle&quot;]![&quot;battery&quot;]![&quot;percent&quot;]!;
-        var isCharging = content![&quot;data&quot;]![&quot;me&quot;]![&quot;home&quot;]![&quot;electricVehicle&quot;]![&quot;battery&quot;]![&quot;isCharging&quot;]!;
+        <span class="token class-name"><span class="token keyword">var</span></span> percent <span class="token operator">=</span> content<span class="token operator">!</span><span class="token punctuation">[</span><span class="token string">"data"</span><span class="token punctuation">]</span><span class="token operator">!</span><span class="token punctuation">[</span><span class="token string">"me"</span><span class="token punctuation">]</span><span class="token operator">!</span><span class="token punctuation">[</span><span class="token string">"home"</span><span class="token punctuation">]</span><span class="token operator">!</span><span class="token punctuation">[</span><span class="token string">"electricVehicle"</span><span class="token punctuation">]</span><span class="token operator">!</span><span class="token punctuation">[</span><span class="token string">"battery"</span><span class="token punctuation">]</span><span class="token operator">!</span><span class="token punctuation">[</span><span class="token string">"percent"</span><span class="token punctuation">]</span><span class="token operator">!</span><span class="token punctuation">;</span>
+        <span class="token class-name"><span class="token keyword">var</span></span> isCharging <span class="token operator">=</span> content<span class="token operator">!</span><span class="token punctuation">[</span><span class="token string">"data"</span><span class="token punctuation">]</span><span class="token operator">!</span><span class="token punctuation">[</span><span class="token string">"me"</span><span class="token punctuation">]</span><span class="token operator">!</span><span class="token punctuation">[</span><span class="token string">"home"</span><span class="token punctuation">]</span><span class="token operator">!</span><span class="token punctuation">[</span><span class="token string">"electricVehicle"</span><span class="token punctuation">]</span><span class="token operator">!</span><span class="token punctuation">[</span><span class="token string">"battery"</span><span class="token punctuation">]</span><span class="token operator">!</span><span class="token punctuation">[</span><span class="token string">"isCharging"</span><span class="token punctuation">]</span><span class="token operator">!</span><span class="token punctuation">;</span>
 
-        return new StateOfCharge(percent.GetValue&lt;int&gt;(), isCharging.GetValue&lt;bool&gt;());
-    }
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">StateOfCharge</span><span class="token punctuation">(</span>percent<span class="token punctuation">.</span><span class="token generic-method"><span class="token function">GetValue</span><span class="token generic class-name"><span class="token punctuation">&lt;</span><span class="token keyword">int</span><span class="token punctuation">></span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> isCharging<span class="token punctuation">.</span><span class="token generic-method"><span class="token function">GetValue</span><span class="token generic class-name"><span class="token punctuation">&lt;</span><span class="token keyword">bool</span><span class="token punctuation">></span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    private async Task&lt;string&gt; GetToken(string username, string password)
-    {
-        using HttpClient client = _httpClientFactory.CreateClient();
+    <span class="token keyword">private</span> <span class="token keyword">async</span> <span class="token return-type class-name">Task<span class="token punctuation">&lt;</span><span class="token keyword">string</span><span class="token punctuation">></span></span> <span class="token function">GetToken</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">string</span></span> username<span class="token punctuation">,</span> <span class="token class-name"><span class="token keyword">string</span></span> password<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">using</span> <span class="token class-name">HttpClient</span> client <span class="token operator">=</span> _httpClientFactory<span class="token punctuation">.</span><span class="token function">CreateClient</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        var response = await client.PostAsJsonAsync(&quot;https://app.tibber.com/login.credentials&quot;, new { email = username, password });
+        <span class="token class-name"><span class="token keyword">var</span></span> response <span class="token operator">=</span> <span class="token keyword">await</span> client<span class="token punctuation">.</span><span class="token function">PostAsJsonAsync</span><span class="token punctuation">(</span><span class="token string">"https://app.tibber.com/login.credentials"</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token punctuation">{</span> email <span class="token operator">=</span> username<span class="token punctuation">,</span> password <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        if (!response.IsSuccessStatusCode)
-        {
-            throw new Exception(&quot;Failed to get token!&quot;);
-        }
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>response<span class="token punctuation">.</span>IsSuccessStatusCode<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">Exception</span><span class="token punctuation">(</span><span class="token string">"Failed to get token!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
 
-        var content = await response.Content.ReadFromJsonAsync&lt;TokenResponse&gt;();
+        <span class="token class-name"><span class="token keyword">var</span></span> content <span class="token operator">=</span> <span class="token keyword">await</span> response<span class="token punctuation">.</span>Content<span class="token punctuation">.</span><span class="token generic-method"><span class="token function">ReadFromJsonAsync</span><span class="token generic class-name"><span class="token punctuation">&lt;</span>TokenResponse<span class="token punctuation">></span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-        return content!.Token;
-    }
+        <span class="token keyword">return</span> content<span class="token operator">!</span><span class="token punctuation">.</span>Token<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
 
-    private string GetQuery(string homeId, string vehicleId)
-    {
-        return $&quot;{{ me {{ home(id:\&quot;{homeId}\&quot;) {{ electricVehicle(id:\&quot;{vehicleId}\&quot;) {{ lastSeen, battery {{ percent, isCharging }}}}}}}}&quot;;
-    }
-}
+    <span class="token keyword">private</span> <span class="token return-type class-name"><span class="token keyword">string</span></span> <span class="token function">GetQuery</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">string</span></span> homeId<span class="token punctuation">,</span> <span class="token class-name"><span class="token keyword">string</span></span> vehicleId<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token interpolation-string"><span class="token string">$"{{ me {{ home(id:\"</span><span class="token interpolation"><span class="token punctuation">{</span><span class="token expression language-csharp">homeId</span><span class="token punctuation">}</span></span><span class="token string">\") {{ electricVehicle(id:\"</span><span class="token interpolation"><span class="token punctuation">{</span><span class="token expression language-csharp">vehicleId</span><span class="token punctuation">}</span></span><span class="token string">\") {{ lastSeen, battery {{ percent, isCharging }}}}}}}}"</span></span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-public record StateOfCharge(int Percent, bool IsCharging);
+<span class="token keyword">public</span> <span class="token keyword">record</span> <span class="token class-name">StateOfCharge</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">int</span></span> Percent<span class="token punctuation">,</span> <span class="token class-name"><span class="token keyword">bool</span></span> IsCharging<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-public record TokenResponse
-{
-    [JsonPropertyName(&quot;token&quot;)]
-    public string Token { get; set; } = string.Empty;
-}
-</code></pre>
+<span class="token keyword">public</span> <span class="token keyword">record</span> <span class="token class-name">TokenResponse</span>
+<span class="token punctuation">{</span>
+    <span class="token punctuation">[</span><span class="token attribute"><span class="token class-name">JsonPropertyName</span><span class="token attribute-arguments"><span class="token punctuation">(</span><span class="token string">"token"</span><span class="token punctuation">)</span></span></span><span class="token punctuation">]</span>
+    <span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">string</span></span> Token <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span> <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">string</span><span class="token punctuation">.</span>Empty<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
 <p>After building and running the app, browse to the <code>/soc</code> endpoint and you should see something like this:</p>
-<pre><code class="language-json">{
-  &quot;percent&quot;: 85,
-  &quot;isCharging&quot;: false
-}
-</code></pre>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"percent"</span><span class="token operator">:</span> <span class="token number">85</span><span class="token punctuation">,</span>
+  <span class="token property">"isCharging"</span><span class="token operator">:</span> <span class="token boolean">false</span>
+<span class="token punctuation">}</span></code></pre>
 <p>Enjoy ⚡</p>
+
+
+<div class="tags">
+    
+        polestar 2
+    
+        api
+    
+        ev
+    
+        soc
+    
+</div>
 
       </div>
     </main>

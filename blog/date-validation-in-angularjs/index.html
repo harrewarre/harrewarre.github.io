@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>harre.dev | Date validation in AngularJS</title>
     <link rel="stylesheet" href="/assets/style/theme.css">
+    <link rel="stylesheet" href="/assets/style/prism-okaidia.css">
   </head>
   <body>
     <header>
@@ -22,58 +23,68 @@
     </nav>
     <main>
       <div class="content-wrapper">
-        <h1>Date validation in AngularJS</h1>
+        
+<div>Thu Oct 27 2016 02:00:00 GMT+0200 (Central European Summer Time)</div>
+
+<h1>Date validation in AngularJS</h1>
 <p>Another angular post! This time we take a look at how to create a directive that ensures the user enters a valid date (and/or time).</p>
 <p>Let's start with some boilerplate stuff first. I'm going to assume that you have something working Angular already, we will only cover the date validation directive in this post.
 Here is some HTML.</p>
-<pre><code class="language-html">&lt;div ng-app=&quot;validDateApp&quot;&gt;
-	&lt;div ng-form=&quot;myForm&quot; ng-controller=&quot;testController&quot;&gt;
-		&lt;input ng-model=&quot;myDate&quot; my-valid-date name=&quot;myDateInput&quot; type=&quot;text&quot; /&gt;
-	&lt;/div&gt;
-&lt;/div&gt;
-</code></pre>
+<pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">ng-app</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>validDateApp<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">ng-form</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>myForm<span class="token punctuation">"</span></span> <span class="token attr-name">ng-controller</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>testController<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">ng-model</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>myDate<span class="token punctuation">"</span></span> <span class="token attr-name">my-valid-date</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>myDateInput<span class="token punctuation">"</span></span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre>
 <p>And it's Angular app to go with it:</p>
-<pre><code class="language-javascript">var app = angular.module(&quot;validDateApp&quot;);
+<pre class="language-javascript"><code class="language-javascript"><span class="token keyword">var</span> app <span class="token operator">=</span> angular<span class="token punctuation">.</span><span class="token function">module</span><span class="token punctuation">(</span><span class="token string">"validDateApp"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-app.controller(&quot;testController&quot;, function ($scope) {
-	$scope.myDate = null;
-});
+app<span class="token punctuation">.</span><span class="token function">controller</span><span class="token punctuation">(</span><span class="token string">"testController"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">$scope</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	$scope<span class="token punctuation">.</span>myDate <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-app.directive(&quot;myValidDate&quot;, function () {
-	// Magic here.
-});
-</code></pre>
+app<span class="token punctuation">.</span><span class="token function">directive</span><span class="token punctuation">(</span><span class="token string">"myValidDate"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token comment">// Magic here.</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>Let's take a quick look at the basic structure of a directive. It's an object that Angular binds to nodes that have a certain predefined properties on them. In our case, we want to use an attribute (<code>my-valid-date</code>). When we put that on an element, Angular will run our directive against it and we want our element to have a model property (<code>ng-model</code> on the element) bound to it as well, because we need access to the routines that Angular uses for validation.</p>
-<pre><code class="language-javascript">app.directive(&quot;myValidDate&quot;, function () {
-	return {
-		restrict: &quot;A&quot;,
-		require: &quot;ngModel&quot;,
-		link: function () {
-			// Magic now here.
-		}
-	}
-});
-</code></pre>
+<pre class="language-javascript"><code class="language-javascript">app<span class="token punctuation">.</span><span class="token function">directive</span><span class="token punctuation">(</span><span class="token string">"myValidDate"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">return</span> <span class="token punctuation">{</span>
+		<span class="token literal-property property">restrict</span><span class="token operator">:</span> <span class="token string">"A"</span><span class="token punctuation">,</span>
+		<span class="token literal-property property">require</span><span class="token operator">:</span> <span class="token string">"ngModel"</span><span class="token punctuation">,</span>
+		<span class="token function-variable function">link</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token comment">// Magic now here.</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>The above code is the skeleton we will use to create our date validation attribute. We restrict our directive to only attributes. By requiring <code>ngModel</code> we enforce that this directive only works on elements that specify an <code>ng-model</code>. The link function is our gateway into hooking up the stuff to let us validate the user input on the element.</p>
 <p>We will be using <a href="http://momentjs.com/">MomentJS</a> for the date validation in this directive so make sure you have it referenced in your page.</p>
 <p>So we want moment to validate the user input. By requiring that <code>ngModel</code> is present, we get access to the modelcontroller that belongs to the input. Which in turn gives us the <code>$validators</code> object that is bound to the input!</p>
 <p>knowing this, let's give the <code>link</code> function a body.</p>
-<pre><code class="language-javascript">link: function (scope, elem, attr, ctrl) {
-	ctrl.$validators.myValidDate = function(value) {
-		if (value === undefined || value === null || value === &quot;&quot;) {
-			return true;
-		}
+<pre class="language-javascript"><code class="language-javascript"><span class="token function-variable function">link</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">scope<span class="token punctuation">,</span> elem<span class="token punctuation">,</span> attr<span class="token punctuation">,</span> ctrl</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	ctrl<span class="token punctuation">.</span>$validators<span class="token punctuation">.</span><span class="token function-variable function">myValidDate</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">value</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">if</span> <span class="token punctuation">(</span>value <span class="token operator">===</span> <span class="token keyword">undefined</span> <span class="token operator">||</span> value <span class="token operator">===</span> <span class="token keyword">null</span> <span class="token operator">||</span> value <span class="token operator">===</span> <span class="token string">""</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
 
-		return moment(value, [&quot;D-M-YYYY&quot;], true).isValid();
-	}
-}
-</code></pre>
+		<span class="token keyword">return</span> <span class="token function">moment</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token string">"D-M-YYYY"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">isValid</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <p>The 4th argument on the link function contains a reference to the modelcontroller we need for validation. If you want to know more about the other arguments, you can read more <a href="https://docs.angularjs.org/guide/directive">here</a></p>
 <p>To get our validation to work, we add function (<code>myValidDate</code>) to the validators object. The function accepts the input that was supplied by the user. First we check if there was any input at all. We don't require input for the date validation. Use the <code>required</code> attribute for that.</p>
 <p>If we did receive input, we create a moment object with the supplied input and check if it matches the format we want. The moment object exposes an <code>isValid()</code> <a href="http://momentjs.com/docs/#/parsing/is-valid/">function</a> to check if the object contains a valid date. We simply return the result of the <code>isValid</code> call as the result of our validation.</p>
 <p>Now you can make any input enforce a valid date format by added the <code>my-valid-date</code> attribute. If you want to take this another step forward, you could add the format string to the attribute and have the option of validating in different formats per input, but I'll leave that as an exercise :-)</p>
 <p>Go <a href="http://plnkr.co/edit/PsDnVPClv6d9D7hthUp2">here</a> for the full plunker.</p>
 <p>Enjoy!</p>
+
+
+<div class="tags">
+    
+        javascript
+    
+        angular
+    
+        itq
+    
+</div>
 
       </div>
     </main>

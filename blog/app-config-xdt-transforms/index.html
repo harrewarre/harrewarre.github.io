@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>harre.dev | App.config xdt transforms</title>
     <link rel="stylesheet" href="/assets/style/theme.css">
+    <link rel="stylesheet" href="/assets/style/prism-okaidia.css">
   </head>
   <body>
     <header>
@@ -22,97 +23,103 @@
     </nav>
     <main>
       <div class="content-wrapper">
-        <h1>App.config xdt transforms</h1>
+        
+<div>Fri Nov 13 2015 01:00:00 GMT+0100 (Central European Standard Time)</div>
+
+<h1>App.config xdt transforms</h1>
 <p>Here is a little hack you can do to enable transformations in <code>app.config</code> like you can in your <code>web.config</code>.</p>
 <!-- more -->
 <p>A quick intro to transformations, they can make your life a bit easier by storing different configs in different files that, depending on your build configuration, end up in the actual config file. Here is a simple example.</p>
 <p>This is the original <code>web.config</code> file:</p>
-<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
-&lt;configuration&gt;
-  &lt;appSettings&gt;
-    &lt;add key=&quot;SomeSetting&quot; value=&quot;true&quot; /&gt;
-    &lt;add key=&quot;Title&quot; value=&quot;Debug&quot; /&gt;
-  &lt;/appSettings&gt;
-&lt;/configuration&gt;
-</code></pre>
+<pre class="language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="utf-8" ?></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appSettings</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>add</span> <span class="token attr-name">key</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>SomeSetting<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>add</span> <span class="token attr-name">key</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Title<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Debug<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>appSettings</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">></span></span></code></pre>
 <p>And there is also a <code>web.Release.config</code>, that looks like this:</p>
-<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
-&lt;configuration xmlns:xdt=&quot;http://schemas.microsoft.com/XML-Document-Transform&quot;&gt;
-  &lt;appSettings&gt;
-    &lt;add key=&quot;Title&quot; value=&quot;Release&quot; xdt:Transform=&quot;Replace&quot; xdt:Locator=&quot;Match(key)&quot; /&gt;
-  &lt;/appSettings&gt;
-&lt;/configuration&gt;
-</code></pre>
+<pre class="language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="utf-8" ?></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span> <span class="token attr-name"><span class="token namespace">xmlns:</span>xdt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>http://schemas.microsoft.com/XML-Document-Transform<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appSettings</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>add</span> <span class="token attr-name">key</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Title<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Release<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">xdt:</span>Transform</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Replace<span class="token punctuation">"</span></span> <span class="token attr-name"><span class="token namespace">xdt:</span>Locator</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Match(key)<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>appSettings</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">></span></span></code></pre>
 <p>They look the same, but the <code>web.Release.config</code> declares transformations that can act on the original <code>web.config</code> file. So when we switch the configuration to <code>Release</code> to create a different build in Visual Studio, we get a different config file that is transformed based on the transformations in the matching <code>web.Release.config</code> file.</p>
 <p>The resulting <code>web.config</code> will look like this when a <code>Release</code> build is done:</p>
-<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
-&lt;configuration&gt;
-  &lt;appSettings&gt;
-    &lt;add key=&quot;SomeSetting&quot; value=&quot;true&quot; /&gt;
-    &lt;add key=&quot;Title&quot; value=&quot;Release&quot; /&gt;
-  &lt;/appSettings&gt;
-&lt;/configuration&gt;
-</code></pre>
+<pre class="language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="utf-8" ?></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>appSettings</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>add</span> <span class="token attr-name">key</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>SomeSetting<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>add</span> <span class="token attr-name">key</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Title<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Release<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>appSettings</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">></span></span></code></pre>
 <p>And will be left unchanged on a <code>Debug</code> build.</p>
 <p>These transforms work for any ASP.NET web application by default. No changes needed, it just works. For other applications types however, they don't work. So why do this yourself? There is Slow Cheetah that solved this problem already. Yes, but sadly... <a href="https://github.com/sayedihashimi/slow-cheetah/issues/158">Slow Cheetah is no longer updated</a> and will not receive updates to work with Visual Studio 2015. There is a <a href="http://visualstudio.uservoice.com/forums/121579-visual-studio/suggestions/2043217-support-web-config-style-transforms-on-any-file-in">pretty big demand</a> to have the transforms work in any XML file, but until then, we'll have to do it ourselves. So much for the transforms themselves, lets dive in to the subject at hand!</p>
 <p>If you create a new console app, you will get an <code>App.config</code> by default. When you add another config file, it will be created as <code>App1.config</code> and will not be linked to the existing config that is already in the project. Lets fix that first. Rename the <code>App1.config</code> file to <code>App.Release.config</code>.</p>
 <p><img src="web-1.png" alt="Configs!"></p>
 <p>Here is the first hacky part. Unload the project and edit the <code>csproj</code> file manually. Look for an <code>ItemGroup</code> that looks like this:</p>
-<pre><code class="language-xml">&lt;ItemGroup&gt;
-  &lt;None Include=&quot;App.config&quot; /&gt;
-  &lt;None Include=&quot;App.Release.config&quot; /&gt;
-&lt;/ItemGroup&gt;
-</code></pre>
+<pre class="language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ItemGroup</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>None</span> <span class="token attr-name">Include</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>App.config<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>None</span> <span class="token attr-name">Include</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>App.Release.config<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ItemGroup</span><span class="token punctuation">></span></span></code></pre>
 <p>And change it to this:</p>
-<pre><code class="language-xml">&lt;ItemGroup&gt;
-  &lt;None Include=&quot;App.config&quot; /&gt;
-  &lt;None Include=&quot;App.Release.config&quot;&gt;
-    &lt;DependentUpon&gt;App.config&lt;/DependentUpon&gt;
-  &lt;/None&gt;
-&lt;/ItemGroup&gt;
-</code></pre>
+<pre class="language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ItemGroup</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>None</span> <span class="token attr-name">Include</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>App.config<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>None</span> <span class="token attr-name">Include</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>App.Release.config<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>DependentUpon</span><span class="token punctuation">></span></span>App.config<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>DependentUpon</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>None</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ItemGroup</span><span class="token punctuation">></span></span></code></pre>
 <p>Save and close the file and reload the project. It should now look like this:</p>
 <p><img src="web1.png" alt="New Config"></p>
 <p>It now looks like its <code>web.config</code> sibling, but we're not quite there yet. We still need to enable transforms. Unload the project again and edit the <code>csproj</code> file.</p>
 <p>Look for this line:</p>
-<pre><code class="language-xml">&lt;Import Project=&quot;$(MSBuildToolsPath)\Microsoft.CSharp.targets&quot; /&gt;
-</code></pre>
+<pre class="language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Import</span> <span class="token attr-name">Project</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>$(MSBuildToolsPath)\Microsoft.CSharp.targets<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span></code></pre>
 <p>And paste this whole blob under that line:</p>
-<pre><code class="language-xml">&lt;UsingTask TaskName=&quot;TransformXml&quot; AssemblyFile=&quot;$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v14.0\Web\Microsoft.Web.Publishing.Tasks.dll&quot; /&gt;
-  &lt;Target Name=&quot;AfterCompile&quot; Condition=&quot;exists('app.$(Configuration).config')&quot;&gt;
-    &lt;TransformXml Source=&quot;app.config&quot; Destination=&quot;$(IntermediateOutputPath)$(TargetFileName).config&quot; Transform=&quot;app.$(Configuration).config&quot; /&gt;
-    &lt;ItemGroup&gt;
-      &lt;AppConfigWithTargetPath Remove=&quot;app.config&quot; /&gt;
-      &lt;AppConfigWithTargetPath Include=&quot;$(IntermediateOutputPath)$(TargetFileName).config&quot;&gt;
-        &lt;TargetPath&gt;$(TargetFileName).config&lt;/TargetPath&gt;
-      &lt;/AppConfigWithTargetPath&gt;
-    &lt;/ItemGroup&gt;
-  &lt;/Target&gt;
-</code></pre>
+<pre class="language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>UsingTask</span> <span class="token attr-name">TaskName</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>TransformXml<span class="token punctuation">"</span></span> <span class="token attr-name">AssemblyFile</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v14.0\Web\Microsoft.Web.Publishing.Tasks.dll<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Target</span> <span class="token attr-name">Name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>AfterCompile<span class="token punctuation">"</span></span> <span class="token attr-name">Condition</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>exists('app.$(Configuration).config')<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>TransformXml</span> <span class="token attr-name">Source</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>app.config<span class="token punctuation">"</span></span> <span class="token attr-name">Destination</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>$(IntermediateOutputPath)$(TargetFileName).config<span class="token punctuation">"</span></span> <span class="token attr-name">Transform</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>app.$(Configuration).config<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ItemGroup</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>AppConfigWithTargetPath</span> <span class="token attr-name">Remove</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>app.config<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>AppConfigWithTargetPath</span> <span class="token attr-name">Include</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>$(IntermediateOutputPath)$(TargetFileName).config<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>TargetPath</span><span class="token punctuation">></span></span>$(TargetFileName).config<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>TargetPath</span><span class="token punctuation">></span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>AppConfigWithTargetPath</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ItemGroup</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Target</span><span class="token punctuation">></span></span></code></pre>
 <p>So what does that even mean? Well, it instructs MSBuild to run a task named <code>TransformXml</code> that lives in <code>Microsoft.Web.Publishing.Tasks.dll</code> when compilation of the code completes. It then renames the <code>App.&lt;configuration&gt;.config</code> file to <code>App.config</code> and moves it to the correct folder.</p>
 <p>One word of caution though, if you run this build through a CI system like Jenkins, you need the <code>Microsoft.Web.Publishing.Tasks.dll</code> available on the machine that builds the code! If its not there, transformations will not be executed. The easiest fix is to install Visual Studio on the target build machine but you could also manually create the right folders and files by hand as long as you can match this path: <code>$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v14.0\Web\Microsoft.Web.Publishing.Tasks.dll</code>. Also note the <code>v14.0</code> in there, this points to an installation of Visual Studio 2015! Other versions of Visual Studio have the DLL in different a folder.</p>
 <p>If you put the transforms from the web.config we started with in the <code>App.config</code> and <code>App.Release.config</code> we can take it for a spin.</p>
 <p>Here is what I'm running in the console app: (Don't forget the reference to <code>System.Configuration</code>)</p>
-<pre><code class="language-csharp">using System;
-using System.Configuration;
+<pre class="language-csharp"><code class="language-csharp"><span class="token keyword">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Configuration</span><span class="token punctuation">;</span>
 
-namespace ConsoleApplication1
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.WriteLine(ConfigurationManager.AppSettings[&quot;Title&quot;]);
-            Console.ReadLine();
-        }
-    }
-}
-</code></pre>
+<span class="token keyword">namespace</span> <span class="token namespace">ConsoleApplication1</span>
+<span class="token punctuation">{</span>
+    <span class="token keyword">class</span> <span class="token class-name">Program</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">static</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> args<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>ConfigurationManager<span class="token punctuation">.</span>AppSettings<span class="token punctuation">[</span><span class="token string">"Title"</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            Console<span class="token punctuation">.</span><span class="token function">ReadLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <p>Running in the <code>Debug</code> configuration produces this output:</p>
 <p><img src="debug.png" alt="Debug"></p>
 <p>And <code>Release</code> produces this:</p>
 <p><img src="release.png" alt="Release"></p>
 <p>And with that, we have transforming <code>App.config</code> files! Take care when automating your builds, but otherwise, you are good to go!</p>
+
+
+<div class="tags">
+    
+        c#
+    
+        configuration transforms
+    
+        itq
+    
+</div>
 
       </div>
     </main>

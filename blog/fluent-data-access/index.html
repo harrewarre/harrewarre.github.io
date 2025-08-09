@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>harre.dev | Fluent data access</title>
     <link rel="stylesheet" href="/assets/style/theme.css">
+    <link rel="stylesheet" href="/assets/style/prism-okaidia.css">
   </head>
   <body>
     <header>
@@ -22,7 +23,10 @@
     </nav>
     <main>
       <div class="content-wrapper">
-        <h1>Fluent data access</h1>
+        
+<div>Wed May 06 2015 02:00:00 GMT+0200 (Central European Summer Time)</div>
+
+<h1>Fluent data access</h1>
 <p>Working in a team of developers, the following might happen:</p>
 <p>Developer 1 creates a piece of UI and adds a method to load data into said UI. The method he creates is called GetUserInfo(…)</p>
 <p>Here comes Developer 2 and he also creates a piece of UI that displays user info. Developer 2 however, needs to display more than just the user info, he also needs the requests made by the user. And then GetUserInfoWithRequests(…) is created next to the already existing GetUserInfo method.</p>
@@ -92,6 +96,15 @@ users.Include(&quot;TeamMembers&quot;);
 <p>var userInfo = new UserInfoRetriever(10).WithRequests().Fetch();</p>
 <p>var userInfo = new UserInfoRetriever(10).WithTeamMembers().Fetch();
 As you can see, we can load the data any way we like and our data-access code is still all in one place (in the Fetch() method). Adding new scenarios is very easy and it prevents (with a little discipline of course :-)) willy-nilly methods that all handle their own data-access.</p>
+
+
+<div class="tags">
+    
+        c#
+    
+        data access
+    
+</div>
 
       </div>
     </main>

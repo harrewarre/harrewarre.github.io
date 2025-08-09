@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>harre.dev | Dotnet Core CLI user secrets</title>
     <link rel="stylesheet" href="/assets/style/theme.css">
+    <link rel="stylesheet" href="/assets/style/prism-okaidia.css">
   </head>
   <body>
     <header>
@@ -22,42 +23,42 @@
     </nav>
     <main>
       <div class="content-wrapper">
-        <h1>Dotnet Core CLI user secrets</h1>
+        
+<div>Thu Apr 20 2017 02:00:00 GMT+0200 (Central European Summer Time)</div>
+
+<h1>Dotnet Core CLI user secrets</h1>
 <p>User secrets are what you use for settings in a .NET Core app that you don't want committed to your public repos (think API keys, passwords, anything sensitive). You map out your actual settings and they override them with the values from the secrets, which are stored outside of the tracked source folder.</p>
 <p>On windows the user secrets folder is located here: <code>%APPDATA%\microsoft\UserSecrets</code>. Let's have a look at how use them with the new tooling for .NET Core that came out recently.</p>
 <p>Create a little test project to play around, I've used a webapi project for these examples. Create the project in a folder of your choosing with the <code>dotnet new webapi</code> command.</p>
 <p><img src="setup.png" alt="Project setup"></p>
 <p>Restore the packages (<code>dotnet restore</code>) and open the project (<code>code .</code> I'm using Visual Studio Code).</p>
 <p>The command to set up user secrets is <code>dotnet user-secrets</code> but before we can use it, we need to tell <code>dotnet</code> that it is part of our project. To enable the user secrets tooling we need to make a change to the <code>.csproj</code> file. Open the project file and add the following code.</p>
-<pre><code class="language-xml">&lt;ItemGroup&gt;
-    &lt;DotNetCliToolReference Include=&quot;Microsoft.Extensions.SecretManager.Tools&quot; Version=&quot;1.0.0-msbuild3-final&quot; /&gt;
-&lt;/ItemGroup&gt;
-</code></pre>
+<pre class="language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ItemGroup</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>DotNetCliToolReference</span> <span class="token attr-name">Include</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Microsoft.Extensions.SecretManager.Tools<span class="token punctuation">"</span></span> <span class="token attr-name">Version</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>1.0.0-msbuild3-final<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ItemGroup</span><span class="token punctuation">></span></span></code></pre>
 <p>To enable the use of secrets in the configuration system add the following package reference:</p>
 <p><PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="1.1.1" /></p>
 <p><img src="code-1.png" alt="csproj change"></p>
 <p>Save the <code>.csproj</code> file and restore the packages. You need to run the <code>restore</code> command before you can start using the <code>user-secret</code> command! Otherwise the additional tooling isn't available to the <code>dotnet</code> command. To make sure we have it all set up, run the <code>dotnet user-secrets -h</code> to what it offers.</p>
 <p><img src="user-secrets-h.png" alt="user-secrets-h"></p>
 <p>We need one last component before we can start adding settings and secrets to our project. We need to give the project a unique id that identifies the user secrets file that belongs to this project. Go back to the <code>.csproj</code> file and add the following code to it:</p>
-<pre><code class="language-xml">&lt;PropertyGroup&gt;
-  &lt;UserSecretsId&gt;demo-project-secrets&lt;/UserSecretsId&gt;
-&lt;/PropertyGroup&gt;
-</code></pre>
+<pre class="language-xml"><code class="language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>PropertyGroup</span><span class="token punctuation">></span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>UserSecretsId</span><span class="token punctuation">></span></span>demo-project-secrets<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>UserSecretsId</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>PropertyGroup</span><span class="token punctuation">></span></span></code></pre>
 <p>You can choose any name you want but remember that it serves as an identifier for the project!</p>
 <p><img src="propgroup.png" alt="propgroup"></p>
 <p>Let's add a setting to the <code>appsettings.json</code> file and create a secret override for it using the <code>user-secrets</code> tooling.</p>
-<pre><code class="language-json">{
-  &quot;Logging&quot;: {
-    &quot;IncludeScopes&quot;: false,
-    &quot;LogLevel&quot;: {
-      &quot;Default&quot;: &quot;Warning&quot;
-    }
-  },
-  &quot;Settings&quot;: {
-    &quot;SomeApiKey&quot;: &quot;abcdef&quot;
-  }
-}
-</code></pre>
+<pre class="language-json"><code class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">"Logging"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"IncludeScopes"</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+    <span class="token property">"LogLevel"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">"Default"</span><span class="token operator">:</span> <span class="token string">"Warning"</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">"Settings"</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">"SomeApiKey"</span><span class="token operator">:</span> <span class="token string">"abcdef"</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <p>I chose an extra group <code>Settings</code> with a setting called <code>SomeApiKey</code> with the value <code>abcdef</code>. Grab the command line and add the a secret override for this setting to the user secrets file: <code>dotnet user-secrets set Settings:SomeApiKey secretapikey</code>. Note the <code>:</code> between Settings and SomeApiKey. The tooling does not support nested objects the way JSON describes them. Instead, the properties are flattened and then written to a JSON object without nesting. The .NET Core configuration system doesn't care about the literal notation of the settings and will read them correctly when it loads the configuration files. The only requirement is that any nesting is noted with the <code>:</code> separator (think folder paths in explorer, except it's now JSON :-)</p>
 <p>If we go and look in the secrets folder (<code>%APPDATA%\microsoft\UserSecrets\</code>) we will find a folder with our key as its name containing a <code>secrets.json</code> file.</p>
 <p><img src="json.png" alt="secrets.json"></p>
@@ -118,6 +119,15 @@ return _settings.SomeApiKey;
 <p><img src="response2.png" alt="Response 2"></p>
 <p>Knowing all this, you can now start using user secrets on a per-project basis and prevent leaking those keys, passwords and other sensitive things in a commit to your (possibly) public repo. We even covered a good part of the configuration system to boot. Just keep in mind that this system is only intended for the development cycle and nothing beyond that. Use environment variables where possible on the hosting environment, that way, you have no settings to struggle with and you can set empty values in the appSettings file.</p>
 <p>Keep those secrets secret!</p>
+
+
+<div class="tags">
+    
+        dotnet core
+    
+        itq
+    
+</div>
 
       </div>
     </main>

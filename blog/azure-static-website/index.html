@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>harre.dev | Setting up an Azure Storage static website</title>
     <link rel="stylesheet" href="/assets/style/theme.css">
+    <link rel="stylesheet" href="/assets/style/prism-okaidia.css">
   </head>
   <body>
     <header>
@@ -22,7 +23,10 @@
     </nav>
     <main>
       <div class="content-wrapper">
-        <h1>Setting up an Azure Storage static website</h1>
+        
+<div>Thu Jan 03 2019 01:00:00 GMT+0100 (Central European Standard Time)</div>
+
+<h1>Setting up an Azure Storage static website</h1>
 <p>Not very long ago, Microsoft made the <a href="https://azure.microsoft.com/en-us/blog/static-websites-on-azure-storage-now-generally-available/">static website feature generally available</a> on the Azure platform. What this means is that you can now publicly host content with Azure (blob) storage.</p>
 <!-- more -->
 <p>So in a few easy steps you can create a host for your angular/react/vue/(insert-client-side-web-thing-here)/static app. The <a href="https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-static-website-host">docs</a> are great but we'll have a look at what's what.</p>
@@ -85,6 +89,17 @@
 <p>After all the waiting is done should now be redirected to the HTTPS endpoint with a valid certificate!</p>
 <p>You can find all this in the docs of course, but this write up is a bit shorter and gathers all the pieces in one place.</p>
 <p>I really hope they add an option to redirect all non-HTTP traffic to HTTPS to regular CDN options. plain ol' HTTP just isn't good enough anymore so I feel this should have been in there already. Hiding the more advanced things behind a premium is fine, but a basic feature like force HTTPS should be there for everyone. Especially with the existence of the one-click-no-extra-charge certificates!</p>
+
+
+<div class="tags">
+    
+        azure
+    
+        static website
+    
+        itq
+    
+</div>
 
       </div>
     </main>

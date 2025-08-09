@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>harre.dev | Web.config domain rewriting</title>
     <link rel="stylesheet" href="/assets/style/theme.css">
+    <link rel="stylesheet" href="/assets/style/prism-okaidia.css">
   </head>
   <body>
     <header>
@@ -22,7 +23,10 @@
     </nav>
     <main>
       <div class="content-wrapper">
-        <h1>Web.config domain rewriting</h1>
+        
+<div>Fri Aug 09 2024 02:00:00 GMT+0200 (Central European Summer Time)</div>
+
+<h1>Web.config domain rewriting</h1>
 <p>Here's a quick and easy domain rewriting solution running on an Azure App service.</p>
 <p>Some assumptions before you can start though:</p>
 <ul>
@@ -33,26 +37,36 @@
 In the Kudu interface click on Debug Console -&gt; CMD. Next, browse to the <code>wwwroot</code> directory at <code>site/wwwroot</code>. From there you can create new files.</p>
 <p>Create a <code>web.config</code> file in the <code>wwwroot</code> folder.
 Set the contents of the <code>web.config</code> file to the following:</p>
-<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;configuration&gt;
-   &lt;system.webServer&gt;
-        &lt;rewrite&gt;
-          &lt;rules&gt;
-            &lt;rule name=&quot;redirect&quot; enabled=&quot;true&quot;&gt;
-              &lt;match url=&quot;(.*)&quot; /&gt;
-              &lt;action type=&quot;Redirect&quot; url=&quot;https://example.net/{R:1}&quot; appendQueryString=&quot;true&quot; redirectType=&quot;Permanent&quot; /&gt;
-            &lt;/rule&gt;
-          &lt;/rules&gt;
-        &lt;/rewrite&gt;
-   &lt;/system.webServer&gt;
-&lt;/configuration&gt;
-</code></pre>
+<pre class="language-xml"><code class="language-xml"><span class="token prolog">&lt;?xml version="1.0" encoding="UTF-8"?></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>configuration</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>system.webServer</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rewrite</span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rules</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>rule</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>redirect<span class="token punctuation">"</span></span> <span class="token attr-name">enabled</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+              <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>match</span> <span class="token attr-name">url</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>(.*)<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+              <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>action</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Redirect<span class="token punctuation">"</span></span> <span class="token attr-name">url</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://example.net/{R:1}<span class="token punctuation">"</span></span> <span class="token attr-name">appendQueryString</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>true<span class="token punctuation">"</span></span> <span class="token attr-name">redirectType</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>Permanent<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>rule</span><span class="token punctuation">></span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>rules</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>rewrite</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>system.webServer</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>configuration</span><span class="token punctuation">></span></span></code></pre>
 <p>It will match any url (using the regex <code>(.*)</code>) and set a permanent redirect to <code>https://example.net</code>. The <code>{R:1}</code> backreference will preserve any path that was sent with the original url.</p>
 <p>Word of caution though, every change to <code>web.config</code> results in the web server restarting.</p>
 <h2>Resources</h2>
 <ul>
 <li><a href="https://learn.microsoft.com/en-us/iis/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module">Creating Rewrite rules for the URL Rewrite Module</a></li>
 </ul>
+
+
+<div class="tags">
+    
+        hosting
+    
+        iis
+    
+        azure
+    
+</div>
 
       </div>
     </main>

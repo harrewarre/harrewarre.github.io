@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>harre.dev | Today I learned - kubectl replace</title>
     <link rel="stylesheet" href="/assets/style/theme.css">
+    <link rel="stylesheet" href="/assets/style/prism-okaidia.css">
   </head>
   <body>
     <header>
@@ -22,7 +23,10 @@
     </nav>
     <main>
       <div class="content-wrapper">
-        <h1>Today I learned - kubectl replace</h1>
+        
+<div>Mon Nov 21 2022 01:00:00 GMT+0100 (Central European Standard Time)</div>
+
+<h1>Today I learned - kubectl replace</h1>
 <p>Here's one for your toolbox, but use with care. Say you have an app running on kubernetes in a pod and you spot something you want to change. This is one way to get it done.</p>
 <p>For the example, I spun up an nginx server called <code>webapp</code>.</p>
 <p>The command to edit a resource running on kubernetes is <code>kubectl edit &lt;thing&gt; &lt;name&gt;</code>. So here goes:</p>
@@ -63,6 +67,17 @@ error: Edit cancelled, no valid changes were saved.</p>
 <p>pod &quot;webapp&quot; deleted
 pod/webapp replaced</p>
 <p>As you can see, it's quite destructive, but for local development and a bit of hacking around this is a nice quick and dirty way to recreate something with different parameters quickly.</p>
+
+
+<div class="tags">
+    
+        today-i-learned
+    
+        kubernetes
+    
+        kubectl
+    
+</div>
 
       </div>
     </main>

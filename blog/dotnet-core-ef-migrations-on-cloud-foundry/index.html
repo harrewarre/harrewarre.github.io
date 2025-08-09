@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>harre.dev | Dotnet Core Entity Framework Migrations on Cloud Foundry</title>
     <link rel="stylesheet" href="/assets/style/theme.css">
+    <link rel="stylesheet" href="/assets/style/prism-okaidia.css">
   </head>
   <body>
     <header>
@@ -22,94 +23,99 @@
     </nav>
     <main>
       <div class="content-wrapper">
-        <h1>Dotnet Core Entity Framework Migrations on Cloud Foundry</h1>
+        
+<div>Mon Jun 10 2024 02:00:00 GMT+0200 (Central European Summer Time)</div>
+
+<h1>Dotnet Core Entity Framework Migrations on Cloud Foundry</h1>
 <p>Run database migrations on Cloud Foundry using a task to ensure that migrations are only done once on deployment (and not during app start up!) for dotnet core applications. This post assumes you are deploying built applications and not raw source code.</p>
 <p>Instead of depending on dotnet tooling (<code>dotnet-ef</code>), leverage the built-in migration capability of the DataContext. Interrupt the startup procedure when a special argument is passed in, instead of starting the web application, run the migrations and then exit.
 So here we go, to start we need a DbContext:</p>
-<pre><code class="language-csharp">using Microsoft.EntityFrameworkCore;  
+<pre class="language-csharp"><code class="language-csharp"><span class="token keyword">using</span> <span class="token namespace">Microsoft<span class="token punctuation">.</span>EntityFrameworkCore</span><span class="token punctuation">;</span>  
   
-namespace MyApp.Secondary;  
+<span class="token keyword">namespace</span> <span class="token namespace">MyApp<span class="token punctuation">.</span>Secondary</span><span class="token punctuation">;</span>  
   
-public class MyDbContext : DbContext  
-{  
-    public MyDbContext(DbContextOptions&lt;MyDbContext&gt; options)  
-        : base(options)  
-    { }
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyDbContext</span> <span class="token punctuation">:</span> <span class="token type-list"><span class="token class-name">DbContext</span></span>  
+<span class="token punctuation">{</span>  
+    <span class="token keyword">public</span> <span class="token function">MyDbContext</span><span class="token punctuation">(</span><span class="token class-name">DbContextOptions<span class="token punctuation">&lt;</span>MyDbContext<span class="token punctuation">></span></span> options<span class="token punctuation">)</span>  
+        <span class="token punctuation">:</span> <span class="token keyword">base</span><span class="token punctuation">(</span>options<span class="token punctuation">)</span>  
+    <span class="token punctuation">{</span> <span class="token punctuation">}</span>
     
-    public DbSet&lt;User&gt; Users { get; set; }
-}
-</code></pre>
+    <span class="token keyword">public</span> <span class="token return-type class-name">DbSet<span class="token punctuation">&lt;</span>User<span class="token punctuation">></span></span> Users <span class="token punctuation">{</span> <span class="token keyword">get</span><span class="token punctuation">;</span> <span class="token keyword">set</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <p>In the solution that I was working on we had a factory that can create a DbContext when one is needed.</p>
-<pre><code class="language-csharp">using Microsoft.EntityFrameworkCore;  
+<pre class="language-csharp"><code class="language-csharp"><span class="token keyword">using</span> <span class="token namespace">Microsoft<span class="token punctuation">.</span>EntityFrameworkCore</span><span class="token punctuation">;</span>  
   
-namespace MyApp.Secondary;  
+<span class="token keyword">namespace</span> <span class="token namespace">MyApp<span class="token punctuation">.</span>Secondary</span><span class="token punctuation">;</span>  
   
-public interface IMyDbContextFactory
-{  
-    MyDbContextFactory Create();  
-}  
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">IMyDbContextFactory</span>
+<span class="token punctuation">{</span>  
+    <span class="token return-type class-name">MyDbContextFactory</span> <span class="token function">Create</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+<span class="token punctuation">}</span>  
   
-public class MyDbContextFactory(IConfiguration configuration) : IMyDbContextFactory  
-{  
-    public MyDbContextFactory Create()  
-    {
-	    var services = new VcapServices(configuration);  
-        var connectionString = services.GetPostGresConnectionString(&quot;my-database-service&quot;);  
-        var optionsBuilder = new DbContextOptionsBuilder&lt;MyDbContext&gt;();  
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">MyDbContextFactory</span><span class="token punctuation">(</span><span class="token class-name">IConfiguration</span> configuration<span class="token punctuation">)</span> <span class="token punctuation">:</span> IMyDbContextFactory  
+<span class="token punctuation">{</span>  
+    <span class="token keyword">public</span> <span class="token return-type class-name">MyDbContextFactory</span> <span class="token function">Create</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  
+    <span class="token punctuation">{</span>
+	    <span class="token class-name"><span class="token keyword">var</span></span> services <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">VcapServices</span><span class="token punctuation">(</span>configuration<span class="token punctuation">)</span><span class="token punctuation">;</span>  
+        <span class="token class-name"><span class="token keyword">var</span></span> connectionString <span class="token operator">=</span> services<span class="token punctuation">.</span><span class="token function">GetPostGresConnectionString</span><span class="token punctuation">(</span><span class="token string">"my-database-service"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+        <span class="token class-name"><span class="token keyword">var</span></span> optionsBuilder <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">DbContextOptionsBuilder<span class="token punctuation">&lt;</span>MyDbContext<span class="token punctuation">></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
         optionsBuilder            
-	        .UseNpgsql(connectionString)  
-            .UseSnakeCaseNamingConvention();  
+	        <span class="token punctuation">.</span><span class="token function">UseNpgsql</span><span class="token punctuation">(</span>connectionString<span class="token punctuation">)</span>  
+            <span class="token punctuation">.</span><span class="token function">UseSnakeCaseNamingConvention</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
   
-        return new MyDbContextFactory(optionsBuilder.Options);  
-    }}
-</code></pre>
+        <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">MyDbContextFactory</span><span class="token punctuation">(</span>optionsBuilder<span class="token punctuation">.</span>Options<span class="token punctuation">)</span><span class="token punctuation">;</span>  
+    <span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre>
 <p>Service registration that gives us access to the factory:</p>
-<pre><code class="language-csharp">builder.Services.AddSingleton&lt;IMyDbContextFactory, MyDbContextFactory&gt;();
-</code></pre>
+<pre class="language-csharp"><code class="language-csharp">builder<span class="token punctuation">.</span>Services<span class="token punctuation">.</span><span class="token generic-method"><span class="token function">AddSingleton</span><span class="token generic class-name"><span class="token punctuation">&lt;</span>IMyDbContextFactory<span class="token punctuation">,</span> MyDbContextFactory<span class="token punctuation">></span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>To get the migrations rolling we still use <code>dotnet ef</code> tooling locally.</p>
-<pre><code class="language-bash">dotnet ef migrations add MyMigration
-</code></pre>
+<pre class="language-bash"><code class="language-bash">dotnet ef migrations <span class="token function">add</span> MyMigration</code></pre>
 <p>With migrations enabled, which work fine locally using the <code>dotnet ef</code> tools, I found that this setup doesn't really work using the <code>dotnet_core_buildpack</code> on Cloud Foundry. After some searching and several attempts of using <code>dotnet ef</code> during the buildpack phases I gave up and went the custom route.</p>
 <p>The code (that lives in <code>Program.cs</code>) below will take the startup code down a different branch when the <code>--migrate</code> argument is passed to the application. Because all the services and configuration are registered we can request our factory from the initialized service collection and grab an instance of our <code>DbContext</code> instance. Using this context we can apply all pending migrations using the <code>context.Database.Migrate()</code> method.</p>
-<pre><code class="language-csharp">// Service and Configuration registration.
+<pre class="language-csharp"><code class="language-csharp"><span class="token comment">// Service and Configuration registration.</span>
 
-var app = builder.Build();
+<span class="token class-name"><span class="token keyword">var</span></span> app <span class="token operator">=</span> builder<span class="token punctuation">.</span><span class="token function">Build</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-if (args.FirstOrDefault(string.Empty) == &quot;--migrate&quot;)  
-{  
-    var contextFactory = app.Services.GetService&lt;IMyDbContextFactory&gt;();
-    if (contextFactory == null)  
-    {
-	    throw new Exception(&quot;ContextFactory could not be located!&quot;);    
-    }
+<span class="token keyword">if</span> <span class="token punctuation">(</span>args<span class="token punctuation">.</span><span class="token function">FirstOrDefault</span><span class="token punctuation">(</span><span class="token keyword">string</span><span class="token punctuation">.</span>Empty<span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token string">"--migrate"</span><span class="token punctuation">)</span>  
+<span class="token punctuation">{</span>  
+    <span class="token class-name"><span class="token keyword">var</span></span> contextFactory <span class="token operator">=</span> app<span class="token punctuation">.</span>Services<span class="token punctuation">.</span><span class="token generic-method"><span class="token function">GetService</span><span class="token generic class-name"><span class="token punctuation">&lt;</span>IMyDbContextFactory<span class="token punctuation">></span></span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>contextFactory <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>  
+    <span class="token punctuation">{</span>
+	    <span class="token keyword">throw</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">Exception</span><span class="token punctuation">(</span><span class="token string">"ContextFactory could not be located!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    
+    <span class="token punctuation">}</span>
     
-    Console.WriteLine(&quot;Applying database migrations...&quot;);  
-    var context = contextFactory.Create();  
-    context.Database.Migrate();  
-    Console.WriteLine(&quot;Migrations applied successfully!&quot;);
+    Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Applying database migrations..."</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+    <span class="token class-name"><span class="token keyword">var</span></span> context <span class="token operator">=</span> contextFactory<span class="token punctuation">.</span><span class="token function">Create</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+    context<span class="token punctuation">.</span>Database<span class="token punctuation">.</span><span class="token function">Migrate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  
+    Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span><span class="token string">"Migrations applied successfully!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     
-    return;  
-}
+    <span class="token keyword">return</span><span class="token punctuation">;</span>  
+<span class="token punctuation">}</span>
 
-// More bootstrapping
+<span class="token comment">// More bootstrapping</span>
 
-app.Run();
-</code></pre>
+app<span class="token punctuation">.</span><span class="token function">Run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 <p>During deployment on the platform we want to apply migrations when the app is deployed but not yet started. We can deploy our app with 0 instances and then run a task on the platform that applies the migrations by passing the <code>--migrate</code> argument.</p>
-<pre><code class="language-shell">cf push -i 0
-</code></pre>
+<pre class="language-shell"><code class="language-shell">cf push <span class="token parameter variable">-i</span> <span class="token number">0</span></code></pre>
 <p>After deployment but before startup (there are no instances running yet), run a Cloud Foundry task against the app. The app assembly is the result of a <code>dotnet publish</code> command that we run in our CI system, so this solution assumes you are deploying built applications, not source.</p>
 <p>If you should take the app completely offline is an interesting topic all on its own. Depending on your migrations and what you are trying to accomplish you might be able to get away without downtime but for the sake of safety, this example accepts a very brief period of downtime as the migrations are being applied to ensure that migrations are applied in a single task, and we don't risk multiple app instances all trying to apply the migrations at the same time as they are starting up.</p>
-<pre><code class="language-shell">cf run-task my-app --command &quot;\&quot;./my-app-assembly --migrate\&quot;&quot; --name migrate-database --wait
-</code></pre>
+<pre class="language-shell"><code class="language-shell">cf run-task my-app <span class="token parameter variable">--command</span> <span class="token string">"<span class="token entity" title="\&quot;">\"</span>./my-app-assembly --migrate<span class="token entity" title="\&quot;">\"</span>"</span> <span class="token parameter variable">--name</span> migrate-database <span class="token parameter variable">--wait</span></code></pre>
 <p>When the task completes successfully and our database is in its desired state we can scale the app to the desired count.</p>
-<pre><code class="language-shell">cf scale my-app -i 2
-</code></pre>
+<pre class="language-shell"><code class="language-shell">cf scale my-app <span class="token parameter variable">-i</span> <span class="token number">2</span></code></pre>
 <p>Local migrations can be applied using the same setup:</p>
-<pre><code class="language-shell">dotnet run --project my-app-project.csproj -- --migrate
-</code></pre>
+<pre class="language-shell"><code class="language-shell">dotnet run <span class="token parameter variable">--project</span> my-app-project.csproj -- <span class="token parameter variable">--migrate</span></code></pre>
 <p>The <code>dotnet_core_buildpack</code> does not seem (I was unable to find anything related to additional <code>dotnet</code> tools) to be able to use tools like <code>dotnet ef</code>. Using the solution outlined in this post you can work around not having the tools and instead let the application apply the migrations.</p>
 <p>You'll want to roll all this into some kind of CI/CD system because these manual steps are easy to mess up. See you in the next one!</p>
+
+
+<div class="tags">
+    
+        dotnet core
+    
+        entity framework
+    
+        cloud foundry
+    
+</div>
 
       </div>
     </main>

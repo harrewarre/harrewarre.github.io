@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>harre.dev | Basic string templating in C#</title>
     <link rel="stylesheet" href="/assets/style/theme.css">
+    <link rel="stylesheet" href="/assets/style/prism-okaidia.css">
   </head>
   <body>
     <header>
@@ -22,7 +23,10 @@
     </nav>
     <main>
       <div class="content-wrapper">
-        <h1>Basic string templating in C#</h1>
+        
+<div>Tue Jul 07 2015 02:00:00 GMT+0200 (Central European Summer Time)</div>
+
+<h1>Basic string templating in C#</h1>
 <p>Every solution I've worked on required some form of communication via e-mail or other form of text to the outside world, reporting, notifications or something else. There are a bunch of libraries out there that can make your life easy if you need complex templates. But this is not about complex, this is supporting the basics without including all sorts of unnecessary stuff.</p>
 <p>What do we need to make this happen? The first thing is a template. A template is nothing more than a piece of plain text (or HTML if you want) in which we want to replace parts to create a complete message. Lets use something very simple, a single line, one tag.</p>
 <p>Reminder: %reminderText%</p>
@@ -92,6 +96,17 @@ var messenger = new Messenger();</p>
 <p>messenger.Send(message);</p>
 <p>The <code>finalText</code> variable in the Messenger object now reads <code>Reminder: Buy bacon!</code>.</p>
 <p>With some simple constructs we now have a basic string templating system that ensures we supply all the required values to a given template. The message and template are linked together by their key and the constructor of the message enforces that every tag in the template gets a value. You now have a way of defining all sorts of messages such as e-mail, documents and reports based on templates. Do keep in mind that this is all very rudimentary and lacks things such as creating lists of values for a single tag. Anything more complex and you should look for libraries that handle the work for you.</p>
+
+
+<div class="tags">
+    
+        c#
+    
+        string templating
+    
+        itq
+    
+</div>
 
       </div>
     </main>

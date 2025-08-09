@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>harre.dev | Enable tethering on LineageOS using ADB</title>
     <link rel="stylesheet" href="/assets/style/theme.css">
+    <link rel="stylesheet" href="/assets/style/prism-okaidia.css">
   </head>
   <body>
     <header>
@@ -22,7 +23,10 @@
     </nav>
     <main>
       <div class="content-wrapper">
-        <h1>Enable tethering on LineageOS using ADB</h1>
+        
+<div>Mon May 01 2017 02:00:00 GMT+0200 (Central European Summer Time)</div>
+
+<h1>Enable tethering on LineageOS using ADB</h1>
 <h4>Update</h4>
 <p>After updating to a newer version, I couldn't get the below steps to work any more. Here is some extra stuff to get it to work again. It comes down to <code>build.prop</code> not accepting the changes you make because it's being loaded as read-only. Remounting the filesystem as read-write and then pushing the updated file will do the trick.</p>
 <p>Run the following through ADB <strong>with root enabled</strong> (flash the SuperSU zip found on the lineage OS website and enable root in the developer settings).</p>
@@ -50,6 +54,15 @@ Easy enough, but now to get that into the <code>build.prop</code> file without r
 <p>Lo and behold! It works again :-)</p>
 <p><img src="Screenshot_20170501-080155.png" alt="Yes tether"></p>
 <p>Just a few easy steps and we are back online.</p>
+
+
+<div class="tags">
+    
+        android
+    
+        lineageos
+    
+</div>
 
       </div>
     </main>

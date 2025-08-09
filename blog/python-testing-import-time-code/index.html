@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>harre.dev | Testing Python code that runs during import</title>
     <link rel="stylesheet" href="/assets/style/theme.css">
+    <link rel="stylesheet" href="/assets/style/prism-okaidia.css">
   </head>
   <body>
     <header>
@@ -22,74 +23,73 @@
     </nav>
     <main>
       <div class="content-wrapper">
-        <h1>Testing Python code that runs during import</h1>
+        
+<div>Mon Aug 19 2024 02:00:00 GMT+0200 (Central European Summer Time)</div>
+
+<h1>Testing Python code that runs during import</h1>
 <p>I've been pretty comfortable with Python after making the switch from dotnet core to Python for a new client.</p>
 <p>During this time I've gotten to know the way around the ecosystem and Python-isms, but sometimes I run into something that makes me go &quot;huh? oh...&quot;.
 This post describes one such moment.</p>
 <h2>Modules</h2>
 <p>So in Python modules can use each others functionality by importing them into one another using the <code>import</code> keyword and referencing the module you want to use e.g:</p>
-<pre><code class="language-python">import os
-</code></pre>
+<pre class="language-python"><code class="language-python"><span class="token keyword">import</span> os</code></pre>
 <p>Let's dive in, I was setting up a <a href="https://pypi.org/project/dependency-injector/">dependency container to leverage dependency injection</a> in Python to make the composition of the final app more flexible and keep all the classes in the modules testable through inversion of control.</p>
 <p>Here's the container (simplified for the sake of this post):</p>
-<pre><code class="language-python">import os
-from dependency_injector import containers, providers
+<pre class="language-python"><code class="language-python"><span class="token keyword">import</span> os
+<span class="token keyword">from</span> dependency_injector <span class="token keyword">import</span> containers<span class="token punctuation">,</span> providers
 
-from dep import Dependency
+<span class="token keyword">from</span> dep <span class="token keyword">import</span> Dependency
 
-class Container(containers.DeclarativeContainer):
-    config = providers.Configuration()
-    config.client_id.from_env(&quot;CLIENT_ID&quot;, required=True)  
-    config.working_directory.from_env(&quot;WORKING_DIRECTORY&quot;, default=os.getcwd())  
+<span class="token keyword">class</span> <span class="token class-name">Container</span><span class="token punctuation">(</span>containers<span class="token punctuation">.</span>DeclarativeContainer<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    config <span class="token operator">=</span> providers<span class="token punctuation">.</span>Configuration<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    config<span class="token punctuation">.</span>client_id<span class="token punctuation">.</span>from_env<span class="token punctuation">(</span><span class="token string">"CLIENT_ID"</span><span class="token punctuation">,</span> required<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>  
+    config<span class="token punctuation">.</span>working_directory<span class="token punctuation">.</span>from_env<span class="token punctuation">(</span><span class="token string">"WORKING_DIRECTORY"</span><span class="token punctuation">,</span> default<span class="token operator">=</span>os<span class="token punctuation">.</span>getcwd<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  
 
-    some_dependency = providers.Singleton(Dependency, config.working_directory, config.tenant_id)  
-</code></pre>
+    some_dependency <span class="token operator">=</span> providers<span class="token punctuation">.</span>Singleton<span class="token punctuation">(</span>Dependency<span class="token punctuation">,</span> config<span class="token punctuation">.</span>working_directory<span class="token punctuation">,</span> config<span class="token punctuation">.</span>tenant_id<span class="token punctuation">)</span>  </code></pre>
 <p>Instantiation of this container happens as soon as the app is started to get access to all the registered dependencies. It also holds some configuration that is read from the environment (see <a href="https://12factor.net/config">12-factor apps configuration</a>).</p>
 <p>I generally skip testing of this kind of code since it's all glue between the various dependencies but as I put in the <code>required=True</code> on the <code>client_id</code> I thought: I might want to capture this behavior somewhere so that I'll know when I mess with something the future.
 So, in come the tests, maybe not <em>test-first</em> this time, but I still wanted to put some guardrails around this type of initialization code.</p>
 <p>I wrote the tests one by one and all was fine, until I ran the tests one single session, only the first one passed! Wat?</p>
 <h2>The tests</h2>
 <p>Here's the final result with the &quot;Today I Learned&quot; moment explained:</p>
-<pre><code class="language-python">import os  
-import sys  
-import unittest  
-from unittest import mock  
+<pre class="language-python"><code class="language-python"><span class="token keyword">import</span> os  
+<span class="token keyword">import</span> sys  
+<span class="token keyword">import</span> unittest  
+<span class="token keyword">from</span> unittest <span class="token keyword">import</span> mock  
   
   
-class ContainerTest(unittest.TestCase):  
-    def setUp(self):  
-        # The container initialization happens at import time, so we need wipe any existing  
-        # imports for application.container. The container uses from_env during import
-        # which we work around by importing the container again for each test.
-        if &quot;application.container&quot; in sys.modules:  
-            del sys.modules[&quot;application.container&quot;]  
+<span class="token keyword">class</span> <span class="token class-name">ContainerTest</span><span class="token punctuation">(</span>unittest<span class="token punctuation">.</span>TestCase<span class="token punctuation">)</span><span class="token punctuation">:</span>  
+    <span class="token keyword">def</span> <span class="token function">setUp</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>  
+        <span class="token comment"># The container initialization happens at import time, so we need wipe any existing  </span>
+        <span class="token comment"># imports for application.container. The container uses from_env during import</span>
+        <span class="token comment"># which we work around by importing the container again for each test.</span>
+        <span class="token keyword">if</span> <span class="token string">"application.container"</span> <span class="token keyword">in</span> sys<span class="token punctuation">.</span>modules<span class="token punctuation">:</span>  
+            <span class="token keyword">del</span> sys<span class="token punctuation">.</span>modules<span class="token punctuation">[</span><span class="token string">"application.container"</span><span class="token punctuation">]</span>  
   
-    @mock.patch.dict(os.environ, {&quot;CLIENT_ID&quot;: &quot;test-client&quot;, &quot;WORKING_DIRECTORY&quot;: &quot;/some/root/path&quot;}, clear=True)  
-    def test_it_should_initialize_container(self):  
-        from application.container import Container  
-        container = Container()  
+    <span class="token decorator annotation punctuation">@mock<span class="token punctuation">.</span>patch<span class="token punctuation">.</span>dict</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>environ<span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token string">"CLIENT_ID"</span><span class="token punctuation">:</span> <span class="token string">"test-client"</span><span class="token punctuation">,</span> <span class="token string">"WORKING_DIRECTORY"</span><span class="token punctuation">:</span> <span class="token string">"/some/root/path"</span><span class="token punctuation">}</span><span class="token punctuation">,</span> clear<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>  
+    <span class="token keyword">def</span> <span class="token function">test_it_should_initialize_container</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>  
+        <span class="token keyword">from</span> application<span class="token punctuation">.</span>container <span class="token keyword">import</span> Container  
+        container <span class="token operator">=</span> Container<span class="token punctuation">(</span><span class="token punctuation">)</span>  
   
-        self.assertEqual(&quot;test-client&quot;, container.config.tenant_id())  
-        self.assertEqual(&quot;/some/root/path&quot;, container.config.working_directory())  
+        self<span class="token punctuation">.</span>assertEqual<span class="token punctuation">(</span><span class="token string">"test-client"</span><span class="token punctuation">,</span> container<span class="token punctuation">.</span>config<span class="token punctuation">.</span>tenant_id<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  
+        self<span class="token punctuation">.</span>assertEqual<span class="token punctuation">(</span><span class="token string">"/some/root/path"</span><span class="token punctuation">,</span> container<span class="token punctuation">.</span>config<span class="token punctuation">.</span>working_directory<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>  
   
-    @mock.patch.dict(os.environ, {&quot;WORKING_DIRECTORY&quot;: &quot;/some/root/path&quot;}, clear=True)  
-    def test_it_should_not_initialize_container_without_tenant_variable(self):  
-        with self.assertRaises(ValueError) as ve:  
-            from application.container import Container  
-            _ = Container()  
+    <span class="token decorator annotation punctuation">@mock<span class="token punctuation">.</span>patch<span class="token punctuation">.</span>dict</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>environ<span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token string">"WORKING_DIRECTORY"</span><span class="token punctuation">:</span> <span class="token string">"/some/root/path"</span><span class="token punctuation">}</span><span class="token punctuation">,</span> clear<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>  
+    <span class="token keyword">def</span> <span class="token function">test_it_should_not_initialize_container_without_tenant_variable</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>  
+        <span class="token keyword">with</span> self<span class="token punctuation">.</span>assertRaises<span class="token punctuation">(</span>ValueError<span class="token punctuation">)</span> <span class="token keyword">as</span> ve<span class="token punctuation">:</span>  
+            <span class="token keyword">from</span> application<span class="token punctuation">.</span>container <span class="token keyword">import</span> Container  
+            _ <span class="token operator">=</span> Container<span class="token punctuation">(</span><span class="token punctuation">)</span>  
   
-        exception = ve.exception  
-        self.assertEqual('Environment variable &quot;CLIENT_ID&quot; is undefined', str(exception))  
+        exception <span class="token operator">=</span> ve<span class="token punctuation">.</span>exception  
+        self<span class="token punctuation">.</span>assertEqual<span class="token punctuation">(</span><span class="token string">'Environment variable "CLIENT_ID" is undefined'</span><span class="token punctuation">,</span> <span class="token builtin">str</span><span class="token punctuation">(</span>exception<span class="token punctuation">)</span><span class="token punctuation">)</span>  
   
-    @mock.patch.dict(os.environ, {&quot;CLIENT_ID&quot;: &quot;test-client&quot;}, clear=True)  
-    def test_it_should_initialize_container_with_default_policy_sets_root_path(self):  
-        from application.container import Container  
-        container = Container()  
-        self.assertEqual(os.getcwd(), container.config.working_directory())
-</code></pre>
+    <span class="token decorator annotation punctuation">@mock<span class="token punctuation">.</span>patch<span class="token punctuation">.</span>dict</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>environ<span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token string">"CLIENT_ID"</span><span class="token punctuation">:</span> <span class="token string">"test-client"</span><span class="token punctuation">}</span><span class="token punctuation">,</span> clear<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span>  
+    <span class="token keyword">def</span> <span class="token function">test_it_should_initialize_container_with_default_policy_sets_root_path</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>  
+        <span class="token keyword">from</span> application<span class="token punctuation">.</span>container <span class="token keyword">import</span> Container  
+        container <span class="token operator">=</span> Container<span class="token punctuation">(</span><span class="token punctuation">)</span>  
+        self<span class="token punctuation">.</span>assertEqual<span class="token punctuation">(</span>os<span class="token punctuation">.</span>getcwd<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> container<span class="token punctuation">.</span>config<span class="token punctuation">.</span>working_directory<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
 <p>The clue is in the comments already, but here's the full details. When I started writing my tests I imported the container at the top of the file:</p>
-<pre><code class="language-python">from application.container import Container
-</code></pre>
+<pre class="language-python"><code class="language-python"><span class="token keyword">from</span> application<span class="token punctuation">.</span>container <span class="token keyword">import</span> Container</code></pre>
 <p>This made each individual test pass in isolation but not all together in a single run... What's the deal? I mistakenly assumed that those declarations inside the container's <code>class</code> would happen at the moment the container was constructed (<code>container = Container()</code>) but this is not the case.</p>
 <p>In my assumption I mixed up <strong>instance</strong> level attributes (those that operate at instance creation) and <strong>class</strong> attributes (these run when the container code is imported!). Which in the case of the container makes sense, we want those dependencies to be constant.</p>
 <p>This also explains why the tests kept failing when running in a single session. <strong>The import only took place once</strong>! As soon as the container code was imported, its state (those environment variables and other dependencies) was locked in and would not change from one test to the next. The other tests after it would fail due to the container's unexpected state.</p>
@@ -101,12 +101,22 @@ class ContainerTest(unittest.TestCase):
 </blockquote>
 <p>Not really something you would use in your every day Python code I think, but these are tests, so we are in a well known state for each of the test modules and we should be fine.</p>
 <p>To unload a module you can delete it from the list using the module's name:</p>
-<pre><code class="language-python">del sys.modules[&quot;application.container&quot;]
-</code></pre>
+<pre class="language-python"><code class="language-python"><span class="token keyword">del</span> sys<span class="token punctuation">.</span>modules<span class="token punctuation">[</span><span class="token string">"application.container"</span><span class="token punctuation">]</span></code></pre>
 <p>Since we are running more than one test, we need to unload the container module before each one. This can be achieved using Python <code>unittest</code>'s <code>setUp</code> helper method. This method runs before each test and deletes the <code>application.container</code> module if it's present.
 Each test preps its own conditions using mocks and can then decide at what point the container code should get imported, and we can successfully assert the behavior we expect from it.</p>
 <p>While <code>sys.modules</code> does come with a little disclaimer about unpredictable behavior, code that runs during import (instead of instantiation) can now be tested without running into unpredictable state issues in your own code.</p>
 <p>Happy coding!</p>
+
+
+<div class="tags">
+    
+        python
+    
+        testing
+    
+        tdd
+    
+</div>
 
       </div>
     </main>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>harre.dev | Read Spotify track info using C#</title>
     <link rel="stylesheet" href="/assets/style/theme.css">
+    <link rel="stylesheet" href="/assets/style/prism-okaidia.css">
   </head>
   <body>
     <header>
@@ -22,90 +23,99 @@
     </nav>
     <main>
       <div class="content-wrapper">
-        <h1>Read Spotify track info using C#</h1>
+        
+<div>Fri Oct 09 2015 02:00:00 GMT+0200 (Central European Summer Time)</div>
+
+<h1>Read Spotify track info using C#</h1>
 <p>Spotify recently updated the desktop app again and it is once again possible to read current track info directly from it. Here is how you to read it using a little C# code.</p>
 <p>A tiny little disclaimer, Spotify can break this code by updating their desktop app. It'll work now, but if they remove the track info from the title again, things won't work anymore.</p>
 <p>So the current track is hidden somewhere, let's find out where it is.</p>
-<pre><code class="language-csharp">class Program
-{
-	static void Main(string[] args)
-	{
-		var procs = Process.GetProcessesByName(&quot;Spotify&quot;);
+<pre class="language-csharp"><code class="language-csharp"><span class="token keyword">class</span> <span class="token class-name">Program</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">static</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> args<span class="token punctuation">)</span>
+	<span class="token punctuation">{</span>
+		<span class="token class-name"><span class="token keyword">var</span></span> procs <span class="token operator">=</span> Process<span class="token punctuation">.</span><span class="token function">GetProcessesByName</span><span class="token punctuation">(</span><span class="token string">"Spotify"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-		foreach (var p in procs)
-		{
-			Console.WriteLine(p.MainWindowTitle);
-		}
+		<span class="token keyword">foreach</span> <span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">var</span></span> p <span class="token keyword">in</span> procs<span class="token punctuation">)</span>
+		<span class="token punctuation">{</span>
+			Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span>MainWindowTitle<span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
 
-		Console.ReadLine();
-	}
-}
-</code></pre>
+		Console<span class="token punctuation">.</span><span class="token function">ReadLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <p>As you can see, the track title is in the window name of a Spotify process:</p>
 <p><img src="demo1.PNG" alt="Spotify track info in the process"></p>
 <p>While a bit limited (no track times or anything) it's at least something to work with. Older versions of Spotify showed the title as well until it got removed at some point but it has returned once again. Now that we know where it is we need to make it usable somehow.</p>
 <p>We want the track info to be up to date so we have to keep reading it over and over again. A timer will let us do exactly that.</p>
 <p>A timer lets us poll for the track info every x milliseconds by whatever way we want but we still need to read the track info in simple way. A scraper will do the trick, we find the Spotify process that has a title on its window and read it if we find something.</p>
-<pre><code class="language-csharp">using System;
-using System.Diagnostics;
-using System.Linq;
+<pre class="language-csharp"><code class="language-csharp"><span class="token keyword">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Diagnostics</span><span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Linq</span><span class="token punctuation">;</span>
 
-namespace Harrewarre.Spotify.Demo
-{
-	public class Scraper
-	{
-		public string GetSpotifyTrackInfo()
-		{
-			var proc = Process.GetProcessesByName(&quot;Spotify&quot;).FirstOrDefault(p =&gt; !string.IsNullOrWhiteSpace(p.MainWindowTitle));
+<span class="token keyword">namespace</span> <span class="token namespace">Harrewarre<span class="token punctuation">.</span>Spotify<span class="token punctuation">.</span>Demo</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Scraper</span>
+	<span class="token punctuation">{</span>
+		<span class="token keyword">public</span> <span class="token return-type class-name"><span class="token keyword">string</span></span> <span class="token function">GetSpotifyTrackInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+		<span class="token punctuation">{</span>
+			<span class="token class-name"><span class="token keyword">var</span></span> proc <span class="token operator">=</span> Process<span class="token punctuation">.</span><span class="token function">GetProcessesByName</span><span class="token punctuation">(</span><span class="token string">"Spotify"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">FirstOrDefault</span><span class="token punctuation">(</span>p <span class="token operator">=></span> <span class="token operator">!</span><span class="token keyword">string</span><span class="token punctuation">.</span><span class="token function">IsNullOrWhiteSpace</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span>MainWindowTitle<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-			if(proc == null)
-			{
-				return &quot;Spotify is not running!&quot;;
-			}
+			<span class="token keyword">if</span><span class="token punctuation">(</span>proc <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span>
+			<span class="token punctuation">{</span>
+				<span class="token keyword">return</span> <span class="token string">"Spotify is not running!"</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
 
-			if(string.Equals(proc.MainWindowTitle, &quot;Spotify&quot;, StringComparison.InvariantCultureIgnoreCase))
-			{
-				return &quot;No track is playing&quot;;
-			}
+			<span class="token keyword">if</span><span class="token punctuation">(</span><span class="token keyword">string</span><span class="token punctuation">.</span><span class="token function">Equals</span><span class="token punctuation">(</span>proc<span class="token punctuation">.</span>MainWindowTitle<span class="token punctuation">,</span> <span class="token string">"Spotify"</span><span class="token punctuation">,</span> StringComparison<span class="token punctuation">.</span>InvariantCultureIgnoreCase<span class="token punctuation">)</span><span class="token punctuation">)</span>
+			<span class="token punctuation">{</span>
+				<span class="token keyword">return</span> <span class="token string">"No track is playing"</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span>
 
-			return proc.MainWindowTitle;
-		}
-	}
-}
-</code></pre>
+			<span class="token keyword">return</span> proc<span class="token punctuation">.</span>MainWindowTitle<span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <p>We look for a process named <code>Spotify</code> that as some text set as its <code>MainWindowTitle</code>, if we find it, then Spotify is running. When it comes up <code>null</code>, Spotify is not running. If the title is set to <code>&quot;Spotify&quot;</code> there is no track playing. If we don't return before we reach the last <code>return</code> statement, we have found the currently playing track.</p>
 <p>Here is the final console app code for a quick demo:</p>
-<pre><code class="language-csharp">using System;
-using System.Timers;
+<pre class="language-csharp"><code class="language-csharp"><span class="token keyword">using</span> <span class="token namespace">System</span><span class="token punctuation">;</span>
+<span class="token keyword">using</span> <span class="token namespace">System<span class="token punctuation">.</span>Timers</span><span class="token punctuation">;</span>
 
-namespace Harrewarre.Spotify.Demo
-{
-	class Program
-	{
-		static void Main(string[] args)
-		{
-			var timer = new Timer(1000);
-			var scraper = new Scraper();
+<span class="token keyword">namespace</span> <span class="token namespace">Harrewarre<span class="token punctuation">.</span>Spotify<span class="token punctuation">.</span>Demo</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">class</span> <span class="token class-name">Program</span>
+	<span class="token punctuation">{</span>
+		<span class="token keyword">static</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">Main</span><span class="token punctuation">(</span><span class="token class-name"><span class="token keyword">string</span><span class="token punctuation">[</span><span class="token punctuation">]</span></span> args<span class="token punctuation">)</span>
+		<span class="token punctuation">{</span>
+			<span class="token class-name"><span class="token keyword">var</span></span> timer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">Timer</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token class-name"><span class="token keyword">var</span></span> scraper <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">Scraper</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-			timer.Elapsed += (sender, elapsedArgs) =&gt;
-			{
-				var title = scraper.GetSpotifyTrackInfo();
+			timer<span class="token punctuation">.</span>Elapsed <span class="token operator">+=</span> <span class="token punctuation">(</span>sender<span class="token punctuation">,</span> elapsedArgs<span class="token punctuation">)</span> <span class="token operator">=></span>
+			<span class="token punctuation">{</span>
+				<span class="token class-name"><span class="token keyword">var</span></span> title <span class="token operator">=</span> scraper<span class="token punctuation">.</span><span class="token function">GetSpotifyTrackInfo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-				Console.WriteLine(title);
-			};
+				Console<span class="token punctuation">.</span><span class="token function">WriteLine</span><span class="token punctuation">(</span>title<span class="token punctuation">)</span><span class="token punctuation">;</span>
+			<span class="token punctuation">}</span><span class="token punctuation">;</span>
 
-			timer.Start();
-			Console.ReadLine();
-		}
-	}
-}
-</code></pre>
+			timer<span class="token punctuation">.</span><span class="token function">Start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+			Console<span class="token punctuation">.</span><span class="token function">ReadLine</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+		<span class="token punctuation">}</span>
+	<span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre>
 <p>We create a new timer that is set to raise an event every 1000 milliseconds (or 1 second). An instance of our <code>Scraper</code> is created to read the track info for us. The <code>TimerElapsed</code> event we created for our timer is wired up so that the code can do something every second. When the timer elapses, we read the track info using the scraper and write it to the console.</p>
 <p>Finally we start the timer and leave the console open by waiting for the enter key using the <code>Console.ReadLine</code> method. Here is what you might see if you run the code, start Spotify and let it play a track:</p>
 <p><img src="demo2.PNG" alt="Result"></p>
 <p>This code lets you access the current track title and do whatever you want with it. Write it to a file, post it to some server somewhere or, like I do, display it on the front of your PC:</p>
 <p><img src="WP_20151019_22_48_06_Pro.jpg" alt="LCD"> <sub><em>Sorry about the blurry pic, the LCD's refresh rate and odd viewing angles makes it hard to capture</em></sub></p>
 <p>Have fun!</p>
+
+
+<div class="tags">
+    
+        c#
+    
+        spotify
+    
+</div>
 
       </div>
     </main>
