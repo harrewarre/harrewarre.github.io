@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>harre.dev | Setting my airconditioning system free</title>
+    <link rel="stylesheet" href="/assets/style/theme.css">
+    <link rel="stylesheet" href="/assets/style/prism-okaidia.css">
+  </head>
+  <body>
+    <header>
+        <div class="content-wrapper">
+            <h1><a href="/">harre.dev</a></h1>
+        </div>
+    </header>
+    <nav>
+        <div class="content-wrapper">
+          <a href="/">home</a>
+          <a href="/blog">blog</a>
+          <a href="/about">about</a>
+          <a href="/feed.xml">rss</a>
+        </div>
+    </nav>
+    <main>
+      <div class="content-wrapper">
+        
+<div>2025-09-05</div>
+
+<p><strong>TL;DR:</strong></p>
+<p><a href="https://smartlight.me/smart-home-devices/wifi-devices/wifi-dongle-air-conditioners-midea-idea-electrolux-for-home-assistant">SLWF01-Pro</a> works great with Midea Xtreme Save Pro airconditioning units.</p>
+<h1>Setting my airconditioning system free</h1>
+<p>Not that long ago on a hot sweaty day I pulled the trigger to have airconditioning installed in my house. After a short round of finding the right folks for the job and waiting a few weeks it was finally done. Work from home would now be comfy every day of the year.</p>
+<p>When selecting the units I asked about automation but the installers didn't really know beyond &quot;yes it has WiFi and there's an app&quot;, which meant that there was at least some way of doing things remotely. The units we ended up getting are made by Midea (the Xtreme Save Pro model), which to my knowledge is one of the biggest manufacturerers of these units in the world so the chances of something already existing out there were pretty high as well.</p>
+<p>After the installation everything work as expected and it was time to set up the WiFi and app. The setup procedure was straightforward with QR-codes but the app, while functional, was extremely laggy and of course it had a dependency on some cloud system of questionable reliability... It put up with it for a little while but deep down a voice kept saying that there must be a better way...</p>
+<h2>ESPHome</h2>
+<p>Some searching around in the Home Assistant forums led me to a product called <strong>SLWF01-Pro</strong>, which is a universal controller for airconditioning units. To my great surprise, most of these AC units use the same control language and some smart folks ended up making a USB-device that talks this language AND is compatible with ESPHome! I already had ESPHome up and running for some other stuff so this would be amazing if it worked.</p>
+<p>Small problem... There wasn't really any conclusive evidence of my specific units also being compatible. There was a good chance but a single post on a forum saying works is not a lot to go on. After some consideration and more reading on the crazy list of compatible units I bought some a few of these SLWF01-Pro devices.</p>
+<p>It works flawlessly! Setup was easy through WiFi, Each unit immidiately popped up in the ESPHome integration in Home Assistant and all the bells and whistles work. You can even disable the annoying <em>beep</em> the unit makes when you send a command.</p>
+<p>And the thing I was really after, I can automate the operation of these units using Home Assitant based any number of metrics such humidity, electricity price, temperature, time, whatever I can think of.</p>
+<h2>Free at last</h2>
+<p>No more cloud, works offline as long as my own network stays up. No more questionable app or wifi dongles that report who-knows-what to who-knows-where and one extra feature to boot.</p>
+
+
+<div class="tags">
+    
+        home automation
+    
+        esphome
+    
+</div>
+
+      </div>
+    </main>
+    <footer>
+      <div class="content-wrapper">
+        <p>© 2025 harre.dev</p>
+       </div>
+    </footer>
+  </body>
+</html>
