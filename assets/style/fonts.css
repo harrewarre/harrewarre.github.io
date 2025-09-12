@@ -1,0 +1,7 @@
+/* Load Bangers font */
+@font-face {
+	font-family: 'Bangers';
+	src: url('../fonts/Bangers-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}

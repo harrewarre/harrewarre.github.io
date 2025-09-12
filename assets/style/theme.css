@@ -16,6 +16,20 @@ a {
     color: midnightblue;
 }
 
+header h1 > a {
+    font-family: Bangers;
+    font-size: 3.5rem;
+    text-decoration: none;
+    display: inline-block;
+    transform: rotate(-4deg);
+    text-shadow:
+        -3px -3px 3px #000,
+        3px -3px 3px #000,
+        -3px  3px 3px #000,
+        3px  3px 3px #000;
+    color: orange;
+}
+
 .content-wrapper {
     max-width: 750px;
     margin: 0 auto;
