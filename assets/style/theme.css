@@ -17,7 +17,7 @@ a {
 }
 
 header h1 > a {
-    font-family: Bangers;
+    font-family: sans-serif;
     font-size: 3.5rem;
     text-decoration: none;
     display: inline-block;
