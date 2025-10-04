@@ -16,18 +16,20 @@ a {
     color: midnightblue;
 }
 
-header h1 > a {
+header h1 {
     font-family: sans-serif;
     font-size: 3.5rem;
     text-decoration: none;
     display: inline-block;
     transform: rotate(-4deg);
-    text-shadow:
-        -3px -3px 3px #000,
-        3px -3px 3px #000,
-        -3px  3px 3px #000,
-        3px  3px 3px #000;
-    color: orange;
+}
+
+a {
+    color: orangered;
+}
+
+header h1 a {
+    text-decoration: none;
 }
 
 .content-wrapper {

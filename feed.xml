@@ -7,6 +7,42 @@
     <description>Ramblings from a guy writing code and other stuff.</description>
     <language>en</language>
     <item>
+      <title>Infinite innovation</title>
+      <link>https://harre.dev/blog/infinite-innovation/</link>
+      <description>&lt;h1&gt;Infinite innovation&lt;/h1&gt;
+&lt;p&gt;Imagine you have an nice platform, onboarding experience is great, developer experience spot on. Teams are all self-sufficient and driving their own ideas and products and all is well in the world.&lt;/p&gt;
+&lt;p&gt;Then one day, a team comes up and says: &amp;quot;Where can I bring our apps that we want to have managed by someone else?&amp;quot;. The question that then comes is &amp;quot;What do you mean &#39;managed&#39;? &lt;a href=&quot;https://harre.dev/blog/you-build-it-you-run-it/&quot;&gt;You build it, you run it&lt;/a&gt;, right?&amp;quot;&lt;/p&gt;
+&lt;p&gt;A little digging then brings up that the team in question has built every idea they thought was valuable into an app and are now so busy keeping everything up and running that they are stuck on a maintenance treadmill for all the stuff they made!&lt;/p&gt;
+&lt;p&gt;A big hypothetical example but one I&#39;ve seen happen and for which the solution is... complicated.&lt;/p&gt;
+&lt;p&gt;Should &amp;quot;you build it, you run it&amp;quot; take a backseat and let teams offload their work so that they can build more stuff? Or... maybe the teams should not be able to keep building to the point they go beyond their ability to handle it all?&lt;/p&gt;
+&lt;p&gt;Option 1: Set up a facility/team that will serve as a harbor for the apps (that essentially are being left beind by their owners).&lt;/p&gt;
+&lt;p&gt;Option 2: The teams with these large portfolios should grow to meet their new demand.&lt;/p&gt;
+&lt;p&gt;Either option will probably work but is costly no matter how you spin it. I guess there&#39;s an option 3, which is downsizing the workload for the team by culling the amount of stuff. Bring down apps that provide little value. That will involve evaluating everything and then finding a way to make decisions. Assuming that the team worked in good faith, might be very hard because everything has a purpose and is used by a bunch of end-users that depend on the provided solution.&lt;/p&gt;
+&lt;p&gt;The point I&#39;m trying to put to words is this:&lt;/p&gt;
+&lt;p&gt;Can teams in an organization (assuming they are all self-organizing) expland the portfolio as the see fit? I think there should be some alignment and maybe even some gatekeeping.&lt;/p&gt;
+&lt;p&gt;Research must go in to any new idea to check if it is something to invest time and energy in. Does this thing we want to build already exist in some way? Can this thing we want be included in something that has similar features? Is this even needed?&lt;/p&gt;
+&lt;h2&gt;From experience...&lt;/h2&gt;
+&lt;p&gt;A road I&#39;ve traveled involved setting up a way of finding what is actually running on the platform, and who the owners are. Once my team and I had a clear picture, work started to see how healthy the whole thing was. Some basic checks against the portfolio were introduced:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;When was this last deployed? (where anything over 90 days ago got a fail)&lt;/li&gt;
+&lt;li&gt;Is this running on an up-to-date stack?&lt;/li&gt;
+&lt;li&gt;Is this using the latest build tooling?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Any of these can be either green or red.&lt;/p&gt;
+&lt;p&gt;First results we&#39;re at best &amp;quot;Oh-kay.&amp;quot;, many apps were not meeting the basic criteria we set which meant that they had not had any attention in quite some time.&lt;/p&gt;
+&lt;p&gt;The final step in the process is getting in touch with teams and notifying them on the state of their portfolio. To make life a bit easier, some tooling when along side this to automate some of the work like a dashboard where teams can check for themselves.&lt;/p&gt;
+&lt;p&gt;With this new wisdom, we asked teams to investigate and update their stuff to ensure they got green marks. Slowly but surely the board became more green and, even better, a lot of stuff was removed from the platform altogether!&lt;/p&gt;
+&lt;p&gt;It was not easy, and as with anything involving asking others to do something that might not align with their own goals, critisism was aplenty.&lt;/p&gt;
+&lt;h2&gt;Nothing for free&lt;/h2&gt;
+&lt;p&gt;An extension of the expidition we&#39;re on to run a tighter ship is everyone&#39;s favorite topic: cost calculation. On-prem, public cloud, hybrid, nothing is ever free. The public cloud makes this easy, pay up, or no compute. On-prem is more complicated but if you have a good view of the portfolio and you can link that to consumed resources, you can run that through a calculation to (roughly) find out what each app costs.&lt;/p&gt;
+&lt;h2&gt;Wrapping up&lt;/h2&gt;
+&lt;p&gt;A bit of a ramble this whole thing but I felt that I should write it down so here we are. Should teams be able to keep building without limits? Probably not, but there should be &lt;a href=&quot;https://harre.dev/blog/are-you-failing-enough/&quot;&gt;freedom to experiment and try new things&lt;/a&gt;. Don&#39;t lock things down to tight or the shadow IT monster will start invading your organization again.&lt;/p&gt;
+</description>
+      <pubDate>Sat, 04 Oct 2025 02:00:00 GMT</pubDate>
+      <dc:creator>Sander Harrewijnen</dc:creator>
+      <guid>https://harre.dev/blog/infinite-innovation/</guid>
+    </item>
+    <item>
       <title>Setting my airconditioning system free</title>
       <link>https://harre.dev/blog/setting-acs-free/</link>
       <description>&lt;p&gt;&lt;strong&gt;TL;DR:&lt;/strong&gt;&lt;/p&gt;
@@ -266,35 +302,6 @@ Bonus: also great for privacy.&lt;/p&gt;
       <pubDate>Mon, 14 Oct 2024 02:00:00 GMT</pubDate>
       <dc:creator>Sander Harrewijnen</dc:creator>
       <guid>https://harre.dev/blog/fairphone-5-app-switcher-fix/</guid>
-    </item>
-    <item>
-      <title>Are you failing enough?</title>
-      <link>https://harre.dev/blog/are-you-failing-enough/</link>
-      <description>&lt;h1&gt;Are you failing enough?&lt;/h1&gt;
-&lt;p&gt;The process of creating software, compared to other manufacturing processes, is a little bit special. One unique property of a software product is that it can be changed easily and (relatively) cheaply.&lt;/p&gt;
-&lt;p&gt;Over in the physical world, changing a product is not so easy. Supply chains, inventory, machinery, whole factories, who knows what&#39;s involved that is either difficult to change quickly and/or prohibitively expensive to change.&lt;/p&gt;
-&lt;p&gt;So what about this failing more often? Well if you have the ability to quickly change your software product, you can also run A LOT of experiments!&lt;/p&gt;
-&lt;p&gt;The ability to change whenever you want though, that&#39;s something that needs to created and maintained. Running an experiment without some safety nets is quite the risk if you can&#39;t undo the changes quickly. The best results from your experiments will come from real world use-cases with real users in the production environment. It goes without saying that accidentally messing up a live system that is used actively is something we all want to avoid.&lt;/p&gt;
-&lt;h2&gt;The 10-minute build (but preferably faster)&lt;/h2&gt;
-&lt;p&gt;I guess we can call this step one. Automate your entire build and deploy process and make it &lt;strong&gt;fast&lt;/strong&gt;, like really fast. If you deploy something broken, you can quickly pave over it with a new version if you have to. So this will give you some agility. That thing you changed and deployed not really working out? Undo it (or fix it) and re-deploy.&lt;/p&gt;
-&lt;p&gt;The 10-minute mark has another advantage. If you can build fast enough (or fail really quickly), you can avoid context switching. If building and deploying takes long, you (or your team members) might want to pick up some other task while the build is running (switching contexts to this new task!). Build broken? Here comes that context switch &lt;strong&gt;again&lt;/strong&gt; to get back to what you had built before that other task was picked up. Switching between tasks is very costly and getting back into the groove can take at least 15 minutes.&lt;/p&gt;
-&lt;p&gt;In short, &lt;a href=&quot;https://en.wikipedia.org/wiki/Human_multitasking&quot;&gt;context switching&lt;/a&gt; is pretty wasteful. Complete a task before picking up something else. Fast builds greatly help staying focused on the task at hand.&lt;/p&gt;
-&lt;h2&gt;Testing&lt;/h2&gt;
-&lt;p&gt;You are testing your code automatically in that pipeline right? Get that test coverage up and ensure that when you introduce changes, you&#39;re not accidentally breaking something somewhere in your app.&lt;/p&gt;
-&lt;p&gt;Speed also applies to your test suite. Make it fast! Lots and lots of small unit tests that run in seconds complemented by some end-to-end tests but keep it fast. Especially while writing code, if you have to wait for those unit tests to complete, something needs improving.&lt;/p&gt;
-&lt;p&gt;Something broken? We want to know ASAP. Preferably before we commit anything, break the build and hold up someone else that also wants to deploy stuff.&lt;/p&gt;
-&lt;h2&gt;Start failing!&lt;/h2&gt;
-&lt;p&gt;Now that you have indicators for the condition of your product (using tests) and the speed to quickly deploy changes without breakage (&amp;quot;Go fast and break stuff&amp;quot; is terrible advice anyway...), you are able to change your product at any time, safely and consistently.&lt;/p&gt;
-&lt;p&gt;Try out some of the more &amp;quot;out there&amp;quot; ideas that you&#39;ve collected from users or within the team. Break them down into small little experiments and test them out in the real world.&lt;/p&gt;
-&lt;p&gt;Don&#39;t want to burden your whole user base with new stuff all the time? There&#39;s A/B testing. Or even better, introduce a Beta program in your application that users can opt in to. Users that do will be able to see and use whatever you can cook up! Hide all the experimental stuff behind that Beta flag and let the curious crowd give you early feedback.&lt;/p&gt;
-&lt;p&gt;Things not working out? Instead of calling it a failure, call it a job well done, you&#39;ve learned something new about how your application was used and the desires of your users.&lt;/p&gt;
-&lt;p&gt;And best of all, you can roll back whatever you&#39;ve attempted and all is well again. Just keep an eye on those users. If you move things around all the time they&#39;re going to get fed up and either leave if they can, or complain endlessly about it.&lt;/p&gt;
-&lt;p&gt;Software architecture also plays a part in this whole story, if you&#39;ve somehow ended up with a &lt;a href=&quot;https://en.wikipedia.org/wiki/Anti-pattern#Software_engineering_anti-patterns&quot;&gt;big ball of mud&lt;/a&gt;, you might want to look into refactoring with the aid of some test-driven-development to create something more adaptable.&lt;/p&gt;
-&lt;p&gt;To conclude all this, a software product, given the right conditions, lets you experiment to your hearts content. Start putting that ability to good use by releasing small changes more often and faster. If you happen to stray away from your users needs and desires, you can always go back.&lt;/p&gt;
-</description>
-      <pubDate>Wed, 02 Oct 2024 02:00:00 GMT</pubDate>
-      <dc:creator>Sander Harrewijnen</dc:creator>
-      <guid>https://harre.dev/blog/are-you-failing-enough/</guid>
     </item>
   </channel>
 </rss>
