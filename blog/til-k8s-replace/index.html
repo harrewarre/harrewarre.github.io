@@ -8,27 +8,22 @@
     <link rel="stylesheet" href="/assets/style/prism-okaidia.css">
   </head>
   <body>
+    <main>
     <header>
-        <div class="content-wrapper">
-            <h1>
-              <a href="/">harre.dev</a>
-            </h1>
-        </div>
+      <h1>
+        <a href="/">harre.dev</a>
+      </h1>
     </header>
     <nav>
-        <div class="content-wrapper">
-          <a href="/">home</a>
-          <a href="/blog">blog</a>
-          <a href="/about">about</a>
-          <a href="/feed.xml">rss</a>
-        </div>
+      <a href="/">home</a>
+      <a href="/blog">blog</a>
+      <a href="/about">about</a>
+      <a href="/feed.xml">rss</a>
     </nav>
-    <main>
-      <div class="content-wrapper">
-        
-<div>2022-11-21</div>
-
-<h1>Today I learned - kubectl replace</h1>
+      
+<article>
+    <div>2022-11-21 </div>
+    <h1>Today I learned - kubectl replace</h1>
 <p>Here's one for your toolbox, but use with care. Say you have an app running on kubernetes in a pod and you spot something you want to change. This is one way to get it done.</p>
 <p>For the example, I spun up an nginx server called <code>webapp</code>.</p>
 <p>The command to edit a resource running on kubernetes is <code>kubectl edit &lt;thing&gt; &lt;name&gt;</code>. So here goes:</p>
@@ -70,23 +65,20 @@ error: Edit cancelled, no valid changes were saved.</p>
 pod/webapp replaced</p>
 <p>As you can see, it's quite destructive, but for local development and a bit of hacking around this is a nice quick and dirty way to recreate something with different parameters quickly.</p>
 
+    <div class="tags">
+        
+            today-i-learned
+        
+            kubernetes
+        
+            kubectl
+        
+    </div>
+</article>
 
-<div class="tags">
-    
-        today-i-learned
-    
-        kubernetes
-    
-        kubectl
-    
-</div>
-
-      </div>
-    </main>
     <footer>
-      <div class="content-wrapper">
-        <p>© 2025 harre.dev</p>
-       </div>
+      <p>© 2025 harre.dev</p>
     </footer>
+    </main>
   </body>
 </html>

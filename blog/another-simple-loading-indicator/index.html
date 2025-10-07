@@ -8,27 +8,22 @@
     <link rel="stylesheet" href="/assets/style/prism-okaidia.css">
   </head>
   <body>
+    <main>
     <header>
-        <div class="content-wrapper">
-            <h1>
-              <a href="/">harre.dev</a>
-            </h1>
-        </div>
+      <h1>
+        <a href="/">harre.dev</a>
+      </h1>
     </header>
     <nav>
-        <div class="content-wrapper">
-          <a href="/">home</a>
-          <a href="/blog">blog</a>
-          <a href="/about">about</a>
-          <a href="/feed.xml">rss</a>
-        </div>
+      <a href="/">home</a>
+      <a href="/blog">blog</a>
+      <a href="/about">about</a>
+      <a href="/feed.xml">rss</a>
     </nav>
-    <main>
-      <div class="content-wrapper">
-        
-<div>2016-01-14</div>
-
-<h1>Another simple loading indicator</h1>
+      
+<article>
+    <div>2016-01-14 </div>
+    <h1>Another simple loading indicator</h1>
 <p>Here is another loading indicator for when your webpage is busy waiting for a server request to come back with an answer. It's a bar at the very top of the page this time.</p>
 <p>Let's look at a demo before we dive in:</p>
 <p data-height="268" data-theme-id="14183" data-slug-hash="vLJVbo" data-default-tab="result" data-user="Harrewarre" class='codepen'>See the Pen <a href='http://codepen.io/Harrewarre/pen/vLJVbo/'>Another simple loading indicator</a> by Sander Harrewijnen (<a href='http://codepen.io/Harrewarre'>@Harrewarre</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
@@ -41,21 +36,18 @@
 <p>To make the background move, or in this case, create the illusion of a spinning candy cane type thing, we use an <code>animation</code>. To describe the animation we use <code>@keyframes</code> with the name <code>rollaround</code> since that's what we used in the styles for the indicator itself. The <code>to</code> and <code>from</code> states move the background from top to bottom (0 to 100%) by adjusting the <code>background-position</code>. This is what creates the rotation illusion. To control the speed we can set the time 1 cycle of the animation takes, in this case 15 seconds for one whole cycle. Because we start the animation immediately we don't use any easing functions and just set the animation to run at a <code>linear</code> page. We also never want to stop animating so the duration is set to <code>infinite</code>.</p>
 <p>To make use of the indicator you can set the <code>active</code> and <code>hidden</code> classes in functions/callbacks that you know might take a little longer. By showing the indicator, your users will get a visual hint that something is happening and they need to wait just a bit longer.</p>
 
+    <div class="tags">
+        
+            html
+        
+            css
+        
+    </div>
+</article>
 
-<div class="tags">
-    
-        html
-    
-        css
-    
-</div>
-
-      </div>
-    </main>
     <footer>
-      <div class="content-wrapper">
-        <p>© 2025 harre.dev</p>
-       </div>
+      <p>© 2025 harre.dev</p>
     </footer>
+    </main>
   </body>
 </html>

@@ -8,27 +8,22 @@
     <link rel="stylesheet" href="/assets/style/prism-okaidia.css">
   </head>
   <body>
+    <main>
     <header>
-        <div class="content-wrapper">
-            <h1>
-              <a href="/">harre.dev</a>
-            </h1>
-        </div>
+      <h1>
+        <a href="/">harre.dev</a>
+      </h1>
     </header>
     <nav>
-        <div class="content-wrapper">
-          <a href="/">home</a>
-          <a href="/blog">blog</a>
-          <a href="/about">about</a>
-          <a href="/feed.xml">rss</a>
-        </div>
+      <a href="/">home</a>
+      <a href="/blog">blog</a>
+      <a href="/about">about</a>
+      <a href="/feed.xml">rss</a>
     </nav>
-    <main>
-      <div class="content-wrapper">
-        
-<div>2017-04-20</div>
-
-<h1>Dotnet Core CLI user secrets</h1>
+      
+<article>
+    <div>2017-04-20 </div>
+    <h1>Dotnet Core CLI user secrets</h1>
 <p>User secrets are what you use for settings in a .NET Core app that you don't want committed to your public repos (think API keys, passwords, anything sensitive). You map out your actual settings and they override them with the values from the secrets, which are stored outside of the tracked source folder.</p>
 <p>On windows the user secrets folder is located here: <code>%APPDATA%\microsoft\UserSecrets</code>. Let's have a look at how use them with the new tooling for .NET Core that came out recently.</p>
 <p>Create a little test project to play around, I've used a webapi project for these examples. Create the project in a folder of your choosing with the <code>dotnet new webapi</code> command.</p>
@@ -122,21 +117,18 @@ return _settings.SomeApiKey;
 <p>Knowing all this, you can now start using user secrets on a per-project basis and prevent leaking those keys, passwords and other sensitive things in a commit to your (possibly) public repo. We even covered a good part of the configuration system to boot. Just keep in mind that this system is only intended for the development cycle and nothing beyond that. Use environment variables where possible on the hosting environment, that way, you have no settings to struggle with and you can set empty values in the appSettings file.</p>
 <p>Keep those secrets secret!</p>
 
+    <div class="tags">
+        
+            dotnet core
+        
+            itq
+        
+    </div>
+</article>
 
-<div class="tags">
-    
-        dotnet core
-    
-        itq
-    
-</div>
-
-      </div>
-    </main>
     <footer>
-      <div class="content-wrapper">
-        <p>© 2025 harre.dev</p>
-       </div>
+      <p>© 2025 harre.dev</p>
     </footer>
+    </main>
   </body>
 </html>

@@ -8,27 +8,22 @@
     <link rel="stylesheet" href="/assets/style/prism-okaidia.css">
   </head>
   <body>
+    <main>
     <header>
-        <div class="content-wrapper">
-            <h1>
-              <a href="/">harre.dev</a>
-            </h1>
-        </div>
+      <h1>
+        <a href="/">harre.dev</a>
+      </h1>
     </header>
     <nav>
-        <div class="content-wrapper">
-          <a href="/">home</a>
-          <a href="/blog">blog</a>
-          <a href="/about">about</a>
-          <a href="/feed.xml">rss</a>
-        </div>
+      <a href="/">home</a>
+      <a href="/blog">blog</a>
+      <a href="/about">about</a>
+      <a href="/feed.xml">rss</a>
     </nav>
-    <main>
-      <div class="content-wrapper">
-        
-<div>2018-03-31</div>
-
-<h1>Multiple listeners for your Service Fabric service</h1>
+      
+<article>
+    <div>2018-03-31 </div>
+    <h1>Multiple listeners for your Service Fabric service</h1>
 <p>Service Fabric is a great piece of technology on the Azure platform and I've been using it quite a lot in recent projects. It takes away a lot of the setup and orchestration when dealing with microservices.</p>
 <p>There comes a point where services need to talk to each other and this is easily achieved using the Remoting bits you can get from NuGet. The general way of doing this is creating an <code>Interfaces</code> project next to the service that
 contains the service interface and classes used in transport. The interface is implemented on the service entrypoint and a listener is exposed to the Fabric runtime so that it can communicate with the rest of the platform. We're
@@ -119,27 +114,24 @@ throw;
 <p>The demo code be executed on your local cluster and is accessible through and HTTP API in the <code>.Api</code> project using something like Postman or curl (or any other HTTP client).</p>
 <p>You can find <a href="https://github.com/harrewarre/sf-listeners">the source for this demo on Github</a>.</p>
 
+    <div class="tags">
+        
+            azure
+        
+            service fabric
+        
+            c#
+        
+            microservices
+        
+            itq
+        
+    </div>
+</article>
 
-<div class="tags">
-    
-        azure
-    
-        service fabric
-    
-        c#
-    
-        microservices
-    
-        itq
-    
-</div>
-
-      </div>
-    </main>
     <footer>
-      <div class="content-wrapper">
-        <p>© 2025 harre.dev</p>
-       </div>
+      <p>© 2025 harre.dev</p>
     </footer>
+    </main>
   </body>
 </html>

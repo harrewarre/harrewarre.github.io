@@ -8,27 +8,22 @@
     <link rel="stylesheet" href="/assets/style/prism-okaidia.css">
   </head>
   <body>
+    <main>
     <header>
-        <div class="content-wrapper">
-            <h1>
-              <a href="/">harre.dev</a>
-            </h1>
-        </div>
+      <h1>
+        <a href="/">harre.dev</a>
+      </h1>
     </header>
     <nav>
-        <div class="content-wrapper">
-          <a href="/">home</a>
-          <a href="/blog">blog</a>
-          <a href="/about">about</a>
-          <a href="/feed.xml">rss</a>
-        </div>
+      <a href="/">home</a>
+      <a href="/blog">blog</a>
+      <a href="/about">about</a>
+      <a href="/feed.xml">rss</a>
     </nav>
-    <main>
-      <div class="content-wrapper">
-        
-<div>2023-08-06</div>
-
-<h1>HVC Trash pickup dates in Home Assistant</h1>
+      
+<article>
+    <div>2023-08-06 </div>
+    <h1>HVC Trash pickup dates in Home Assistant</h1>
 <p>Maybe something you can use, maybe not, but if you are in an intersection of people who use Home Assistant and live in the Netherlands and in a region where HVC operates, this might be useful.</p>
 <p>The integrations below will let you display a day counter until the next trash pickup takes place. This sensor data can also be used in other automations such as notifications or reminders.</p>
 <p>The payload we want to load into Home Assistant looks like this:</p>
@@ -87,21 +82,18 @@ To get day counters we can create some template sensors that work with the dates
 <p>These custom sensors can go in any YAML file where you've defined <code>- platform: template</code> sensors. We take the timestamp of the pickup date and subtract the current timestamp. This gives us the number of seconds until the pickup date. We divide this by the number of seconds in a day (86400) and round up to the nearest integer. This gives us the number of days until the pickup date 😊</p>
 <p>From here you can update your UI and include these in your dashboards and automations. Enjoy!</p>
 
+    <div class="tags">
+        
+            home assistant
+        
+            yaml
+        
+    </div>
+</article>
 
-<div class="tags">
-    
-        home assistant
-    
-        yaml
-    
-</div>
-
-      </div>
-    </main>
     <footer>
-      <div class="content-wrapper">
-        <p>© 2025 harre.dev</p>
-       </div>
+      <p>© 2025 harre.dev</p>
     </footer>
+    </main>
   </body>
 </html>

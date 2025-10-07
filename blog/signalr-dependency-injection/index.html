@@ -8,27 +8,22 @@
     <link rel="stylesheet" href="/assets/style/prism-okaidia.css">
   </head>
   <body>
+    <main>
     <header>
-        <div class="content-wrapper">
-            <h1>
-              <a href="/">harre.dev</a>
-            </h1>
-        </div>
+      <h1>
+        <a href="/">harre.dev</a>
+      </h1>
     </header>
     <nav>
-        <div class="content-wrapper">
-          <a href="/">home</a>
-          <a href="/blog">blog</a>
-          <a href="/about">about</a>
-          <a href="/feed.xml">rss</a>
-        </div>
+      <a href="/">home</a>
+      <a href="/blog">blog</a>
+      <a href="/about">about</a>
+      <a href="/feed.xml">rss</a>
     </nav>
-    <main>
-      <div class="content-wrapper">
-        
-<div>2015-04-26</div>
-
-<h1>SignalR dependency injection</h1>
+      
+<article>
+    <div>2015-04-26 </div>
+    <h1>SignalR dependency injection</h1>
 <p>My go-to container for IoC at the moment is <a href="https://simpleinjector.codeplex.com/">SimpleInjector</a> because you know.. it's simple. I've used it in a couple of projects and used in a hobby project recently again.</p>
 <p>This hobby project uses <a href="http://www.asp.net/signalr">SignalR</a> for real-time communication between browser and server and after setting that up I wanted to inject dependencies in to the SignalR hubs. It is pretty easy but there was a minor catch. Let's look at some code.</p>
 <p>The first thing that is required is a dependency resolver that works with SignalR, lucky for us, it provides a built-in default one which we can implement:</p>
@@ -60,25 +55,22 @@ Resolver = new SignalrSimpleInjectorDependencyResolver(container)
 <p>RouteTable.Routes.MapHubs(hubConfiguration);</p>
 <p>You can now create interfaces for your hubs and register them in the SimpleInjector container which in turn will inject the dependencies into the hub constructors.</p>
 
+    <div class="tags">
+        
+            c#
+        
+            dependency injection
+        
+            signalr
+        
+            itq
+        
+    </div>
+</article>
 
-<div class="tags">
-    
-        c#
-    
-        dependency injection
-    
-        signalr
-    
-        itq
-    
-</div>
-
-      </div>
-    </main>
     <footer>
-      <div class="content-wrapper">
-        <p>© 2025 harre.dev</p>
-       </div>
+      <p>© 2025 harre.dev</p>
     </footer>
+    </main>
   </body>
 </html>

@@ -8,27 +8,22 @@
     <link rel="stylesheet" href="/assets/style/prism-okaidia.css">
   </head>
   <body>
+    <main>
     <header>
-        <div class="content-wrapper">
-            <h1>
-              <a href="/">harre.dev</a>
-            </h1>
-        </div>
+      <h1>
+        <a href="/">harre.dev</a>
+      </h1>
     </header>
     <nav>
-        <div class="content-wrapper">
-          <a href="/">home</a>
-          <a href="/blog">blog</a>
-          <a href="/about">about</a>
-          <a href="/feed.xml">rss</a>
-        </div>
+      <a href="/">home</a>
+      <a href="/blog">blog</a>
+      <a href="/about">about</a>
+      <a href="/feed.xml">rss</a>
     </nav>
-    <main>
-      <div class="content-wrapper">
-        
-<div>2015-05-06</div>
-
-<h1>Fluent data access</h1>
+      
+<article>
+    <div>2015-05-06 </div>
+    <h1>Fluent data access</h1>
 <p>Working in a team of developers, the following might happen:</p>
 <p>Developer 1 creates a piece of UI and adds a method to load data into said UI. The method he creates is called GetUserInfo(…)</p>
 <p>Here comes Developer 2 and he also creates a piece of UI that displays user info. Developer 2 however, needs to display more than just the user info, he also needs the requests made by the user. And then GetUserInfoWithRequests(…) is created next to the already existing GetUserInfo method.</p>
@@ -99,21 +94,18 @@ users.Include(&quot;TeamMembers&quot;);
 <p>var userInfo = new UserInfoRetriever(10).WithTeamMembers().Fetch();
 As you can see, we can load the data any way we like and our data-access code is still all in one place (in the Fetch() method). Adding new scenarios is very easy and it prevents (with a little discipline of course :-)) willy-nilly methods that all handle their own data-access.</p>
 
+    <div class="tags">
+        
+            c#
+        
+            data access
+        
+    </div>
+</article>
 
-<div class="tags">
-    
-        c#
-    
-        data access
-    
-</div>
-
-      </div>
-    </main>
     <footer>
-      <div class="content-wrapper">
-        <p>© 2025 harre.dev</p>
-       </div>
+      <p>© 2025 harre.dev</p>
     </footer>
+    </main>
   </body>
 </html>

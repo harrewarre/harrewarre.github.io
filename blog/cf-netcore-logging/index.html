@@ -8,27 +8,22 @@
     <link rel="stylesheet" href="/assets/style/prism-okaidia.css">
   </head>
   <body>
+    <main>
     <header>
-        <div class="content-wrapper">
-            <h1>
-              <a href="/">harre.dev</a>
-            </h1>
-        </div>
+      <h1>
+        <a href="/">harre.dev</a>
+      </h1>
     </header>
     <nav>
-        <div class="content-wrapper">
-          <a href="/">home</a>
-          <a href="/blog">blog</a>
-          <a href="/about">about</a>
-          <a href="/feed.xml">rss</a>
-        </div>
+      <a href="/">home</a>
+      <a href="/blog">blog</a>
+      <a href="/about">about</a>
+      <a href="/feed.xml">rss</a>
     </nav>
-    <main>
-      <div class="content-wrapper">
-        
-<div>2019-01-10</div>
-
-<h1>ASP.NET Core logging on Cloud Foundry</h1>
+      
+<article>
+    <div>2019-01-10 </div>
+    <h1>ASP.NET Core logging on Cloud Foundry</h1>
 <p>All apps I've ever worked on have some sort of logging going on for various reasons, mostly to keep track of whats going on or debugging, but it's all the same. Logs are needed to see what your code is up to.</p>
 <p>Cloud Foundry <a href="https://docs.cloudfoundry.org/devguide/deploy-apps/streaming-logs.html#writing">is very explicit</a> about <em>how</em> an app should write its logs. As you can see in the documentation, apps must write to <code>stdout</code> or <code>stderr</code>.</p>
 <p>For C# that means we can use the static methods on the <code>Console</code> to write our logs. Couldn't be easier. But... now our code is littered with these <code>Console.Write...</code> lines all over the place!</p>
@@ -109,27 +104,24 @@ crit: app.Controllers.ValuesController[0]
 2019-01-10T11:43:19.35+0100 [APP/PROC/WEB/0] OUT       --- critical</p>
 <p>So now you are all set up with proper logging in ASP.NET Core (2.2) that complies with the requirements set by the Cloud Foundry platform.</p>
 
+    <div class="tags">
+        
+            cloud foundry
+        
+            asp.net core
+        
+            dotnet core
+        
+            logging
+        
+            itq
+        
+    </div>
+</article>
 
-<div class="tags">
-    
-        cloud foundry
-    
-        asp.net core
-    
-        dotnet core
-    
-        logging
-    
-        itq
-    
-</div>
-
-      </div>
-    </main>
     <footer>
-      <div class="content-wrapper">
-        <p>© 2025 harre.dev</p>
-       </div>
+      <p>© 2025 harre.dev</p>
     </footer>
+    </main>
   </body>
 </html>

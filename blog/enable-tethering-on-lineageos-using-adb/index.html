@@ -8,27 +8,22 @@
     <link rel="stylesheet" href="/assets/style/prism-okaidia.css">
   </head>
   <body>
+    <main>
     <header>
-        <div class="content-wrapper">
-            <h1>
-              <a href="/">harre.dev</a>
-            </h1>
-        </div>
+      <h1>
+        <a href="/">harre.dev</a>
+      </h1>
     </header>
     <nav>
-        <div class="content-wrapper">
-          <a href="/">home</a>
-          <a href="/blog">blog</a>
-          <a href="/about">about</a>
-          <a href="/feed.xml">rss</a>
-        </div>
+      <a href="/">home</a>
+      <a href="/blog">blog</a>
+      <a href="/about">about</a>
+      <a href="/feed.xml">rss</a>
     </nav>
-    <main>
-      <div class="content-wrapper">
-        
-<div>2017-05-01</div>
-
-<h1>Enable tethering on LineageOS using ADB</h1>
+      
+<article>
+    <div>2017-05-01 </div>
+    <h1>Enable tethering on LineageOS using ADB</h1>
 <h4>Update</h4>
 <p>After updating to a newer version, I couldn't get the below steps to work any more. Here is some extra stuff to get it to work again. It comes down to <code>build.prop</code> not accepting the changes you make because it's being loaded as read-only. Remounting the filesystem as read-write and then pushing the updated file will do the trick.</p>
 <p>Run the following through ADB <strong>with root enabled</strong> (flash the SuperSU zip found on the lineage OS website and enable root in the developer settings).</p>
@@ -57,21 +52,18 @@ Easy enough, but now to get that into the <code>build.prop</code> file without r
 <p><img src="Screenshot_20170501-080155.png" alt="Yes tether"></p>
 <p>Just a few easy steps and we are back online.</p>
 
+    <div class="tags">
+        
+            android
+        
+            lineageos
+        
+    </div>
+</article>
 
-<div class="tags">
-    
-        android
-    
-        lineageos
-    
-</div>
-
-      </div>
-    </main>
     <footer>
-      <div class="content-wrapper">
-        <p>© 2025 harre.dev</p>
-       </div>
+      <p>© 2025 harre.dev</p>
     </footer>
+    </main>
   </body>
 </html>
