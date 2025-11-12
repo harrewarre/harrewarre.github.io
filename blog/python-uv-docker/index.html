@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>harre.dev | Using Python and UV with Docker</title>
+    <link rel="stylesheet" href="/assets/style/theme.css">
+    <link rel="stylesheet" href="/assets/style/prism-okaidia.css">
+  </head>
+  <body>
+    <main>
+    <header>
+      <h1>
+        <a href="/">harre.dev</a>
+      </h1>
+    </header>
+    <nav>
+      <a href="/">home</a>
+      <a href="/blog">blog</a>
+      <a href="/about">about</a>
+      <a href="/feed.xml">rss</a>
+    </nav>
+      
+<article>
+    <div class="post-date">2025-12-11 </div>
+    <h1>Using Python and UV with Docker</h1>
+<p>Quick little recipe here that I ended up piecing together last night.
+I had set up a new Python <a href="https://fastapi.tiangolo.com/">FastAPI</a> project using <a href="https://docs.astral.sh/uv/"><code>uv</code></a> and needed a container image for the project as well.</p>
+<p>Using the regular Python image as a base and then including the <code>uv</code> bits to get access to <code>uv</code>s functionality.
+Then copying my files and syncing the dependencies.</p>
+<p>I then proceeded to use the regular FastAPI commands for the final <code>CMD</code> instruction to run the project when the container is started but no dice, it kept saying that <code>fastapi</code> was not a thing you can run. The key is to also invoke <code>uv</code> in the startup process since <code>uv</code> is managing the environment that has all the dependencies.</p>
+<p>Here's the full <code>Dockerfile</code> I ended up with.</p>
+<pre class="language-docker"><code class="language-docker"><span class="token instruction"><span class="token keyword">FROM</span> python:3.13-slim-trixie</span>
+<span class="token instruction"><span class="token keyword">ENV</span> UV_SYSTEM_PYTHON=1</span>
+
+<span class="token instruction"><span class="token keyword">COPY</span> <span class="token options"><span class="token property">--from</span><span class="token punctuation">=</span><span class="token string">ghcr.io/astral-sh/uv:latest</span></span> /uv /uvx /bin/</span>
+
+<span class="token instruction"><span class="token keyword">WORKDIR</span> /app</span>
+<span class="token instruction"><span class="token keyword">COPY</span> . /app</span>
+
+<span class="token instruction"><span class="token keyword">RUN</span> uv sync --locked</span>
+
+<span class="token instruction"><span class="token keyword">EXPOSE</span> 8080</span>
+
+<span class="token instruction"><span class="token keyword">CMD</span> [<span class="token string">"uv"</span>, <span class="token string">"run"</span>, <span class="token string">"fastapi"</span>, <span class="token string">"run"</span>, <span class="token string">"main.py"</span>, <span class="token string">"--port"</span>, <span class="token string">"8080"</span>]</span></code></pre>
+<p>It was a short search, but still, here for later use and so you don't have to look any further!</p>
+
+    <div class="tags">
+        
+            python
+        
+            uv
+        
+            docker
+        
+    </div>
+</article>
+
+    <footer>
+      <p>© 2025 harre.dev</p>
+    </footer>
+    </main>
+  </body>
+</html>

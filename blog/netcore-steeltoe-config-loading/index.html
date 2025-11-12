@@ -22,7 +22,7 @@
     </nav>
       
 <article>
-    <div>2019-01-11 </div>
+    <div class="post-date">2019-01-11 </div>
     <h1>Cloud Foundry configuration with SteelToe</h1>
 <p>I've been playing around with the <a href="https://steeltoe.io/">SteelToe</a> framework for .net apps on Cloud Foundry a bit and it's been nice overall (I'll probably write a few more posts about it at some point 😊). While playing around with it the configuration part of it I wasn't really liking the way settings can be read from the main configuration.</p>
 <p>Let's start with a really short primer on how the configuration system works. Cloud Foundry apps can be bound to services, doing so adds a reference to the bound service in the environment variables of the app that was bound. You can take a look at what is provided to an applications environment by running</p>

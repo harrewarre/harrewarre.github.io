@@ -22,7 +22,7 @@
     </nav>
       
 <article>
-    <div>2017-04-20 </div>
+    <div class="post-date">2017-04-20 </div>
     <h1>Dotnet Core CLI user secrets</h1>
 <p>User secrets are what you use for settings in a .NET Core app that you don't want committed to your public repos (think API keys, passwords, anything sensitive). You map out your actual settings and they override them with the values from the secrets, which are stored outside of the tracked source folder.</p>
 <p>On windows the user secrets folder is located here: <code>%APPDATA%\microsoft\UserSecrets</code>. Let's have a look at how use them with the new tooling for .NET Core that came out recently.</p>

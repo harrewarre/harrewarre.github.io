@@ -7,6 +7,35 @@
     <description>Ramblings from a guy writing code and other stuff.</description>
     <language>en</language>
     <item>
+      <title>Using Python and UV with Docker</title>
+      <link>https://harre.dev/blog/python-uv-docker/</link>
+      <description>&lt;h1&gt;Using Python and UV with Docker&lt;/h1&gt;
+&lt;p&gt;Quick little recipe here that I ended up piecing together last night.
+I had set up a new Python &lt;a href=&quot;https://fastapi.tiangolo.com/&quot;&gt;FastAPI&lt;/a&gt; project using &lt;a href=&quot;https://docs.astral.sh/uv/&quot;&gt;&lt;code&gt;uv&lt;/code&gt;&lt;/a&gt; and needed a container image for the project as well.&lt;/p&gt;
+&lt;p&gt;Using the regular Python image as a base and then including the &lt;code&gt;uv&lt;/code&gt; bits to get access to &lt;code&gt;uv&lt;/code&gt;s functionality.
+Then copying my files and syncing the dependencies.&lt;/p&gt;
+&lt;p&gt;I then proceeded to use the regular FastAPI commands for the final &lt;code&gt;CMD&lt;/code&gt; instruction to run the project when the container is started but no dice, it kept saying that &lt;code&gt;fastapi&lt;/code&gt; was not a thing you can run. The key is to also invoke &lt;code&gt;uv&lt;/code&gt; in the startup process since &lt;code&gt;uv&lt;/code&gt; is managing the environment that has all the dependencies.&lt;/p&gt;
+&lt;p&gt;Here&#39;s the full &lt;code&gt;Dockerfile&lt;/code&gt; I ended up with.&lt;/p&gt;
+&lt;pre class=&quot;language-docker&quot;&gt;&lt;code class=&quot;language-docker&quot;&gt;&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; python:3.13-slim-trixie&lt;/span&gt;
+&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;ENV&lt;/span&gt; UV_SYSTEM_PYTHON=1&lt;/span&gt;
+
+&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;COPY&lt;/span&gt; &lt;span class=&quot;token options&quot;&gt;&lt;span class=&quot;token property&quot;&gt;--from&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;ghcr.io/astral-sh/uv:latest&lt;/span&gt;&lt;/span&gt; /uv /uvx /bin/&lt;/span&gt;
+
+&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;WORKDIR&lt;/span&gt; /app&lt;/span&gt;
+&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;COPY&lt;/span&gt; . /app&lt;/span&gt;
+
+&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;RUN&lt;/span&gt; uv sync --locked&lt;/span&gt;
+
+&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;EXPOSE&lt;/span&gt; 8080&lt;/span&gt;
+
+&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;CMD&lt;/span&gt; [&lt;span class=&quot;token string&quot;&gt;&quot;uv&quot;&lt;/span&gt;, &lt;span class=&quot;token string&quot;&gt;&quot;run&quot;&lt;/span&gt;, &lt;span class=&quot;token string&quot;&gt;&quot;fastapi&quot;&lt;/span&gt;, &lt;span class=&quot;token string&quot;&gt;&quot;run&quot;&lt;/span&gt;, &lt;span class=&quot;token string&quot;&gt;&quot;main.py&quot;&lt;/span&gt;, &lt;span class=&quot;token string&quot;&gt;&quot;--port&quot;&lt;/span&gt;, &lt;span class=&quot;token string&quot;&gt;&quot;8080&quot;&lt;/span&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;It was a short search, but still, here for later use and so you don&#39;t have to look any further!&lt;/p&gt;
+</description>
+      <pubDate>Thu, 11 Dec 2025 01:00:00 GMT</pubDate>
+      <dc:creator>Sander Harrewijnen</dc:creator>
+      <guid>https://harre.dev/blog/python-uv-docker/</guid>
+    </item>
+    <item>
       <title>Infinite innovation</title>
       <link>https://harre.dev/blog/infinite-innovation/</link>
       <description>&lt;h1&gt;Infinite innovation&lt;/h1&gt;
@@ -277,31 +306,6 @@ You can add a &lt;code&gt;.profile&lt;/code&gt; file to the root of your project
       <pubDate>Fri, 18 Oct 2024 02:00:00 GMT</pubDate>
       <dc:creator>Sander Harrewijnen</dc:creator>
       <guid>https://harre.dev/blog/cloud-foundry-buildpack-environment/</guid>
-    </item>
-    <item>
-      <title>Fairphone 5 app switcher fix</title>
-      <link>https://harre.dev/blog/fairphone-5-app-switcher-fix/</link>
-      <description>&lt;h1&gt;Fairphone 5 app switcher fix&lt;/h1&gt;
-&lt;p&gt;&lt;strong&gt;tl;dr:&lt;/strong&gt; Turn of Desktop mode in Settings -&amp;gt; Display -&amp;gt; Desktop mode&lt;/p&gt;
-&lt;p&gt;Putting this here in case the forum gets cleaned or closes or who knows what.
-Quick one here for you Fairphone 5 users.&lt;/p&gt;
-&lt;p&gt;A while ago I wrote about my experience with the Fairphone 5 and that it was &amp;quot;Meh&amp;quot; at best due to some pretty annoying software issues.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://harre.dev/blog/six-months-with-the-fairphone&quot;&gt;Here is a link to that previous post.&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Updates did not fix the issue since then, but an &lt;a href=&quot;https://forum.fairphone.com/t/latest-update-broke-multitasking-pane/105558/56&quot;&gt;observant user on the Fairphone forum&lt;/a&gt; noticed when his phone started acting up.
-It has something to do with the &amp;quot;Desktop mode&amp;quot; that can be enabled via Settings -&amp;gt; Display -&amp;gt; Desktop mode.&lt;/p&gt;
-&lt;p&gt;I had played around with the desktop mode a bit when I got my phone, but it isn&#39;t all that great and kinda buggy (this setting is not hidden behind the Developer Options!).
-Of course I didn&#39;t turn it back off after deciding that the desktop was not in a usable state and so my problems persisted.&lt;/p&gt;
-&lt;p&gt;Leaving that setting enabled appears to mess up things in the not-Desktop-mode!&lt;/p&gt;
-&lt;p&gt;After turning it off all my app switcher issues with third-party launchers went away.
-My only other gripe with the device also solved itself, I got rid of Google Pay after getting fed up with the flaky NFC behavior it shows on about half the payments I attempt.
-Bonus: also great for privacy.&lt;/p&gt;
-&lt;p&gt;Official support was sadly completely useless throughout all of this. It always ended in &amp;quot;Thank you for your feedback&amp;quot; and that was it.&lt;/p&gt;
-&lt;p&gt;Well it appears my Android experience is saved and I hope they fix the desktop mode or just pull the feature all together because it&#39;s causing a pretty nasty problem for those enabling this setting.&lt;/p&gt;
-&lt;p&gt;For now it&#39;s all good though.&lt;/p&gt;
-</description>
-      <pubDate>Mon, 14 Oct 2024 02:00:00 GMT</pubDate>
-      <dc:creator>Sander Harrewijnen</dc:creator>
-      <guid>https://harre.dev/blog/fairphone-5-app-switcher-fix/</guid>
     </item>
   </channel>
 </rss>
