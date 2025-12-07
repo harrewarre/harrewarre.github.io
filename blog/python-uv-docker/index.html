@@ -37,9 +37,11 @@ Then copying my files and syncing the dependencies.</p>
 <span class="token instruction"><span class="token keyword">COPY</span> <span class="token options"><span class="token property">--from</span><span class="token punctuation">=</span><span class="token string">ghcr.io/astral-sh/uv:latest</span></span> /uv /uvx /bin/</span>
 
 <span class="token instruction"><span class="token keyword">WORKDIR</span> /app</span>
-<span class="token instruction"><span class="token keyword">COPY</span> . /app</span>
 
+<span class="token instruction"><span class="token keyword">COPY</span> uv.lock pyproject.toml /app/</span>
 <span class="token instruction"><span class="token keyword">RUN</span> uv sync --locked</span>
+
+<span class="token instruction"><span class="token keyword">COPY</span> . /app/</span>
 
 <span class="token instruction"><span class="token keyword">EXPOSE</span> 8080</span>
 
