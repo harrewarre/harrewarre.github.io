@@ -7,10 +7,10 @@
     <description>Ramblings from a guy writing code and other stuff.</description>
     <language>en</language>
     <item>
-      <title>Fixing pointer size in Jetbrains IDEs on Pop_OS</title>
+      <title>Fixing pointer size in Jetbrains IDEs on Pop OS</title>
       <link>https://harre.dev/blog/pop-24-04-jetbrains/</link>
       <description>&lt;p&gt;Here is a fun one to start the holidays!&lt;/p&gt;
-&lt;p&gt;After upgrading to Pop 24.04 I had a nasty case of inconsistent pointers.
+&lt;p&gt;After upgrading to Pop OS 24.04 I had a nasty case of inconsistent pointers.
 Specifically when using any of the Jetbrains IDEs (PyCharm, DataGrip, Rider, etc.).&lt;/p&gt;
 &lt;p&gt;Moving the pointer onto ANY of the IDEs would blow up the cursor to a comical size.
 Probably something to do with how scaling (does not?) work properly for some stuff when the whole Wayland vs X11 thing crops up on your machine.&lt;/p&gt;
@@ -19,7 +19,10 @@ Probably something to do with how scaling (does not?) work properly for some stu
 &lt;p&gt;My Linux foo is not good enough to fully explain why any of this is happening (something with Java, X and Wayland fighting), but you can set properties for the stuff that is depending on X using a file in your home directory.&lt;/p&gt;
 &lt;p&gt;Create a new file called &lt;code&gt;.Xresources&lt;/code&gt; in your home directory.&lt;/p&gt;
 &lt;p&gt;Edit the file (nano, VSCode, whatever) and add the following:&lt;/p&gt;
-&lt;pre class=&quot;language-ini&quot;&gt;&lt;code class=&quot;language-ini&quot;&gt;Xcursor.size: 24&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;language-ini&quot;&gt;&lt;code class=&quot;language-ini&quot;&gt;Xcursor.theme: DMZ-White
+Xcursor.size: 24&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Finally, apply the new settings:&lt;/p&gt;
+&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;xrdb .Xresources&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Reboot to make sure everything picks up on the new settings and your pointer should now look right again when using Jetbrains IDEs.&lt;/p&gt;
 &lt;p&gt;Happy holidays!&lt;/p&gt;
 </description>

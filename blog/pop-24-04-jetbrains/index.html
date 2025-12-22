@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>harre.dev | Fixing pointer size in Jetbrains IDEs on Pop_OS</title>
+    <title>harre.dev | Fixing pointer size in Jetbrains IDEs on Pop OS</title>
     <link rel="stylesheet" href="/assets/style/theme.css">
     <link rel="stylesheet" href="/assets/style/prism-okaidia.css">
   </head>
@@ -25,7 +25,7 @@
 <article>
     <div class="post-date">2025-12-22 </div>
     <p>Here is a fun one to start the holidays!</p>
-<p>After upgrading to Pop 24.04 I had a nasty case of inconsistent pointers.
+<p>After upgrading to Pop OS 24.04 I had a nasty case of inconsistent pointers.
 Specifically when using any of the Jetbrains IDEs (PyCharm, DataGrip, Rider, etc.).</p>
 <p>Moving the pointer onto ANY of the IDEs would blow up the cursor to a comical size.
 Probably something to do with how scaling (does not?) work properly for some stuff when the whole Wayland vs X11 thing crops up on your machine.</p>
@@ -34,7 +34,10 @@ Probably something to do with how scaling (does not?) work properly for some stu
 <p>My Linux foo is not good enough to fully explain why any of this is happening (something with Java, X and Wayland fighting), but you can set properties for the stuff that is depending on X using a file in your home directory.</p>
 <p>Create a new file called <code>.Xresources</code> in your home directory.</p>
 <p>Edit the file (nano, VSCode, whatever) and add the following:</p>
-<pre class="language-ini"><code class="language-ini">Xcursor.size: 24</code></pre>
+<pre class="language-ini"><code class="language-ini">Xcursor.theme: DMZ-White
+Xcursor.size: 24</code></pre>
+<p>Finally, apply the new settings:</p>
+<pre class="language-shell"><code class="language-shell">xrdb .Xresources</code></pre>
 <p>Reboot to make sure everything picks up on the new settings and your pointer should now look right again when using Jetbrains IDEs.</p>
 <p>Happy holidays!</p>
 
