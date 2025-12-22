@@ -7,6 +7,27 @@
     <description>Ramblings from a guy writing code and other stuff.</description>
     <language>en</language>
     <item>
+      <title>Fixing pointer size in Jetbrains IDEs on Pop_OS</title>
+      <link>https://harre.dev/blog/pop-24-04-jetbrains/</link>
+      <description>&lt;p&gt;Here is a fun one to start the holidays!&lt;/p&gt;
+&lt;p&gt;After upgrading to Pop 24.04 I had a nasty case of inconsistent pointers.
+Specifically when using any of the Jetbrains IDEs (PyCharm, DataGrip, Rider, etc.).&lt;/p&gt;
+&lt;p&gt;Moving the pointer onto ANY of the IDEs would blow up the cursor to a comical size.
+Probably something to do with how scaling (does not?) work properly for some stuff when the whole Wayland vs X11 thing crops up on your machine.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://harre.dev/blog/pop-24-04-jetbrains/pic.png&quot; alt=&quot;Looking good there Mr. Pointer&quot;&gt;
+&lt;small&gt;Took a picture because screenshotting your pointer is hard...&lt;/small&gt;&lt;/p&gt;
+&lt;p&gt;My Linux foo is not good enough to fully explain why any of this is happening (something with Java, X and Wayland fighting), but you can set properties for the stuff that is depending on X using a file in your home directory.&lt;/p&gt;
+&lt;p&gt;Create a new file called &lt;code&gt;.Xresources&lt;/code&gt; in your home directory.&lt;/p&gt;
+&lt;p&gt;Edit the file (nano, VSCode, whatever) and add the following:&lt;/p&gt;
+&lt;pre class=&quot;language-ini&quot;&gt;&lt;code class=&quot;language-ini&quot;&gt;Xcursor.size: 24&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Reboot to make sure everything picks up on the new settings and your pointer should now look right again when using Jetbrains IDEs.&lt;/p&gt;
+&lt;p&gt;Happy holidays!&lt;/p&gt;
+</description>
+      <pubDate>Mon, 22 Dec 2025 01:00:00 GMT</pubDate>
+      <dc:creator>Sander Harrewijnen</dc:creator>
+      <guid>https://harre.dev/blog/pop-24-04-jetbrains/</guid>
+    </item>
+    <item>
       <title>Using Python and UV with Docker</title>
       <link>https://harre.dev/blog/python-uv-docker/</link>
       <description>&lt;h1&gt;Using Python and UV with Docker&lt;/h1&gt;
@@ -285,29 +306,6 @@ I like the idea but I bet it takes quite some discipline to not accidentally ove
       <pubDate>Fri, 29 Nov 2024 01:00:00 GMT</pubDate>
       <dc:creator>Sander Harrewijnen</dc:creator>
       <guid>https://harre.dev/blog/team-priorities/</guid>
-    </item>
-    <item>
-      <title>Cloud Foundry buildpack environment variables</title>
-      <link>https://harre.dev/blog/cloud-foundry-buildpack-environment/</link>
-      <description>&lt;h1&gt;Cloud Foundry buildpack environment variables&lt;/h1&gt;
-&lt;p&gt;I recently ran into a situation I hadn&#39;t dealt with before.&lt;/p&gt;
-&lt;p&gt;A Python app I was working on was loading modules from a location outside of Pythons known locations.
-My first instinct was to update the &lt;code&gt;manifest.yml&lt;/code&gt; &lt;code&gt;env&lt;/code&gt; section with a &lt;code&gt;PYTHONPATH&lt;/code&gt; variable that would add this additional location to the Python path but that would not stick.
-Using &lt;code&gt;cf set-env&lt;/code&gt; to update the variable after the fact also did not work.&lt;/p&gt;
-&lt;p&gt;The environment variable was already set and consumed before we could apply our changes! The cause for this is the buildpack. The &lt;code&gt;python_buildpack&lt;/code&gt; I was using was explicitly setting the &lt;code&gt;PYTHONPATH&lt;/code&gt; and by the time we applied our changes it was already to late for our changes to take effect.&lt;/p&gt;
-&lt;p&gt;Thankfully, Cloud Foundry buildpacks have a solution for this.
-You can add a &lt;code&gt;.profile&lt;/code&gt; file to the root of your project (from where &lt;code&gt;cf push&lt;/code&gt; runs) and use that to run scripts during the release stage of the buildpack.&lt;/p&gt;
-&lt;p&gt;The contents of the &lt;code&gt;.profile&lt;/code&gt; ended up looking like this:&lt;/p&gt;
-&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token assign-left variable&quot;&gt;PYTHONPATH&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token variable&quot;&gt;$PYTHONPATH&lt;/span&gt;&lt;span class=&quot;token builtin class-name&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token environment constant&quot;&gt;$HOME&lt;/span&gt;/submodules/my-module&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;When the app is now deployed the buildpack will ensure that the &lt;code&gt;PYTHONPATH&lt;/code&gt; is set correctly and the rest of the app can load the additional submodules.&lt;/p&gt;
-&lt;h2&gt;Resources&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://docs.cloudfoundry.org/buildpacks/understand-buildpacks.html&quot;&gt;Working with buildpacks in Cloud Foundry&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</description>
-      <pubDate>Fri, 18 Oct 2024 02:00:00 GMT</pubDate>
-      <dc:creator>Sander Harrewijnen</dc:creator>
-      <guid>https://harre.dev/blog/cloud-foundry-buildpack-environment/</guid>
     </item>
   </channel>
 </rss>
