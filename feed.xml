@@ -25,6 +25,21 @@ Xcursor.size: 24&lt;/code&gt;&lt;/pre&gt;
 &lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;xrdb .Xresources&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Reboot to make sure everything picks up on the new settings and your pointer should now look right again when using Jetbrains IDEs.&lt;/p&gt;
 &lt;p&gt;Happy holidays!&lt;/p&gt;
+&lt;h2&gt;Update from the 24th, it was not solved after all...&lt;/h2&gt;
+&lt;p&gt;Ok, that appeared to not be the full solution, I also had to change:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/etc/environment
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Add the following line there:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;XCURSOR_SIZE=24
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Log out and back in again. Should now be properly fixed.&lt;/p&gt;
+&lt;h2&gt;Extra special bonus fix!&lt;/h2&gt;
+&lt;p&gt;If you have trouble creating new files in the Jetbrains IDEs as well, you need to enable the Wayland toolkit.&lt;/p&gt;
+&lt;p&gt;For every IDE you use, go to &lt;strong&gt;Help&lt;/strong&gt; -&amp;gt; &lt;strong&gt;Edit Custom VM Options&lt;/strong&gt;.
+In the file that opens, add&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;-Dawt.toolkit.name=WLToolkit
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;as a new line. Save and restart the IDE and the &amp;quot;New file&amp;quot; dialogs should start working again.&lt;/p&gt;
 </description>
       <pubDate>Mon, 22 Dec 2025 01:00:00 GMT</pubDate>
       <dc:creator>Sander Harrewijnen</dc:creator>

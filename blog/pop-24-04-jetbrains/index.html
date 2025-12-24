@@ -40,6 +40,21 @@ Xcursor.size: 24</code></pre>
 <pre class="language-shell"><code class="language-shell">xrdb .Xresources</code></pre>
 <p>Reboot to make sure everything picks up on the new settings and your pointer should now look right again when using Jetbrains IDEs.</p>
 <p>Happy holidays!</p>
+<h2>Update from the 24th, it was not solved after all...</h2>
+<p>Ok, that appeared to not be the full solution, I also had to change:</p>
+<pre><code>/etc/environment
+</code></pre>
+<p>Add the following line there:</p>
+<pre><code>XCURSOR_SIZE=24
+</code></pre>
+<p>Log out and back in again. Should now be properly fixed.</p>
+<h2>Extra special bonus fix!</h2>
+<p>If you have trouble creating new files in the Jetbrains IDEs as well, you need to enable the Wayland toolkit.</p>
+<p>For every IDE you use, go to <strong>Help</strong> -&gt; <strong>Edit Custom VM Options</strong>.
+In the file that opens, add</p>
+<pre><code>-Dawt.toolkit.name=WLToolkit
+</code></pre>
+<p>as a new line. Save and restart the IDE and the &quot;New file&quot; dialogs should start working again.</p>
 
     <div class="tags">
         
