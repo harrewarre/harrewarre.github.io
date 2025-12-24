@@ -6,7 +6,7 @@
     --color-dark-accent: violet;
     --color-dark-text: ghostwhite;
     color-scheme: light dark;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: sans-serif;
 }
 
 @media (prefers-color-scheme: light) {
@@ -42,7 +42,6 @@
 }
 
 body {
-    font-family: System UI;
     font-size: 1.25rem;
     line-height: 1.5;
 }
@@ -79,4 +78,12 @@ header h1 a {
     font-size: .75rem;
     margin-bottom: 1rem;
     font-style: italic;
+}
+
+.home-article {
+    margin: 0;
+}
+
+.home-article > span {
+    margin-right: 1rem;
 }
