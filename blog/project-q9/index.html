@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>harre.dev | Project Q9</title>
+    <link rel="stylesheet" href="/assets/style/theme.css">
+    <link rel="stylesheet" href="/assets/style/prism-okaidia.css">
+    <link rel="icon" type="image/png" href="/assets/favicon.png">
+  </head>
+  <body>
+    <main>
+    <header>
+      <h1>
+        <a href="/">harre.dev</a>
+      </h1>
+    </header>
+    <nav>
+      <a href="/">home</a>
+      <a href="/blog">blog</a>
+      <a href="/about">about</a>
+      <a href="https://hachyderm.io/@harre" rel="me">me</a>
+      <a href="/feed.xml">rss</a>
+    </nav>
+      
+<article>
+    <div class="post-date">2026-01-02 </div>
+    <h1>Project Q9</h1>
+<p>Hey it's a new year! Welcome to 2026!</p>
+<p>Here's something I've been meaning to write about for a while and only now finally sat down for and actually do. Project Q9. One day at work I was pinged by <a href="https://johan.ml">Johan</a> about a thing he'd been working on and if I was interested in helping out. It was then a little bit of a secret but it was soon revealed to me that Johan got a Unitree Go 2 <s>quadruped</s> robot dog <s>to play around with</s> for marketing and R&amp;D type work for <a href="https://itq.eu">ITQs</a> AI proposition. I was prette stoked about the whole plan.</p>
+<p>As with all of these &quot;he can you help me out&quot; things it quickly went to &quot;oh and we'd like to get something up and running in about 3 weeks&quot;.</p>
+<p><img src="q9-itqon.jpeg" alt="Q9 at our company event ITQon">
+<small>Q9 shown to the whole company at our company retreat ITQon in 2025.</small></p>
+<p>So an event was coming up soon and we needed to have a demo. <strong>MANY</strong> ideas came up but it needed to be simple enough to have it ready in time. The plan that eventually made the cut was to have it do tricks based on hand gestures. The robot has built in party tricks that we could trigger based on camera input. Johan already had something roughed out and we got that refined just enough to work reliably most of the time.</p>
+<p>We showed it off at Red Hat Summit NL for the first time and the booth was packed pretty much the whole day. Turns out, a robot dog attracts a crowd. He's even in quite a few of the official event pictures!</p>
+<p><img src="RedHatConnect-oktober25-239.jpg" alt="Q9 at Red Hat Summit Connect in the Netherlands">
+<small>Q9 as part of the talk Johan did at the event.</small></p>
+<h2>Tech talk</h2>
+<p>A robotic dog is without a doubt a real people magnet but we wanted to go beyond just using the remote control and mobile app. We wanted to show of some of our on-prem AI/ML stuff with this!</p>
+<p>The diagrams and designs below are from the latest iteration of all the components we made to get our demo working. I do plan to put it all out in public at some point but for now it lives behind closed doors at ITQ.</p>
+<p>The idea we wanted to bring to live is easy to explain. Show the dog a gesture (as you might with an actual dog), and the dog responds. It's easy to put in a single sentence but it took quite some work to get the full feedback loop rolling.</p>
+<p>First problem was getting any sort of connection to the machine and while there are official docs and robotics frameworks out there, we wanted a more pragmatic approach that got results quickly. As with many things in software, speaking to a Unitree Go 2 had already been solved.</p>
+<p>Big shout-out to Github user <a href="https://github.com/legion1581">Legion1581</a>, you saved me a huge amount of work by providing a <a href="https://github.com/legion1581/unitree_webrtc_connect">connector that supported just the things we needed</a>. Following the samples got us in a place where we could pull video from the dog and send back commands to make it do things. Awesome!</p>
+<p>With the basic connectivity out of the way, hand gestures were the next thing on the list. Same thing, already solved. Thanks Google, for the <a href="https://ai.google.dev/edge/mediapipe/solutions/vision/hand_landmarker">Mediapipe solution</a>. Supports pre-made detections and allows for custom gestures using landmarks.</p>
+<p>The final piece was orchestrating something together that would give us the full feedbackloop I described above. Some more pieces were added like good ol' <a href="https://ffmpeg.org/">ffmpeg</a> for video processing, <a href="https://mediamtx.org/">MediaMTX</a> for its RTSP capability and a pile of Python code to actually build the whole thing up.</p>
+<p>Here's the final archtecture we landed on:</p>
+<p><img src="architecture-overview.jpg" alt="Architecture overview"></p>
+<p>Processor, Vision, Transcoder and Controller are the components we built ourselves. They mostly try to automatically restore themselves when loss of connection happens. The whole thing is very statefull due to the live processing of video and responding to gestures. A connection between the dog and the processor is maintained constantly when started by the controller application. Gesture recognition starts on demand when initiated by the controller application. MediaMTX keeps all the active videostreams available through its API.</p>
+<p>The whole thing can run on a somewhat well-specced laptop (I'm using a Framework 13 with an Intel 1280P) and you can get away without a GPU for the small scale of this setup. Once we start piling on more capabilities, a GPU will probably become a requirement for accelerating the AI/ML bits.</p>
+<p><img src="new-ui.png" alt="The controller dashboard">
+<small>A screenshot of the controller dashboard.</small></p>
+<h2>Final thoughts</h2>
+<p>This is an insanely cool project for me to work on (even if it's mostly in my own time). There's a bit of everything in it and there's so much more that can be some with a robotic dog. From a marketing perspective it's been quite succesfull, we've taken him to various meetings to show off what's possible with (relatively limited) hardware resources.</p>
+<p>I for sure want to <s>teach</s> create more tricks with Q9 and once I do I'll probably do another write-up of what's new. For now I just wanted to describe the first demo we made (quite some time ago).</p>
+<p>Anyway, lets make 2026 another fun one with much more hackery such as this. See you in the next one.</p>
+<p><video src="dog-hi.mp4" controls height="480" style="max-width:100%" muted></video>
+<small>The full demo for the basic &quot;Hello&quot; gesture.</small></p>
+<h2>Some other references to this project</h2>
+<ul>
+<li><a href="https://joinitq.eu/itq-life-jeffrey-kusters-i86us">When You Let Wild Ideas Run (on Four Legs) by ITQ CTO Jeffry Kusters</a></li>
+<li><a href="https://www.linkedin.com/posts/hojan_passionfortech-activity-7384548127095062528-a5C4">Q9 at Red Hat Summit NL</a></li>
+</ul>
+
+    <div class="tags">
+        
+            unitree go 2
+        
+            python
+        
+            computer vision
+        
+            itq
+        
+    </div>
+</article>
+
+    <footer>
+      <p>© 2026 harre.dev</p>
+    </footer>
+    </main>
+  </body>
+</html>
