@@ -1,44 +1,22 @@
 :root {
-    --color-light-background: ghostwhite;
-    --color-light-accent: orangered;
-    --color-light-text: #333;
-    --color-dark-background: #222;
-    --color-dark-accent: violet;
-    --color-dark-text: ghostwhite;
-    color-scheme: light dark;
+    --color-background: ghostwhite;
+    --color-accent: orangered;
+    --color-text: #222;
     font-family: sans-serif;
 }
 
-@media (prefers-color-scheme: light) {
-    html {
-        background-color: var(--color-light-background);
-        color: var(--color-light-text);
-    }
-
-    a {
-        color: var(--color-light-accent);
-    }
-
-    .post-date {
-        background-color: var(--color-light-accent);
-        color: var(--color-light-background);
-    }
+html {
+    background-color: var(--color-background);
+    color: var(--color-text);
 }
 
-@media (prefers-color-scheme: dark) {
-    html {
-        background-color: var(--color-dark-background);
-        color: var(--color-dark-text);
-    }
+a {
+    color: var(--color-accent);
+}
 
-    a {
-        color: var(--color-dark-accent);
-    }
-
-    .post-date {
-        background-color: var(--color-dark-accent);
-        color: var(--color-dark-background);
-    }
+.post-date {
+    background-color: var(--color-accent);
+    color: var(--color-background);
 }
 
 body {
@@ -54,7 +32,7 @@ video {
 }
 
 main {
-    max-width: min(70ch, 100% - 4rem);
+    max-width: min(70ch, 100% - 3rem);
     margin-inline: auto;
 }
 
@@ -67,8 +45,29 @@ article {
     opacity: .5;
 }
 
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+
+header > img {
+    height: 8rem;
+    width: 8rem;
+    border-radius: 25%;
+    margin-right: 1rem;
+}
+
 header h1 a {
     text-decoration: none;
+}
+
+nav {
+    display: flex;
+    gap: .5rem;
 }
 
 .post-date {
@@ -84,6 +83,14 @@ header h1 a {
     margin: 0;
 }
 
-.home-article > span {
+.home-article>span {
     margin-right: 1rem;
+}
+
+@media screen and (max-width: 600px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
 }
