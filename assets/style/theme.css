@@ -93,4 +93,8 @@ nav {
         align-items: center;
         text-align: center;
     }
+
+    header img {
+        margin: 0;
+    }
 }
