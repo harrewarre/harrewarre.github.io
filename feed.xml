@@ -7,6 +7,48 @@
     <description>Ramblings from a guy writing code and other stuff.</description>
     <language>en</language>
     <item>
+      <title>Maybe you should try Extreme Programming (again)</title>
+      <link>https://harre.dev/blog/try-xp-again/</link>
+      <description>&lt;h1&gt;Maybe you should try Extreme programming (again)&lt;/h1&gt;
+&lt;p&gt;In the team I&#39;ve been in for the last couple of years, &lt;a href=&quot;https://en.wikipedia.org/wiki/Extreme_programming&quot;&gt;Extreme Programming&lt;/a&gt; is the core way of working.
+Fast feedback, short iterations, deploy early and often, Red/Green/Refactor (TDD), pair programming, all of it, and it&#39;s been great.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://harre.dev/blog/try-xp-again/exe.jpg&quot; alt=&quot;Extreme Programming Explained&quot;&gt;&lt;/p&gt;
+&lt;p&gt;AI-Assisted engineering, GPT-driven-development, vibecoding, whatever you call it, it&#39;s here to stay.
+With the rise of these tools comes the question: &amp;quot;How can we get the best use out of them?&amp;quot;.
+Everyone is trying things, from whole swarms of agents to copy-pasta-coding with your LLM of choice and I&#39;ve not seen something rise up that really cracks the case yet.
+What I do have is lots of experience pair progamming and when I&#39;m working with a coding agent/assistant, it really closely resembles how I approach programming with a real human person.&lt;/p&gt;
+&lt;h2&gt;The driver and the navigator&lt;/h2&gt;
+&lt;p&gt;One of ways to do pair programming &lt;a href=&quot;https://labspractices.com/learningpaths/application-development/pair-programming/#describe-the-mechanics-of-the-drivernavigator-style-of-pair-programming&quot;&gt;is Driver-Navigator&lt;/a&gt;.
+Person A is the driver, they are in control of the keyboard and mouse (they drive the computer), person B is the navigator and instructs and helps the driver find their way.
+Together they are in charge of finding the best approach to solving the task at hand. If you&#39;ve ever watched a &lt;a href=&quot;https://www.youtube.com/watch?v=JprBKZ3Bn-c&quot;&gt;World Rally Championship race&lt;/a&gt; you&#39;ll know exactly what I mean.&lt;/p&gt;
+&lt;p&gt;Before you go &amp;quot;oh come on, pair programming is wasteful, both people could be working individually to get more done!&amp;quot;, that&#39;s not &lt;a href=&quot;https://www.ispairingfaster.com/&quot;&gt;the point&lt;/a&gt; here.&lt;/p&gt;
+&lt;p&gt;You and the LLM are doing something very similar to pair programming, you might even say it &lt;strong&gt;IS&lt;/strong&gt; pair programming.
+The LLM is clearly the driver writing all the code, and you, the navigator are in charging of providing instructions and correcting course if needed.&lt;/p&gt;
+&lt;h2&gt;Test-driven development&lt;/h2&gt;
+&lt;p&gt;Another practice from Extreme Programming is Test-driven development (also a topic of lots of debate, as with pair programming) and this one is not really a new idea with it comes to working with LLMs.
+&lt;a href=&quot;https://simonwillison.net/guides/agentic-engineering-patterns/red-green-tdd/&quot;&gt;People are seeing success&lt;/a&gt; when practicing TDD with their LLM to write software.
+Specifically the Red/Green/Refactor style of TDD. Write failing tests (red), implement the actual code to make them pass (green).
+The refactor bit is important here (and often overlooked), once the tests are passing you get to play with the implementation and improve it if needed, as long as your tests stay green you are good to go.&lt;/p&gt;
+&lt;p&gt;You&#39;ll have to be strict here with the Red/Green part though. Write failing tests that will assert specific behavior, and only then are you allowed to proceed to make the tests pass.
+You can even put two different LLMs at work for this, one writing the tests per your instruction, then the other implementing against the tests.&lt;/p&gt;
+&lt;h2&gt;Sustainable pace&lt;/h2&gt;
+&lt;p&gt;Another one from the Extreme programming practice! And a really important one as well.
+Your digital coding buddy will allow you iterate very (extremely! &lt;em&gt;badum-tss&lt;/em&gt;) quickly, so fast in fact that you are prone to working at an unsustainable velocity which could end up burning you out, making all velocity meaningless.&lt;/p&gt;
+&lt;p&gt;The same applies to &amp;quot;real&amp;quot; pair programming (with another actual human person), it can be pretty exhausting when you spend all day with someone else working together.
+Same goes for the work you do with agents and LLMs.&lt;/p&gt;
+&lt;p&gt;Find a rythm that you can sustain for long periods so you stay healthy and productive. Just because we can reach very high outputs doesn&#39;t mean that we should.&lt;/p&gt;
+&lt;h2&gt;Anyway...&lt;/h2&gt;
+&lt;p&gt;As you can see, quite some things that are covered by Extreme Programming seem like a good fit for AI Assisted programming.
+At the same time, while we can speed up the coding part of our software developer jobs, we&#39;re still bound by the speed at which output can be validated by the rest of the stakeholders.
+All that speed is useless when you build the wrong thing at the wrong time.&lt;/p&gt;
+&lt;p&gt;So to cap it off, try Red/Green TDD with your coding agent, get in the role of navigator and keep an eye on what your driver is producing and most importantly, don&#39;t burn yourself out by trying to build the whole world at once.
+Maybe even &lt;a href=&quot;https://www.amazon.com/Extreme-Programming-Explained-Embrace-Change/dp/0321278658&quot;&gt;pick up that Extreme Programming book&lt;/a&gt; and see what it&#39;s all about, there&#39;s good stuff in there for going fast without breaking stuff.&lt;/p&gt;
+</description>
+      <pubDate>Thu, 05 Mar 2026 01:00:00 GMT</pubDate>
+      <dc:creator>Sander Harrewijnen</dc:creator>
+      <guid>https://harre.dev/blog/try-xp-again/</guid>
+    </item>
+    <item>
       <title>Project Q9</title>
       <link>https://harre.dev/blog/project-q9/</link>
       <description>&lt;h1&gt;Project Q9&lt;/h1&gt;
@@ -331,23 +373,6 @@ I like the idea but I bet it takes quite some discipline to not accidentally ove
       <pubDate>Mon, 03 Feb 2025 01:00:00 GMT</pubDate>
       <dc:creator>Sander Harrewijnen</dc:creator>
       <guid>https://harre.dev/blog/best-simple-system-now/</guid>
-    </item>
-    <item>
-      <title>Forest &amp; Desert by Beth Andres-Beck</title>
-      <link>https://harre.dev/blog/forest-and-desert/</link>
-      <description>&lt;h1&gt;Forest &amp;amp; Desert by Beth Andres-Beck&lt;/h1&gt;
-&lt;p&gt;The article describes two distinct cultures that exist for software development. The forest and the desert.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;There is a path from the desert to the forest, a series of small, safe steps a community can take to terraform the landscape. No developer can do it alone, and no amount of technology will get us there, but it is possible.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;Beth Andres-Beck&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;https://tidyfirst.substack.com/p/forest-and-desert&lt;/p&gt;
-</description>
-      <pubDate>Fri, 31 Jan 2025 01:00:00 GMT</pubDate>
-      <dc:creator>Sander Harrewijnen</dc:creator>
-      <guid>https://harre.dev/blog/forest-and-desert/</guid>
     </item>
   </channel>
 </rss>
