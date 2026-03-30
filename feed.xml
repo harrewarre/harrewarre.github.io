@@ -7,6 +7,41 @@
     <description>Ramblings from a guy writing code and other stuff.</description>
     <language>en</language>
     <item>
+      <title>NemoClaw quickstart</title>
+      <link>https://harre.dev/blog/nemoclaw-quickstart/</link>
+      <description>&lt;h1&gt;NemoClaw quickstart&lt;/h1&gt;
+&lt;p&gt;Here&#39;s are quick and simple guide to setting up and using NemoClaw with some things I learned while setting up NemoClaw for myself.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Follow instructions as found on the NemoClaw &lt;a href=&quot;https://www.nvidia.com/en-us/ai/nemoclaw/&quot;&gt;getting started&lt;/a&gt; page.&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token function&quot;&gt;curl&lt;/span&gt; &lt;span class=&quot;token parameter variable&quot;&gt;-fsSL&lt;/span&gt; https://www.nvidia.com/nemoclaw.sh &lt;span class=&quot;token operator&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;bash&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+After the installer complets you can onboard models.&lt;/li&gt;
+&lt;li&gt;The installer also gave me an HTTP endpoint I could use to access the OpenClaw UI, this makes chatting easier.&lt;/li&gt;
+&lt;li&gt;Open another terminal and run:&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;openshell term&lt;/code&gt;&lt;/pre&gt;
+This will let you manage things like the OpenShell proxy allowlist. By default OpenClaw cannot reach the outside world.&lt;/li&gt;
+&lt;li&gt;As you set up skills and other interactions, keep checking the proxy allowlist and allow the appropriate things for the agent to function.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;In practice&lt;/h2&gt;
+&lt;p&gt;My &amp;quot;Claw&amp;quot; (?) is set up with the Claude API. The token I created can spend a maximum of 25 dollars to make sure that I don&#39;t burn a large hole in my creditcard. I might give it access to more spending when I feel comfortable with the way it will operate without my constant supervision.&lt;/p&gt;
+&lt;p&gt;My first attempts using self-hosted models on my gaming rig all failed because an RTX3070 lacks the required VRAM to host models that can properly deal with all the tool calling that happens when you interact with OpenClaw.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://harre.dev/blog/nemoclaw-quickstart/claw.jpeg&quot; alt=&quot;Claw&quot;&gt;&lt;/p&gt;
+&lt;p&gt;After some simple experiments like a weather report and setting up its personality I hooked it up to my Home Assistant.
+I added another user to my HA instance and put it in the &lt;code&gt;system-read-only&lt;/code&gt; group (again, for my own safety haha). After giving the long-lived token and host address it loaded all the entities and gave me a nice overview of the people and their presence, status of my air-condition systems, power consumption &lt;strong&gt;and that I left my 3D printer on without an active print&lt;/strong&gt;! First success in the bag.&lt;/p&gt;
+&lt;p&gt;While chatting through the UI works fine, I really want a simpler way of accessing my LLM powered assistant.
+I have a pre-paid SIM-card on the way that I&#39;m going to put in an old phone and hook my claw (is this the word?) up to Signal so I can send it messages from my phone.&lt;/p&gt;
+&lt;p&gt;Being able to ask questions about the state of my home through this is already a huge win.
+I have a lot more ideas and APIs I could let it access to make my life a little easier.
+The first one I want to try is get some nice news summaries from my RSS aggregator.&lt;/p&gt;
+&lt;p&gt;I guess the only real bottleneck I have now (and certainly in the future) is the Claude API.
+It works great but it&#39;s certainly not free. For now it&#39;ll do but this is not a scalable solution because it&#39;ll burn through money quite quickly as the system is churning away at your requests.&lt;/p&gt;
+&lt;h2&gt;Staying in control&lt;/h2&gt;
+&lt;p&gt;I&#39;ve been giving it access to systems in a readonly mode to start.
+My inner controlfreak is not ready to deal with an &amp;quot;agent&amp;quot; with the capability to ruin things into my life just yet.
+There will be use-cases where it will make sense to give it more control but for now, read-only it is.&lt;/p&gt;
+</description>
+      <pubDate>Sun, 29 Mar 2026 01:00:00 GMT</pubDate>
+      <dc:creator>Sander Harrewijnen</dc:creator>
+      <guid>https://harre.dev/blog/nemoclaw-quickstart/</guid>
+    </item>
+    <item>
       <title>Maybe you should try Extreme Programming (again)</title>
       <link>https://harre.dev/blog/try-xp-again/</link>
       <description>&lt;h1&gt;Maybe you should try Extreme Programming (again)&lt;/h1&gt;
@@ -140,17 +175,21 @@ I had set up a new Python &lt;a href=&quot;https://fastapi.tiangolo.com/&quot;&g
 Then copying my files and syncing the dependencies.&lt;/p&gt;
 &lt;p&gt;I then proceeded to use the regular FastAPI commands for the final &lt;code&gt;CMD&lt;/code&gt; instruction to run the project when the container is started but no dice, it kept saying that &lt;code&gt;fastapi&lt;/code&gt; was not a thing you can run. The key is to also invoke &lt;code&gt;uv&lt;/code&gt; in the startup process since &lt;code&gt;uv&lt;/code&gt; is managing the environment that has all the dependencies.&lt;/p&gt;
 &lt;p&gt;Here&#39;s the full &lt;code&gt;Dockerfile&lt;/code&gt; I ended up with.&lt;/p&gt;
-&lt;pre class=&quot;language-docker&quot;&gt;&lt;code class=&quot;language-docker&quot;&gt;&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; python:3.13-slim-trixie&lt;/span&gt;
-&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;ENV&lt;/span&gt; UV_SYSTEM_PYTHON=1&lt;/span&gt;
+&lt;pre class=&quot;language-docker&quot;&gt;&lt;code class=&quot;language-docker&quot;&gt;&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;FROM&lt;/span&gt; debian:trixie-slim&lt;/span&gt;
 
-&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;COPY&lt;/span&gt; &lt;span class=&quot;token options&quot;&gt;&lt;span class=&quot;token property&quot;&gt;--from&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;ghcr.io/astral-sh/uv:latest&lt;/span&gt;&lt;/span&gt; /uv /uvx /bin/&lt;/span&gt;
+&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;COPY&lt;/span&gt; &lt;span class=&quot;token options&quot;&gt;&lt;span class=&quot;token property&quot;&gt;--from&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;ghcr.io/astral-sh/uv:0.11.2&lt;/span&gt;&lt;/span&gt; /uv /uvx /bin/&lt;/span&gt;
 
 &lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;WORKDIR&lt;/span&gt; /app&lt;/span&gt;
 
+&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;RUN&lt;/span&gt; adduser --disabled-password --gecos &lt;span class=&quot;token string&quot;&gt;&quot;&quot;&lt;/span&gt; appuser&lt;/span&gt;
+
 &lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;COPY&lt;/span&gt; uv.lock pyproject.toml /app/&lt;/span&gt;
-&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;RUN&lt;/span&gt; uv sync --locked&lt;/span&gt;
+&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;RUN&lt;/span&gt; uv sync --locked --no-dev --python 3.13&lt;/span&gt;
 
 &lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;COPY&lt;/span&gt; . /app/&lt;/span&gt;
+
+&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;RUN&lt;/span&gt; chown -R appuser:appuser /app&lt;/span&gt;
+&lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;USER&lt;/span&gt; appuser&lt;/span&gt;
 
 &lt;span class=&quot;token instruction&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;EXPOSE&lt;/span&gt; 8080&lt;/span&gt;
 
@@ -352,27 +391,6 @@ Key takeaways include the necessity of diverse skill sets in teams and the dange
       <pubDate>Thu, 13 Feb 2025 01:00:00 GMT</pubDate>
       <dc:creator>Sander Harrewijnen</dc:creator>
       <guid>https://harre.dev/blog/futo-self-managed-life/</guid>
-    </item>
-    <item>
-      <title>Best Simple System Now by Dan North</title>
-      <link>https://harre.dev/blog/best-simple-system-now/</link>
-      <description>&lt;h1&gt;Best Simple System Now by Dan North&lt;/h1&gt;
-&lt;p&gt;A long-form post about focussing on the simplest system you can get away with &lt;strong&gt;right now&lt;/strong&gt;.
-I like the idea but I bet it takes quite some discipline to not accidentally over or under-do the thing you are looking to ship.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&amp;quot;We can do this the quick way and pay later, or the thorough way and pay now.&amp;quot; This seems to be a fundamental dichotomy in software development, between ‘perfectionism’ and ‘pragmatism’, but I do not think it has to be a trade-off at all.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;The Best Simple System for Now is the simplest system that meets the needs of the product right now, written to an appropriate standard. It has no extraneous or over-engineered code, and any code it does have is exactly as robust and reliable as it needs to be, neither more nor less.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;Dan North&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;https://dannorth.net/best-simple-system-for-now/&lt;/p&gt;
-</description>
-      <pubDate>Mon, 03 Feb 2025 01:00:00 GMT</pubDate>
-      <dc:creator>Sander Harrewijnen</dc:creator>
-      <guid>https://harre.dev/blog/best-simple-system-now/</guid>
     </item>
   </channel>
 </rss>

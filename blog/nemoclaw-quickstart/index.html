@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>harre.dev | NemoClaw quickstart</title>
+    <link rel="stylesheet" href="/assets/style/theme.css">
+    <link rel="stylesheet" href="/assets/style/prism-okaidia.css">
+    <link rel="icon" type="image/png" href="/assets/img/me.jpeg">
+  </head>
+  <body>
+    <main>
+    <header>
+        <img src="/assets/img/me.jpeg"/> 
+      <h1>
+        <a href="/">harre.dev</a>
+      </h1>
+    </header>
+    <nav>
+      <a href="/">home</a>
+      <a href="/blog">blog</a>
+      <a href="/about">about</a>
+      <a href="https://hachyderm.io/@harre" rel="me">me</a>
+      <a href="/feed.xml">rss</a>
+    </nav>
+      
+<article>
+    <div class="post-date">2026-03-29 </div>
+    <h1>NemoClaw quickstart</h1>
+<p>Here's are quick and simple guide to setting up and using NemoClaw with some things I learned while setting up NemoClaw for myself.</p>
+<ol>
+<li>Follow instructions as found on the NemoClaw <a href="https://www.nvidia.com/en-us/ai/nemoclaw/">getting started</a> page.<pre class="language-shell"><code class="language-shell"><span class="token function">curl</span> <span class="token parameter variable">-fsSL</span> https://www.nvidia.com/nemoclaw.sh <span class="token operator">|</span> <span class="token function">bash</span></code></pre>
+After the installer complets you can onboard models.</li>
+<li>The installer also gave me an HTTP endpoint I could use to access the OpenClaw UI, this makes chatting easier.</li>
+<li>Open another terminal and run:<pre class="language-shell"><code class="language-shell">openshell term</code></pre>
+This will let you manage things like the OpenShell proxy allowlist. By default OpenClaw cannot reach the outside world.</li>
+<li>As you set up skills and other interactions, keep checking the proxy allowlist and allow the appropriate things for the agent to function.</li>
+</ol>
+<h2>In practice</h2>
+<p>My &quot;Claw&quot; (?) is set up with the Claude API. The token I created can spend a maximum of 25 dollars to make sure that I don't burn a large hole in my creditcard. I might give it access to more spending when I feel comfortable with the way it will operate without my constant supervision.</p>
+<p>My first attempts using self-hosted models on my gaming rig all failed because an RTX3070 lacks the required VRAM to host models that can properly deal with all the tool calling that happens when you interact with OpenClaw.</p>
+<p><img src="claw.jpeg" alt="Claw"></p>
+<p>After some simple experiments like a weather report and setting up its personality I hooked it up to my Home Assistant.
+I added another user to my HA instance and put it in the <code>system-read-only</code> group (again, for my own safety haha). After giving the long-lived token and host address it loaded all the entities and gave me a nice overview of the people and their presence, status of my air-condition systems, power consumption <strong>and that I left my 3D printer on without an active print</strong>! First success in the bag.</p>
+<p>While chatting through the UI works fine, I really want a simpler way of accessing my LLM powered assistant.
+I have a pre-paid SIM-card on the way that I'm going to put in an old phone and hook my claw (is this the word?) up to Signal so I can send it messages from my phone.</p>
+<p>Being able to ask questions about the state of my home through this is already a huge win.
+I have a lot more ideas and APIs I could let it access to make my life a little easier.
+The first one I want to try is get some nice news summaries from my RSS aggregator.</p>
+<p>I guess the only real bottleneck I have now (and certainly in the future) is the Claude API.
+It works great but it's certainly not free. For now it'll do but this is not a scalable solution because it'll burn through money quite quickly as the system is churning away at your requests.</p>
+<h2>Staying in control</h2>
+<p>I've been giving it access to systems in a readonly mode to start.
+My inner controlfreak is not ready to deal with an &quot;agent&quot; with the capability to ruin things into my life just yet.
+There will be use-cases where it will make sense to give it more control but for now, read-only it is.</p>
+
+    <div class="tags">
+        
+            nemoclaw
+        
+            openclaw
+        
+    </div>
+</article>
+
+    <footer>
+      <p>© 2026 harre.dev</p>
+    </footer>
+    </main>
+  </body>
+</html>

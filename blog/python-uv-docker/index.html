@@ -33,17 +33,21 @@ I had set up a new Python <a href="https://fastapi.tiangolo.com/">FastAPI</a> pr
 Then copying my files and syncing the dependencies.</p>
 <p>I then proceeded to use the regular FastAPI commands for the final <code>CMD</code> instruction to run the project when the container is started but no dice, it kept saying that <code>fastapi</code> was not a thing you can run. The key is to also invoke <code>uv</code> in the startup process since <code>uv</code> is managing the environment that has all the dependencies.</p>
 <p>Here's the full <code>Dockerfile</code> I ended up with.</p>
-<pre class="language-docker"><code class="language-docker"><span class="token instruction"><span class="token keyword">FROM</span> python:3.13-slim-trixie</span>
-<span class="token instruction"><span class="token keyword">ENV</span> UV_SYSTEM_PYTHON=1</span>
+<pre class="language-docker"><code class="language-docker"><span class="token instruction"><span class="token keyword">FROM</span> debian:trixie-slim</span>
 
-<span class="token instruction"><span class="token keyword">COPY</span> <span class="token options"><span class="token property">--from</span><span class="token punctuation">=</span><span class="token string">ghcr.io/astral-sh/uv:latest</span></span> /uv /uvx /bin/</span>
+<span class="token instruction"><span class="token keyword">COPY</span> <span class="token options"><span class="token property">--from</span><span class="token punctuation">=</span><span class="token string">ghcr.io/astral-sh/uv:0.11.2</span></span> /uv /uvx /bin/</span>
 
 <span class="token instruction"><span class="token keyword">WORKDIR</span> /app</span>
 
+<span class="token instruction"><span class="token keyword">RUN</span> adduser --disabled-password --gecos <span class="token string">""</span> appuser</span>
+
 <span class="token instruction"><span class="token keyword">COPY</span> uv.lock pyproject.toml /app/</span>
-<span class="token instruction"><span class="token keyword">RUN</span> uv sync --locked</span>
+<span class="token instruction"><span class="token keyword">RUN</span> uv sync --locked --no-dev --python 3.13</span>
 
 <span class="token instruction"><span class="token keyword">COPY</span> . /app/</span>
+
+<span class="token instruction"><span class="token keyword">RUN</span> chown -R appuser:appuser /app</span>
+<span class="token instruction"><span class="token keyword">USER</span> appuser</span>
 
 <span class="token instruction"><span class="token keyword">EXPOSE</span> 8080</span>
 
